@@ -32,6 +32,9 @@ OBS_FLOOR = 0.25           # variance floor on observed method-level margins (re
 REGIME_PRIOR = (0.55, 0.35, 0.10)   # early-first, proportional, late-first (from the MI mixture prior)
 ORDER = {"em": 0, "mail": 0, "early": 0, "eip": 1, "ed": 2, "lm": 3}
 CALL_PROB = 0.995          # a race is only flagged call-ready above this (or below 1 minus this)
+METHOD_REGIME_STATE = 0.5   # weight every method county gets on a regime county's counting-order prior (rest is by distance)
+METHOD_REGIME_TEMPER = 0.6  # discount: counting order is shared within a state but not identical county to county
+METHOD_REGIME_CAP = 5.0     # max log-odds the method counties can move the regime prior
 N_SIMS = 4000
 
 
@@ -156,6 +159,29 @@ def project(P, counted, n_sims=N_SIMS, seed=7):
     pri = np.array([1.0, 0.0, 0.0]) if K == 1 else np.array(REGIME_PRIOR)
     prop_rem = V * (1 - np.where(Tp > 0, np.minimum(n / np.maximum(Tp, 1), 1), 0))[:, None]   # remaining votes if proportional
 
+    # --- mixed coverage: what the method counties reveal about counting order, applied to the counties without method data ---
+    # Each method county shows its true early/Election-Day mix at its current % counted. Compare that with what each
+    # regime (early-first / proportional / late-first) would have produced; pool across method counties (statewide
+    # rules plus nearer-neighbour weight) and use the result as the regime prior for counties that report only totals.
+    pri_c = np.tile(pri[:, None], (1, nC)); mcov = 0
+    if K > 1 and has_m.any() and (rep & ~has_m).any():
+        ok = has_m & (p_eff < 0.97) & (n > 0)
+        if ok.any():
+            f_obs = nk[:, 0] / np.maximum(n, 1)
+            f_r = np.stack([fl[:, 0] / np.maximum(n, 1) for fl in fills])
+            sdc = np.sqrt(np.maximum(f_obs * (1 - f_obs), 0.02) / np.maximum(n, 1) + 0.06 ** 2)
+            Lj = -0.5 * ((f_obs[None, :] - f_r) / sdc[None, :]) ** 2
+            Lj = np.where(ok[None, :], Lj, 0.0)
+            Kg_ = P["K"] - np.diag(np.diag(P["K"]))
+            prox = np.clip(Kg_ / max(GEO_SD ** 2, 1e-9), 0, 1)
+            W = METHOD_REGIME_STATE + (1 - METHOD_REGIME_STATE) * prox
+            W[:, ~ok] = 0.0
+            pooled = METHOD_REGIME_TEMPER * np.einsum('rj,ij->ri', Lj, W)
+            pooled = np.clip(pooled - pooled.max(0), -METHOD_REGIME_CAP, 0)
+            pc_ = np.log(np.maximum(pri, 1e-12))[:, None] + pooled
+            pc_ -= pc_.max(0); pc_ = np.exp(pc_); pc_ /= pc_.sum(0)
+            pri_c = pc_; mcov = int(ok.sum())
+
     # --- observations ---
     q = P["het"] ** 2
     pcap = np.clip(p_eff, 0.02, 0.995)
@@ -202,11 +228,19 @@ def project(P, counted, n_sims=N_SIMS, seed=7):
         if not rep.any(): break
         Kc = ksc * Kb
         kdiag = np.diag(Kc)
-        ll = np.stack([np.log(np.maximum(pri[r], 1e-12)) + _norm_logpdf(y_r[r], s_mu, v_reg + kdiag + s_var) for r in range(3)])
+        # the method counties' learned bucket gaps B explain part of a regime county's margin: remove it under each regime
+        if K > 1:
+            B_mu = theta[1:]; B_var = np.diag(Vth)[1:]
+            fr = [f_ / np.maximum(n, 1)[:, None] for f_ in fills]
+            gadj = np.stack([(a_ * B_mu[None, :]).sum(1) for a_ in fr]); gvar = np.stack([(a_ ** 2 * B_var[None, :]).sum(1) for a_ in fr])
+        else:
+            gadj = np.zeros((3, nC)); gvar = np.zeros((3, nC))
+        y_a = y_r - gadj
+        ll = np.stack([np.log(np.maximum(pri_c[r], 1e-12)) + _norm_logpdf(y_a[r], s_mu, v_reg + gvar[r] + kdiag + s_var) for r in range(3)])
         ll -= ll.max(0)
         wr = np.exp(ll); wr /= wr.sum(0)
-        yc = (wr * y_r).sum(0)
-        vc = v_reg + (wr * (y_r - yc) ** 2).sum(0)
+        yc = (wr * y_a).sum(0)
+        vc = v_reg + (wr * gvar).sum(0) + (wr * (y_a - yc) ** 2).sum(0)
         yagg = np.where(has_m, y_obs_c, yc); vagg = np.where(has_m, v_obs_c, vc)
         z = np.abs(yagg - s_mu) / np.sqrt(vagg + kdiag)
         damp = np.where(z > OUTLIER_LAMBDA, (OUTLIER_LAMBDA / np.maximum(z, 1e-9)) ** 2, 1.0)
@@ -294,6 +328,8 @@ def project(P, counted, n_sims=N_SIMS, seed=7):
                 counties_with_method_data=int(has_m.sum()),
                 turnout_ratio=round(float(g), 3),
                 regimes=[round(float(x), 3) for x in (wr[:, n_reg].mean(1) if n_reg.any() else pri)],
+                regime_prior_from_method=[round(float(x), 3) for x in (pri_c[:, n_reg].mean(1) if n_reg.any() else pri)],
+                method_counties_informing=mcov,
                 call_ready=bool(win >= CALL_PROB or win <= 1 - CALL_PROB) and state != "pre",
                 counties=counties,
                 percentiles=[round(float(x), 2) for x in np.percentile(final, np.linspace(2, 98, 25))])
