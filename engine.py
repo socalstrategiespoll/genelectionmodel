@@ -267,6 +267,8 @@ def project(P, counted, n_sims=N_SIMS, seed=7):
     fm = (cR - cD).sum() + (reg_part + obs_part).sum(1)
     ft = n.sum() + (f * rem[None, :]).sum(1)
     final = 100 * fm / np.maximum(ft, 1)
+    if not rep.any():   # nothing counted: center the forecast exactly on the baseline margin (removes Monte Carlo and turnout-weight drift)
+        final = final + (P["headline"] - np.median(final))
     win = float(((final > 0).mean() + (final == 0).mean() / 2))
     pc = np.percentile(final, [5, 25, 50, 75, 95])
     exp_total = float(Tp.sum())
