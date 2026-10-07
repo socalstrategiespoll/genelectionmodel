@@ -13,6 +13,18 @@ def _centroids():
     return _CENT
 
 
+_DEMO = None
+def _demographics():
+    """demographics.json: {fips: {"white":%, "black":%, "hisp":%, "asian":%, "college":%}} from the ACS. Optional: without it only the size slope is used."""
+    global _DEMO
+    if _DEMO is None:
+        p = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'demographics.json')
+        _DEMO = json.load(open(p)) if os.path.exists(p) else {}
+    return _DEMO
+
+
+LEGACY = dict(GEO_SD=3.52, GEO_KM=93.0, IDIO_SD=2.77, IDIO_C=0.97)   # pre-election kernel, kept so pre-election odds do not change
+
 # ---- tuning constants (all margin points unless noted) ----
 PRE_SD = {"House": 7.33, "Senate": 6.74, "Governor": 9.0}   # drives win probability (unchanged)
 PRE_SD_RACE = {}
@@ -27,11 +39,13 @@ FULL_TRUST_PCT = 0.25      # turnout recalibration credibility ramp (fraction of
 TURNOUT_CLAMP = (0.40, 2.50)
 TURNOUT_NOISE = 0.06       # SD of remaining-vote volume (log), scaled by share still out
 # County swing is a correlated field: shared geography + shared partisan profile + county-specific noise.
-GEO_SD, GEO_KM = 3.52, 93.0     # regional swing: SD (pts) and length scale (km); fitted by fit_swing.py on 2016-2024 county swings
+GEO_SD, GEO_KM = 2.38, 115.8     # regional swing: SD (pts) and length scale (km); fitted by fit_swing.py on 2016-2024 county swings
 PROF_SD, PROF_PTS = 0.0, 12.0   # profile kernel did not fit (collapsed to a constant the statewide shift already absorbs), so it is off
-SLOPE_SD = 2.5                  # urban/rural swing: swing varies with county size by about this many pts per SD of ln(votes). Vote-weighted centred, so it leaves the statewide margin's variance unchanged but stops small early counties from being read as the whole state
-IDIO_SD = 2.77                  # county-specific swing, fitted
-IDIO_C = 0.97                   # extra variance for small counties: IDIO_C / sqrt(votes/1000)
+DEMO_SD = {"college": 1.36, "white": 1.37, "black": 0.91, "hisp": 0.58}   # swing differs by education and race: pts of swing per SD of each (vote-weighted, centred) county characteristic; first-pass, refit with fit_swing once the ACS table is in
+SLOPE_SD_NODEMO = 2.5            # size slope when a race has no demographics
+SLOPE_SD = 2.0                  # size slope with demographics on: fitted value is 1.06; raised to 2.0 as a hedge because the first counties to report are small and unrepresentative
+IDIO_SD = 2.28                  # county-specific swing, fitted
+IDIO_C = 1.01                   # extra variance for small counties: IDIO_C / sqrt(votes/1000)
 TAU_BASE = (GEO_SD**2 + PROF_SD**2 + IDIO_SD**2 + IDIO_C) ** 0.5   # slope term is not in the DerSimonian-Laird scale (it is a structured, not county-level, effect)
 BUCKET_SD = 3.0            # prior SD of a method's statewide gap vs our baseline (mail, early in-person, Election Day)
 OBS_FLOOR = 0.25           # variance floor on observed method-level margins (reporting error)
@@ -84,19 +98,33 @@ def prep(race):
         ky = ll[:, 1] * 110.57
         d2 = (kx[:, None] - kx[None, :]) ** 2 + (ky[:, None] - ky[None, :]) ** 2
         Kg = GEO_SD ** 2 * np.exp(-d2 / (2 * GEO_KM ** 2))
+        Kg0 = LEGACY['GEO_SD'] ** 2 * np.exp(-d2 / (2 * LEGACY['GEO_KM'] ** 2))
     else:
-        Kg = np.zeros((len(fips), len(fips)))
+        Kg = np.zeros((len(fips), len(fips))); Kg0 = Kg.copy()
     db = (b[:, None] - b[None, :]) ** 2
     idio = IDIO_SD ** 2 + IDIO_C / np.sqrt(T / 1000.0)
+    idio0 = LEGACY['IDIO_SD'] ** 2 + LEGACY['IDIO_C'] / np.sqrt(T / 1000.0)
     lt = np.log(np.maximum(T, 1.0)); lt_m = float(share @ lt)
     xs = (lt - lt_m) / max(float(np.sqrt(share @ (lt - lt_m) ** 2)), 1e-6)
-    Kslope = SLOPE_SD ** 2 * np.outer(xs, xs)
-    Kbase0 = Kg + PROF_SD ** 2 * np.exp(-db / (2 * PROF_PTS ** 2)) + np.diag(idio)   # without the size slope: used before any votes are counted so pre-election odds are unchanged
-    Kbase = Kbase0 + Kslope
+    Kslope = SLOPE_SD_NODEMO ** 2 * np.outer(xs, xs)
+    dm = _demographics(); Kdemo = np.zeros((len(fips), len(fips))); used_demo = []
+    if dm and sum(1 for f in fips if f in dm) >= 0.8 * len(fips):
+        for feat, sdv in DEMO_SD.items():
+            v = np.array([float(dm[f][feat]) if f in dm and dm[f].get(feat) is not None else np.nan for f in fips])
+            mu = float(np.nansum(share * np.where(np.isnan(v), 0, v)) / max(share[~np.isnan(v)].sum(), 1e-9))
+            v = np.where(np.isnan(v), mu, v)
+            sdw = float(np.sqrt(share @ (v - mu) ** 2))
+            if sdw < 1e-6: continue
+            x = (v - mu) / sdw
+            Kdemo += sdv ** 2 * np.outer(x, x); used_demo.append(feat)
+    Kslope = Kslope * ((SLOPE_SD / SLOPE_SD_NODEMO) ** 2 if used_demo else 1.0)       # Kslope was built with SLOPE_SD_NODEMO; with real demographics only the fitted residual size slope is kept
+    Kbase_t = Kg + PROF_SD ** 2 * np.exp(-db / (2 * PROF_PTS ** 2)) + np.diag(idio)
+    Kbase0 = Kg0 + PROF_SD ** 2 * np.exp(-db / (2 * PROF_PTS ** 2)) + np.diag(idio0)   # legacy kernel, without the size slope: used before any votes are counted so pre-election odds are unchanged
+    Kbase = Kbase_t + Kslope + Kdemo
     if not have:
-        Kbase = Kbase + GEO_SD ** 2 * np.eye(len(fips)); Kbase0 = Kbase0 + GEO_SD ** 2 * np.eye(len(fips))
+        Kbase = Kbase + GEO_SD ** 2 * np.eye(len(fips)); Kbase0 = Kbase0 + LEGACY['GEO_SD'] ** 2 * np.eye(len(fips))
     return dict(id=race["id"], label=race["label"], type=race["type"], fips=fips, names=names, T=T, b=b,
-                sh=sh, M=M, keys=keys, share=share, het=het, K=Kbase, K0=Kbase0, headline=race["headline"],
+                sh=sh, M=M, keys=keys, share=share, het=het, K=Kbase, K0=Kbase0, demo=used_demo, headline=race["headline"],
                 pre_sd=PRE_SD_RACE.get(race["label"], PRE_SD.get(race["type"], 7.5)),
                 range_scale=RANGE_SCALE_RACE.get(race["label"], RANGE_SCALE.get(race["type"], 0.55)))
 
