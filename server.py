@@ -2,7 +2,7 @@
 # Writes projection.json (the file the site reads) every cycle. Races with no civicAPI id run pre-election.
 import json, os, sys, time, hashlib, threading
 from http.server import ThreadingHTTPServer, BaseHTTPRequestHandler
-import engine, civicapi_feed, method_feeds, counties
+import engine, civicapi_feed, method_feeds, counties, kalshi_feed
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 POLL = int(os.environ.get("POLL_SECONDS", "60"))
@@ -52,6 +52,7 @@ def cycle(races, rmap, preps, cache):
 
 def poller():
     races, rmap = load()
+    threading.Thread(target=kalshi_feed.loop, args=(races,), daemon=True).start()
     last_resolve = 0
     preps = {r["id"]: engine.prep(r) for r in races}
     cache = {}
@@ -77,9 +78,11 @@ class H(BaseHTTPRequestHandler):
         if p == "/health": return self._send(200, {"ok": True, "updated": STATE["projection"]["updated"]})
         if p == "/api/projection":
             with LOCK: return self._send(200, STATE["projection"])
+        if p == "/api/kalshi": return self._send(200, kalshi_feed.snapshot())
         if p == "/api/status":
             return self._send(200, {"updated": STATE["projection"]["updated"], "county_errors": method_feeds.ERRORS,
-                                    "by_race": method_feeds.STATUS, "wired_counties": len(method_feeds.COUNTIES)})
+                                    "by_race": method_feeds.STATUS, "wired_counties": len(method_feeds.COUNTIES),
+                                    "kalshi_errors": kalshi_feed.ERRORS, "kalshi_races": len(kalshi_feed.PRICES)})
         if p.startswith("/api/race/"):
             d = STATE["detail"].get(p.rsplit("/", 1)[1])
             return self._send(200 if d else 404, d or {"error": "unknown race"})
