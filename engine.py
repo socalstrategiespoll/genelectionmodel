@@ -14,7 +14,8 @@ def _centroids():
 
 
 # ---- tuning constants (all margin points unless noted) ----
-PRE_SD = {"House": 7.33, "Senate": 6.74, "Governor": 9.0}   # backed out of VoteHub win prob vs margin
+PRE_SD = {"House": 4.0, "Senate": 3.5, "Governor": 4.5}   # SD of the final margin before any votes are counted (was 7.33 / 6.74 / 9.0, which gave ranges that were too wide)
+PRE_SD_RACE = {"VT-Gov": 9.0}                              # per-race exceptions: Vermont keeps its original wide spread
 TAU_FLOOR = 2.0            # county-to-statewide swing SD
 HET_BASE, HET_SCALE, HET_MAX = 2.0, 8.0, 8.0   # within-county heterogeneity: base + scale*sqrt(share), capped
 OUTLIER_LAMBDA = 3.0
@@ -86,7 +87,7 @@ def prep(race):
         Kbase = Kbase + GEO_SD ** 2 * np.eye(len(fips))
     return dict(id=race["id"], label=race["label"], type=race["type"], fips=fips, names=names, T=T, b=b,
                 sh=sh, M=M, keys=keys, share=share, het=het, K=Kbase, headline=race["headline"],
-                pre_sd=PRE_SD.get(race["type"], 7.5))
+                pre_sd=PRE_SD_RACE.get(race["label"], PRE_SD.get(race["type"], 5.5)))
 
 
 def _regime_fill(n, V, reverse):
