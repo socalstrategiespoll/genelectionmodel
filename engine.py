@@ -14,8 +14,12 @@ def _centroids():
 
 
 # ---- tuning constants (all margin points unless noted) ----
-PRE_SD = {"House": 4.0, "Senate": 3.5, "Governor": 4.5}   # SD of the final margin before any votes are counted (was 7.33 / 6.74 / 9.0, which gave ranges that were too wide)
-PRE_SD_RACE = {"VT-Gov": 9.0}                              # per-race exceptions: Vermont keeps its original wide spread
+PRE_SD = {"House": 7.33, "Senate": 6.74, "Governor": 9.0}   # drives win probability (unchanged)
+PRE_SD_RACE = {}
+# Displayed middle-90% range only: the spread of outcomes is shrunk toward the median by this factor.
+# Win probability is computed before this shrink, so it does not change.
+RANGE_SCALE = {"House": 4.0 / 7.33, "Senate": 3.5 / 6.74, "Governor": 4.5 / 9.0}
+RANGE_SCALE_RACE = {"VT-Gov": 1.0}   # Vermont keeps its full, wide range
 TAU_FLOOR = 2.0            # county-to-statewide swing SD
 HET_BASE, HET_SCALE, HET_MAX = 2.0, 8.0, 8.0   # within-county heterogeneity: base + scale*sqrt(share), capped
 OUTLIER_LAMBDA = 3.0
@@ -87,7 +91,8 @@ def prep(race):
         Kbase = Kbase + GEO_SD ** 2 * np.eye(len(fips))
     return dict(id=race["id"], label=race["label"], type=race["type"], fips=fips, names=names, T=T, b=b,
                 sh=sh, M=M, keys=keys, share=share, het=het, K=Kbase, headline=race["headline"],
-                pre_sd=PRE_SD_RACE.get(race["label"], PRE_SD.get(race["type"], 5.5)))
+                pre_sd=PRE_SD_RACE.get(race["label"], PRE_SD.get(race["type"], 7.5)),
+                range_scale=RANGE_SCALE_RACE.get(race["label"], RANGE_SCALE.get(race["type"], 0.55)))
 
 
 def _regime_fill(n, V, reverse):
@@ -305,7 +310,9 @@ def project(P, counted, n_sims=N_SIMS, seed=7):
     if not rep.any():   # nothing counted: center the forecast exactly on the baseline margin (removes Monte Carlo and turnout-weight drift)
         final = final + (P["headline"] - np.median(final))
     win = float(((final > 0).mean() + (final == 0).mean() / 2))
-    pc = np.percentile(final, [5, 25, 50, 75, 95])
+    med = float(np.median(final))
+    final_d = med + (final - med) * P["range_scale"]          # display range only; win probability above uses the full spread
+    pc = np.percentile(final_d, [5, 25, 50, 75, 95])
     exp_total = float(Tp.sum())
     frac = float(n.sum() / exp_total) if exp_total else 0.0
     counties = []
@@ -338,4 +345,4 @@ def project(P, counted, n_sims=N_SIMS, seed=7):
                 method_counties_informing=mcov,
                 call_ready=bool(win >= CALL_PROB or win <= 1 - CALL_PROB) and state != "pre",
                 counties=counties,
-                percentiles=[round(float(x), 2) for x in np.percentile(final, np.linspace(2, 98, 25))])
+                percentiles=[round(float(x), 2) for x in np.percentile(final_d, np.linspace(2, 98, 25))])
