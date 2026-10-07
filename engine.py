@@ -29,9 +29,10 @@ TURNOUT_NOISE = 0.06       # SD of remaining-vote volume (log), scaled by share 
 # County swing is a correlated field: shared geography + shared partisan profile + county-specific noise.
 GEO_SD, GEO_KM = 3.52, 93.0     # regional swing: SD (pts) and length scale (km); fitted by fit_swing.py on 2016-2024 county swings
 PROF_SD, PROF_PTS = 0.0, 12.0   # profile kernel did not fit (collapsed to a constant the statewide shift already absorbs), so it is off
+SLOPE_SD = 2.5                  # urban/rural swing: swing varies with county size by about this many pts per SD of ln(votes). Vote-weighted centred, so it leaves the statewide margin's variance unchanged but stops small early counties from being read as the whole state
 IDIO_SD = 2.77                  # county-specific swing, fitted
 IDIO_C = 0.97                   # extra variance for small counties: IDIO_C / sqrt(votes/1000)
-TAU_BASE = (GEO_SD**2 + PROF_SD**2 + IDIO_SD**2 + IDIO_C) ** 0.5
+TAU_BASE = (GEO_SD**2 + PROF_SD**2 + IDIO_SD**2 + IDIO_C) ** 0.5   # slope term is not in the DerSimonian-Laird scale (it is a structured, not county-level, effect)
 BUCKET_SD = 3.0            # prior SD of a method's statewide gap vs our baseline (mail, early in-person, Election Day)
 OBS_FLOOR = 0.25           # variance floor on observed method-level margins (reporting error)
 REGIME_PRIOR = (0.55, 0.35, 0.10)   # early-first, proportional, late-first (from the MI mixture prior)
@@ -40,6 +41,7 @@ CALL_PROB = 0.995          # a race is only flagged call-ready above this (or be
 METHOD_REGIME_STATE = 0.5   # weight every method county gets on a regime county's counting-order prior (rest is by distance)
 METHOD_REGIME_TEMPER = 0.6  # discount: counting order is shared within a state but not identical county to county
 METHOD_REGIME_CAP = 5.0     # max log-odds the method counties can move the regime prior
+MODEL_ERR = 0.3             # pts SD of final-margin error that no county count can remove (late provisionals, corrections, feed glitches); only applied once counting has started
 N_SIMS = 4000
 
 
@@ -86,11 +88,15 @@ def prep(race):
         Kg = np.zeros((len(fips), len(fips)))
     db = (b[:, None] - b[None, :]) ** 2
     idio = IDIO_SD ** 2 + IDIO_C / np.sqrt(T / 1000.0)
-    Kbase = Kg + PROF_SD ** 2 * np.exp(-db / (2 * PROF_PTS ** 2)) + np.diag(idio)
+    lt = np.log(np.maximum(T, 1.0)); lt_m = float(share @ lt)
+    xs = (lt - lt_m) / max(float(np.sqrt(share @ (lt - lt_m) ** 2)), 1e-6)
+    Kslope = SLOPE_SD ** 2 * np.outer(xs, xs)
+    Kbase0 = Kg + PROF_SD ** 2 * np.exp(-db / (2 * PROF_PTS ** 2)) + np.diag(idio)   # without the size slope: used before any votes are counted so pre-election odds are unchanged
+    Kbase = Kbase0 + Kslope
     if not have:
-        Kbase = Kbase + GEO_SD ** 2 * np.eye(len(fips))
+        Kbase = Kbase + GEO_SD ** 2 * np.eye(len(fips)); Kbase0 = Kbase0 + GEO_SD ** 2 * np.eye(len(fips))
     return dict(id=race["id"], label=race["label"], type=race["type"], fips=fips, names=names, T=T, b=b,
-                sh=sh, M=M, keys=keys, share=share, het=het, K=Kbase, headline=race["headline"],
+                sh=sh, M=M, keys=keys, share=share, het=het, K=Kbase, K0=Kbase0, headline=race["headline"],
                 pre_sd=PRE_SD_RACE.get(race["label"], PRE_SD.get(race["type"], 7.5)),
                 range_scale=RANGE_SCALE_RACE.get(race["label"], RANGE_SCALE.get(race["type"], 0.55)))
 
@@ -205,7 +211,7 @@ def project(P, counted, n_sims=N_SIMS, seed=7):
     y_obs_c = (wn * yb).sum(1) / np.maximum(wn.sum(1), 1)
     v_obs_c = np.where(has_m, (wn ** 2 * np.where(ob_mask, vb, 0.0)).sum(1) / np.maximum(wn.sum(1), 1) ** 2, 1e9)
 
-    Kb = P["K"]
+    Kb = P["K"] if rep.any() else P["K0"]
     sd0_sq = max(P["pre_sd"] ** 2 - float(P["share"] @ Kb @ P["share"]), (0.5 * P["pre_sd"]) ** 2)
     nth = 1 + (K if K > 1 else 0)
     prior_prec = np.array([1 / sd0_sq] + ([1 / BUCKET_SD ** 2] * K if K > 1 else []))
@@ -307,6 +313,7 @@ def project(P, counted, n_sims=N_SIMS, seed=7):
     fm = (cR - cD).sum() + (reg_part + obs_part).sum(1)
     ft = n.sum() + (f * rem[None, :]).sum(1)
     final = 100 * fm / np.maximum(ft, 1)
+    if rep.any(): final = final + rng.normal(0, MODEL_ERR, n_sims)
     if not rep.any():   # nothing counted: center the forecast exactly on the baseline margin (removes Monte Carlo and turnout-weight drift)
         final = final + (P["headline"] - np.median(final))
     win = float(((final > 0).mean() + (final == 0).mean() / 2))
