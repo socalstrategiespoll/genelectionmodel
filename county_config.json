@@ -3797,5 +3797,650 @@
 "group": "PDF",
 "categories": "Election Day, Absentee, Provisional",
 "in_scope": false
+},
+"26005": {
+"state": "MI",
+"county": "Allegan",
+"kind": "none",
+"url": "https://www.allegancounty.org/home/showpublisheddocument/18945/639215383402662292",
+"eid": null,
+"races": [
+"MI-04",
+"MI-Sen",
+"MI-Gov"
+],
+"group": "No method data",
+"categories": "Totals only",
+"in_scope": true
+},
+"26015": {
+"state": "MI",
+"county": "Barry",
+"kind": "pdf",
+"url": "https://cms5.revize.com/revize/barry/Departments%20%26%20Officials/Officials/County%20Clerk/Elections/Election%20Results/2024/SOVC%20OFFICIAL%20RESULTS.pdf",
+"eid": null,
+"races": [
+"MI-Sen",
+"MI-Gov"
+],
+"group": "PDF",
+"categories": "Election Day, AV Counting Boards, Early Voting (precinct sub-rows)",
+"in_scope": true
+},
+"26017": {
+"state": "MI",
+"county": "Bay",
+"kind": "unknown",
+"url": null,
+"eid": null,
+"races": [
+"MI-Sen",
+"MI-Gov"
+],
+"group": "Unknown",
+"categories": "nan",
+"in_scope": true
+},
+"26021": {
+"state": "MI",
+"county": "Berrien",
+"kind": "enhanced",
+"url": "https://app.enhancedvoting.com/results/public/Berrien-County-MI",
+"eid": null,
+"races": [
+"MI-04",
+"MI-Sen",
+"MI-Gov"
+],
+"group": "Scrapeable: Enhanced Voting JSON",
+"categories": "Election Day, AV Counting Boards, Early Voting",
+"in_scope": true
+},
+"26023": {
+"state": "MI",
+"county": "Branch",
+"kind": "enhanced",
+"url": "https://app.enhancedvoting.com/results/public/Branch-County-MI",
+"eid": null,
+"races": [
+"MI-Sen",
+"MI-Gov"
+],
+"group": "Scrapeable: Enhanced Voting JSON",
+"categories": "Election Day, AV Counting Boards, Early Voting",
+"in_scope": true
+},
+"26025": {
+"state": "MI",
+"county": "Calhoun",
+"kind": "unknown",
+"url": "https://elections.calhouncountymi.gov/August2026/",
+"eid": null,
+"races": [
+"MI-04",
+"MI-Sen",
+"MI-Gov"
+],
+"group": "Unknown",
+"categories": "Summary page totals only; 'OFFICIAL_RESULTS_BREAKDOWN.pdf' not read",
+"in_scope": true
+},
+"26027": {
+"state": "MI",
+"county": "Cass",
+"kind": "enhanced",
+"url": "https://app.enhancedvoting.com/results/public/Cass-County-MI",
+"eid": null,
+"races": [
+"MI-Sen",
+"MI-Gov"
+],
+"group": "Scrapeable: Enhanced Voting JSON",
+"categories": "Election Day, AV Counting Boards, Early Voting",
+"in_scope": true
+},
+"26035": {
+"state": "MI",
+"county": "Clare",
+"kind": "enhanced",
+"url": "https://app.enhancedvoting.com/results/public/Clare-County-MI",
+"eid": null,
+"races": [
+"MI-Sen",
+"MI-Gov"
+],
+"group": "Scrapeable: Enhanced Voting JSON",
+"categories": "Election Day, AV Counting Boards, Early Voting",
+"in_scope": true
+},
+"26037": {
+"state": "MI",
+"county": "Clinton",
+"kind": "pdf",
+"url": "https://www.clinton-county.org/DocumentCenter/View/9017/Precinct-Results-8-22-2024-03-09-20-PM",
+"eid": null,
+"races": [
+"MI-07",
+"MI-Sen",
+"MI-Gov"
+],
+"group": "PDF",
+"categories": "Election Day, Absentee, Early Voting",
+"in_scope": true
+},
+"26041": {
+"state": "MI",
+"county": "Delta",
+"kind": "enhanced",
+"url": "https://app.enhancedvoting.com/results/public/Delta-County-MI",
+"eid": null,
+"races": [
+"MI-Sen",
+"MI-Gov"
+],
+"group": "Scrapeable: Enhanced Voting JSON",
+"categories": "Election Day, AV Counting Boards, Early Voting",
+"in_scope": true
+},
+"2622000": {
+"state": "MI",
+"county": "Detroit",
+"kind": "enhanced",
+"url": "https://app.enhancedvoting.com/results/public/city-detroit-mi/elections/Detroit-Primary-Election08042026",
+"eid": null,
+"races": [
+"MI-Sen",
+"MI-Gov"
+],
+"group": "Scrapeable: Enhanced Voting JSON",
+"categories": "Early Voting, Election Day, Absentee Election Day, Pre-Process Absentee",
+"in_scope": true
+},
+"26045": {
+"state": "MI",
+"county": "Eaton",
+"kind": "clarity",
+"url": "https://results.enr.clarityelections.com/MI/Eaton/",
+"eid": null,
+"races": [
+"MI-07",
+"MI-Sen",
+"MI-Gov"
+],
+"group": "Scrapeable: Clarity JSON (vt.json)",
+"categories": "Absentee, Election, Early Voting",
+"in_scope": true
+},
+"26047": {
+"state": "MI",
+"county": "Emmet",
+"kind": "clarity",
+"url": "https://results.enr.clarityelections.com/MI/Emmet/",
+"eid": null,
+"races": [
+"MI-Sen",
+"MI-Gov"
+],
+"group": "Scrapeable: Clarity JSON (vt.json)",
+"categories": "Election Day, Absentee, Early Voting",
+"in_scope": true
+},
+"26049": {
+"state": "MI",
+"county": "Genesee",
+"kind": "clarity",
+"url": "https://results.enr.clarityelections.com/MI/Genesee/",
+"eid": null,
+"races": [
+"MI-07",
+"MI-Sen",
+"MI-Gov"
+],
+"group": "Scrapeable: Clarity JSON (vt.json)",
+"categories": "Absentee, Early, Election Day",
+"in_scope": true
+},
+"26055": {
+"state": "MI",
+"county": "Grand Traverse",
+"kind": "clarity",
+"url": "https://results.enr.clarityelections.com/MI/Grand_Traverse/",
+"eid": null,
+"races": [
+"MI-Sen",
+"MI-Gov"
+],
+"group": "Scrapeable: Clarity JSON (vt.json)",
+"categories": "Election Day, Absentee, Early",
+"in_scope": true
+},
+"26057": {
+"state": "MI",
+"county": "Gratiot",
+"kind": "partial",
+"url": "https://app.enhancedvoting.com/results/public/Gratiot-County-MI",
+"eid": null,
+"races": [
+"MI-Sen",
+"MI-Gov"
+],
+"group": "Partial: absentee folded into Election Day",
+"categories": "Election Day, AV Counting Boards, Early Voting",
+"in_scope": true
+},
+"26065": {
+"state": "MI",
+"county": "Ingham",
+"kind": "enhanced",
+"url": "https://app.enhancedvoting.com/results/public/Ingham-County-MI",
+"eid": null,
+"races": [
+"MI-07",
+"MI-Sen",
+"MI-Gov"
+],
+"group": "Scrapeable: Enhanced Voting JSON",
+"categories": "Election Day, AV Counting Boards, Early Voting",
+"in_scope": true
+},
+"26069": {
+"state": "MI",
+"county": "Iosco",
+"kind": "enhanced",
+"url": "https://app.enhancedvoting.com/results/public/Iosco-County-MI",
+"eid": null,
+"races": [
+"MI-Sen",
+"MI-Gov"
+],
+"group": "Scrapeable: Enhanced Voting JSON",
+"categories": "Election Day, AV Counting Boards, Early Voting",
+"in_scope": true
+},
+"26073": {
+"state": "MI",
+"county": "Isabella",
+"kind": "enhanced",
+"url": "https://app.enhancedvoting.com/results/public/Isabella-County-MI",
+"eid": null,
+"races": [
+"MI-Sen",
+"MI-Gov"
+],
+"group": "Scrapeable: Enhanced Voting JSON",
+"categories": "Election Day, AV Counting Boards, Early Voting",
+"in_scope": true
+},
+"26075": {
+"state": "MI",
+"county": "Jackson",
+"kind": "unknown",
+"url": null,
+"eid": null,
+"races": [
+"MI-Sen",
+"MI-Gov"
+],
+"group": "Unknown",
+"categories": "nan",
+"in_scope": true
+},
+"26077": {
+"state": "MI",
+"county": "Kalamazoo",
+"kind": "enhanced",
+"url": "https://app.enhancedvoting.com/results/public/Kalamazoo-County-MI",
+"eid": null,
+"races": [
+"MI-04",
+"MI-Sen",
+"MI-Gov"
+],
+"group": "Scrapeable: Enhanced Voting JSON",
+"categories": "Election Day, Absentee, Early Voting",
+"in_scope": true
+},
+"26081": {
+"state": "MI",
+"county": "Kent",
+"kind": "enhanced",
+"url": "https://app.enhancedvoting.com/results/public/Kent-County-MI",
+"eid": null,
+"races": [
+"MI-Sen",
+"MI-Gov"
+],
+"group": "Scrapeable: Enhanced Voting JSON",
+"categories": "Election Day, AV Counting Boards, Early Voting",
+"in_scope": true
+},
+"26085": {
+"state": "MI",
+"county": "Lake",
+"kind": "partial",
+"url": "https://app.enhancedvoting.com/results/public/Lake-County-MI",
+"eid": null,
+"races": [
+"MI-Sen",
+"MI-Gov"
+],
+"group": "Partial: absentee folded into Election Day",
+"categories": "Election Day, AV Counting Boards, Early Voting",
+"in_scope": true
+},
+"26087": {
+"state": "MI",
+"county": "Lapeer",
+"kind": "none",
+"url": "https://cms5.revize.com/revize/lapeer/11-18-2024%20StatementOfVotesCastRPT.pdf",
+"eid": null,
+"races": [
+"MI-Sen",
+"MI-Gov"
+],
+"group": "No method data",
+"categories": "Totals only (2024)",
+"in_scope": true
+},
+"26089": {
+"state": "MI",
+"county": "Leelanau",
+"kind": "enhanced",
+"url": "https://app.enhancedvoting.com/results/public/Leelanau-County-MI",
+"eid": null,
+"races": [
+"MI-Sen",
+"MI-Gov"
+],
+"group": "Scrapeable: Enhanced Voting JSON",
+"categories": "Election Day, AV Counting Boards, Early Voting",
+"in_scope": true
+},
+"26091": {
+"state": "MI",
+"county": "Lenawee",
+"kind": "unknown",
+"url": null,
+"eid": null,
+"races": [
+"MI-Sen",
+"MI-Gov"
+],
+"group": "Unknown",
+"categories": "nan",
+"in_scope": true
+},
+"26093": {
+"state": "MI",
+"county": "Livingston",
+"kind": "pdf",
+"url": "https://milivcounty.gov/wp-content/uploads/All-Candidate-and-Proposal-Report-8-4-2026.pdf",
+"eid": null,
+"races": [
+"MI-07",
+"MI-Sen",
+"MI-Gov"
+],
+"group": "PDF",
+"categories": "Early Voting, Absentee Voting, Precinct Voting",
+"in_scope": true
+},
+"26099": {
+"state": "MI",
+"county": "Macomb",
+"kind": "clarity",
+"url": "https://results.enr.clarityelections.com/MI/Macomb/",
+"eid": null,
+"races": [
+"MI-10",
+"MI-Sen",
+"MI-Gov"
+],
+"group": "Scrapeable: Clarity JSON (vt.json)",
+"categories": "Absentee, Election Day, Early Voting",
+"in_scope": true
+},
+"26103": {
+"state": "MI",
+"county": "Marquette",
+"kind": "unknown",
+"url": null,
+"eid": null,
+"races": [
+"MI-Sen",
+"MI-Gov"
+],
+"group": "Unknown",
+"categories": "nan",
+"in_scope": true
+},
+"26111": {
+"state": "MI",
+"county": "Midland",
+"kind": "enhanced",
+"url": "https://app.enhancedvoting.com/results/public/Midland-County-MI",
+"eid": null,
+"races": [
+"MI-Sen",
+"MI-Gov"
+],
+"group": "Scrapeable: Enhanced Voting JSON",
+"categories": "Election Day, AV Counting Boards, Early Voting",
+"in_scope": true
+},
+"26115": {
+"state": "MI",
+"county": "Monroe",
+"kind": "enhanced",
+"url": "https://app.enhancedvoting.com/results/public/Monroe-County-MI",
+"eid": null,
+"races": [
+"MI-Sen",
+"MI-Gov"
+],
+"group": "Scrapeable: Enhanced Voting JSON",
+"categories": "Election Day, AV Counting Boards, Early Voting",
+"in_scope": true
+},
+"26117": {
+"state": "MI",
+"county": "Montcalm",
+"kind": "partial",
+"url": "https://montcalmcountymi.gov/DocumentCenter/View/4838",
+"eid": null,
+"races": [
+"MI-Sen",
+"MI-Gov"
+],
+"group": "Partial: absentee folded into Election Day",
+"categories": "Early Voting, Election Day Voting (no absentee column)",
+"in_scope": true
+},
+"26121": {
+"state": "MI",
+"county": "Muskegon",
+"kind": "unknown",
+"url": null,
+"eid": null,
+"races": [
+"MI-Sen",
+"MI-Gov"
+],
+"group": "Unknown",
+"categories": "nan",
+"in_scope": true
+},
+"26123": {
+"state": "MI",
+"county": "Newaygo",
+"kind": "partial",
+"url": "https://app.enhancedvoting.com/results/public/Newaygo-County-MI",
+"eid": null,
+"races": [
+"MI-Sen",
+"MI-Gov"
+],
+"group": "Partial: absentee folded into Election Day",
+"categories": "Election Day, AV Counting Boards, Early Voting",
+"in_scope": true
+},
+"26125": {
+"state": "MI",
+"county": "Oakland",
+"kind": "clarity",
+"url": "https://results.enr.clarityelections.com/MI/Oakland/",
+"eid": null,
+"races": [
+"MI-07",
+"MI-10",
+"MI-Sen",
+"MI-Gov"
+],
+"group": "Scrapeable: Clarity JSON (vt.json)",
+"categories": "Absentee - Local, Election, Absentee - County, Early Voting - Regional, Early Voting - Central",
+"in_scope": true
+},
+"26133": {
+"state": "MI",
+"county": "Osceola",
+"kind": "partial",
+"url": "https://app.enhancedvoting.com/results/public/Osceola-County-MI",
+"eid": null,
+"races": [
+"MI-Sen",
+"MI-Gov"
+],
+"group": "Partial: absentee folded into Election Day",
+"categories": "Election Day, AV Counting Boards, Early Voting",
+"in_scope": true
+},
+"26139": {
+"state": "MI",
+"county": "Ottawa",
+"kind": "clarity",
+"url": "https://results.enr.clarityelections.com/MI/Ottawa/",
+"eid": null,
+"races": [
+"MI-04",
+"MI-Sen",
+"MI-Gov"
+],
+"group": "Scrapeable: Clarity JSON (vt.json)",
+"categories": "Absentee Votes, Early Votes, Precinct Votes",
+"in_scope": true
+},
+"26143": {
+"state": "MI",
+"county": "Roscommon",
+"kind": "none",
+"url": "https://results.enr.clarityelections.com/MI/Roscommon/126770/web.345435/#/summary",
+"eid": null,
+"races": [
+"MI-Sen",
+"MI-Gov"
+],
+"group": "No method data",
+"categories": "Totals only (vt.json has one type, 'Total Votes')",
+"in_scope": true
+},
+"26145": {
+"state": "MI",
+"county": "Saginaw",
+"kind": "enhanced",
+"url": "https://app.enhancedvoting.com/results/public/Saginaw-County-MI",
+"eid": null,
+"races": [
+"MI-Sen",
+"MI-Gov"
+],
+"group": "Scrapeable: Enhanced Voting JSON",
+"categories": "Election Day, AV Counting Boards, Early Voting",
+"in_scope": true
+},
+"26155": {
+"state": "MI",
+"county": "Shiawassee",
+"kind": "enhanced",
+"url": "https://app.enhancedvoting.com/results/public/Shiawassee-County-MI",
+"eid": null,
+"races": [
+"MI-07",
+"MI-Sen",
+"MI-Gov"
+],
+"group": "Scrapeable: Enhanced Voting JSON",
+"categories": "Election Day, AV Counting Boards, Early Voting",
+"in_scope": true
+},
+"26147": {
+"state": "MI",
+"county": "St. Clair",
+"kind": "enhanced",
+"url": "https://app.enhancedvoting.com/results/public/st.-clair-county-mi",
+"eid": null,
+"races": [
+"MI-Sen",
+"MI-Gov"
+],
+"group": "Scrapeable: Enhanced Voting JSON",
+"categories": "Election Day, AV Counting Boards, Early Voting",
+"in_scope": true
+},
+"26149": {
+"state": "MI",
+"county": "St. Joseph",
+"kind": "enhanced",
+"url": "https://app.enhancedvoting.com/results/public/st.-joseph-county-mi",
+"eid": null,
+"races": [
+"MI-Sen",
+"MI-Gov"
+],
+"group": "Scrapeable: Enhanced Voting JSON",
+"categories": "Election Day, AV Counting Boards, Early Voting",
+"in_scope": true
+},
+"26159": {
+"state": "MI",
+"county": "Van Buren",
+"kind": "enhanced",
+"url": "https://app.enhancedvoting.com/results/public/Van-Buren-County-MI",
+"eid": null,
+"races": [
+"MI-04",
+"MI-Sen",
+"MI-Gov"
+],
+"group": "Scrapeable: Enhanced Voting JSON",
+"categories": "Election Day, AV Counting Boards, Early Voting",
+"in_scope": true
+},
+"26161": {
+"state": "MI",
+"county": "Washtenaw",
+"kind": "html",
+"url": "https://electionresults.ewashtenaw.org/electionreporting/aug2026/index.jsp",
+"eid": null,
+"races": [
+"MI-Sen",
+"MI-Gov"
+],
+"group": "Scrapeable: clean HTML",
+"categories": "Early Votes, Absentee Votes, Election Day Votes",
+"in_scope": true
+},
+"26163": {
+"state": "MI",
+"county": "Wayne",
+"kind": "pdf",
+"url": "https://www.waynecountymi.gov/files/assets/mainsite/v/1/clerk/documents/elections/off_sum842026.pdf",
+"eid": null,
+"races": [
+"MI-Sen",
+"MI-Gov"
+],
+"group": "PDF",
+"categories": "Early Voting, Election Day, Absentee, Pre-Process Absentee",
+"in_scope": true
 }
 }

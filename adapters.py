@@ -144,3 +144,27 @@ def parse_dauphin(html, parties=None):
             contest = toks[i]; i += 1       # contest heading, then precinct title
         else: i += 1
     return out
+
+
+# Clarity detail.xml (inside detailxml.zip): Contest > Choice > VoteType (name, votes). Used for counties whose
+# vt.json is missing. Structure taken from the Michigan primary feed notes; NOT yet verified against a live file.
+def parse_clarity_detail(xml):
+    root = ET.fromstring(xml)
+    out = []
+    for contest in root.iter():
+        if not contest.tag.lower().endswith("contest"):
+            continue
+        cname = contest.get("text") or contest.get("name") or ""
+        for choice in contest:
+            if not choice.tag.lower().endswith("choice"):
+                continue
+            cand = choice.get("text") or choice.get("name") or ""
+            party = choice.get("party") or choice.get("partyName") or ""
+            for vt in choice:
+                if not vt.tag.lower().endswith("votetype"):
+                    continue
+                v = vt.get("votes")
+                if v is None:
+                    v = sum(int(p.get("votes") or 0) for p in vt)
+                out.append(_row(cname, cand, party, vt.get("name") or "", v))
+    return out

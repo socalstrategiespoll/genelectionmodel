@@ -8,11 +8,28 @@ def get(url, timeout=20):
     return urllib.request.urlopen(urllib.request.Request(url, headers=UA), timeout=timeout).read().decode("utf-8", "replace")
 
 def clarity_base(c):
-    m = re.match(r"(https?://[^#]*?/\d+)(?:/|$)", c["url"] or "")
-    return m.group(1) if m else None
+    url = c["url"] or ""
+    eid = _ov(c, "eid")
+    m = re.match(r"(https?://[^#]*?/[A-Z]{2}/[^/]+)/(?:(\d+)(?:/|$))?", url)
+    if eid and m:                                   # election id supplied (or discovered) for 2026-11-03
+        return f"{m.group(1)}/{eid}"
+    m = re.match(r"(https?://[^#]*?/\d+)(?:/|$)", url)
+    if m and not c.get("stale_eid"): return m.group(1)
+    if m_ := re.match(r"(https?://[^#]*?/[A-Z]{2}/[^/]+)/", url):
+        raw = get(m_.group(1) + "/elections.json")      # Clarity's per-county election list; unverified shape
+        for it in re.findall(r"\{[^{}]*\}", raw):
+            if ("2026-11-03" in it or "11/03/2026" in it or "11/3/2026" in it) and (e := re.search(r'"(?:eid|id|electionId)"\s*:\s*"?(\d{4,8})', it)):
+                return f"{m_.group(1)}/{e.group(1)}"
+    raise ValueError("no Nov 2026 Clarity election id yet for " + c["county"])
 def fetch_clarity(c):
     b = clarity_base(c); ver = get(b + "/current_ver.txt").strip()
-    return adapters.parse_clarity(get(f"{b}/{ver}/json/summary.json"), get(f"{b}/{ver}/json/vt.json"))
+    try:
+        return adapters.parse_clarity(get(f"{b}/{ver}/json/summary.json"), get(f"{b}/{ver}/json/vt.json"))
+    except Exception:       # no vt.json: fall back to detail.xml (Michigan counties)
+        import io, zipfile, urllib.request
+        raw = urllib.request.urlopen(urllib.request.Request(f"{b}/{ver}/reports/detailxml.zip", headers=UA), timeout=30).read()
+        z = zipfile.ZipFile(io.BytesIO(raw))
+        return adapters.parse_clarity_detail(z.read(next(n for n in z.namelist() if n.lower().endswith(".xml"))))
 def fetch_nc(c, date="20261103"):
     cid = re.search(r"results_(\d+)", c["url"] or ""); cid = cid.group(1) if cid else None
     return adapters.parse_nc(get(f"https://er.ncsbe.gov/enr/{date}/data/results_{cid}.txt"))
@@ -27,9 +44,35 @@ def fetch_ess(c):     # summary_N.xml
     return adapters.parse_ess(get(_ov(c, "url")))
 def fetch_vr(c):      # Summary page; hidden "DetailResults" table carries the by-method counts
     return adapters.parse_vr_html(get(_ov(c, "url")))
-def fetch_enhanced(c):  # data_url must be the jurisdiction's JSON endpoint (see the Cochise sample); no guessing
+EV_API = "https://app.enhancedvoting.com/results/public/api"
+ELECTION_DATE = "2026-11-03"
+def ev_slug(c):
+    m = re.search(r"/public/([^/#?]+)", c.get("url") or "")
+    return m.group(1) if m else None
+def ev_find_election(slug):
+    """Enhanced Voting lists a jurisdiction's elections at /api/jurisdictions/<slug>. Pick the 11/3/2026 one by its date,
+    or by an id shaped like 11032026_<timestamp> (how Kent's was named). Unverified against a live listing."""
+    raw = get(f"{EV_API}/jurisdictions/{slug}")
+    m = re.search(r"\b11032026_\d+", raw)
+    if m: return m.group(0)
+    found = []
+    def walk(o):
+        if isinstance(o, dict):
+            if any(isinstance(v, str) and v.startswith(ELECTION_DATE) for k, v in o.items() if "date" in k.lower()):
+                for k in ("publicElectionId", "electionId", "id", "slug"):
+                    if isinstance(o.get(k), str): found.append(o[k]); break
+            for v in o.values(): walk(v)
+        elif isinstance(o, list):
+            for v in o: walk(v)
+    walk(json.loads(raw))
+    if not found: raise ValueError("no 2026-11-03 election listed for " + slug)
+    return found[0]
+def fetch_enhanced(c):
     u = _ov(c, "data_url")
-    if not u: raise ValueError("no data_url for " + c["county"])
+    if not u:
+        slug = ev_slug(c)
+        if not slug: raise ValueError("no Enhanced Voting slug for " + c["county"])
+        u = f"{EV_API}/elections/{slug}/{_ov(c, 'election_id') or ev_find_election(slug)}/data"
     return adapters.parse_enhanced(get(u))
 _tx = {}
 def fetch_tx(c):      # one statewide County.json serves every TX county; cache for the poll cycle
@@ -43,11 +86,11 @@ def fetch_tx(c):      # one statewide County.json serves every TX county; cache 
 FETCH = {"clarity": fetch_clarity, "nc": fetch_nc, "ess": fetch_ess, "vr": fetch_vr, "enhanced": fetch_enhanced, "tx": fetch_tx}
 
 # feed label -> bucket key, by the race's bucket structure
-EARLY = ("early", "early voting", "early votes", "one-stop", "in-person early")
-MAIL = ("mail", "absentee", "absentee mail", "absentee by mail", "vote by mail", "mail-in", "absentee mail-in")
+EARLY = ("early", "early voting", "early votes", "one-stop", "in-person early", "ev", "early voting - regional", "early voting - central", "ev-regional", "ev-central")
+MAIL = ("av ed", "av counting boards", "absentee - local", "absentee - county", "absentee-local", "absentee-county", "absentee votes", "pre-process absentee", "absentee election day", "avcb election day", "avcb", "absentee voting", "mail", "absentee", "absentee mail", "absentee by mail", "vote by mail", "mail-in", "absentee mail-in")
 def keymap(race):
     keys = [b["key"] for b in race.get("buckets", [])]
-    km = {"election day": "ed", "machine": "ed"}
+    km = {m: "ed" for m in ("election day", "machine", "election", "precinct", "precinct voting", "precinct votes", "election day voting", "election day votes")}
     if keys == ["em", "lm", "ed"] or keys == ["em", "ed", "lm"]:
         km.update({"early": "em", "early vote": "em", "early voting": "em", "early a.r.s. 16-579": "lm"})
     elif keys == ["mail", "eip", "ed"]:
@@ -62,7 +105,7 @@ def contest_ok(race):
         n = name.lower()
         if race["type"] == "House":
             d = re.sub(r"\D", "", lab.split("-")[-1]).lstrip("0")
-            return bool(re.search(r"(?:rep|congress|district|dist\.?|cd)[^0-9]*0*%s\b" % (d or "at"), n)) and ("rep" in n or "congress" in n)
+            return bool(re.search(r"(?:rep|congress|district|dist\.?|cd)[^0-9]*0*%s(?!\d)" % (d or "at"), n)) and ("rep" in n or "congress" in n)
         if race["type"] == "Senate": return "senat" in n and "state sen" not in n
         return "governor" in n and "lieutenant" not in n
     return ok
