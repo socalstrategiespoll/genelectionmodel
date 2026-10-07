@@ -50,12 +50,22 @@ TAU_BASE = (GEO_SD**2 + PROF_SD**2 + IDIO_SD**2 + IDIO_C) ** 0.5   # slope term 
 BUCKET_SD = 3.0            # prior SD of a method's statewide gap vs our baseline (mail, early in-person, Election Day)
 OBS_FLOOR = 0.25           # variance floor on observed method-level margins (reporting error)
 REGIME_PRIOR = (0.55, 0.35, 0.10)   # early-first, proportional, late-first (from the MI mixture prior)
+# Counting order by state (early-first, proportional, late-first), from how each state has reported in recent general elections.
+# Most states post early and mail ballots first, then Election Day. Pennsylvania, Wisconsin and Michigan count mail late or in batches.
+STATE_REGIME = {"TX": (0.80, 0.15, 0.05), "FL": (0.80, 0.15, 0.05), "NC": (0.85, 0.10, 0.05), "GA": (0.80, 0.15, 0.05),
+                "NV": (0.70, 0.20, 0.10), "OH": (0.80, 0.15, 0.05), "SC": (0.80, 0.15, 0.05), "CO": (0.75, 0.20, 0.05),
+                "OR": (0.85, 0.10, 0.05), "WA": (0.75, 0.20, 0.05), "IA": (0.70, 0.20, 0.10), "MO": (0.70, 0.20, 0.10),
+                "PA": (0.15, 0.30, 0.55), "WI": (0.30, 0.30, 0.40), "MI": (0.30, 0.35, 0.35)}
 ORDER = {"em": 0, "mail": 0, "early": 0, "eip": 1, "ed": 2, "lm": 3}
 CALL_PROB = 0.995          # a race is only flagged call-ready above this (or below 1 minus this)
 METHOD_REGIME_STATE = 0.5   # weight every method county gets on a regime county's counting-order prior (rest is by distance)
 METHOD_REGIME_TEMPER = 0.6  # discount: counting order is shared within a state but not identical county to county
 METHOD_REGIME_CAP = 5.0     # max log-odds the method counties can move the regime prior
 MODEL_ERR = 0.3             # pts SD of final-margin error that no county count can remove (late provisionals, corrections, feed glitches); only applied once counting has started
+REF_SD = {"college": 10.8, "white": 12.6, "black": 7.2, "hisp": 5.5, "lnT": 1.2}   # typical within-state vote-weighted SD of each characteristic (from the fit), so a few-county district is not re-standardised against itself
+Z_CLIP = 2.5                # a county can sit at most this many SDs from the race average on size or demographics (stops tiny counties in few-county districts getting huge variance)
+DL_PRIOR_N = 6.0            # pseudo-counties of prior weight on the fitted county-swing spread
+KSC_MAX = 3.0               # most the live data can inflate the county-swing variance
 N_SIMS = 4000
 
 
@@ -105,7 +115,7 @@ def prep(race):
     idio = IDIO_SD ** 2 + IDIO_C / np.sqrt(T / 1000.0)
     idio0 = LEGACY['IDIO_SD'] ** 2 + LEGACY['IDIO_C'] / np.sqrt(T / 1000.0)
     lt = np.log(np.maximum(T, 1.0)); lt_m = float(share @ lt)
-    xs = (lt - lt_m) / max(float(np.sqrt(share @ (lt - lt_m) ** 2)), 1e-6)
+    xs = np.clip((lt - lt_m) / REF_SD['lnT'], -Z_CLIP, Z_CLIP)
     Kslope = SLOPE_SD_NODEMO ** 2 * np.outer(xs, xs)
     dm = _demographics(); Kdemo = np.zeros((len(fips), len(fips))); used_demo = []
     if dm and sum(1 for f in fips if f in dm) >= 0.8 * len(fips):
@@ -115,7 +125,7 @@ def prep(race):
             v = np.where(np.isnan(v), mu, v)
             sdw = float(np.sqrt(share @ (v - mu) ** 2))
             if sdw < 1e-6: continue
-            x = (v - mu) / sdw
+            x = np.clip((v - mu) / REF_SD[feat], -Z_CLIP, Z_CLIP)
             Kdemo += sdv ** 2 * np.outer(x, x); used_demo.append(feat)
     Kslope = Kslope * ((SLOPE_SD / SLOPE_SD_NODEMO) ** 2 if used_demo else 1.0)       # Kslope was built with SLOPE_SD_NODEMO; with real demographics only the fitted residual size slope is kept
     Kbase_t = Kg + PROF_SD ** 2 * np.exp(-db / (2 * PROF_PTS ** 2)) + np.diag(idio)
@@ -125,7 +135,7 @@ def prep(race):
         Kbase = Kbase + GEO_SD ** 2 * np.eye(len(fips)); Kbase0 = Kbase0 + LEGACY['GEO_SD'] ** 2 * np.eye(len(fips))
     return dict(id=race["id"], label=race["label"], type=race["type"], fips=fips, names=names, T=T, b=b,
                 sh=sh, M=M, keys=keys, share=share, het=het, K=Kbase, K0=Kbase0, demo=used_demo, headline=race["headline"],
-                pre_sd=PRE_SD_RACE.get(race["label"], PRE_SD.get(race["type"], 7.5)),
+                state=race.get("state"), pre_sd=PRE_SD_RACE.get(race["label"], PRE_SD.get(race["type"], 7.5)),
                 range_scale=RANGE_SCALE_RACE.get(race["label"], RANGE_SCALE.get(race["type"], 0.55)))
 
 
@@ -196,7 +206,7 @@ def project(P, counted, n_sims=N_SIMS, seed=7):
              _regime_fill(n, V, True)]
     pred = np.stack([100 * (f * Mm).sum(1) / np.maximum(n, 1) for f in fills])
     RM = np.stack([((V - f) * Mm).sum(1) for f in fills])
-    pri = np.array([1.0, 0.0, 0.0]) if K == 1 else np.array(REGIME_PRIOR)
+    pri = np.array([1.0, 0.0, 0.0]) if K == 1 else np.array(STATE_REGIME.get(P.get("state"), REGIME_PRIOR))
     prop_rem = V * (1 - np.where(Tp > 0, np.minimum(n / np.maximum(Tp, 1), 1), 0))[:, None]   # remaining votes if proportional
 
     # --- mixed coverage: what the method counties reveal about counting order, applied to the counties without method data ---
@@ -296,7 +306,9 @@ def project(P, counted, n_sims=N_SIMS, seed=7):
             Q = (wi * (yagg - ybar) ** 2).sum()
             den = wi.sum() - (wi ** 2).sum() / wi.sum()
             tau_dl = math.sqrt(max(0.0, (Q - (k_rep - 1)) / den)) if den > 0 else 0.0
-            ksc = max(1.0, (tau_dl / TAU_BASE) ** 2)
+            raw = max(1.0, (tau_dl / TAU_BASE) ** 2)
+            wdl = (k_rep - 1) / (k_rep - 1 + DL_PRIOR_N)          # few reporting counties: the spread estimate is noisy, so lean on the fitted prior
+            ksc = min(KSC_MAX, 1.0 + wdl * (raw - 1.0))
             tau = TAU_BASE * math.sqrt(ksc)
     s_mu, s_var = float(theta[0]), float(Vth[0, 0])
     Kc = ksc * Kb
