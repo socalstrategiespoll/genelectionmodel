@@ -309,15 +309,20 @@ def project(P, counted, n_sims=N_SIMS, seed=7):
     frac = float(n.sum() / exp_total) if exp_total else 0.0
     counties = []
     for i in range(nC):
-        pm = None
+        pm = None; rmm = None
         if Tp[i] > 0:
             if has_m[i]:
                 rm = (rem_k[i] * (P["M"][i] + theta[0] + (theta[1:] if K > 1 else 0) + Uc_mean[i])).sum() / 100
-                pm = float(100 * ((cR[i] - cD[i]) + rm) / Tp[i])
             else:
-                pm = float(100 * ((cR[i] - cD[i]) + (wr[:, i] * RM[:, i]).sum() + rem[i] * (theta[0] + Uc_mean[i]) / 100) / Tp[i])
+                rm = (wr[:, i] * RM[:, i]).sum() + rem[i] * (theta[0] + Uc_mean[i]) / 100
+            pm = float(100 * ((cR[i] - cD[i]) + rm) / Tp[i])
+            rmm = float(100 * rm / rem[i]) if rem[i] > 1 else None
+        cm = float(100 * (cR[i] - cD[i]) / n[i]) if n[i] > 0 else None
+        # [fips, name, pct in, counted, remaining, projected final margin, has method data, county swing,
+        #  counted D, counted R, projected margin of remaining votes, margin of counted votes]
         counties.append([P["fips"][i], P["names"][i], round(float(p_eff[i]), 3), int(n[i]), int(rem[i]),
-                         None if pm is None else round(pm, 2), bool(has_m[i]), round(float(Uc_mean[i]), 2)])
+                         None if pm is None else round(pm, 2), bool(has_m[i]), round(float(Uc_mean[i]), 2),
+                         int(cD[i]), int(cR[i]), None if rmm is None else round(rmm, 2), None if cm is None else round(cm, 2)])
     state = "complete" if (rep.sum() == nC and done.all()) else ("counting" if rep.any() else "pre")
     n_reg = rep & ~has_m
     return dict(id=P["id"], label=P["label"], state=state, win_prob_R=round(win, 4),
