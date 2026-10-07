@@ -42,7 +42,7 @@ def cycle(races, rmap, preps, cache):
                     "bucket_gap": res.get("bucket_gap", {}), "method_counties": res.get("counties_with_method_data", 0)}
         if err: out[rid]["feed_error"] = err
         time.sleep(0.2 if cid else 0)
-    mode = "live" if live else "pre"
+    mode = "live" if any(v.get("state") != "pre" for v in out.values()) else "pre"
     proj = {"updated": time.strftime("%Y-%m-%d %H:%M:%S UTC", time.gmtime()), "mode": mode, "races": out}
     with LOCK:
         STATE["projection"] = proj
