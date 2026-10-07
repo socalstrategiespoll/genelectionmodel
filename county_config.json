@@ -1,0 +1,3801 @@
+{
+"01005": {
+"state": "AL",
+"county": "Barbour",
+"kind": "unknown",
+"url": null,
+"eid": null,
+"races": [
+"AL-02"
+],
+"group": "Unknown",
+"categories": "Likely absentee as a separate precinct in the county's precinct canvass (Alabama convention), not verified",
+"in_scope": true
+},
+"01031": {
+"state": "AL",
+"county": "Coffee",
+"kind": "unknown",
+"url": null,
+"eid": null,
+"races": [
+"AL-02"
+],
+"group": "Unknown",
+"categories": "Likely absentee as a separate precinct in the county's precinct canvass (Alabama convention), not verified",
+"in_scope": true
+},
+"01045": {
+"state": "AL",
+"county": "Dale",
+"kind": "unknown",
+"url": null,
+"eid": null,
+"races": [
+"AL-02"
+],
+"group": "Unknown",
+"categories": "Likely absentee as a separate precinct in the county's precinct canvass (Alabama convention), not verified",
+"in_scope": true
+},
+"01051": {
+"state": "AL",
+"county": "Elmore",
+"kind": "unknown",
+"url": null,
+"eid": null,
+"races": [
+"AL-02"
+],
+"group": "Unknown",
+"categories": "Likely absentee as a separate precinct in the county's precinct canvass (Alabama convention), not verified",
+"in_scope": true
+},
+"01061": {
+"state": "AL",
+"county": "Geneva",
+"kind": "unknown",
+"url": null,
+"eid": null,
+"races": [
+"AL-02"
+],
+"group": "Unknown",
+"categories": "Likely absentee as a separate precinct in the county's precinct canvass (Alabama convention), not verified",
+"in_scope": true
+},
+"01067": {
+"state": "AL",
+"county": "Henry",
+"kind": "unknown",
+"url": null,
+"eid": null,
+"races": [
+"AL-02"
+],
+"group": "Unknown",
+"categories": "Likely absentee as a separate precinct in the county's precinct canvass (Alabama convention), not verified",
+"in_scope": true
+},
+"01069": {
+"state": "AL",
+"county": "Houston",
+"kind": "partial",
+"url": "https://houstoncountyal.gov/files/election_results/2024_general_election_2024_11_05_47191.pdf",
+"eid": null,
+"races": [
+"AL-02"
+],
+"group": "Partial: method as virtual precincts/districts",
+"categories": "Absentee reported as its own virtual precinct (0060 Absentee, 0061 Provisional, 0062 Absentee Provisional); everything else is Election Day",
+"in_scope": true
+},
+"01101": {
+"state": "AL",
+"county": "Montgomery",
+"kind": "none",
+"url": "https://www.montgomeryvotesal.gov/home/showpublisheddocument/6704/638664360841270000",
+"eid": null,
+"races": [
+"AL-02"
+],
+"group": "No method data",
+"categories": "Totals only",
+"in_scope": true
+},
+"01109": {
+"state": "AL",
+"county": "Pike",
+"kind": "unknown",
+"url": null,
+"eid": null,
+"races": [
+"AL-02"
+],
+"group": "Unknown",
+"categories": "Likely absentee as a separate precinct in the county's precinct canvass (Alabama convention), not verified",
+"in_scope": true
+},
+"01113": {
+"state": "AL",
+"county": "Russell",
+"kind": "unknown",
+"url": null,
+"eid": null,
+"races": [
+"AL-02"
+],
+"group": "Unknown",
+"categories": "Likely absentee as a separate precinct in the county's precinct canvass (Alabama convention), not verified",
+"in_scope": true
+},
+"04001": {
+"state": "AZ",
+"county": "Apache",
+"kind": "none",
+"url": "https://elections.co.apache.az.us/uploads/2024_General_Election_Unofficial_Results.pdf",
+"eid": null,
+"races": [
+"AZ-02"
+],
+"group": "No method data",
+"categories": "Totals only; header tracks absentee/early vs Election Day precincts reporting",
+"in_scope": true
+},
+"04003": {
+"state": "AZ",
+"county": "Cochise",
+"kind": "enhanced",
+"url": "https://app.enhancedvoting.com/results/public/Cochise-County-AZ",
+"eid": null,
+"races": [
+"AZ-06"
+],
+"group": "Scrapeable: Enhanced Voting JSON",
+"categories": "Election Day, Early, Provisional",
+"in_scope": true
+},
+"04005": {
+"state": "AZ",
+"county": "Coconino",
+"kind": "none",
+"url": "https://app.enhancedvoting.com/results/public/Coconino-County-AZ",
+"eid": null,
+"races": [
+"AZ-02"
+],
+"group": "No method data",
+"categories": "Totals only on Enhanced Voting (empty groupResults)",
+"in_scope": true
+},
+"04007": {
+"state": "AZ",
+"county": "Gila",
+"kind": "unknown",
+"url": null,
+"eid": null,
+"races": [
+"AZ-02"
+],
+"group": "Unknown",
+"categories": "nan",
+"in_scope": true
+},
+"04013": {
+"state": "AZ",
+"county": "Maricopa",
+"kind": "unknown",
+"url": "https://elections.maricopa.gov/results-and-data/election-results.html",
+"eid": null,
+"races": [
+"AZ-01",
+"AZ-Gov"
+],
+"group": "Scrapeable: county TXT file",
+"categories": "Early Vote, Election Day, Early A.R.S. 16-579 (early ballots dropped off on Election Day = late early), Provisional",
+"in_scope": true
+},
+"04015": {
+"state": "AZ",
+"county": "Mohave",
+"kind": "none",
+"url": "https://app.enhancedvoting.com/results/public/Mohave-County-AZ",
+"eid": null,
+"races": [
+"AZ-Gov"
+],
+"group": "No method data",
+"categories": "Totals only on Enhanced Voting (empty groupResults)",
+"in_scope": true
+},
+"04017": {
+"state": "AZ",
+"county": "Navajo",
+"kind": "none",
+"url": "https://app.enhancedvoting.com/results/public/Navajo-County-AZ",
+"eid": null,
+"races": [
+"AZ-02"
+],
+"group": "No method data",
+"categories": "Totals only on Enhanced Voting (empty groupResults)",
+"in_scope": true
+},
+"04019": {
+"state": "AZ",
+"county": "Pima",
+"kind": "ess",
+"url": "https://www.livevoterturnout.com/ENR/pimaazenr/6/summary_6.xml",
+"eid": null,
+"races": [
+"AZ-06",
+"AZ-Gov"
+],
+"group": "Scrapeable: ES&S ENR summary XML",
+"categories": "Early, Election Day, Provisional (Absentee field present, 0)",
+"in_scope": true
+},
+"04021": {
+"state": "AZ",
+"county": "Pinal",
+"kind": "clarity",
+"url": "https://results.enr.clarityelections.com/AZ/Pinal/122318/web.345435/#/summary",
+"eid": "122318",
+"races": [
+"AZ-02",
+"AZ-06",
+"AZ-Gov"
+],
+"group": "Scrapeable: Clarity JSON (vt.json)",
+"categories": "Election Day, Early Voting, Provisional",
+"in_scope": true
+},
+"04025": {
+"state": "AZ",
+"county": "Yavapai",
+"kind": "none",
+"url": "https://www.yavapaivotes.gov/files/assets/elections/v/1/documents/results/2024/november/summary_officialfinalresults.pdf",
+"eid": null,
+"races": [
+"AZ-02",
+"AZ-Gov"
+],
+"group": "No method data",
+"categories": "Totals only",
+"in_scope": true
+},
+"08001": {
+"state": "CO",
+"county": "Adams",
+"kind": "none",
+"url": "https://results.enr.clarityelections.com/CO/Adams/122601/",
+"eid": "122601",
+"races": [
+"CO-08"
+],
+"group": "No method data",
+"categories": "One vote type only ('Election Day Total Votes' = everything)",
+"in_scope": true
+},
+"08005": {
+"state": "CO",
+"county": "Arapahoe",
+"kind": "none",
+"url": "https://results.enr.clarityelections.com/CO/Arapahoe/122600/",
+"eid": "122600",
+"races": [
+"CO-04"
+],
+"group": "No method data",
+"categories": "One vote type only (total)",
+"in_scope": true
+},
+"08029": {
+"state": "CO",
+"county": "Delta",
+"kind": "none",
+"url": "https://results.enr.clarityelections.com/CO/Delta/122615/",
+"eid": "122615",
+"races": [
+"CO-03"
+],
+"group": "No method data",
+"categories": "One vote type only (total)",
+"in_scope": true
+},
+"08035": {
+"state": "CO",
+"county": "Douglas",
+"kind": "none",
+"url": "https://results.enr.clarityelections.com/CO/Douglas/122618/",
+"eid": "122618",
+"races": [
+"CO-04"
+],
+"group": "No method data",
+"categories": "One vote type only ('Election Day Total Votes' = everything)",
+"in_scope": true
+},
+"08041": {
+"state": "CO",
+"county": "El Paso",
+"kind": "none",
+"url": "https://results.enr.clarityelections.com/CO/El_Paso/122621/",
+"eid": "122621",
+"races": [
+"CO-05"
+],
+"group": "No method data",
+"categories": "One vote type only ('Election Day Total Votes' = everything)",
+"in_scope": true
+},
+"08039": {
+"state": "CO",
+"county": "Elbert",
+"kind": "none",
+"url": "https://results.enr.clarityelections.com/CO/Elbert/122620/",
+"eid": "122620",
+"races": [
+"CO-04"
+],
+"group": "No method data",
+"categories": "One vote type only (total)",
+"in_scope": true
+},
+"08045": {
+"state": "CO",
+"county": "Garfield",
+"kind": "none",
+"url": "https://results.enr.clarityelections.com/CO/Garfield/122623/",
+"eid": "122623",
+"races": [
+"CO-03"
+],
+"group": "No method data",
+"categories": "One vote type only (total)",
+"in_scope": true
+},
+"08067": {
+"state": "CO",
+"county": "La Plata",
+"kind": "none",
+"url": "https://results.enr.clarityelections.com/CO/La_Plata/122633/",
+"eid": "122633",
+"races": [
+"CO-03"
+],
+"group": "No method data",
+"categories": "One vote type only (total)",
+"in_scope": true
+},
+"08069": {
+"state": "CO",
+"county": "Larimer",
+"kind": "none",
+"url": "https://results.enr.clarityelections.com/CO/Larimer/122634/",
+"eid": "122634",
+"races": [
+"CO-04",
+"CO-08"
+],
+"group": "No method data",
+"categories": "One vote type only (total)",
+"in_scope": true
+},
+"08077": {
+"state": "CO",
+"county": "Mesa",
+"kind": "none",
+"url": "https://results.enr.clarityelections.com/CO/Mesa/122638/",
+"eid": "122638",
+"races": [
+"CO-03"
+],
+"group": "No method data",
+"categories": "One vote type only (total)",
+"in_scope": true
+},
+"08083": {
+"state": "CO",
+"county": "Montezuma",
+"kind": "none",
+"url": "https://results.enr.clarityelections.com/CO/Montezuma/122641/",
+"eid": "122641",
+"races": [
+"CO-03"
+],
+"group": "No method data",
+"categories": "One vote type only (total)",
+"in_scope": true
+},
+"08085": {
+"state": "CO",
+"county": "Montrose",
+"kind": "none",
+"url": "https://results.enr.clarityelections.com/CO/Montrose/122642/",
+"eid": "122642",
+"races": [
+"CO-03"
+],
+"group": "No method data",
+"categories": "One vote type only (total)",
+"in_scope": true
+},
+"08101": {
+"state": "CO",
+"county": "Pueblo",
+"kind": "none",
+"url": "https://results.enr.clarityelections.com/CO/Pueblo/122650/",
+"eid": "122650",
+"races": [
+"CO-03"
+],
+"group": "No method data",
+"categories": "One vote type only (total)",
+"in_scope": true
+},
+"08123": {
+"state": "CO",
+"county": "Weld",
+"kind": "none",
+"url": "https://results.enr.clarityelections.com/CO/Weld/122662/",
+"eid": "122662",
+"races": [
+"CO-04",
+"CO-08"
+],
+"group": "No method data",
+"categories": "One vote type only ('Election Day Total Votes' = everything)",
+"in_scope": true
+},
+"12009": {
+"state": "FL",
+"county": "Brevard",
+"kind": "vr",
+"url": "https://enr.electionsfl.org/BRE/3704/Summary/",
+"eid": null,
+"races": [
+"FL-Gov"
+],
+"group": "Scrapeable: VR Systems HTML + CSV",
+"categories": "Election Day, Early Votes, Vote By Mail, Provisional (1-29 vote cells masked per F.S. 98.0981)",
+"in_scope": true
+},
+"12011": {
+"state": "FL",
+"county": "Broward",
+"kind": "ess",
+"url": "https://results.browardvotes.gov/ENR/browardflenr/236/summary_236.xml",
+"eid": null,
+"races": [
+"FL-22",
+"FL-25",
+"FL-Gov"
+],
+"group": "Scrapeable: ES&S ENR summary XML",
+"categories": "Early Votes, Vote By Mail, Election Day, Provisional, Other",
+"in_scope": true
+},
+"12021": {
+"state": "FL",
+"county": "Collier",
+"kind": "vr",
+"url": "https://enr.electionsfl.org/CLL/3733/Summary/",
+"eid": null,
+"races": [
+"FL-22"
+],
+"group": "Scrapeable: VR Systems HTML + CSV",
+"categories": "Election Day, Early Votes, Vote By Mail, Provisional (1-29 vote cells masked per F.S. 98.0981)",
+"in_scope": true
+},
+"12031": {
+"state": "FL",
+"county": "Duval",
+"kind": "vr",
+"url": "https://enr.electionsfl.org/DUV/3694/Summary/",
+"eid": null,
+"races": [
+"FL-Gov"
+],
+"group": "Scrapeable: VR Systems HTML + CSV",
+"categories": "Election Day, Early Votes, Vote By Mail, Provisional (1-29 vote cells masked per F.S. 98.0981)",
+"in_scope": true
+},
+"12051": {
+"state": "FL",
+"county": "Hendry",
+"kind": "vr",
+"url": "https://enr.electionsfl.org/HEN/3730/Summary/",
+"eid": null,
+"races": [
+"FL-22"
+],
+"group": "Scrapeable: VR Systems HTML + CSV",
+"categories": "Election Day, Early Votes, Vote By Mail, Provisional (1-29 vote cells masked per F.S. 98.0981)",
+"in_scope": true
+},
+"12055": {
+"state": "FL",
+"county": "Highlands",
+"kind": "vr",
+"url": "https://enr.electionsfl.org/HIG/3723/Summary/",
+"eid": null,
+"races": [
+"FL-09"
+],
+"group": "Scrapeable: VR Systems HTML + CSV",
+"categories": "Election Day, Early Votes, Vote By Mail, Provisional (1-29 vote cells masked per F.S. 98.0981)",
+"in_scope": true
+},
+"12057": {
+"state": "FL",
+"county": "Hillsborough",
+"kind": "vr",
+"url": "https://enr.electionsfl.org/HIL/3684/Summary/",
+"eid": null,
+"races": [
+"FL-14",
+"FL-Gov"
+],
+"group": "Scrapeable: VR Systems HTML + CSV",
+"categories": "Election Day, Early Votes, Vote By Mail, Provisional (1-29 vote cells masked per F.S. 98.0981)",
+"in_scope": true
+},
+"12061": {
+"state": "FL",
+"county": "Indian River",
+"kind": "unknown",
+"url": "https://voteindianriver.gov/",
+"eid": null,
+"races": [
+"FL-09"
+],
+"group": "Unknown",
+"categories": "unknown",
+"in_scope": true
+},
+"12071": {
+"state": "FL",
+"county": "Lee",
+"kind": "vr",
+"url": "https://enr.electionsfl.org/LEE/3756/Summary/",
+"eid": null,
+"races": [
+"FL-Gov"
+],
+"group": "Scrapeable: VR Systems HTML + CSV",
+"categories": "Election Day, Early Votes, Vote By Mail, Provisional (1-29 vote cells masked per F.S. 98.0981)",
+"in_scope": true
+},
+"12081": {
+"state": "FL",
+"county": "Manatee",
+"kind": "vr",
+"url": "https://enr.electionsfl.org/MAN/3754/Summary/",
+"eid": null,
+"races": [
+"FL-16"
+],
+"group": "Scrapeable: VR Systems HTML + CSV",
+"categories": "Election Day, Early Votes, Vote By Mail, Provisional (1-29 vote cells masked per F.S. 98.0981)",
+"in_scope": true
+},
+"12086": {
+"state": "FL",
+"county": "Miami-Dade",
+"kind": "vr",
+"url": "https://enr.electionsfl.org/DAD/3713/Summary/",
+"eid": null,
+"races": [
+"FL-25",
+"FL-27",
+"FL-Gov"
+],
+"group": "Scrapeable: VR Systems HTML + CSV",
+"categories": "Election Day, Early Votes, Vote By Mail, Provisional (1-29 vote cells masked per F.S. 98.0981)",
+"in_scope": true
+},
+"12093": {
+"state": "FL",
+"county": "Okeechobee",
+"kind": "partial",
+"url": "https://enr.electionsfl.org/OKE/3718/Summary/",
+"eid": null,
+"races": [
+"FL-09"
+],
+"group": "Partial: rows masked (FL law)",
+"categories": "Election Day, Early Votes, Vote By Mail, Provisional (1-29 vote cells masked per F.S. 98.0981) \u2014 but rows masked",
+"in_scope": true
+},
+"12095": {
+"state": "FL",
+"county": "Orange",
+"kind": "vr",
+"url": "https://enr.electionsfl.org/ORA/3700/Summary/",
+"eid": null,
+"races": [
+"FL-09",
+"FL-Gov"
+],
+"group": "Scrapeable: VR Systems HTML + CSV",
+"categories": "Election Day, Early Votes, Vote By Mail, Provisional (1-29 vote cells masked per F.S. 98.0981)",
+"in_scope": true
+},
+"12097": {
+"state": "FL",
+"county": "Osceola",
+"kind": "clarity",
+"url": "https://results.enr.clarityelections.com/FL/Osceola/122579/web.345435/#/summary",
+"eid": "122579",
+"races": [
+"FL-09"
+],
+"group": "Scrapeable: Clarity JSON (vt.json)",
+"categories": "Election Day, Vote-by-Mail, Early Voting, Provisional Election Day, Provisional Early Voting",
+"in_scope": true
+},
+"12099": {
+"state": "FL",
+"county": "Palm Beach",
+"kind": "vr",
+"url": "https://enr.electionsfl.org/PAL/3703/Summary/",
+"eid": null,
+"races": [
+"FL-22",
+"FL-25",
+"FL-Gov"
+],
+"group": "Scrapeable: VR Systems HTML + CSV",
+"categories": "Election Day, Early Votes, Vote By Mail, Provisional (1-29 vote cells masked per F.S. 98.0981)",
+"in_scope": true
+},
+"12101": {
+"state": "FL",
+"county": "Pasco",
+"kind": "vr",
+"url": "https://enr.electionsfl.org/PAS/3717/Summary/",
+"eid": null,
+"races": [
+"FL-13"
+],
+"group": "Scrapeable: VR Systems HTML + CSV",
+"categories": "Election Day, Early Votes, Vote By Mail, Provisional (1-29 vote cells masked per F.S. 98.0981)",
+"in_scope": true
+},
+"12103": {
+"state": "FL",
+"county": "Pinellas",
+"kind": "clarity",
+"url": "https://enr.votepinellas.gov/FL/Pinellas/122583/web.345435/#/summary",
+"eid": "122583",
+"races": [
+"FL-13",
+"FL-16",
+"FL-Gov"
+],
+"group": "Scrapeable: Clarity JSON (vt.json)",
+"categories": "Election Day Votes, Mail Ballot Votes, Early Votes (provisional/overseas folded in)",
+"in_scope": true
+},
+"12105": {
+"state": "FL",
+"county": "Polk",
+"kind": "partial",
+"url": "https://enr.electionsfl.org/POL/3701/Summary/",
+"eid": null,
+"races": [
+"FL-Gov"
+],
+"group": "Partial: rows masked (FL law)",
+"categories": "Election Day, Early Votes, Vote By Mail, Provisional (1-29 vote cells masked per F.S. 98.0981) \u2014 but rows masked",
+"in_scope": true
+},
+"12115": {
+"state": "FL",
+"county": "Sarasota",
+"kind": "vr",
+"url": "https://enr.electionsfl.org/SAR/3757/Summary/",
+"eid": null,
+"races": [
+"FL-16"
+],
+"group": "Scrapeable: VR Systems HTML + CSV",
+"categories": "Election Day, Early Votes, Vote By Mail, Provisional (1-29 vote cells masked per F.S. 98.0981)",
+"in_scope": true
+},
+"12117": {
+"state": "FL",
+"county": "Seminole",
+"kind": "pdf",
+"url": "https://voteseminole.gov/wp-content/uploads/2026/09/2024-General-Election-Summary.pdf",
+"eid": null,
+"races": [
+"FL-07"
+],
+"group": "PDF",
+"categories": "Early Voting, Mail Ballots, Election Day (official PDF)",
+"in_scope": true
+},
+"12127": {
+"state": "FL",
+"county": "Volusia",
+"kind": "vr",
+"url": "https://enr.electionsfl.org/VOL/3692/Summary/",
+"eid": null,
+"races": [
+"FL-07"
+],
+"group": "Scrapeable: VR Systems HTML + CSV",
+"categories": "Election Day, Early Votes, Vote By Mail, Provisional (1-29 vote cells masked per F.S. 98.0981)",
+"in_scope": true
+},
+"13057": {
+"state": "GA",
+"county": "Cherokee",
+"kind": "enhanced",
+"url": "https://app.enhancedvoting.com/results/public/Cherokee-County-GA",
+"eid": null,
+"races": [
+"GA-Gov"
+],
+"group": "Scrapeable: Enhanced Voting JSON",
+"categories": "Election Day, Advance Voting, Absentee by Mail, Provisional",
+"in_scope": true
+},
+"13067": {
+"state": "GA",
+"county": "Cobb",
+"kind": "enhanced",
+"url": "https://app.enhancedvoting.com/results/public/Cobb-County-GA",
+"eid": null,
+"races": [
+"GA-Gov"
+],
+"group": "Scrapeable: Enhanced Voting JSON",
+"categories": "Election Day, Advance Voting, Absentee by Mail, Provisional",
+"in_scope": true
+},
+"13089": {
+"state": "GA",
+"county": "DeKalb",
+"kind": "state_ga",
+"url": "https://results.sos.ga.gov/results/public/Georgia",
+"eid": null,
+"races": [
+"GA-Gov"
+],
+"group": "State site (GA, per handoff)",
+"categories": "Election Day, Advance Voting, Absentee by Mail, Provisional (statewide site)",
+"in_scope": true
+},
+"13121": {
+"state": "GA",
+"county": "Fulton",
+"kind": "enhanced",
+"url": "https://app.enhancedvoting.com/results/public/Fulton-County-GA",
+"eid": null,
+"races": [
+"GA-Gov"
+],
+"group": "Scrapeable: Enhanced Voting JSON",
+"categories": "Election Day, Absentee by Mail, Advance Voting, Provisional",
+"in_scope": true
+},
+"13135": {
+"state": "GA",
+"county": "Gwinnett",
+"kind": "state_ga",
+"url": "https://results.sos.ga.gov/results/public/Georgia",
+"eid": null,
+"races": [
+"GA-Gov"
+],
+"group": "State site (GA, per handoff)",
+"categories": "Election Day, Advance Voting, Absentee by Mail, Provisional (statewide site)",
+"in_scope": true
+},
+"19011": {
+"state": "IA",
+"county": "Benton",
+"kind": "clarity",
+"url": "https://electionresults.iowa.gov/IA/Benton/122328/web.345435/#/summary",
+"eid": "122328",
+"races": [
+"IA-02"
+],
+"group": "Scrapeable: Clarity JSON (vt.json)",
+"categories": "Election Day, Absentee (absentee = mail + early in-person)",
+"in_scope": true
+},
+"19013": {
+"state": "IA",
+"county": "Black Hawk",
+"kind": "clarity",
+"url": "https://electionresults.iowa.gov/IA/Black_Hawk/122329/web.345435/#/summary",
+"eid": "122329",
+"races": [
+"IA-02",
+"IA-Gov",
+"IA-Sen"
+],
+"group": "Scrapeable: Clarity JSON (vt.json)",
+"categories": "Election Day, Absentee (absentee = mail + early in-person)",
+"in_scope": true
+},
+"19017": {
+"state": "IA",
+"county": "Bremer",
+"kind": "clarity",
+"url": "https://electionresults.iowa.gov/IA/Bremer/122331/web.345435/#/summary",
+"eid": "122331",
+"races": [
+"IA-02"
+],
+"group": "Scrapeable: Clarity JSON (vt.json)",
+"categories": "Election Day, Absentee (absentee = mail + early in-person)",
+"in_scope": true
+},
+"19033": {
+"state": "IA",
+"county": "Cerro Gordo",
+"kind": "clarity",
+"url": "https://electionresults.iowa.gov/IA/Cerro_Gordo/122339/web.345435/#/summary",
+"eid": "122339",
+"races": [
+"IA-02"
+],
+"group": "Scrapeable: Clarity JSON (vt.json)",
+"categories": "Election Day, Absentee (absentee = mail + early in-person)",
+"in_scope": true
+},
+"19045": {
+"state": "IA",
+"county": "Clinton",
+"kind": "clarity",
+"url": "https://electionresults.iowa.gov/IA/Clinton/122345/web.345435/#/summary",
+"eid": "122345",
+"races": [
+"IA-01"
+],
+"group": "Scrapeable: Clarity JSON (vt.json)",
+"categories": "Election Day, Absentee (absentee = mail + early in-person)",
+"in_scope": true
+},
+"19049": {
+"state": "IA",
+"county": "Dallas",
+"kind": "clarity",
+"url": "https://electionresults.iowa.gov/IA/Dallas/122347/web.345435/#/summary",
+"eid": "122347",
+"races": [
+"IA-03",
+"IA-Gov",
+"IA-Sen"
+],
+"group": "Scrapeable: Clarity JSON (vt.json)",
+"categories": "Election Day, Absentee (absentee = mail + early in-person)",
+"in_scope": true
+},
+"19057": {
+"state": "IA",
+"county": "Des Moines",
+"kind": "clarity",
+"url": "https://electionresults.iowa.gov/IA/Des_Moines/122351/web.345435/#/summary",
+"eid": "122351",
+"races": [
+"IA-01"
+],
+"group": "Scrapeable: Clarity JSON (vt.json)",
+"categories": "Election Day, Absentee (absentee = mail + early in-person)",
+"in_scope": true
+},
+"19061": {
+"state": "IA",
+"county": "Dubuque",
+"kind": "clarity",
+"url": "https://electionresults.iowa.gov/IA/Dubuque/122353/web.345435/#/summary",
+"eid": "122353",
+"races": [
+"IA-02",
+"IA-Gov",
+"IA-Sen"
+],
+"group": "Scrapeable: Clarity JSON (vt.json)",
+"categories": "Election Day, Absentee (absentee = mail + early in-person)",
+"in_scope": true
+},
+"19099": {
+"state": "IA",
+"county": "Jasper",
+"kind": "clarity",
+"url": "https://electionresults.iowa.gov/IA/Jasper/122372/web.345435/#/summary",
+"eid": "122372",
+"races": [
+"IA-01"
+],
+"group": "Scrapeable: Clarity JSON (vt.json)",
+"categories": "Election Day, Absentee (absentee = mail + early in-person)",
+"in_scope": true
+},
+"19103": {
+"state": "IA",
+"county": "Johnson",
+"kind": "clarity",
+"url": "https://electionresults.iowa.gov/IA/Johnson/122374/web.345435/#/summary",
+"eid": "122374",
+"races": [
+"IA-01",
+"IA-Gov",
+"IA-Sen"
+],
+"group": "Scrapeable: Clarity JSON (vt.json)",
+"categories": "Election Day, Absentee (absentee = mail + early in-person)",
+"in_scope": true
+},
+"19111": {
+"state": "IA",
+"county": "Lee",
+"kind": "clarity",
+"url": "https://electionresults.iowa.gov/IA/Lee/122378/web.345435/#/summary",
+"eid": "122378",
+"races": [
+"IA-01"
+],
+"group": "Scrapeable: Clarity JSON (vt.json)",
+"categories": "Election Day, Absentee (absentee = mail + early in-person)",
+"in_scope": true
+},
+"19113": {
+"state": "IA",
+"county": "Linn",
+"kind": "clarity",
+"url": "https://electionresults.iowa.gov/IA/Linn/122379/web.345435/#/summary",
+"eid": "122379",
+"races": [
+"IA-02",
+"IA-Gov",
+"IA-Sen"
+],
+"group": "Scrapeable: Clarity JSON (vt.json)",
+"categories": "Election Day, Absentee (absentee = mail + early in-person)",
+"in_scope": true
+},
+"19125": {
+"state": "IA",
+"county": "Marion",
+"kind": "clarity",
+"url": "https://electionresults.iowa.gov/IA/Marion/122385/web.345435/#/summary",
+"eid": "122385",
+"races": [
+"IA-01"
+],
+"group": "Scrapeable: Clarity JSON (vt.json)",
+"categories": "Election Day, Absentee (absentee = mail + early in-person)",
+"in_scope": true
+},
+"19139": {
+"state": "IA",
+"county": "Muscatine",
+"kind": "clarity",
+"url": "https://electionresults.iowa.gov/IA/Muscatine/122392/web.345435/#/summary",
+"eid": "122392",
+"races": [
+"IA-01"
+],
+"group": "Scrapeable: Clarity JSON (vt.json)",
+"categories": "Election Day, Absentee (absentee = mail + early in-person)",
+"in_scope": true
+},
+"19153": {
+"state": "IA",
+"county": "Polk",
+"kind": "clarity",
+"url": "https://electionresults.iowa.gov/IA/Polk/122399/web.345435/#/summary",
+"eid": "122399",
+"races": [
+"IA-03",
+"IA-Gov",
+"IA-Sen"
+],
+"group": "Scrapeable: Clarity JSON (vt.json)",
+"categories": "Election Day, Absentee (absentee = mail + early in-person)",
+"in_scope": true
+},
+"19163": {
+"state": "IA",
+"county": "Scott",
+"kind": "clarity",
+"url": "https://electionresults.iowa.gov/IA/Scott/122404/web.345435/#/summary",
+"eid": "122404",
+"races": [
+"IA-01",
+"IA-Gov",
+"IA-Sen"
+],
+"group": "Scrapeable: Clarity JSON (vt.json)",
+"categories": "Election Day, Absentee (absentee = mail + early in-person)",
+"in_scope": true
+},
+"19169": {
+"state": "IA",
+"county": "Story",
+"kind": "clarity",
+"url": "https://electionresults.iowa.gov/IA/Story/122407/web.345435/#/summary",
+"eid": "122407",
+"races": [
+"IA-Gov",
+"IA-Sen"
+],
+"group": "Scrapeable: Clarity JSON (vt.json)",
+"categories": "Election Day, Absentee (absentee = mail + early in-person)",
+"in_scope": true
+},
+"19179": {
+"state": "IA",
+"county": "Wapello",
+"kind": "clarity",
+"url": "https://electionresults.iowa.gov/IA/Wapello/122412/web.345435/#/summary",
+"eid": "122412",
+"races": [
+"IA-03"
+],
+"group": "Scrapeable: Clarity JSON (vt.json)",
+"categories": "Election Day, Absentee (absentee = mail + early in-person)",
+"in_scope": true
+},
+"19181": {
+"state": "IA",
+"county": "Warren",
+"kind": "clarity",
+"url": "https://electionresults.iowa.gov/IA/Warren/122413/web.345435/#/summary",
+"eid": "122413",
+"races": [
+"IA-01"
+],
+"group": "Scrapeable: Clarity JSON (vt.json)",
+"categories": "Election Day, Absentee (absentee = mail + early in-person)",
+"in_scope": true
+},
+"20045": {
+"state": "KS",
+"county": "Douglas",
+"kind": "ess",
+"url": "https://www.livevoterturnout.com/ENR/douglasksenr/18/summary_18.xml",
+"eid": null,
+"races": [
+"KS-Gov",
+"KS-Sen"
+],
+"group": "Scrapeable: ES&S ENR summary XML",
+"categories": "Advanced Voting, Absentee Ballots, Election Day, Provisional",
+"in_scope": true
+},
+"20091": {
+"state": "KS",
+"county": "Johnson",
+"kind": "partial",
+"url": "https://jocoelection.org/sites/default/files/2024-11/GN2024%20Advance%20Results.pdf",
+"eid": null,
+"races": [
+"KS-Gov",
+"KS-Sen"
+],
+"group": "Partial: first report is early-only",
+"categories": "No method columns, but the first posted report is advance-only ('Advance Results', 7:37 PM); later updates are cumulative",
+"in_scope": true
+},
+"20173": {
+"state": "KS",
+"county": "Sedgwick",
+"kind": "partial",
+"url": "https://sedgwickcounty.org/media/67672/2024-general-1st-unofficial-results-advance.pdf",
+"eid": null,
+"races": [
+"KS-Gov",
+"KS-Sen"
+],
+"group": "Partial: first report is early-only",
+"categories": "No method columns; first report is advance/early only (ED precincts 0 of 539), later updates cumulative",
+"in_scope": true
+},
+"20177": {
+"state": "KS",
+"county": "Shawnee",
+"kind": "none",
+"url": "https://www.snco.gov/election/2024General.php",
+"eid": null,
+"races": [
+"KS-Gov",
+"KS-Sen"
+],
+"group": "No method data",
+"categories": "Totals only; Zero / Partial Unofficial / Final Unofficial PDFs on the night",
+"in_scope": true
+},
+"20209": {
+"state": "KS",
+"county": "Wyandotte",
+"kind": "partial",
+"url": "https://wycovotes.org/s/SP0524_UnofficialPartialResults-AdvanceEarlyVoting.pdf",
+"eid": null,
+"races": [
+"KS-Gov",
+"KS-Sen"
+],
+"group": "Partial: first report is early-only",
+"categories": "No method columns; first posted report is advance/early only (Electionware 'Unofficial Partial Results - Advance/Early Voting')",
+"in_scope": true
+},
+"21049": {
+"state": "KY",
+"county": "Clark",
+"kind": "pdf",
+"url": "https://elect.ky.gov/results/2020-2029/2024ElectionReports/GeneralRecaps/Clark.pdf",
+"eid": null,
+"races": [
+"KY-06"
+],
+"group": "PDF",
+"categories": "Absentee Mail-In, Absentee Walk-In, Early Voting, Election Day Voting",
+"in_scope": true
+},
+"21067": {
+"state": "KY",
+"county": "Fayette",
+"kind": "pdf",
+"url": "https://fayettecountyclerk.com/web/elections/electionresults/FayetteGen2024CumulativeResults.pdf",
+"eid": null,
+"races": [
+"KY-06"
+],
+"group": "PDF",
+"categories": "Absentee Mail-In, Absentee Walk-In, Early Voting, Election Day Voting",
+"in_scope": true
+},
+"21113": {
+"state": "KY",
+"county": "Jessamine",
+"kind": "pdf",
+"url": "https://elect.ky.gov/results/2020-2029/2024ElectionReports/GeneralRecaps/Jessamine.pdf",
+"eid": null,
+"races": [
+"KY-06"
+],
+"group": "PDF",
+"categories": "Absentee Mail-In, Absentee Walk-In, Early Voting, Election Day Voting",
+"in_scope": true
+},
+"21151": {
+"state": "KY",
+"county": "Madison",
+"kind": "pdf",
+"url": "https://elect.ky.gov/results/2020-2029/2024ElectionReports/GeneralRecaps/Madison.pdf",
+"eid": null,
+"races": [
+"KY-06"
+],
+"group": "PDF",
+"categories": "Mail In, EV Excused, EV Unexcused 3-Day, Election Day",
+"in_scope": true
+},
+"21167": {
+"state": "KY",
+"county": "Mercer",
+"kind": "pdf",
+"url": "https://elect.ky.gov/results/2020-2029/2024ElectionReports/GeneralRecaps/Mercer.pdf",
+"eid": null,
+"races": [
+"KY-06"
+],
+"group": "PDF",
+"categories": "Absentee Mail-In, Absentee Walk-In, Early Voting, Election Day Voting",
+"in_scope": true
+},
+"21173": {
+"state": "KY",
+"county": "Montgomery",
+"kind": "pdf",
+"url": "https://elect.ky.gov/results/2020-2029/2024ElectionReports/GeneralRecaps/Montgomery.pdf",
+"eid": null,
+"races": [
+"KY-06"
+],
+"group": "PDF",
+"categories": "Absentee Mail-In, Absentee Walk-In, Early Voting, Election Day Voting",
+"in_scope": true
+},
+"21209": {
+"state": "KY",
+"county": "Scott",
+"kind": "pdf",
+"url": "https://elect.ky.gov/results/2020-2029/2024ElectionReports/GeneralRecaps/Scott.pdf",
+"eid": null,
+"races": [
+"KY-06"
+],
+"group": "PDF",
+"categories": "Absentee Mail-In, Absentee Walk-In, Early Voting, Election Day Voting",
+"in_scope": true
+},
+"21239": {
+"state": "KY",
+"county": "Woodford",
+"kind": "pdf",
+"url": "https://elect.ky.gov/results/2020-2029/2024ElectionReports/GeneralRecaps/Woodford.pdf",
+"eid": null,
+"races": [
+"KY-06"
+],
+"group": "PDF",
+"categories": "Absentee Mail-In, Absentee Walk-In, Early Voting, Election Day Voting",
+"in_scope": true
+},
+"27013": {
+"state": "MN",
+"county": "Blue Earth",
+"kind": "none",
+"url": "https://www.sos.mn.gov/elections-voting/election-results/",
+"eid": null,
+"races": [
+"MN-01"
+],
+"group": "No method data",
+"categories": "Totals only",
+"in_scope": true
+},
+"27015": {
+"state": "MN",
+"county": "Brown",
+"kind": "none",
+"url": "https://www.sos.mn.gov/elections-voting/election-results/",
+"eid": null,
+"races": [
+"MN-01"
+],
+"group": "No method data",
+"categories": "Totals only",
+"in_scope": true
+},
+"27039": {
+"state": "MN",
+"county": "Dodge",
+"kind": "none",
+"url": "https://www.sos.mn.gov/elections-voting/election-results/",
+"eid": null,
+"races": [
+"MN-01"
+],
+"group": "No method data",
+"categories": "Totals only",
+"in_scope": true
+},
+"27045": {
+"state": "MN",
+"county": "Fillmore",
+"kind": "none",
+"url": "https://www.sos.mn.gov/elections-voting/election-results/",
+"eid": null,
+"races": [
+"MN-01"
+],
+"group": "No method data",
+"categories": "Totals only",
+"in_scope": true
+},
+"27047": {
+"state": "MN",
+"county": "Freeborn",
+"kind": "none",
+"url": "https://www.sos.mn.gov/elections-voting/election-results/",
+"eid": null,
+"races": [
+"MN-01"
+],
+"group": "No method data",
+"categories": "Totals only",
+"in_scope": true
+},
+"27049": {
+"state": "MN",
+"county": "Goodhue",
+"kind": "none",
+"url": "https://www.sos.mn.gov/elections-voting/election-results/",
+"eid": null,
+"races": [
+"MN-01"
+],
+"group": "No method data",
+"categories": "Totals only",
+"in_scope": true
+},
+"27099": {
+"state": "MN",
+"county": "Mower",
+"kind": "none",
+"url": "https://www.sos.mn.gov/elections-voting/election-results/",
+"eid": null,
+"races": [
+"MN-01"
+],
+"group": "No method data",
+"categories": "Totals only",
+"in_scope": true
+},
+"27103": {
+"state": "MN",
+"county": "Nicollet",
+"kind": "none",
+"url": "https://www.sos.mn.gov/elections-voting/election-results/",
+"eid": null,
+"races": [
+"MN-01"
+],
+"group": "No method data",
+"categories": "Totals only",
+"in_scope": true
+},
+"27109": {
+"state": "MN",
+"county": "Olmsted",
+"kind": "none",
+"url": "https://www.sos.mn.gov/elections-voting/election-results/",
+"eid": null,
+"races": [
+"MN-01"
+],
+"group": "No method data",
+"categories": "Totals only",
+"in_scope": true
+},
+"27131": {
+"state": "MN",
+"county": "Rice",
+"kind": "none",
+"url": "https://www.sos.mn.gov/elections-voting/election-results/",
+"eid": null,
+"races": [
+"MN-01"
+],
+"group": "No method data",
+"categories": "Totals only",
+"in_scope": true
+},
+"27147": {
+"state": "MN",
+"county": "Steele",
+"kind": "none",
+"url": "https://www.sos.mn.gov/elections-voting/election-results/",
+"eid": null,
+"races": [
+"MN-01"
+],
+"group": "No method data",
+"categories": "Totals only",
+"in_scope": true
+},
+"27157": {
+"state": "MN",
+"county": "Wabasha",
+"kind": "none",
+"url": "https://www.sos.mn.gov/elections-voting/election-results/",
+"eid": null,
+"races": [
+"MN-01"
+],
+"group": "No method data",
+"categories": "Totals only",
+"in_scope": true
+},
+"27169": {
+"state": "MN",
+"county": "Winona",
+"kind": "none",
+"url": "https://www.sos.mn.gov/elections-voting/election-results/",
+"eid": null,
+"races": [
+"MN-01"
+],
+"group": "No method data",
+"categories": "Totals only",
+"in_scope": true
+},
+"29071": {
+"state": "MO",
+"county": "Franklin",
+"kind": "ess",
+"url": "https://www.livevoterturnout.com/ENR/franklinmoenr/15/summary_15.xml",
+"eid": null,
+"races": [
+"MO-02"
+],
+"group": "Scrapeable: ES&S ENR summary XML",
+"categories": "Absentee Ballots, Election Day, Provisional",
+"in_scope": true
+},
+"29099": {
+"state": "MO",
+"county": "Jefferson",
+"kind": "ess",
+"url": "https://www.livevoterturnout.com/ENR/jeffersonmoenr/21/summary_21.xml",
+"eid": null,
+"races": [
+"MO-02"
+],
+"group": "Scrapeable: ES&S ENR summary XML",
+"categories": "Absentee Ballots, Election Day, Provisional",
+"in_scope": true
+},
+"29189": {
+"state": "MO",
+"county": "St. Louis",
+"kind": "none",
+"url": "https://extcontent.stlouisco.com/BOE/eResults/el241105/",
+"eid": null,
+"races": [
+"MO-02"
+],
+"group": "No method data",
+"categories": "Totals only ('Consolidated Results')",
+"in_scope": true
+},
+"30029": {
+"state": "MT",
+"county": "Flathead",
+"kind": "none",
+"url": "https://flathead.mt.gov/application/files/4817/1514/9051/Spec_24_RESULTS.pdf",
+"eid": null,
+"races": [
+"MT-01"
+],
+"group": "No method data",
+"categories": "Totals only; ES&S summary header tracks absentee vs Election Day precincts reporting",
+"in_scope": true
+},
+"30031": {
+"state": "MT",
+"county": "Gallatin",
+"kind": "none",
+"url": "https://www.gallatinmt.gov/sites/g/files/vyhlif606/f/uploads/may_7_2024_unoffical_final_results.pdf",
+"eid": null,
+"races": [
+"MT-01"
+],
+"group": "No method data",
+"categories": "Totals only; ES&S summary header tracks absentee vs Election Day precincts reporting",
+"in_scope": true
+},
+"30047": {
+"state": "MT",
+"county": "Lake",
+"kind": "unknown",
+"url": null,
+"eid": null,
+"races": [
+"MT-01"
+],
+"group": "Unknown",
+"categories": "Probably totals only, like Missoula/Gallatin/Flathead",
+"in_scope": true
+},
+"30053": {
+"state": "MT",
+"county": "Lincoln",
+"kind": "unknown",
+"url": null,
+"eid": null,
+"races": [
+"MT-01"
+],
+"group": "Unknown",
+"categories": "Probably totals only, like Missoula/Gallatin/Flathead",
+"in_scope": true
+},
+"30063": {
+"state": "MT",
+"county": "Missoula",
+"kind": "none",
+"url": "https://www.missoulacounty.gov/media/2iudsahi/20251104-final-e-night-results.pdf",
+"eid": null,
+"races": [
+"MT-01"
+],
+"group": "No method data",
+"categories": "Totals only; ES&S summary header tracks absentee vs Election Day precincts reporting",
+"in_scope": true
+},
+"30081": {
+"state": "MT",
+"county": "Ravalli",
+"kind": "unknown",
+"url": null,
+"eid": null,
+"races": [
+"MT-01"
+],
+"group": "Unknown",
+"categories": "Probably totals only, like Missoula/Gallatin/Flathead",
+"in_scope": true
+},
+"30093": {
+"state": "MT",
+"county": "Silver Bow",
+"kind": "unknown",
+"url": null,
+"eid": null,
+"races": [
+"MT-01"
+],
+"group": "Unknown",
+"categories": "Probably totals only, like Missoula/Gallatin/Flathead",
+"in_scope": true
+},
+"37013": {
+"state": "NC",
+"county": "Beaufort",
+"kind": "nc",
+"url": "https://er.ncsbe.gov/enr/20241105/data/results_7.txt",
+"eid": null,
+"races": [
+"NC-01"
+],
+"group": "Scrapeable: NCSBE JSON text",
+"categories": "Election Day (evc), One-Stop early (ovc), Absentee by Mail (avc), Provisional (pvc)",
+"in_scope": true
+},
+"37021": {
+"state": "NC",
+"county": "Buncombe",
+"kind": "nc",
+"url": "https://er.ncsbe.gov/enr/20241105/data/results_11.txt",
+"eid": null,
+"races": [
+"NC-11"
+],
+"group": "Scrapeable: NCSBE JSON text",
+"categories": "Election Day (evc), One-Stop early (ovc), Absentee by Mail (avc), Provisional (pvc)",
+"in_scope": true
+},
+"37031": {
+"state": "NC",
+"county": "Carteret",
+"kind": "nc",
+"url": "https://er.ncsbe.gov/enr/20241105/data/results_16.txt",
+"eid": null,
+"races": [
+"NC-01"
+],
+"group": "Scrapeable: NCSBE JSON text",
+"categories": "Election Day (evc), One-Stop early (ovc), Absentee by Mail (avc), Provisional (pvc)",
+"in_scope": true
+},
+"37039": {
+"state": "NC",
+"county": "Cherokee",
+"kind": "nc",
+"url": "https://er.ncsbe.gov/enr/20241105/data/results_20.txt",
+"eid": null,
+"races": [
+"NC-11"
+],
+"group": "Scrapeable: NCSBE JSON text",
+"categories": "Election Day (evc), One-Stop early (ovc), Absentee by Mail (avc), Provisional (pvc)",
+"in_scope": true
+},
+"37049": {
+"state": "NC",
+"county": "Craven",
+"kind": "nc",
+"url": "https://er.ncsbe.gov/enr/20241105/data/results_25.txt",
+"eid": null,
+"races": [
+"NC-01"
+],
+"group": "Scrapeable: NCSBE JSON text",
+"categories": "Election Day (evc), One-Stop early (ovc), Absentee by Mail (avc), Provisional (pvc)",
+"in_scope": true
+},
+"37053": {
+"state": "NC",
+"county": "Currituck",
+"kind": "nc",
+"url": "https://er.ncsbe.gov/enr/20241105/data/results_27.txt",
+"eid": null,
+"races": [
+"NC-01"
+],
+"group": "Scrapeable: NCSBE JSON text",
+"categories": "Election Day (evc), One-Stop early (ovc), Absentee by Mail (avc), Provisional (pvc)",
+"in_scope": true
+},
+"37055": {
+"state": "NC",
+"county": "Dare",
+"kind": "nc",
+"url": "https://er.ncsbe.gov/enr/20241105/data/results_28.txt",
+"eid": null,
+"races": [
+"NC-01"
+],
+"group": "Scrapeable: NCSBE JSON text",
+"categories": "Election Day (evc), One-Stop early (ovc), Absentee by Mail (avc), Provisional (pvc)",
+"in_scope": true
+},
+"37065": {
+"state": "NC",
+"county": "Edgecombe",
+"kind": "nc",
+"url": "https://er.ncsbe.gov/enr/20241105/data/results_33.txt",
+"eid": null,
+"races": [
+"NC-01"
+],
+"group": "Scrapeable: NCSBE JSON text",
+"categories": "Election Day (evc), One-Stop early (ovc), Absentee by Mail (avc), Provisional (pvc)",
+"in_scope": true
+},
+"37083": {
+"state": "NC",
+"county": "Halifax",
+"kind": "nc",
+"url": "https://er.ncsbe.gov/enr/20241105/data/results_42.txt",
+"eid": null,
+"races": [
+"NC-01"
+],
+"group": "Scrapeable: NCSBE JSON text",
+"categories": "Election Day (evc), One-Stop early (ovc), Absentee by Mail (avc), Provisional (pvc)",
+"in_scope": true
+},
+"37087": {
+"state": "NC",
+"county": "Haywood",
+"kind": "nc",
+"url": "https://er.ncsbe.gov/enr/20241105/data/results_44.txt",
+"eid": null,
+"races": [
+"NC-11"
+],
+"group": "Scrapeable: NCSBE JSON text",
+"categories": "Election Day (evc), One-Stop early (ovc), Absentee by Mail (avc), Provisional (pvc)",
+"in_scope": true
+},
+"37089": {
+"state": "NC",
+"county": "Henderson",
+"kind": "nc",
+"url": "https://er.ncsbe.gov/enr/20241105/data/results_45.txt",
+"eid": null,
+"races": [
+"NC-11"
+],
+"group": "Scrapeable: NCSBE JSON text",
+"categories": "Election Day (evc), One-Stop early (ovc), Absentee by Mail (avc), Provisional (pvc)",
+"in_scope": true
+},
+"37099": {
+"state": "NC",
+"county": "Jackson",
+"kind": "nc",
+"url": "https://er.ncsbe.gov/enr/20241105/data/results_50.txt",
+"eid": null,
+"races": [
+"NC-11"
+],
+"group": "Scrapeable: NCSBE JSON text",
+"categories": "Election Day (evc), One-Stop early (ovc), Absentee by Mail (avc), Provisional (pvc)",
+"in_scope": true
+},
+"37113": {
+"state": "NC",
+"county": "Macon",
+"kind": "nc",
+"url": "https://er.ncsbe.gov/enr/20241105/data/results_56.txt",
+"eid": null,
+"races": [
+"NC-11"
+],
+"group": "Scrapeable: NCSBE JSON text",
+"categories": "Election Day (evc), One-Stop early (ovc), Absentee by Mail (avc), Provisional (pvc)",
+"in_scope": true
+},
+"37115": {
+"state": "NC",
+"county": "Madison",
+"kind": "nc",
+"url": "https://er.ncsbe.gov/enr/20241105/data/results_57.txt",
+"eid": null,
+"races": [
+"NC-11"
+],
+"group": "Scrapeable: NCSBE JSON text",
+"categories": "Election Day (evc), One-Stop early (ovc), Absentee by Mail (avc), Provisional (pvc)",
+"in_scope": true
+},
+"37111": {
+"state": "NC",
+"county": "McDowell",
+"kind": "nc",
+"url": "https://er.ncsbe.gov/enr/20241105/data/results_59.txt",
+"eid": null,
+"races": [
+"NC-11"
+],
+"group": "Scrapeable: NCSBE JSON text",
+"categories": "Election Day (evc), One-Stop early (ovc), Absentee by Mail (avc), Provisional (pvc)",
+"in_scope": true
+},
+"37127": {
+"state": "NC",
+"county": "Nash",
+"kind": "nc",
+"url": "https://er.ncsbe.gov/enr/20241105/data/results_64.txt",
+"eid": null,
+"races": [
+"NC-01"
+],
+"group": "Scrapeable: NCSBE JSON text",
+"categories": "Election Day (evc), One-Stop early (ovc), Absentee by Mail (avc), Provisional (pvc)",
+"in_scope": true
+},
+"37139": {
+"state": "NC",
+"county": "Pasquotank",
+"kind": "nc",
+"url": "https://er.ncsbe.gov/enr/20241105/data/results_70.txt",
+"eid": null,
+"races": [
+"NC-01"
+],
+"group": "Scrapeable: NCSBE JSON text",
+"categories": "Election Day (evc), One-Stop early (ovc), Absentee by Mail (avc), Provisional (pvc)",
+"in_scope": true
+},
+"37175": {
+"state": "NC",
+"county": "Transylvania",
+"kind": "nc",
+"url": "https://er.ncsbe.gov/enr/20241105/data/results_88.txt",
+"eid": null,
+"races": [
+"NC-11"
+],
+"group": "Scrapeable: NCSBE JSON text",
+"categories": "Election Day (evc), One-Stop early (ovc), Absentee by Mail (avc), Provisional (pvc)",
+"in_scope": true
+},
+"37181": {
+"state": "NC",
+"county": "Vance",
+"kind": "nc",
+"url": "https://er.ncsbe.gov/enr/20241105/data/results_91.txt",
+"eid": null,
+"races": [
+"NC-01"
+],
+"group": "Scrapeable: NCSBE JSON text",
+"categories": "Election Day (evc), One-Stop early (ovc), Absentee by Mail (avc), Provisional (pvc)",
+"in_scope": true
+},
+"31025": {
+"state": "NE",
+"county": "Cass",
+"kind": "clarity_blocked",
+"url": "https://results.enr.clarityelections.com/NE/Cass/126289/web.345435/#/summary",
+"eid": "126289",
+"races": [
+"NE-01"
+],
+"group": "Clarity, vote types not read (blocked)",
+"categories": "Clarity ENR used on election night; vote types not read",
+"in_scope": true
+},
+"31053": {
+"state": "NE",
+"county": "Dodge",
+"kind": "unknown",
+"url": "https://countyelectionresults.nebraska.gov/election_files/Dodge/2026_Primary_official_results.pdf",
+"eid": null,
+"races": [
+"NE-01"
+],
+"group": "Unknown",
+"categories": "nan",
+"in_scope": true
+},
+"31109": {
+"state": "NE",
+"county": "Lancaster",
+"kind": "pdf",
+"url": "https://www.lancaster.ne.gov/DocumentCenter/View/25877",
+"eid": null,
+"races": [
+"NE-01"
+],
+"group": "PDF",
+"categories": "Election Day, Early Voting, Provisional",
+"in_scope": true
+},
+"31119": {
+"state": "NE",
+"county": "Madison",
+"kind": "pdf",
+"url": "https://countyelectionresults.nebraska.gov/election_files/Madison/2026_Primary_official_results.pdf",
+"eid": null,
+"races": [
+"NE-01"
+],
+"group": "PDF",
+"categories": "Election Day, Early Voting, Provisional",
+"in_scope": true
+},
+"31141": {
+"state": "NE",
+"county": "Platte",
+"kind": "pdf",
+"url": "https://countyelectionresults.nebraska.gov/election_files/Platte/2026_Primary_official_results.pdf",
+"eid": null,
+"races": [
+"NE-01"
+],
+"group": "PDF (scanned, needs OCR)",
+"categories": "Election Day, Early Voting, Provisional",
+"in_scope": true
+},
+"31153": {
+"state": "NE",
+"county": "Sarpy",
+"kind": "clarity_blocked",
+"url": "https://results.enr.clarityelections.com/NE/Sarpy/126282/web.345435/#/summary",
+"eid": "126282",
+"races": [
+"NE-01"
+],
+"group": "Clarity, vote types not read (blocked)",
+"categories": "Clarity ENR used on election night; vote types not read",
+"in_scope": true
+},
+"34001": {
+"state": "NJ",
+"county": "Atlantic",
+"kind": "pdf",
+"url": "https://www.atlanticcountyclerk.org/wp-content/uploads/2024/12/2024-General-Election-Results-Full.pdf",
+"eid": null,
+"races": [
+"NJ-02"
+],
+"group": "PDF",
+"categories": "Election Day, Vote by Mail, Early Voting, Provisional (by municipality)",
+"in_scope": true
+},
+"34009": {
+"state": "NJ",
+"county": "Cape May",
+"kind": "unknown",
+"url": null,
+"eid": null,
+"races": [
+"NJ-02"
+],
+"group": "Unknown",
+"categories": "nan",
+"in_scope": true
+},
+"34011": {
+"state": "NJ",
+"county": "Cumberland",
+"kind": "none",
+"url": "https://ccclerknj.com/wp-content/uploads/2024/06/SUMMARY-REPORT.pdf",
+"eid": null,
+"races": [
+"NJ-02"
+],
+"group": "No method data",
+"categories": "Totals only",
+"in_scope": true
+},
+"34015": {
+"state": "NJ",
+"county": "Gloucester",
+"kind": "unknown",
+"url": null,
+"eid": null,
+"races": [
+"NJ-02"
+],
+"group": "Unknown",
+"categories": "nan",
+"in_scope": true
+},
+"34019": {
+"state": "NJ",
+"county": "Hunterdon",
+"kind": "partial",
+"url": "https://www.co.hunterdon.nj.us/DocumentCenter/View/15968/G2024-Official-Elections-Results-PDF",
+"eid": null,
+"races": [
+"NJ-07"
+],
+"group": "Partial: method as virtual precincts/districts",
+"categories": "Vote By Mail and Provisional reported as separate virtual districts in each municipality; in-person (ED + early) in the regular districts",
+"in_scope": true
+},
+"34027": {
+"state": "NJ",
+"county": "Morris",
+"kind": "pdf",
+"url": "https://www.morriscountyclerk.org/files/sharedassets/clerk/v/4/elections/past-results/2024-primary-summary-report-official.pdf",
+"eid": null,
+"races": [
+"NJ-07"
+],
+"group": "PDF",
+"categories": "Early Voting, Election Day, Mail-In, Provisional, Emergency, State/Fed",
+"in_scope": true
+},
+"34029": {
+"state": "NJ",
+"county": "Ocean",
+"kind": "clarity_blocked",
+"url": "https://results.enr.clarityelections.com/NJ/Ocean/126367/",
+"eid": "126367",
+"races": [
+"NJ-02"
+],
+"group": "Clarity, vote types not read (blocked)",
+"categories": "Clarity ENR used on election night; vote types not read",
+"in_scope": true
+},
+"34033": {
+"state": "NJ",
+"county": "Salem",
+"kind": "ess",
+"url": "https://www.livevoterturnout.com/ENR/salemnjenr/7/summary_7.xml",
+"eid": null,
+"races": [
+"NJ-02"
+],
+"group": "Scrapeable: ES&S ENR summary XML",
+"categories": "Early Voting, Vote by Mail, Election Day, Provisional",
+"in_scope": true
+},
+"34035": {
+"state": "NJ",
+"county": "Somerset",
+"kind": "pdf",
+"url": "https://nj21st.com/wp-content/uploads/2025/06/Official-Summary-Report-61925.pdf",
+"eid": null,
+"races": [
+"NJ-07"
+],
+"group": "PDF",
+"categories": "Early Voting, Vote by Mail, Election Day, Provisional Ballots",
+"in_scope": true
+},
+"34037": {
+"state": "NJ",
+"county": "Sussex",
+"kind": "pdf",
+"url": "https://www.sussex.nj.us/DocumentCenter/View/3936/11-4-2025-GE-OFF---Countywide-Summary-SUPP",
+"eid": null,
+"races": [
+"NJ-07"
+],
+"group": "PDF",
+"categories": "Early Voting, Election Day, Mail-In, Provisional, Overseas",
+"in_scope": true
+},
+"34039": {
+"state": "NJ",
+"county": "Union",
+"kind": "unknown",
+"url": null,
+"eid": null,
+"races": [
+"NJ-07"
+],
+"group": "Unknown",
+"categories": "nan",
+"in_scope": true
+},
+"34041": {
+"state": "NJ",
+"county": "Warren",
+"kind": "pdf",
+"url": "https://www.warrencountyvotes.com/home/showpublisheddocument/11388/638772143175700000",
+"eid": null,
+"races": [
+"NJ-07"
+],
+"group": "PDF",
+"categories": "Election Day, Vote By Mail, Provisional, Early Voting",
+"in_scope": true
+},
+"32510": {
+"state": "NV",
+"county": "Carson City",
+"kind": "pdf",
+"url": "https://carson.org/home/showpublisheddocument/90421/638676020050300000",
+"eid": null,
+"races": [
+"NV-02"
+],
+"group": "PDF",
+"categories": "Election Day, Mail Ballot, Early Voting",
+"in_scope": true
+},
+"32001": {
+"state": "NV",
+"county": "Churchill",
+"kind": "unknown",
+"url": null,
+"eid": null,
+"races": [
+"NV-02"
+],
+"group": "Unknown",
+"categories": "nan",
+"in_scope": true
+},
+"32003": {
+"state": "NV",
+"county": "Clark",
+"kind": "none",
+"url": "https://elections.clarkcountynv.gov/electionresultsTV/results.aspx",
+"eid": null,
+"races": [
+"NV-Gov"
+],
+"group": "No method data",
+"categories": "Candidate totals only; turnout split ED / Early / Mail at top of results",
+"in_scope": true
+},
+"32005": {
+"state": "NV",
+"county": "Douglas",
+"kind": "none",
+"url": "https://cdnsm5-hosted.civiclive.com/UserFiles/Servers/Server_18102038/File/Elections/2026/26%20Primary%20Results/3%20-%20Douglas2026PrimarySummaryFinal.pdf",
+"eid": null,
+"races": [
+"NV-02"
+],
+"group": "No method data",
+"categories": "Totals only per contest; turnout split by Early / ED / Mail",
+"in_scope": true
+},
+"32007": {
+"state": "NV",
+"county": "Elko",
+"kind": "unknown",
+"url": null,
+"eid": null,
+"races": [
+"NV-02"
+],
+"group": "Unknown",
+"categories": "nan",
+"in_scope": true
+},
+"32019": {
+"state": "NV",
+"county": "Lyon",
+"kind": "unknown",
+"url": null,
+"eid": null,
+"races": [
+"NV-02"
+],
+"group": "Unknown",
+"categories": "nan",
+"in_scope": true
+},
+"32031": {
+"state": "NV",
+"county": "Washoe",
+"kind": "none",
+"url": "https://www.washoecounty.gov/voters/results/results.php",
+"eid": null,
+"races": [
+"NV-02",
+"NV-Gov"
+],
+"group": "No method data",
+"categories": "Totals only, but every upload is posted as its own numbered PDF",
+"in_scope": true
+},
+"36027": {
+"state": "NY",
+"county": "Dutchess",
+"kind": "enhanced",
+"url": "https://app.enhancedvoting.com/results/public/Dutchess-County-NY/elections/ge24",
+"eid": null,
+"races": [
+"NY-17"
+],
+"group": "Scrapeable: Enhanced Voting JSON",
+"categories": "Election Day, Early Voting, ABS/AFF/EVBM (absentee + affidavit + early mail combined)",
+"in_scope": true
+},
+"36079": {
+"state": "NY",
+"county": "Putnam",
+"kind": "enhanced",
+"url": "https://app.enhancedvoting.com/results/public/Putnam-County-NY",
+"eid": null,
+"races": [
+"NY-17"
+],
+"group": "Scrapeable: Enhanced Voting JSON",
+"categories": "Election Day, Early Voting, Absentee",
+"in_scope": true
+},
+"36087": {
+"state": "NY",
+"county": "Rockland",
+"kind": "enhanced",
+"url": "https://app.enhancedvoting.com/results/public/Rockland-County-NY",
+"eid": null,
+"races": [
+"NY-17"
+],
+"group": "Scrapeable: Enhanced Voting JSON",
+"categories": "Early Voting, Absentee, Election Day",
+"in_scope": true
+},
+"36103": {
+"state": "NY",
+"county": "Suffolk",
+"kind": "none",
+"url": "https://app.enhancedvoting.com/results/public/Suffolk-County-NY",
+"eid": null,
+"races": [
+"NY-01"
+],
+"group": "No method data",
+"categories": "Totals only on Enhanced Voting (no group results)",
+"in_scope": true
+},
+"36119": {
+"state": "NY",
+"county": "Westchester",
+"kind": "enhanced",
+"url": "https://app.enhancedvoting.com/results/public/Westchester-County-NY",
+"eid": null,
+"races": [
+"NY-17"
+],
+"group": "Scrapeable: Enhanced Voting JSON",
+"categories": "Early Voting, Election Day, Vote By Mail/Absentee, Federal, Affidavit",
+"in_scope": true
+},
+"39005": {
+"state": "OH",
+"county": "Ashland",
+"kind": "none",
+"url": "https://www.boe.ohio.gov/ashland/c/elecres/20261103results.pdf",
+"eid": null,
+"races": [
+"OH-07"
+],
+"group": "No method data",
+"categories": "Totals only",
+"in_scope": true
+},
+"39017": {
+"state": "OH",
+"county": "Butler",
+"kind": "ess",
+"url": "https://www.livevoterturnout.com/ENR/butlerohenr/20/summary_20.xml",
+"eid": null,
+"races": [
+"OH-10",
+"OH-Gov",
+"OH-Sen"
+],
+"group": "Scrapeable: ES&S ENR summary XML",
+"categories": "Absentee Voting, Election Day, Provisional",
+"in_scope": true
+},
+"39035": {
+"state": "OH",
+"county": "Cuyahoga",
+"kind": "enhanced",
+"url": "https://app.enhancedvoting.com/results/public/Cuyahoga-County-OH/elections/general11052024",
+"eid": null,
+"races": [
+"OH-07",
+"OH-Gov",
+"OH-Sen"
+],
+"group": "Scrapeable: Enhanced Voting JSON",
+"categories": "Early In-Person, Election Day, Post VBM, Provisional, Vote By Mail (group names as published)",
+"in_scope": true
+},
+"39039": {
+"state": "OH",
+"county": "Defiance",
+"kind": "none",
+"url": "https://www.boe.ohio.gov/defiance/c/elecres/20261103results.pdf",
+"eid": null,
+"races": [
+"OH-09"
+],
+"group": "No method data",
+"categories": "Totals only",
+"in_scope": true
+},
+"39043": {
+"state": "OH",
+"county": "Erie",
+"kind": "pdf",
+"url": "https://www.boe.ohio.gov/erie/c/elecres/20261103results.pdf",
+"eid": null,
+"races": [
+"OH-09"
+],
+"group": "PDF",
+"categories": "Election Day, Absentee, Provisional",
+"in_scope": true
+},
+"39047": {
+"state": "OH",
+"county": "Fayette",
+"kind": "pdf",
+"url": "https://www.boe.ohio.gov/fayette/c/elecres/20261103results.pdf",
+"eid": null,
+"races": [
+"OH-15"
+],
+"group": "PDF (scanned, needs OCR)",
+"categories": "Election Day, Absentee In Office, Absentee Mail, Provisional",
+"in_scope": true
+},
+"39049": {
+"state": "OH",
+"county": "Franklin",
+"kind": "pdf",
+"url": "https://vote.franklincountyohio.gov/getmedia/f82b3e8c-66d6-4453-adfa-e62157167e29/Franklin-s-Unofficial-Canvass-Group-Detail",
+"eid": null,
+"races": [
+"OH-15",
+"OH-Gov",
+"OH-Sen"
+],
+"group": "PDF",
+"categories": "Mail Absentee, In Office Absentee (early in-person), Election Day, Provisional",
+"in_scope": true
+},
+"39051": {
+"state": "OH",
+"county": "Fulton",
+"kind": "clarity_blocked",
+"url": "https://results.enr.clarityelections.com/OH/Fulton/122839/",
+"eid": "122839",
+"races": [
+"OH-09"
+],
+"group": "Clarity, vote types not read (blocked)",
+"categories": "Clarity ENR since 2024; vote types not read",
+"in_scope": true
+},
+"39057": {
+"state": "OH",
+"county": "Greene",
+"kind": "none",
+"url": "https://www.boe.ohio.gov/greene/c/elecres/20261103results.pdf",
+"eid": null,
+"races": [
+"OH-10"
+],
+"group": "No method data",
+"categories": "Totals only (canvass format)",
+"in_scope": true
+},
+"39061": {
+"state": "OH",
+"county": "Hamilton",
+"kind": "ess",
+"url": "https://www.livevoterturnout.com/ENR/hamiltonohenr/1/summary_1.xml",
+"eid": null,
+"races": [
+"OH-Gov",
+"OH-Sen"
+],
+"group": "Scrapeable: ES&S ENR summary XML",
+"categories": "Early Voting, Mail Ballots, Election Day, Provisional",
+"in_scope": true
+},
+"39069": {
+"state": "OH",
+"county": "Henry",
+"kind": "unknown",
+"url": null,
+"eid": null,
+"races": [
+"OH-09"
+],
+"group": "Unknown",
+"categories": "nan",
+"in_scope": true
+},
+"39071": {
+"state": "OH",
+"county": "Highland",
+"kind": "pdf",
+"url": "https://www.boe.ohio.gov/highland/c/elecres/20261103results.pdf",
+"eid": null,
+"races": [
+"OH-15"
+],
+"group": "PDF",
+"categories": "AB (absentee mail), ED, EV (early in-person), PR",
+"in_scope": true
+},
+"39095": {
+"state": "OH",
+"county": "Lucas",
+"kind": "ess",
+"url": "https://www.livevoterturnout.com/ENR/lucasohenr/19/summary_19.xml",
+"eid": null,
+"races": [
+"OH-09",
+"OH-Gov",
+"OH-Sen"
+],
+"group": "Scrapeable: ES&S ENR summary XML",
+"categories": "Early Voting (in-person), Absentee Ballots (mail), Election Day, Provisional",
+"in_scope": true
+},
+"39097": {
+"state": "OH",
+"county": "Madison",
+"kind": "pdf",
+"url": "https://www.boe.ohio.gov/madison/c/elecres/20261103results.pdf",
+"eid": null,
+"races": [
+"OH-15"
+],
+"group": "PDF",
+"categories": "Election Day, Absentee Mail, Absentee Office, Provisional",
+"in_scope": true
+},
+"39103": {
+"state": "OH",
+"county": "Medina",
+"kind": "pdf",
+"url": "https://www.boe.ohio.gov/medina/c/elecres/20261103results.pdf",
+"eid": null,
+"races": [
+"OH-07"
+],
+"group": "PDF (scanned, needs OCR)",
+"categories": "Absentee, Early Voting, Election Day, Provisional",
+"in_scope": true
+},
+"39109": {
+"state": "OH",
+"county": "Miami",
+"kind": "none",
+"url": "https://www.boe.ohio.gov/miami/c/elecres/20261103results.pdf",
+"eid": null,
+"races": [
+"OH-15"
+],
+"group": "No method data",
+"categories": "Totals only",
+"in_scope": true
+},
+"39113": {
+"state": "OH",
+"county": "Montgomery",
+"kind": "enhanced",
+"url": "https://app.enhancedvoting.com/results/public/Montgomery-County-OH",
+"eid": null,
+"races": [
+"OH-10",
+"OH-Gov",
+"OH-Sen"
+],
+"group": "Scrapeable: Enhanced Voting JSON",
+"categories": "Election Day, Absentee, Early Voting, Provisional, Absentee Add-In, Election Day Add-In, Early Voting Add-In",
+"in_scope": true
+},
+"39123": {
+"state": "OH",
+"county": "Ottawa",
+"kind": "pdf",
+"url": "https://boe.ottawa.oh.gov/wp-content/uploads/2024/04/Election-Summary-Group-Detail.pdf",
+"eid": null,
+"races": [
+"OH-09"
+],
+"group": "PDF",
+"categories": "Election Day, Absentee, Provisional",
+"in_scope": true
+},
+"39129": {
+"state": "OH",
+"county": "Pickaway",
+"kind": "pdf",
+"url": "https://www.boe.ohio.gov/pickaway/c/elecres/20261103results.pdf",
+"eid": null,
+"races": [
+"OH-15"
+],
+"group": "PDF",
+"categories": "Election Day, In Office Absentee, Mail Absentee, Provisional",
+"in_scope": true
+},
+"39137": {
+"state": "OH",
+"county": "Putnam",
+"kind": "none",
+"url": "https://www.boe.ohio.gov/putnam/c/elecres/20261103results.pdf",
+"eid": null,
+"races": [
+"OH-09"
+],
+"group": "No method data",
+"categories": "Totals only",
+"in_scope": true
+},
+"39151": {
+"state": "OH",
+"county": "Stark",
+"kind": "ess",
+"url": "https://www.livevoterturnout.com/ENR/starkohenr/10/summary_10.xml",
+"eid": null,
+"races": [
+"OH-Gov",
+"OH-Sen"
+],
+"group": "Scrapeable: ES&S ENR summary XML",
+"categories": "Vote by Mail, Election Day, Provisional (EarlyInPerson field present, 0)",
+"in_scope": true
+},
+"39153": {
+"state": "OH",
+"county": "Summit",
+"kind": "enhanced",
+"url": "https://app.enhancedvoting.com/results/public/Summit-County-OH",
+"eid": null,
+"races": [
+"OH-Gov",
+"OH-Sen"
+],
+"group": "Scrapeable: Enhanced Voting JSON",
+"categories": "Polls, Abs Walk-in (early in-person), Abs Mail, Timely Abs (late mail), Provisional",
+"in_scope": true
+},
+"39169": {
+"state": "OH",
+"county": "Wayne",
+"kind": "none",
+"url": "https://www.waynecountyoh.gov/wp-content/uploads/2024/03/March-24-Primary-64-precincts-reporting.pdf",
+"eid": null,
+"races": [
+"OH-07"
+],
+"group": "No method data",
+"categories": "Totals per contest; ballots cast by Election Day / Absentee (ICX and paper) / Provisional in header",
+"in_scope": true
+},
+"39171": {
+"state": "OH",
+"county": "Williams",
+"kind": "unknown",
+"url": null,
+"eid": null,
+"races": [
+"OH-09"
+],
+"group": "Unknown",
+"categories": "nan",
+"in_scope": true
+},
+"39173": {
+"state": "OH",
+"county": "Wood",
+"kind": "none",
+"url": "https://boe.woodcountyohio.gov/DocumentCenter/View/419",
+"eid": null,
+"races": [
+"OH-09"
+],
+"group": "No method data",
+"categories": "Totals per contest; ballots cast by ED / Absentee / Provisional in header",
+"in_scope": true
+},
+"42017": {
+"state": "PA",
+"county": "Bucks",
+"kind": "ess",
+"url": "https://www.livevoterturnout.com/ENR/buckspaenr/18/summary_18.xml",
+"eid": null,
+"races": [
+"PA-01"
+],
+"group": "Scrapeable: ES&S ENR summary XML",
+"categories": "Absentee and Mail-In, Election Day, Provisional (EarlyVoting field present, 0)",
+"in_scope": true
+},
+"42025": {
+"state": "PA",
+"county": "Carbon",
+"kind": "pdf",
+"url": "https://cms5.revize.com/revize/carboncounty/Document%20Center/Service/Elections%20Voter%20Registration/2025%20Nov%204%20Municipal%20General/2025%20Official%20Results.pdf",
+"eid": null,
+"races": [
+"PA-07"
+],
+"group": "PDF",
+"categories": "Election Day, Mail-In, Provisional",
+"in_scope": true
+},
+"42041": {
+"state": "PA",
+"county": "Cumberland",
+"kind": "unknown",
+"url": "https://www.cumberlandcountypa.gov/3135/Election-Results",
+"eid": null,
+"races": [
+"PA-10"
+],
+"group": "Unknown",
+"categories": "Press release on election night gives in-person vs mail ballot counts (not by candidate)",
+"in_scope": true
+},
+"42043": {
+"state": "PA",
+"county": "Dauphin",
+"kind": "unknown",
+"url": "https://www.dauphinc.org/election/PreceinctByBallot?key=38&race=UNITED%20STATES%20SENATOR",
+"eid": null,
+"races": [
+"PA-10"
+],
+"group": "Scrapeable: clean HTML",
+"categories": "Machine (Election Day), Mail-in, Provisional",
+"in_scope": true
+},
+"42069": {
+"state": "PA",
+"county": "Lackawanna",
+"kind": "pdf",
+"url": "https://www.lackawannacounty.org/government/departments/elections/certified_election_results.php",
+"eid": null,
+"races": [
+"PA-08"
+],
+"group": "PDF",
+"categories": "Election Day, Mail Votes, Provisional Votes",
+"in_scope": true
+},
+"42077": {
+"state": "PA",
+"county": "Lehigh",
+"kind": "ess",
+"url": "https://www.livevoterturnout.com/ENR/lehighpaenr/8/summary_8.xml",
+"eid": null,
+"races": [
+"PA-07"
+],
+"group": "Scrapeable: ES&S ENR summary XML",
+"categories": "Election Day, Mail Ballots, Provisional (InPerson field present, 0)",
+"in_scope": true
+},
+"42079": {
+"state": "PA",
+"county": "Luzerne",
+"kind": "clarity",
+"url": "https://results.enr.clarityelections.com/PA/Luzerne/124698/web.345435/#/summary",
+"eid": "124698",
+"races": [
+"PA-08"
+],
+"group": "Scrapeable: Clarity JSON (vt.json)",
+"categories": "Election Day, Provisional, Mail in / Absentee",
+"in_scope": true
+},
+"42089": {
+"state": "PA",
+"county": "Monroe",
+"kind": "pdf",
+"url": "https://agencies2.monroecountypa.gov/elections/pdf/election2024.pdf",
+"eid": null,
+"races": [
+"PA-08"
+],
+"group": "PDF",
+"categories": "ED, MI (mail-in), PR",
+"in_scope": true
+},
+"42091": {
+"state": "PA",
+"county": "Montgomery",
+"kind": "pdf",
+"url": "https://webapp07.montcopa.org/election/2024UnofficialGeneralElectionSummaryReport.pdf",
+"eid": null,
+"races": [
+"PA-01"
+],
+"group": "PDF",
+"categories": "Election Day, Mail-in, Provisional",
+"in_scope": true
+},
+"42095": {
+"state": "PA",
+"county": "Northampton",
+"kind": "ess",
+"url": "https://www.livevoterturnout.com/ENR/northamptonpaenr/7/summary_7.xml",
+"eid": null,
+"races": [
+"PA-07"
+],
+"group": "Scrapeable: ES&S ENR summary XML",
+"categories": "Mail-in Ballots, Election Day, Provisional",
+"in_scope": true
+},
+"42103": {
+"state": "PA",
+"county": "Pike",
+"kind": "clarity",
+"url": "https://cms7files.revize.com/pikecountypa/Document%20Center/Government/Election%20Office/2024/Nov.%205,%202024%20Official%20Summary%20of%20Results.pdf",
+"eid": "126373",
+"races": [
+"PA-08"
+],
+"group": "Scrapeable: Clarity JSON (vt.json)",
+"categories": "Election Day, Mail, Provisional",
+"in_scope": true
+},
+"42127": {
+"state": "PA",
+"county": "Wayne",
+"kind": "pdf",
+"url": "https://waynecountypa.gov/Archive.aspx?ADID=348",
+"eid": null,
+"races": [
+"PA-08"
+],
+"group": "PDF",
+"categories": "ED, MI (mail-in), PR",
+"in_scope": true
+},
+"42133": {
+"state": "PA",
+"county": "York",
+"kind": "clarity_blocked",
+"url": "https://results.enr.clarityelections.com/PA/York/122493/",
+"eid": "122493",
+"races": [
+"PA-10"
+],
+"group": "Clarity, vote types not read (blocked)",
+"categories": "Clarity ENR used since fall 2020; vote types not read",
+"in_scope": true
+},
+"45003": {
+"state": "SC",
+"county": "Aiken",
+"kind": "clarity",
+"url": "https://www.enr-scvotes.org/SC/Aiken/126296/",
+"eid": "126296",
+"races": [
+"SC-Sen"
+],
+"group": "Scrapeable: Clarity JSON (vt.json)",
+"categories": "Election Day, Early Voting, Absentee By Mail, Failsafe, Provisional, Failsafe Provisional",
+"in_scope": true
+},
+"45007": {
+"state": "SC",
+"county": "Anderson",
+"kind": "clarity",
+"url": "https://www.enr-scvotes.org/SC/Anderson/126298/",
+"eid": "126298",
+"races": [
+"SC-Sen"
+],
+"group": "Scrapeable: Clarity JSON (vt.json)",
+"categories": "Election Day, Early Voting, Absentee By Mail, Failsafe, Provisional, Failsafe Provisional",
+"in_scope": true
+},
+"45013": {
+"state": "SC",
+"county": "Beaufort",
+"kind": "clarity",
+"url": "https://www.enr-scvotes.org/SC/Beaufort/126301/",
+"eid": "126301",
+"races": [
+"SC-01",
+"SC-Sen"
+],
+"group": "Scrapeable: Clarity JSON (vt.json)",
+"categories": "Election Day, Early Voting, Absentee By Mail, Failsafe, Provisional, Failsafe Provisional",
+"in_scope": true
+},
+"45015": {
+"state": "SC",
+"county": "Berkeley",
+"kind": "clarity",
+"url": "https://www.enr-scvotes.org/SC/Berkeley/126302/",
+"eid": "126302",
+"races": [
+"SC-01",
+"SC-Sen"
+],
+"group": "Scrapeable: Clarity JSON (vt.json)",
+"categories": "Election Day, Early Voting, Absentee By Mail, Failsafe, Provisional, Failsafe Provisional",
+"in_scope": true
+},
+"45019": {
+"state": "SC",
+"county": "Charleston",
+"kind": "clarity",
+"url": "https://www.enr-scvotes.org/SC/Charleston/126304/",
+"eid": "126304",
+"races": [
+"SC-01",
+"SC-Sen"
+],
+"group": "Scrapeable: Clarity JSON (vt.json)",
+"categories": "Election Day, Early Voting, Absentee By Mail, Failsafe, Provisional, Failsafe Provisional",
+"in_scope": true
+},
+"45035": {
+"state": "SC",
+"county": "Dorchester",
+"kind": "clarity",
+"url": "https://www.enr-scvotes.org/SC/Dorchester/126312/",
+"eid": "126312",
+"races": [
+"SC-01",
+"SC-Sen"
+],
+"group": "Scrapeable: Clarity JSON (vt.json)",
+"categories": "Election Day, Early Voting, Absentee By Mail, Failsafe, Provisional, Failsafe Provisional",
+"in_scope": true
+},
+"45045": {
+"state": "SC",
+"county": "Greenville",
+"kind": "clarity",
+"url": "https://www.enr-scvotes.org/SC/Greenville/126317/",
+"eid": "126317",
+"races": [
+"SC-Sen"
+],
+"group": "Scrapeable: Clarity JSON (vt.json)",
+"categories": "Election Day, Early Voting, Absentee By Mail, Failsafe, Provisional, Failsafe Provisional",
+"in_scope": true
+},
+"45051": {
+"state": "SC",
+"county": "Horry",
+"kind": "clarity",
+"url": "https://www.enr-scvotes.org/SC/Horry/126320/",
+"eid": "126320",
+"races": [
+"SC-Sen"
+],
+"group": "Scrapeable: Clarity JSON (vt.json)",
+"categories": "Election Day, Early Voting, Absentee By Mail, Failsafe, Provisional, Failsafe Provisional",
+"in_scope": true
+},
+"45063": {
+"state": "SC",
+"county": "Lexington",
+"kind": "clarity",
+"url": "https://www.enr-scvotes.org/SC/Lexington/126326/",
+"eid": "126326",
+"races": [
+"SC-Sen"
+],
+"group": "Scrapeable: Clarity JSON (vt.json)",
+"categories": "Election Day, Early Voting, Absentee By Mail, Failsafe, Provisional, Failsafe Provisional",
+"in_scope": true
+},
+"45079": {
+"state": "SC",
+"county": "Richland",
+"kind": "clarity",
+"url": "https://www.enr-scvotes.org/SC/Richland/126334/",
+"eid": "126334",
+"races": [
+"SC-Sen"
+],
+"group": "Scrapeable: Clarity JSON (vt.json)",
+"categories": "Election Day, Early Voting, Absentee By Mail, Failsafe, Provisional, Failsafe Provisional",
+"in_scope": true
+},
+"45083": {
+"state": "SC",
+"county": "Spartanburg",
+"kind": "clarity",
+"url": "https://www.enr-scvotes.org/SC/Spartanburg/126336/",
+"eid": "126336",
+"races": [
+"SC-Sen"
+],
+"group": "Scrapeable: Clarity JSON (vt.json)",
+"categories": "Election Day, Early Voting, Absentee By Mail, Failsafe, Provisional, Failsafe Provisional",
+"in_scope": true
+},
+"45091": {
+"state": "SC",
+"county": "York",
+"kind": "clarity",
+"url": "https://www.enr-scvotes.org/SC/York/126340/",
+"eid": "126340",
+"races": [
+"SC-Sen"
+],
+"group": "Scrapeable: Clarity JSON (vt.json)",
+"categories": "Election Day, Early Voting, Absentee By Mail, Failsafe, Provisional, Failsafe Provisional",
+"in_scope": true
+},
+"48007": {
+"state": "TX",
+"county": "Aransas",
+"kind": "tx",
+"url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+"eid": null,
+"races": [
+"TX-15"
+],
+"group": "Scrapeable: TX SoS County.json (early vs ED)",
+"categories": "Early (in-person + mail combined), Election Day [from state portal]",
+"in_scope": true
+},
+"48025": {
+"state": "TX",
+"county": "Bee",
+"kind": "pdf",
+"url": "https://newtools.cira.state.tx.us/upload/page/5261/docs/Elections/Reconciliations/Nov 24 Combined Offical Cumulative w Reconciliation.pdf",
+"eid": null,
+"races": [
+"TX-15"
+],
+"group": "PDF",
+"categories": "Absentee Voting, Early Voting, Election Day Voting",
+"in_scope": true
+},
+"48029": {
+"state": "TX",
+"county": "Bexar",
+"kind": "unknown",
+"url": "https://home.bexar.org/el45a.html",
+"eid": null,
+"races": [
+"TX-23",
+"TX-35",
+"TX-Gov",
+"TX-Sen"
+],
+"group": "Scrapeable: clean HTML",
+"categories": "Election Day, Absentee (mail), Early Voting",
+"in_scope": true
+},
+"48061": {
+"state": "TX",
+"county": "Cameron",
+"kind": "ess",
+"url": "https://www.livevoterturnout.com/ENR/camerontxenr/37/summary_37.xml",
+"eid": null,
+"races": [
+"TX-34"
+],
+"group": "Scrapeable: ES&S ENR summary XML",
+"categories": "Early Voting, Mail Ballots, Election Day, Provisional",
+"in_scope": true
+},
+"48085": {
+"state": "TX",
+"county": "Collin",
+"kind": "pdf",
+"url": "https://www.collincountytx.gov/Elections/ResultsArchive/November%205,%202024%20-%20Combined%20Accumulated%20Totals%20-%20Official%20Final.pdf",
+"eid": null,
+"races": [
+"TX-Gov",
+"TX-Sen"
+],
+"group": "PDF",
+"categories": "Election Day, Early Voting, Ballot by Mail, Provisional, Limited",
+"in_scope": true
+},
+"48113": {
+"state": "TX",
+"county": "Dallas",
+"kind": "pdf",
+"url": "https://www.dallascounty.org/elections/Election%20Specific%20Record/2024/November%20General/6.%20Canvass/Results/700%20pm%20-%20Early%20Voting%20Results%20Report.pdf",
+"eid": null,
+"races": [
+"TX-Gov",
+"TX-Sen"
+],
+"group": "PDF",
+"categories": "EV-In Person, EV-Mail, Election Day, Provisional, EV-ED",
+"in_scope": true
+},
+"48123": {
+"state": "TX",
+"county": "DeWitt",
+"kind": "tx",
+"url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+"eid": null,
+"races": [
+"TX-15"
+],
+"group": "Scrapeable: TX SoS County.json (early vs ED)",
+"categories": "Early (in-person + mail combined), Election Day [from state portal]",
+"in_scope": true
+},
+"48121": {
+"state": "TX",
+"county": "Denton",
+"kind": "tx",
+"url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+"eid": "122426",
+"races": [
+"TX-Gov",
+"TX-Sen"
+],
+"group": "Scrapeable: TX SoS County.json (early vs ED)",
+"categories": "Early (in-person + mail combined), Election Day [from state portal]",
+"in_scope": true
+},
+"48141": {
+"state": "TX",
+"county": "El Paso",
+"kind": "clarity",
+"url": "https://results.enr.clarityelections.com/TX/El_Paso/122595/web.345435/#/summary",
+"eid": "122595",
+"races": [
+"TX-23"
+],
+"group": "Scrapeable: Clarity JSON (vt.json)",
+"categories": "Election Day, Early Voting, Absentee By Mail",
+"in_scope": true
+},
+"48157": {
+"state": "TX",
+"county": "Fort Bend",
+"kind": "tx",
+"url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+"eid": "122596",
+"races": [
+"TX-Gov",
+"TX-Sen"
+],
+"group": "Scrapeable: TX SoS County.json (early vs ED)",
+"categories": "Early (in-person + mail combined), Election Day [from state portal]",
+"in_scope": true
+},
+"48177": {
+"state": "TX",
+"county": "Gonzales",
+"kind": "tx",
+"url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+"eid": null,
+"races": [
+"TX-15"
+],
+"group": "Scrapeable: TX SoS County.json (early vs ED)",
+"categories": "Early (in-person + mail combined), Election Day [from state portal]",
+"in_scope": true
+},
+"48187": {
+"state": "TX",
+"county": "Guadalupe",
+"kind": "pdf",
+"url": "https://www.guadalupetx.gov/upload/page/0210/docs/2024/11.5.24-GC_General-Official_Results.pdf",
+"eid": null,
+"races": [
+"TX-35"
+],
+"group": "PDF",
+"categories": "Early Voting, Absentee (mail), Election Day",
+"in_scope": true
+},
+"48201": {
+"state": "TX",
+"county": "Harris",
+"kind": "pdf",
+"url": "https://appfiles.harrisvotes.com/harrisvotes/prd/Data/1124/cumulative.pdf",
+"eid": null,
+"races": [
+"TX-09",
+"TX-Gov",
+"TX-Sen"
+],
+"group": "PDF",
+"categories": "Ballot by Mail, Early Voting, Election Day, EV Provisional, ED Provisional",
+"in_scope": true
+},
+"48215": {
+"state": "TX",
+"county": "Hidalgo",
+"kind": "clarity",
+"url": "https://results.enr.clarityelections.com/TX/Hidalgo/122498/web.345435/#/summary",
+"eid": "122498",
+"races": [
+"TX-15"
+],
+"group": "Scrapeable: Clarity JSON (vt.json)",
+"categories": "Absentee (mail), Election Day, Early",
+"in_scope": true
+},
+"48249": {
+"state": "TX",
+"county": "Jim Wells",
+"kind": "pdf",
+"url": "https://jimwellscountyelections.gov/wp-content/uploads/2024/11/Unoffical-on-ED-Cumulative-Results-11-5-2024-07-41-11-PM.pdf",
+"eid": null,
+"races": [
+"TX-15"
+],
+"group": "PDF",
+"categories": "Absentee Voting, Early Voting, Election Day Voting",
+"in_scope": true
+},
+"48273": {
+"state": "TX",
+"county": "Kleberg",
+"kind": "tx",
+"url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+"eid": null,
+"races": [
+"TX-34"
+],
+"group": "Scrapeable: TX SoS County.json (early vs ED)",
+"categories": "Early (in-person + mail combined), Election Day [from state portal]",
+"in_scope": true
+},
+"48285": {
+"state": "TX",
+"county": "Lavaca",
+"kind": "tx",
+"url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+"eid": null,
+"races": [
+"TX-15"
+],
+"group": "Scrapeable: TX SoS County.json (early vs ED)",
+"categories": "Early (in-person + mail combined), Election Day [from state portal]",
+"in_scope": true
+},
+"48291": {
+"state": "TX",
+"county": "Liberty",
+"kind": "pdf",
+"url": "https://newtools.cira.state.tx.us/upload/page/11966/Cumulative Results-11-5-2024 11-52-02 PM.pdf",
+"eid": null,
+"races": [
+"TX-09"
+],
+"group": "PDF",
+"categories": "Absentee, Early Voting, Election Day",
+"in_scope": true
+},
+"48323": {
+"state": "TX",
+"county": "Maverick",
+"kind": "tx",
+"url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+"eid": null,
+"races": [
+"TX-23"
+],
+"group": "Scrapeable: TX SoS County.json (early vs ED)",
+"categories": "Early (in-person + mail combined), Election Day [from state portal]",
+"in_scope": true
+},
+"48325": {
+"state": "TX",
+"county": "Medina",
+"kind": "tx",
+"url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+"eid": null,
+"races": [
+"TX-23"
+],
+"group": "Scrapeable: TX SoS County.json (early vs ED)",
+"categories": "Early (in-person + mail combined), Election Day [from state portal]",
+"in_scope": true
+},
+"48355": {
+"state": "TX",
+"county": "Nueces",
+"kind": "tx",
+"url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+"eid": "122486",
+"races": [
+"TX-34"
+],
+"group": "Scrapeable: TX SoS County.json (early vs ED)",
+"categories": "Early (in-person + mail combined), Election Day [from state portal]",
+"in_scope": true
+},
+"48409": {
+"state": "TX",
+"county": "San Patricio",
+"kind": "pdf",
+"url": "https://www.sanpatriciocountytx.gov/upload/page/0124/docs/2024 Elections Official Results/2024 Novmebr Cumulative Results.pdf",
+"eid": null,
+"races": [
+"TX-15"
+],
+"group": "PDF",
+"categories": "Absentee Voting, Early Voting, Election Day Voting",
+"in_scope": true
+},
+"48439": {
+"state": "TX",
+"county": "Tarrant",
+"kind": "pdf",
+"url": "https://www.tarrantcountytx.gov/content/dam/main/elections/2024/1124/reports/cumulative_1124_110524_9pm.pdf",
+"eid": null,
+"races": [
+"TX-Gov",
+"TX-Sen"
+],
+"group": "PDF",
+"categories": "Absentee Voting (mail), Early Voting, Election Day Voting",
+"in_scope": true
+},
+"48453": {
+"state": "TX",
+"county": "Travis",
+"kind": "tx",
+"url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+"eid": "122432",
+"races": [
+"TX-Gov",
+"TX-Sen"
+],
+"group": "Scrapeable: TX SoS County.json (early vs ED)",
+"categories": "Early (in-person + mail combined), Election Day [from state portal]",
+"in_scope": true
+},
+"48465": {
+"state": "TX",
+"county": "Val Verde",
+"kind": "pdf",
+"url": "https://www.valverdecounty.texas.gov/DocumentCenter/View/8424/General-Election-2024-Official-Election-Results",
+"eid": null,
+"races": [
+"TX-23"
+],
+"group": "PDF",
+"categories": "Absentee, Early Voting, Election Day",
+"in_scope": true
+},
+"48493": {
+"state": "TX",
+"county": "Wilson",
+"kind": "pdf",
+"url": "https://newtools.cira.state.tx.us/upload/page/2254/docs/Elections/11.05.24 GENERAL/Election Summary Results.pdf",
+"eid": null,
+"races": [
+"TX-35"
+],
+"group": "PDF",
+"categories": "Absentee, Early Voting, Election Day",
+"in_scope": true
+},
+"51001": {
+"state": "VA",
+"county": "Accomack",
+"kind": "enhanced",
+"url": "https://app.enhancedvoting.com/results/public/Virginia/elections/2024NovemberGeneral",
+"eid": null,
+"races": [
+"VA-02"
+],
+"group": "Scrapeable: Enhanced Voting JSON",
+"categories": "Early Voting, Election Day, Mailed Absentee, Provisional, Post-Election",
+"in_scope": true
+},
+"51003": {
+"state": "VA",
+"county": "Albemarle",
+"kind": "enhanced",
+"url": "https://app.enhancedvoting.com/results/public/Virginia/elections/2024NovemberGeneral",
+"eid": null,
+"races": [
+"VA-05"
+],
+"group": "Scrapeable: Enhanced Voting JSON",
+"categories": "Early Voting, Election Day, Mailed Absentee, Provisional, Post-Election",
+"in_scope": true
+},
+"51009": {
+"state": "VA",
+"county": "Amherst",
+"kind": "enhanced",
+"url": "https://app.enhancedvoting.com/results/public/Virginia/elections/2024NovemberGeneral",
+"eid": null,
+"races": [
+"VA-05"
+],
+"group": "Scrapeable: Enhanced Voting JSON",
+"categories": "Early Voting, Election Day, Mailed Absentee, Provisional, Post-Election",
+"in_scope": true
+},
+"51019": {
+"state": "VA",
+"county": "Bedford",
+"kind": "enhanced",
+"url": "https://app.enhancedvoting.com/results/public/Virginia/elections/2024NovemberGeneral",
+"eid": null,
+"races": [
+"VA-05"
+],
+"group": "Scrapeable: Enhanced Voting JSON",
+"categories": "Early Voting, Election Day, Mailed Absentee, Provisional, Post-Election",
+"in_scope": true
+},
+"51031": {
+"state": "VA",
+"county": "Campbell",
+"kind": "enhanced",
+"url": "https://app.enhancedvoting.com/results/public/Virginia/elections/2024NovemberGeneral",
+"eid": null,
+"races": [
+"VA-05"
+],
+"group": "Scrapeable: Enhanced Voting JSON",
+"categories": "Early Voting, Election Day, Mailed Absentee, Provisional, Post-Election",
+"in_scope": true
+},
+"51540": {
+"state": "VA",
+"county": "Charlottesville City",
+"kind": "enhanced",
+"url": "https://app.enhancedvoting.com/results/public/Virginia/elections/2024NovemberGeneral",
+"eid": null,
+"races": [
+"VA-05"
+],
+"group": "Scrapeable: Enhanced Voting JSON",
+"categories": "Early Voting, Election Day, Mailed Absentee, Provisional, Post-Election",
+"in_scope": true
+},
+"51550": {
+"state": "VA",
+"county": "Chesapeake City",
+"kind": "enhanced",
+"url": "https://app.enhancedvoting.com/results/public/Virginia/elections/2024NovemberGeneral",
+"eid": null,
+"races": [
+"VA-02"
+],
+"group": "Scrapeable: Enhanced Voting JSON",
+"categories": "Early Voting, Election Day, Mailed Absentee, Provisional, Post-Election",
+"in_scope": true
+},
+"51041": {
+"state": "VA",
+"county": "Chesterfield",
+"kind": "enhanced",
+"url": "https://app.enhancedvoting.com/results/public/Virginia/elections/2024NovemberGeneral",
+"eid": null,
+"races": [
+"VA-01"
+],
+"group": "Scrapeable: Enhanced Voting JSON",
+"categories": "Early Voting, Election Day, Mailed Absentee, Provisional, Post-Election",
+"in_scope": true
+},
+"51590": {
+"state": "VA",
+"county": "Danville City",
+"kind": "enhanced",
+"url": "https://app.enhancedvoting.com/results/public/Virginia/elections/2024NovemberGeneral",
+"eid": null,
+"races": [
+"VA-05"
+],
+"group": "Scrapeable: Enhanced Voting JSON",
+"categories": "Early Voting, Election Day, Mailed Absentee, Provisional, Post-Election",
+"in_scope": true
+},
+"51065": {
+"state": "VA",
+"county": "Fluvanna",
+"kind": "enhanced",
+"url": "https://app.enhancedvoting.com/results/public/Virginia/elections/2024NovemberGeneral",
+"eid": null,
+"races": [
+"VA-05"
+],
+"group": "Scrapeable: Enhanced Voting JSON",
+"categories": "Early Voting, Election Day, Mailed Absentee, Provisional, Post-Election",
+"in_scope": true
+},
+"51073": {
+"state": "VA",
+"county": "Gloucester",
+"kind": "enhanced",
+"url": "https://app.enhancedvoting.com/results/public/Virginia/elections/2024NovemberGeneral",
+"eid": null,
+"races": [
+"VA-01"
+],
+"group": "Scrapeable: Enhanced Voting JSON",
+"categories": "Early Voting, Election Day, Mailed Absentee, Provisional, Post-Election",
+"in_scope": true
+},
+"51075": {
+"state": "VA",
+"county": "Goochland",
+"kind": "enhanced",
+"url": "https://app.enhancedvoting.com/results/public/Virginia/elections/2024NovemberGeneral",
+"eid": null,
+"races": [
+"VA-05"
+],
+"group": "Scrapeable: Enhanced Voting JSON",
+"categories": "Early Voting, Election Day, Mailed Absentee, Provisional, Post-Election",
+"in_scope": true
+},
+"51083": {
+"state": "VA",
+"county": "Halifax",
+"kind": "enhanced",
+"url": "https://app.enhancedvoting.com/results/public/Virginia/elections/2024NovemberGeneral",
+"eid": null,
+"races": [
+"VA-05"
+],
+"group": "Scrapeable: Enhanced Voting JSON",
+"categories": "Early Voting, Election Day, Mailed Absentee, Provisional, Post-Election",
+"in_scope": true
+},
+"51085": {
+"state": "VA",
+"county": "Hanover",
+"kind": "enhanced",
+"url": "https://app.enhancedvoting.com/results/public/Virginia/elections/2024NovemberGeneral",
+"eid": null,
+"races": [
+"VA-01"
+],
+"group": "Scrapeable: Enhanced Voting JSON",
+"categories": "Early Voting, Election Day, Mailed Absentee, Provisional, Post-Election",
+"in_scope": true
+},
+"51087": {
+"state": "VA",
+"county": "Henrico",
+"kind": "enhanced",
+"url": "https://app.enhancedvoting.com/results/public/Virginia/elections/2024NovemberGeneral",
+"eid": null,
+"races": [
+"VA-01"
+],
+"group": "Scrapeable: Enhanced Voting JSON",
+"categories": "Early Voting, Election Day, Mailed Absentee, Provisional, Post-Election",
+"in_scope": true
+},
+"51093": {
+"state": "VA",
+"county": "Isle of Wight",
+"kind": "enhanced",
+"url": "https://app.enhancedvoting.com/results/public/Virginia/elections/2024NovemberGeneral",
+"eid": null,
+"races": [
+"VA-02"
+],
+"group": "Scrapeable: Enhanced Voting JSON",
+"categories": "Early Voting, Election Day, Mailed Absentee, Provisional, Post-Election",
+"in_scope": true
+},
+"51095": {
+"state": "VA",
+"county": "James City",
+"kind": "enhanced",
+"url": "https://app.enhancedvoting.com/results/public/Virginia/elections/2024NovemberGeneral",
+"eid": null,
+"races": [
+"VA-01"
+],
+"group": "Scrapeable: Enhanced Voting JSON",
+"categories": "Early Voting, Election Day, Mailed Absentee, Provisional, Post-Election",
+"in_scope": true
+},
+"51109": {
+"state": "VA",
+"county": "Louisa",
+"kind": "enhanced",
+"url": "https://app.enhancedvoting.com/results/public/Virginia/elections/2024NovemberGeneral",
+"eid": null,
+"races": [
+"VA-05"
+],
+"group": "Scrapeable: Enhanced Voting JSON",
+"categories": "Early Voting, Election Day, Mailed Absentee, Provisional, Post-Election",
+"in_scope": true
+},
+"51680": {
+"state": "VA",
+"county": "Lynchburg City",
+"kind": "enhanced",
+"url": "https://app.enhancedvoting.com/results/public/Virginia/elections/2024NovemberGeneral",
+"eid": null,
+"races": [
+"VA-05"
+],
+"group": "Scrapeable: Enhanced Voting JSON",
+"categories": "Early Voting, Election Day, Mailed Absentee, Provisional, Post-Election",
+"in_scope": true
+},
+"51117": {
+"state": "VA",
+"county": "Mecklenburg",
+"kind": "enhanced",
+"url": "https://app.enhancedvoting.com/results/public/Virginia/elections/2024NovemberGeneral",
+"eid": null,
+"races": [
+"VA-05"
+],
+"group": "Scrapeable: Enhanced Voting JSON",
+"categories": "Early Voting, Election Day, Mailed Absentee, Provisional, Post-Election",
+"in_scope": true
+},
+"51127": {
+"state": "VA",
+"county": "New Kent",
+"kind": "enhanced",
+"url": "https://app.enhancedvoting.com/results/public/Virginia/elections/2024NovemberGeneral",
+"eid": null,
+"races": [
+"VA-01"
+],
+"group": "Scrapeable: Enhanced Voting JSON",
+"categories": "Early Voting, Election Day, Mailed Absentee, Provisional, Post-Election",
+"in_scope": true
+},
+"51143": {
+"state": "VA",
+"county": "Pittsylvania",
+"kind": "enhanced",
+"url": "https://app.enhancedvoting.com/results/public/Virginia/elections/2024NovemberGeneral",
+"eid": null,
+"races": [
+"VA-05"
+],
+"group": "Scrapeable: Enhanced Voting JSON",
+"categories": "Early Voting, Election Day, Mailed Absentee, Provisional, Post-Election",
+"in_scope": true
+},
+"51145": {
+"state": "VA",
+"county": "Powhatan",
+"kind": "enhanced",
+"url": "https://app.enhancedvoting.com/results/public/Virginia/elections/2024NovemberGeneral",
+"eid": null,
+"races": [
+"VA-05"
+],
+"group": "Scrapeable: Enhanced Voting JSON",
+"categories": "Early Voting, Election Day, Mailed Absentee, Provisional, Post-Election",
+"in_scope": true
+},
+"51800": {
+"state": "VA",
+"county": "Suffolk City",
+"kind": "enhanced",
+"url": "https://app.enhancedvoting.com/results/public/Virginia/elections/2024NovemberGeneral",
+"eid": null,
+"races": [
+"VA-02"
+],
+"group": "Scrapeable: Enhanced Voting JSON",
+"categories": "Early Voting, Election Day, Mailed Absentee, Provisional, Post-Election",
+"in_scope": true
+},
+"51810": {
+"state": "VA",
+"county": "Virginia Beach City",
+"kind": "enhanced",
+"url": "https://app.enhancedvoting.com/results/public/Virginia/elections/2024NovemberGeneral",
+"eid": null,
+"races": [
+"VA-02"
+],
+"group": "Scrapeable: Enhanced Voting JSON",
+"categories": "Early Voting, Election Day, Mailed Absentee, Provisional, Post-Election",
+"in_scope": true
+},
+"51199": {
+"state": "VA",
+"county": "York",
+"kind": "enhanced",
+"url": "https://app.enhancedvoting.com/results/public/Virginia/elections/2024NovemberGeneral",
+"eid": null,
+"races": [
+"VA-01"
+],
+"group": "Scrapeable: Enhanced Voting JSON",
+"categories": "Early Voting, Election Day, Mailed Absentee, Provisional, Post-Election",
+"in_scope": true
+},
+"20009": {
+"state": "KS",
+"county": "Barton",
+"kind": "none",
+"url": "https://gbtribune.com/news/local-news/barton-county-unofficial-election-night-results-2",
+"eid": null,
+"races": [],
+"group": "No method data",
+"categories": "No results on county site found",
+"in_scope": false
+},
+"20013": {
+"state": "KS",
+"county": "Brown",
+"kind": "pdf",
+"url": "https://brcoks.org/DocumentCenter/View/1729/2024-November-Official-Results---By-Precinct-PDF",
+"eid": null,
+"races": [],
+"group": "PDF",
+"categories": "Election Day, Early Voting, EN 2.0, Provisional (column labels as printed)",
+"in_scope": false
+},
+"20035": {
+"state": "KS",
+"county": "Cowley",
+"kind": "none",
+"url": "https://www.cowleycountyks.gov/departments/Clerk/electionhistory",
+"eid": null,
+"races": [],
+"group": "No method data",
+"categories": "No results posted",
+"in_scope": false
+},
+"20133": {
+"state": "KS",
+"county": "Neosho",
+"kind": "none",
+"url": "https://www.neoshocountyks.org/DocumentCenter/View/542",
+"eid": null,
+"races": [],
+"group": "No method data",
+"categories": "Totals only",
+"in_scope": false
+},
+"39001": {
+"state": "OH",
+"county": "Adams",
+"kind": "unknown",
+"url": "https://www.boe.ohio.gov/adams/c/elecres/20241105results.pdf",
+"eid": null,
+"races": [],
+"group": "Unknown",
+"categories": "nan",
+"in_scope": false
+},
+"39003": {
+"state": "OH",
+"county": "Allen",
+"kind": "unknown",
+"url": "https://allen.boe.ohio.gov/election-reports",
+"eid": null,
+"races": [],
+"group": "Unknown",
+"categories": "nan",
+"in_scope": false
+},
+"39023": {
+"state": "OH",
+"county": "Clark",
+"kind": "unknown",
+"url": "https://liveresults.boe.ohio.gov/ENR/clarkohenr/16/",
+"eid": null,
+"races": [],
+"group": "Unknown",
+"categories": "ES&S groups configured: Early Voting, Absentee Ballots, Election Day, Provisional Voting",
+"in_scope": false
+},
+"39025": {
+"state": "OH",
+"county": "Clermont",
+"kind": "unknown",
+"url": "https://boe.clermontcountyohio.gov/election_results/",
+"eid": null,
+"races": [],
+"group": "Unknown",
+"categories": "nan",
+"in_scope": false
+},
+"39041": {
+"state": "OH",
+"county": "Delaware",
+"kind": "none",
+"url": "https://vote.delawarecountyohio.gov/wp-content/uploads/2024/11/409_PALL_Election_Summary_Final.pdf",
+"eid": null,
+"races": [],
+"group": "No method data",
+"categories": "Totals only",
+"in_scope": false
+},
+"39045": {
+"state": "OH",
+"county": "Fairfield",
+"kind": "none",
+"url": "https://www.boe.ohio.gov/fairfield/c/elecres/20241105results.pdf",
+"eid": null,
+"races": [],
+"group": "No method data",
+"categories": "Totals only (method counts only in turnout header)",
+"in_scope": false
+},
+"39073": {
+"state": "OH",
+"county": "Hocking",
+"kind": "enhanced",
+"url": "https://app.enhancedvoting.com/results/public/hocking-county-oh/elections/110425GeneralElection",
+"eid": null,
+"races": [],
+"group": "Scrapeable: Enhanced Voting JSON",
+"categories": "Election Day, Early Voting, Absentee, Provisional",
+"in_scope": false
+},
+"39075": {
+"state": "OH",
+"county": "Holmes",
+"kind": "none",
+"url": "https://www.boe.ohio.gov/holmes/c/elecres/20241105results.pdf",
+"eid": null,
+"races": [],
+"group": "No method data",
+"categories": "Totals only",
+"in_scope": false
+},
+"39085": {
+"state": "OH",
+"county": "Lake",
+"kind": "pdf",
+"url": "https://wpassets.lakecountyohio.gov/wp-content/uploads/sites/12/2025/01/30144935/Group-Detail.pdf",
+"eid": null,
+"races": [],
+"group": "PDF",
+"categories": "Regular ABS By Mail, Early Vote, Election Day Paper, Election Day, Provisional",
+"in_scope": false
+},
+"39089": {
+"state": "OH",
+"county": "Licking",
+"kind": "pdf",
+"url": "https://www.boe.ohio.gov/licking/c/elecres/20251104results.pdf",
+"eid": null,
+"races": [],
+"group": "PDF",
+"categories": "Election Day, Absentee Office (early in-person), Absentee Mail, Provisional",
+"in_scope": false
+},
+"39093": {
+"state": "OH",
+"county": "Lorain",
+"kind": "unknown",
+"url": "https://www.voteloraincountyohio.gov/election-results-1/2024-general-election-information",
+"eid": null,
+"races": [],
+"group": "Unknown",
+"categories": "Method totals on landing page (In Office Absentee 41,655 / Mail Absentee 35,517)",
+"in_scope": false
+},
+"39099": {
+"state": "OH",
+"county": "Mahoning",
+"kind": "unknown",
+"url": "https://vote.mahoningcountyoh.gov",
+"eid": null,
+"races": [],
+"group": "Unknown",
+"categories": "nan",
+"in_scope": false
+},
+"39105": {
+"state": "OH",
+"county": "Meigs",
+"kind": "none",
+"url": "https://www.boe.ohio.gov/meigs/c/elecres/20241105results.pdf",
+"eid": null,
+"races": [],
+"group": "No method data",
+"categories": "Totals only",
+"in_scope": false
+},
+"39115": {
+"state": "OH",
+"county": "Morgan",
+"kind": "none",
+"url": "https://www.boe.ohio.gov/morgan/c/elecres/20241105results.pdf",
+"eid": null,
+"races": [],
+"group": "No method data",
+"categories": "Totals only",
+"in_scope": false
+},
+"39125": {
+"state": "OH",
+"county": "Paulding",
+"kind": "pdf",
+"url": "https://www.boe.ohio.gov/paulding/c/elecres/20241105results.pdf",
+"eid": null,
+"races": [],
+"group": "PDF",
+"categories": "Election Day, Absentee, Provisional",
+"in_scope": false
+},
+"39133": {
+"state": "OH",
+"county": "Portage",
+"kind": "none",
+"url": "https://www.portagecounty-oh.gov/board-elections/files/official-canvass-november-5-2024",
+"eid": null,
+"races": [],
+"group": "No method data",
+"categories": "Totals only",
+"in_scope": false
+},
+"39139": {
+"state": "OH",
+"county": "Richland",
+"kind": "none",
+"url": "https://www.boe.ohio.gov/richland/c/elecres/20241105results.pdf",
+"eid": null,
+"races": [],
+"group": "No method data",
+"categories": "Totals only (method counts only in turnout header)",
+"in_scope": false
+},
+"39155": {
+"state": "OH",
+"county": "Trumbull",
+"kind": "none",
+"url": "https://boe.co.trumbull.oh.gov/pdfs/ElectionResults110525.pdf",
+"eid": null,
+"races": [],
+"group": "No method data",
+"categories": "Totals only",
+"in_scope": false
+},
+"39161": {
+"state": "OH",
+"county": "Van Wert",
+"kind": "unknown",
+"url": "https://www.boe.ohio.gov/vanwert/c/elecres/20241105results.pdf",
+"eid": null,
+"races": [],
+"group": "Unknown",
+"categories": "nan",
+"in_scope": false
+},
+"39165": {
+"state": "OH",
+"county": "Warren",
+"kind": "unknown",
+"url": "https://vote.warrencountyohio.gov",
+"eid": null,
+"races": [],
+"group": "Unknown",
+"categories": "nan",
+"in_scope": false
+},
+"39175": {
+"state": "OH",
+"county": "Wyandot",
+"kind": "pdf",
+"url": "https://www.boe.ohio.gov/wyandot/c/elecres/20241105results.pdf",
+"eid": null,
+"races": [],
+"group": "PDF",
+"categories": "Election Day, Absentee, Provisional",
+"in_scope": false
+}
+}
