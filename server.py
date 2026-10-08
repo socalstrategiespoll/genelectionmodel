@@ -9,6 +9,8 @@ POLL = int(os.environ.get("POLL_SECONDS", "60"))
 OUT = os.environ.get("PROJECTION_PATH", os.path.join(HERE, "projection.json"))
 LOCK = threading.Lock()
 STATE = {"projection": {"updated": None, "mode": "starting", "races": {}}, "detail": {}}
+GUARD = {}      # race id -> carried memory for civicapi_feed.sanitize
+GUARD_WARN = {} # race id -> warnings from the latest cycle
 
 def load():
     data = json.load(open(os.path.join(HERE, "data.json")))
@@ -19,27 +21,34 @@ def load():
 def cycle(races, rmap, preps, cache):
     out, live = {}, 0
     for r in races:
-        rid = r["id"]; cid = rmap.get(rid); counted = {}; err = None
+        rid = r["id"]; cid = rmap.get(rid); counted = {}; err = None; extra = None
         if cid:
             try:
                 payload = civicapi_feed.fetch(cid)
                 counted = civicapi_feed.parse_counties(payload, r)
+                ms = civicapi_feed.minor_share(payload, r)
+                extra = {"minor_share": ms} if ms is not None else None
+                counted = civicapi_feed.add_statewide(counted, payload, r, list(preps[rid]["fips"]))
+                counted = civicapi_feed.add_residual(counted, payload, r)
+                counted, w = civicapi_feed.sanitize(counted, r, GUARD.setdefault(rid, {}))
+                counted = civicapi_feed.pct_from_votes(counted, r)
+                GUARD_WARN[rid] = w
                 counted = method_feeds.attach(counted, r, engine_keys=preps[rid]["keys"])
                 live += 1
             except Exception as e:      # keep the last good projection for this race
                 err = str(e)[:120]
                 if rid in STATE["detail"]:
                     out[rid] = dict(STATE["projection"]["races"].get(rid, {}), feed_error=err); continue
-        key = hashlib.md5(json.dumps(counted, sort_keys=True).encode()).hexdigest()
+        key = hashlib.md5(json.dumps([counted, extra], sort_keys=True).encode()).hexdigest()
         if cache.get(rid) != key or rid not in STATE["detail"]:
-            res = engine.project(preps[rid], counted)
+            res = engine.project(preps[rid], counted, extra=extra)
             cache[rid] = key
             STATE["detail"][rid] = res
         res = STATE["detail"][rid]
         out[rid] = {"state": res["state"], "status": {"pre": "Pre-election forecast", "counting": "Counting", "complete": "All counties reporting"}[res["state"]],
                     "margin": res["margin"], "p05": res["p05"], "p95": res["p95"], "win_prob": res["win_prob_R"],
                     "reporting": res["reporting"], "call_ready": res["call_ready"], "percentiles": res["percentiles"],
-                    "bucket_gap": res.get("bucket_gap", {}), "method_counties": res.get("counties_with_method_data", 0)}
+                    "no_prob": bool(r.get("no_prob")), "top4": res.get("top4"), "bucket_gap": res.get("bucket_gap", {}), "method_counties": res.get("counties_with_method_data", 0)}
         if err: out[rid]["feed_error"] = err
         time.sleep(0.2 if cid else 0)
     mode = "live" if any(v.get("state") != "pre" for v in out.values()) else "pre"
@@ -82,6 +91,7 @@ class H(BaseHTTPRequestHandler):
         if p == "/api/status":
             return self._send(200, {"updated": STATE["projection"]["updated"], "county_errors": method_feeds.ERRORS,
                                     "by_race": method_feeds.STATUS, "wired_counties": len(method_feeds.COUNTIES),
+                                    "feed_guard_warnings": {k: v for k, v in GUARD_WARN.items() if v},
                                     "kalshi_errors": kalshi_feed.ERRORS, "kalshi_races": len(kalshi_feed.PRICES)})
         if p.startswith("/api/race/"):
             d = STATE["detail"].get(p.rsplit("/", 1)[1])
