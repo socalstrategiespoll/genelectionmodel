@@ -27,7 +27,7 @@ LEGACY = dict(GEO_SD=3.52, GEO_KM=93.0, IDIO_SD=2.77, IDIO_C=0.97)   # pre-elect
 
 # ---- tuning constants (all margin points unless noted) ----
 PRE_SD = {"House": 7.33, "Senate": 6.74, "Governor": 9.0}   # drives win probability (unchanged)
-PRE_SD_RACE = {}
+PRE_SD_RACE = {'AK-Sen': 7.5}     # Alaska: wider than the Senate default (primary baseline, ranked-choice politics)
 # Displayed middle-90% range only: the spread of outcomes is shrunk toward the median by this factor.
 # Win probability is computed before this shrink, so it does not change.
 RANGE_SCALE = {"House": 4.0 / 7.33, "Senate": 3.5 / 6.74, "Governor": 4.5 / 9.0}
@@ -135,7 +135,7 @@ def prep(race):
         Kbase = Kbase + GEO_SD ** 2 * np.eye(len(fips)); Kbase0 = Kbase0 + LEGACY['GEO_SD'] ** 2 * np.eye(len(fips))
     return dict(id=race["id"], label=race["label"], type=race["type"], fips=fips, names=names, T=T, b=b,
                 sh=sh, M=M, keys=keys, share=share, het=het, K=Kbase, K0=Kbase0, demo=used_demo, headline=race["headline"],
-                state=race.get("state"), pre_sd=PRE_SD_RACE.get(race["label"], PRE_SD.get(race["type"], 7.5)),
+                state=race.get("state"), no_prob=bool(race.get("no_prob")), top4=race.get("top4"), pre_sd=PRE_SD_RACE.get(race["label"], PRE_SD.get(race["type"], 7.5)),
                 range_scale=RANGE_SCALE_RACE.get(race["label"], RANGE_SCALE.get(race["type"], 0.55)))
 
 
@@ -153,7 +153,7 @@ def _wmedian(x, w):
     return float(x[np.searchsorted(c, c[-1] / 2)])
 
 
-def project(P, counted, n_sims=N_SIMS, seed=7):
+def project(P, counted, n_sims=N_SIMS, seed=7, extra=None):
     """counted: {fips: (D, R, pct_reporting)} or {fips: (D, R, pct_reporting, {bucket_key: (D, R)})}.
     A county with the 4th element has observed counts by vote method: the engine reads the buckets directly.
     A county without it falls back to inferring which methods have been counted (early first / proportional / late first)."""
@@ -353,7 +353,9 @@ def project(P, counted, n_sims=N_SIMS, seed=7):
     fm = (cR - cD).sum() + (reg_part + obs_part).sum(1)
     ft = n.sum() + (f * rem[None, :]).sum(1)
     final = 100 * fm / np.maximum(ft, 1)
-    if rep.any(): final = final + rng.normal(0, MODEL_ERR, n_sims)
+    if rep.any():       # unremovable error shrinks as the count finishes: full size until ~8% of votes remain, small once complete
+        remfrac = float(rem.sum() / max(n.sum() + rem.sum(), 1.0))
+        final = final + rng.normal(0, MODEL_ERR * min(1.0, 0.2 + remfrac / 0.1), n_sims)
     if not rep.any():   # nothing counted: center the forecast exactly on the baseline margin (removes Monte Carlo and turnout-weight drift)
         final = final + (P["headline"] - np.median(final))
     win = float(((final > 0).mean() + (final == 0).mean() / 2))
@@ -362,6 +364,27 @@ def project(P, counted, n_sims=N_SIMS, seed=7):
     pc = np.percentile(final_d, [5, 25, 50, 75, 95])
     exp_total = float(Tp.sum())
     frac = float(n.sum() / exp_total) if exp_total else 0.0
+    t4 = None
+    if P.get("top4"):        # top-four races: first-round shares and the chance each major candidate clears 50%
+        cfg = P["top4"]; cs = cfg["cands"]
+        m0 = sum(c["share"] for c in cs if not c.get("side")) / 100.0
+        obs = (extra or {}).get("minor_share")          # observed combined minor share from the feed, when it lists more than two candidates
+        w = min(1.0, frac / 0.6) if obs is not None else 0.0
+        mu = (w * obs if obs is not None else 0.0) + (1 - w) * m0; sdm = max(0.002, cfg["minor_sd"] / 100.0 * (1 - w))
+        msim = np.clip(np.random.default_rng(seed + 1).normal(mu, sdm, len(final)), 0.005, 0.25)
+        Dsh = (1 - final / 100.0) / 2.0; Rsh = (1 + final / 100.0) / 2.0
+        sims = {}
+        for c in cs:
+            if c.get("side") == "D": sims[c["name"]] = (1 - msim) * Dsh * 100
+            elif c.get("side") == "R": sims[c["name"]] = (1 - msim) * Rsh * 100
+            else: sims[c["name"]] = msim * (c["share"] / max(m0 * 100.0, 1e-9)) * 100
+        mj = [c["name"] for c in cs if c.get("side")]
+        t4 = dict(shares={k: round(float(np.median(v)), 2) for k, v in sims.items()},
+                  p05={k: round(float(np.percentile(v, 5)), 2) for k, v in sims.items()},
+                  p95={k: round(float(np.percentile(v, 95)), 2) for k, v in sims.items()},
+                  p_over_50={k: round(float((sims[k] > 50).mean()), 4) for k in mj},
+                  p_neither=round(float(((sims[mj[0]] <= 50) & (sims[mj[1]] <= 50)).mean()), 4),
+                  minor_share=round(float(mu * 100), 2))
     counties = []
     for i in range(nC):
         pm = None; rmm = None
@@ -380,7 +403,8 @@ def project(P, counted, n_sims=N_SIMS, seed=7):
                          int(cD[i]), int(cR[i]), None if rmm is None else round(rmm, 2), None if cm is None else round(cm, 2)])
     state = "complete" if (rep.sum() == nC and done.all()) else ("counting" if rep.any() else "pre")
     n_reg = rep & ~has_m
-    return dict(id=P["id"], label=P["label"], state=state, win_prob_R=round(win, 4),
+    no_prob = bool(P.get("no_prob"))     # margin-only races (Alaska, RCV): no win probability, never call-ready
+    return dict(id=P["id"], label=P["label"], state=state, win_prob_R=None if no_prob else round(win, 4),
                 margin=round(float(pc[2]), 2), p05=round(float(pc[0]), 2), p25=round(float(pc[1]), 2),
                 p75=round(float(pc[3]), 2), p95=round(float(pc[4]), 2), reporting=round(frac, 4),
                 shift=round(s_mu, 2), shift_sd=round(math.sqrt(s_var), 2), tau=round(tau, 2),
@@ -390,6 +414,7 @@ def project(P, counted, n_sims=N_SIMS, seed=7):
                 regimes=[round(float(x), 3) for x in (wr[:, n_reg].mean(1) if n_reg.any() else pri)],
                 regime_prior_from_method=[round(float(x), 3) for x in (pri_c[:, n_reg].mean(1) if n_reg.any() else pri)],
                 method_counties_informing=mcov,
-                call_ready=bool(win >= CALL_PROB or win <= 1 - CALL_PROB) and state != "pre",
+                top4=t4,
+                call_ready=(not no_prob) and bool(win >= CALL_PROB or win <= 1 - CALL_PROB) and state != "pre",
                 counties=counties,
                 percentiles=[round(float(x), 2) for x in np.percentile(final_d, np.linspace(2, 98, 25))])
