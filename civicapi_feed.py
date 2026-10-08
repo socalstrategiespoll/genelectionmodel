@@ -18,6 +18,8 @@ def _last(name):
 
 def side_of(cand, race):
     """'R', 'D' or None for a candidate in a civicAPI payload, using party first then last name."""
+    toks = set(re.sub(r"[^a-z ]", " ", (cand.get("name") or "").lower()).split())
+    if toks & set(race.get("minor_tokens") or []): return None      # Alaska: a second Republican named Sullivan (Jr.) is a minor candidate
     party = (cand.get("party") or "").lower()
     if party.startswith("republican"): return "R"
     if party.startswith("democrat"): return "D"
