@@ -1,18 +1,34 @@
 # Live Kalshi prices for every race (public market data, no login). One event per race (race["kalshi"]["ev"]).
 # Reports the Republican "yes" price: bid, ask, last and mid, in cents. A Democratic-only market is flipped (100 - price).
-import json, time, threading, urllib.request, urllib.error
+import json, time, threading, urllib.request, urllib.error, http.client, os
 from concurrent.futures import ThreadPoolExecutor
 
 BASE = "https://api.elections.kalshi.com/trade-api/v2"
-POLL = 15
+ELECTION_TS = 1793682000       # 2026-11-03 00:00 US Eastern; before this prices refresh slowly, because every request counts toward Render outbound bandwidth
+def poll_seconds():
+    return int(os.environ.get("KALSHI_POLL", "30" if time.time() >= ELECTION_TS else "180"))
+_TL = threading.local()
 PRICES = {}      # race id -> {"bid","ask","last","mid","prev_mid","change","ticker","t"}
 ERRORS = {}      # race id -> last error
 LOCK = threading.Lock()
 
 def _get(url):
-    req = urllib.request.Request(url, headers={"Accept": "application/json", "User-Agent": "socal-midterm-model"})
-    with urllib.request.urlopen(req, timeout=10) as r:
-        return json.load(r)
+    """GET json over a kept-alive connection per thread (a new TLS handshake per request is most of the bytes sent)."""
+    host, path = url.split("://", 1)[1].split("/", 1)
+    for attempt in (0, 1):
+        c = getattr(_TL, "conn", None)
+        if c is None: c = _TL.conn = http.client.HTTPSConnection(host, timeout=10)
+        try:
+            c.request("GET", "/" + path, headers={"Accept": "application/json", "User-Agent": "socal-midterm-model"})
+            r = c.getresponse(); body = r.read()
+        except (http.client.HTTPException, OSError):
+            try: c.close()
+            except Exception: pass
+            _TL.conn = None
+            if attempt: raise
+            continue
+        if r.status >= 400: raise urllib.error.HTTPError(url, r.status, r.reason, None, None)
+        return json.loads(body)
 
 def _cents(m, name):
     """Kalshi returns cents (yes_bid) and, on newer markets, dollars (yes_bid_dollars). Return cents or None."""
@@ -85,4 +101,4 @@ def loop(races):
         t = time.time()
         try: refresh(races)
         except Exception as e: print("kalshi refresh failed:", e, flush=True)
-        time.sleep(max(2, POLL - (time.time() - t)))
+        time.sleep(max(2, poll_seconds() - (time.time() - t)))
