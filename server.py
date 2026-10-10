@@ -1,6 +1,6 @@
 # Render web service: stdlib server plus a poller thread. Routes: /health, /api/projection, /api/race/<id>
 # Writes projection.json (the file the site reads) every cycle. Races with no civicAPI id run pre-election.
-import json, os, sys, time, hashlib, threading
+import gzip, json, os, sys, time, hashlib, threading
 from http.server import ThreadingHTTPServer, BaseHTTPRequestHandler
 import engine, civicapi_feed, method_feeds, counties, kalshi_feed
 
@@ -76,18 +76,26 @@ def poller():
         print("cycle done", round(time.time() - t, 1), "s", flush=True)
         time.sleep(max(1, POLL - (time.time() - t)))
 
+CACHE_TTL = int(os.environ.get("CACHE_TTL", "10"))     # seconds a shared cache may reuse a response; 0 turns it off
+
 class H(BaseHTTPRequestHandler):
-    def _send(self, code, obj):
-        b = json.dumps(obj).encode()
+    def _send(self, code, obj, ttl=0):
+        b = json.dumps(obj, separators=(",", ":")).encode()
+        gz = "gzip" in (self.headers.get("Accept-Encoding") or "") and len(b) > 600
+        if gz: b = gzip.compress(b, 5)
         self.send_response(code); self.send_header("Content-Type", "application/json")
-        self.send_header("Access-Control-Allow-Origin", "*"); self.send_header("Cache-Control", "no-store")
+        self.send_header("Access-Control-Allow-Origin", "*")
+        # ttl > 0 lets a shared cache (Cloudflare) serve the same copy to every viewer for a few seconds; browsers still refetch each poll
+        self.send_header("Cache-Control", "public, max-age=%d, s-maxage=%d" % (ttl, ttl) if ttl and code == 200 else "no-store")
+        self.send_header("Vary", "Accept-Encoding")
+        if gz: self.send_header("Content-Encoding", "gzip")
         self.send_header("Content-Length", str(len(b))); self.end_headers(); self.wfile.write(b)
     def do_GET(self):
         p = self.path.split("?")[0]
         if p == "/health": return self._send(200, {"ok": True, "updated": STATE["projection"]["updated"]})
         if p == "/api/projection":
-            with LOCK: return self._send(200, STATE["projection"])
-        if p == "/api/kalshi": return self._send(200, kalshi_feed.snapshot())
+            with LOCK: return self._send(200, STATE["projection"], CACHE_TTL)
+        if p == "/api/kalshi": return self._send(200, kalshi_feed.snapshot(), CACHE_TTL)
         if p == "/api/status":
             return self._send(200, {"updated": STATE["projection"]["updated"], "county_errors": method_feeds.ERRORS,
                                     "by_race": method_feeds.STATUS, "wired_counties": len(method_feeds.COUNTIES),
@@ -95,7 +103,7 @@ class H(BaseHTTPRequestHandler):
                                     "kalshi_errors": kalshi_feed.ERRORS, "kalshi_races": len(kalshi_feed.PRICES)})
         if p.startswith("/api/race/"):
             d = STATE["detail"].get(p.rsplit("/", 1)[1])
-            return self._send(200 if d else 404, d or {"error": "unknown race"})
+            return self._send(200 if d else 404, d or {"error": "unknown race"}, CACHE_TTL)
         self._send(404, {"error": "not found"})
     def log_message(self, *a): pass
 
