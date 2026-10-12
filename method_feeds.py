@@ -85,6 +85,25 @@ import adapters
 COUNTIES = {}
 ERRORS = {}   # fips -> last fetch/parse error
 
+import time, os
+ELECTION_TS = 1793682000       # 2026-11-03 00:00 US Eastern
+_CACHE = {}                    # fips -> (fetched at, rows or the exception it raised)
+def _ttl():
+    """Seconds a county's fetched data is reused. Before election day nothing is posted, so each county is asked once an hour;
+    from election day on every cycle may refetch. (Without this every race re-fetched every county every minute, which is most of the Render bandwidth.)"""
+    return int(os.environ.get("COUNTY_TTL", "30" if time.time() >= ELECTION_TS else "3600"))
+
+def _fetch(f, c):
+    hit = _CACHE.get(f); now = time.time()
+    if hit and now - hit[0] < _ttl():
+        if isinstance(hit[1], Exception): raise hit[1]
+        return hit[1]
+    try: rows = c["fetch"]()
+    except Exception as e:
+        _CACHE[f] = (now, e); raise
+    _CACHE[f] = (now, rows)
+    return rows
+
 def make_source(fips_list):
     def src(race):
         rows = []
@@ -92,7 +111,7 @@ def make_source(fips_list):
             c = COUNTIES.get(f)
             if not c: continue
             try:
-                rows += adapters.rows_for(f, c["fetch"](), lambda name, c=c: c["contest"](race, name))
+                rows += adapters.rows_for(f, _fetch(f, c), lambda name, c=c: c["contest"](race, name))
             except Exception as e:
                 ERRORS[f] = str(e)[:100]; continue   # a broken county feed just falls back to inference
             ERRORS.pop(f, None)
