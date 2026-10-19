@@ -2843,7 +2843,9 @@
   "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
   "eid": null,
   "races": [
-   "TX-15"
+   "TX-15",
+   "TX-Gov",
+   "TX-Sen"
   ],
   "group": "Scrapeable: TX SoS County.json (early vs ED)",
   "categories": "Early (in-person + mail combined), Election Day [from state portal]",
@@ -2865,8 +2867,8 @@
  "48029": {
   "state": "TX",
   "county": "Bexar",
-  "kind": "unknown",
-  "url": "https://home.bexar.org/el45a.html",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
   "eid": null,
   "races": [
    "TX-23",
@@ -2874,8 +2876,8 @@
    "TX-Gov",
    "TX-Sen"
   ],
-  "group": "Scrapeable: clean HTML",
-  "categories": "Election Day, Absentee (mail), Early Voting",
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
   "in_scope": true
  },
  "48061": {
@@ -2885,7 +2887,9 @@
   "url": "https://www.livevoterturnout.com/ENR/camerontxenr/37/summary_37.xml",
   "eid": null,
   "races": [
-   "TX-34"
+   "TX-34",
+   "TX-Gov",
+   "TX-Sen"
   ],
   "group": "Scrapeable: ES&S ENR summary XML",
   "categories": "Early Voting, Mail Ballots, Election Day, Provisional",
@@ -2926,7 +2930,9 @@
   "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
   "eid": null,
   "races": [
-   "TX-15"
+   "TX-15",
+   "TX-Gov",
+   "TX-Sen"
   ],
   "group": "Scrapeable: TX SoS County.json (early vs ED)",
   "categories": "Early (in-person + mail combined), Election Day [from state portal]",
@@ -2953,7 +2959,9 @@
   "url": "https://results.enr.clarityelections.com/TX/El_Paso/122595/web.345435/#/summary",
   "eid": "122595",
   "races": [
-   "TX-23"
+   "TX-23",
+   "TX-Gov",
+   "TX-Sen"
   ],
   "group": "Scrapeable: Clarity JSON (vt.json)",
   "categories": "Election Day, Early Voting, Absentee By Mail",
@@ -2980,7 +2988,9 @@
   "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
   "eid": null,
   "races": [
-   "TX-15"
+   "TX-15",
+   "TX-Gov",
+   "TX-Sen"
   ],
   "group": "Scrapeable: TX SoS County.json (early vs ED)",
   "categories": "Early (in-person + mail combined), Election Day [from state portal]",
@@ -3021,7 +3031,9 @@
   "url": "https://results.enr.clarityelections.com/TX/Hidalgo/122498/web.345435/#/summary",
   "eid": "122498",
   "races": [
-   "TX-15"
+   "TX-15",
+   "TX-Gov",
+   "TX-Sen"
   ],
   "group": "Scrapeable: Clarity JSON (vt.json)",
   "categories": "Absentee (mail), Election Day, Early",
@@ -3047,7 +3059,9 @@
   "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
   "eid": null,
   "races": [
-   "TX-34"
+   "TX-34",
+   "TX-Gov",
+   "TX-Sen"
   ],
   "group": "Scrapeable: TX SoS County.json (early vs ED)",
   "categories": "Early (in-person + mail combined), Election Day [from state portal]",
@@ -3060,7 +3074,9 @@
   "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
   "eid": null,
   "races": [
-   "TX-15"
+   "TX-15",
+   "TX-Gov",
+   "TX-Sen"
   ],
   "group": "Scrapeable: TX SoS County.json (early vs ED)",
   "categories": "Early (in-person + mail combined), Election Day [from state portal]",
@@ -3086,7 +3102,9 @@
   "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
   "eid": null,
   "races": [
-   "TX-23"
+   "TX-23",
+   "TX-Gov",
+   "TX-Sen"
   ],
   "group": "Scrapeable: TX SoS County.json (early vs ED)",
   "categories": "Early (in-person + mail combined), Election Day [from state portal]",
@@ -3099,7 +3117,9 @@
   "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
   "eid": null,
   "races": [
-   "TX-23"
+   "TX-23",
+   "TX-Gov",
+   "TX-Sen"
   ],
   "group": "Scrapeable: TX SoS County.json (early vs ED)",
   "categories": "Early (in-person + mail combined), Election Day [from state portal]",
@@ -3112,7 +3132,9 @@
   "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
   "eid": "122486",
   "races": [
-   "TX-34"
+   "TX-34",
+   "TX-Gov",
+   "TX-Sen"
   ],
   "group": "Scrapeable: TX SoS County.json (early vs ED)",
   "categories": "Early (in-person + mail combined), Election Day [from state portal]",
@@ -6807,6 +6829,3198 @@
   ],
   "group": "Scrapeable: VR Systems HTML + CSV",
   "categories": "Election Day, Early Votes, Vote By Mail, Provisional (1-29 vote cells masked per F.S. 98.0981)",
+  "in_scope": true
+ },
+ "48001": {
+  "state": "TX",
+  "county": "Anderson",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48003": {
+  "state": "TX",
+  "county": "Andrews",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48005": {
+  "state": "TX",
+  "county": "Angelina",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48009": {
+  "state": "TX",
+  "county": "Archer",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48011": {
+  "state": "TX",
+  "county": "Armstrong",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48013": {
+  "state": "TX",
+  "county": "Atascosa",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48015": {
+  "state": "TX",
+  "county": "Austin",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48017": {
+  "state": "TX",
+  "county": "Bailey",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48019": {
+  "state": "TX",
+  "county": "Bandera",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48021": {
+  "state": "TX",
+  "county": "Bastrop",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48023": {
+  "state": "TX",
+  "county": "Baylor",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48027": {
+  "state": "TX",
+  "county": "Bell",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48031": {
+  "state": "TX",
+  "county": "Blanco",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48033": {
+  "state": "TX",
+  "county": "Borden",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48035": {
+  "state": "TX",
+  "county": "Bosque",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48037": {
+  "state": "TX",
+  "county": "Bowie",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48039": {
+  "state": "TX",
+  "county": "Brazoria",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48041": {
+  "state": "TX",
+  "county": "Brazos",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48043": {
+  "state": "TX",
+  "county": "Brewster",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48045": {
+  "state": "TX",
+  "county": "Briscoe",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48047": {
+  "state": "TX",
+  "county": "Brooks",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48049": {
+  "state": "TX",
+  "county": "Brown",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48051": {
+  "state": "TX",
+  "county": "Burleson",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48053": {
+  "state": "TX",
+  "county": "Burnet",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48055": {
+  "state": "TX",
+  "county": "Caldwell",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48057": {
+  "state": "TX",
+  "county": "Calhoun",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48059": {
+  "state": "TX",
+  "county": "Callahan",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48063": {
+  "state": "TX",
+  "county": "Camp",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48065": {
+  "state": "TX",
+  "county": "Carson",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48067": {
+  "state": "TX",
+  "county": "Cass",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48069": {
+  "state": "TX",
+  "county": "Castro",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48071": {
+  "state": "TX",
+  "county": "Chambers",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48073": {
+  "state": "TX",
+  "county": "Cherokee",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48075": {
+  "state": "TX",
+  "county": "Childress",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48077": {
+  "state": "TX",
+  "county": "Clay",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48079": {
+  "state": "TX",
+  "county": "Cochran",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48081": {
+  "state": "TX",
+  "county": "Coke",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48083": {
+  "state": "TX",
+  "county": "Coleman",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48087": {
+  "state": "TX",
+  "county": "Collingsworth",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48089": {
+  "state": "TX",
+  "county": "Colorado",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48091": {
+  "state": "TX",
+  "county": "Comal",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48093": {
+  "state": "TX",
+  "county": "Comanche",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48095": {
+  "state": "TX",
+  "county": "Concho",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48097": {
+  "state": "TX",
+  "county": "Cooke",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48099": {
+  "state": "TX",
+  "county": "Coryell",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48101": {
+  "state": "TX",
+  "county": "Cottle",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48103": {
+  "state": "TX",
+  "county": "Crane",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48105": {
+  "state": "TX",
+  "county": "Crockett",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48107": {
+  "state": "TX",
+  "county": "Crosby",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48109": {
+  "state": "TX",
+  "county": "Culberson",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48111": {
+  "state": "TX",
+  "county": "Dallam",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48115": {
+  "state": "TX",
+  "county": "Dawson",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48117": {
+  "state": "TX",
+  "county": "Deaf Smith",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48119": {
+  "state": "TX",
+  "county": "Delta",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48125": {
+  "state": "TX",
+  "county": "Dickens",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48127": {
+  "state": "TX",
+  "county": "Dimmit",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48129": {
+  "state": "TX",
+  "county": "Donley",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48131": {
+  "state": "TX",
+  "county": "Duval",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48133": {
+  "state": "TX",
+  "county": "Eastland",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48135": {
+  "state": "TX",
+  "county": "Ector",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48137": {
+  "state": "TX",
+  "county": "Edwards",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48139": {
+  "state": "TX",
+  "county": "Ellis",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48143": {
+  "state": "TX",
+  "county": "Erath",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48145": {
+  "state": "TX",
+  "county": "Falls",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48147": {
+  "state": "TX",
+  "county": "Fannin",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48149": {
+  "state": "TX",
+  "county": "Fayette",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48151": {
+  "state": "TX",
+  "county": "Fisher",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48153": {
+  "state": "TX",
+  "county": "Floyd",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48155": {
+  "state": "TX",
+  "county": "Foard",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48159": {
+  "state": "TX",
+  "county": "Franklin",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48161": {
+  "state": "TX",
+  "county": "Freestone",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48163": {
+  "state": "TX",
+  "county": "Frio",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48165": {
+  "state": "TX",
+  "county": "Gaines",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48167": {
+  "state": "TX",
+  "county": "Galveston",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48169": {
+  "state": "TX",
+  "county": "Garza",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48171": {
+  "state": "TX",
+  "county": "Gillespie",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48173": {
+  "state": "TX",
+  "county": "Glasscock",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48175": {
+  "state": "TX",
+  "county": "Goliad",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48179": {
+  "state": "TX",
+  "county": "Gray",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48181": {
+  "state": "TX",
+  "county": "Grayson",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48183": {
+  "state": "TX",
+  "county": "Gregg",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48185": {
+  "state": "TX",
+  "county": "Grimes",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48189": {
+  "state": "TX",
+  "county": "Hale",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48191": {
+  "state": "TX",
+  "county": "Hall",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48193": {
+  "state": "TX",
+  "county": "Hamilton",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48195": {
+  "state": "TX",
+  "county": "Hansford",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48197": {
+  "state": "TX",
+  "county": "Hardeman",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48199": {
+  "state": "TX",
+  "county": "Hardin",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48203": {
+  "state": "TX",
+  "county": "Harrison",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48205": {
+  "state": "TX",
+  "county": "Hartley",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48207": {
+  "state": "TX",
+  "county": "Haskell",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48209": {
+  "state": "TX",
+  "county": "Hays",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48211": {
+  "state": "TX",
+  "county": "Hemphill",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48213": {
+  "state": "TX",
+  "county": "Henderson",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48217": {
+  "state": "TX",
+  "county": "Hill",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48219": {
+  "state": "TX",
+  "county": "Hockley",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48221": {
+  "state": "TX",
+  "county": "Hood",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48223": {
+  "state": "TX",
+  "county": "Hopkins",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48225": {
+  "state": "TX",
+  "county": "Houston",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48227": {
+  "state": "TX",
+  "county": "Howard",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48229": {
+  "state": "TX",
+  "county": "Hudspeth",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48231": {
+  "state": "TX",
+  "county": "Hunt",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48233": {
+  "state": "TX",
+  "county": "Hutchinson",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48235": {
+  "state": "TX",
+  "county": "Irion",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48237": {
+  "state": "TX",
+  "county": "Jack",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48239": {
+  "state": "TX",
+  "county": "Jackson",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48241": {
+  "state": "TX",
+  "county": "Jasper",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48243": {
+  "state": "TX",
+  "county": "Jeff Davis",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48245": {
+  "state": "TX",
+  "county": "Jefferson",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48247": {
+  "state": "TX",
+  "county": "Jim Hogg",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48251": {
+  "state": "TX",
+  "county": "Johnson",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48253": {
+  "state": "TX",
+  "county": "Jones",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48255": {
+  "state": "TX",
+  "county": "Karnes",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48257": {
+  "state": "TX",
+  "county": "Kaufman",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48259": {
+  "state": "TX",
+  "county": "Kendall",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48261": {
+  "state": "TX",
+  "county": "Kenedy",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48263": {
+  "state": "TX",
+  "county": "Kent",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48265": {
+  "state": "TX",
+  "county": "Kerr",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48267": {
+  "state": "TX",
+  "county": "Kimble",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48269": {
+  "state": "TX",
+  "county": "King",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48271": {
+  "state": "TX",
+  "county": "Kinney",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48275": {
+  "state": "TX",
+  "county": "Knox",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48277": {
+  "state": "TX",
+  "county": "Lamar",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48279": {
+  "state": "TX",
+  "county": "Lamb",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48281": {
+  "state": "TX",
+  "county": "Lampasas",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48283": {
+  "state": "TX",
+  "county": "La Salle",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48287": {
+  "state": "TX",
+  "county": "Lee",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48289": {
+  "state": "TX",
+  "county": "Leon",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48293": {
+  "state": "TX",
+  "county": "Limestone",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48295": {
+  "state": "TX",
+  "county": "Lipscomb",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48297": {
+  "state": "TX",
+  "county": "Live Oak",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48299": {
+  "state": "TX",
+  "county": "Llano",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48301": {
+  "state": "TX",
+  "county": "Loving",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48303": {
+  "state": "TX",
+  "county": "Lubbock",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48305": {
+  "state": "TX",
+  "county": "Lynn",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48307": {
+  "state": "TX",
+  "county": "McCulloch",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48309": {
+  "state": "TX",
+  "county": "McLennan",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48311": {
+  "state": "TX",
+  "county": "McMullen",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48313": {
+  "state": "TX",
+  "county": "Madison",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48315": {
+  "state": "TX",
+  "county": "Marion",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48317": {
+  "state": "TX",
+  "county": "Martin",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48319": {
+  "state": "TX",
+  "county": "Mason",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48321": {
+  "state": "TX",
+  "county": "Matagorda",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48327": {
+  "state": "TX",
+  "county": "Menard",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48329": {
+  "state": "TX",
+  "county": "Midland",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48331": {
+  "state": "TX",
+  "county": "Milam",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48333": {
+  "state": "TX",
+  "county": "Mills",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48335": {
+  "state": "TX",
+  "county": "Mitchell",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48337": {
+  "state": "TX",
+  "county": "Montague",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48339": {
+  "state": "TX",
+  "county": "Montgomery",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48341": {
+  "state": "TX",
+  "county": "Moore",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48343": {
+  "state": "TX",
+  "county": "Morris",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48345": {
+  "state": "TX",
+  "county": "Motley",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48347": {
+  "state": "TX",
+  "county": "Nacogdoches",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48349": {
+  "state": "TX",
+  "county": "Navarro",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48351": {
+  "state": "TX",
+  "county": "Newton",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48353": {
+  "state": "TX",
+  "county": "Nolan",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48357": {
+  "state": "TX",
+  "county": "Ochiltree",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48359": {
+  "state": "TX",
+  "county": "Oldham",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48361": {
+  "state": "TX",
+  "county": "Orange",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48363": {
+  "state": "TX",
+  "county": "Palo Pinto",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48365": {
+  "state": "TX",
+  "county": "Panola",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48367": {
+  "state": "TX",
+  "county": "Parker",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48369": {
+  "state": "TX",
+  "county": "Parmer",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48371": {
+  "state": "TX",
+  "county": "Pecos",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48373": {
+  "state": "TX",
+  "county": "Polk",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48375": {
+  "state": "TX",
+  "county": "Potter",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48377": {
+  "state": "TX",
+  "county": "Presidio",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48379": {
+  "state": "TX",
+  "county": "Rains",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48381": {
+  "state": "TX",
+  "county": "Randall",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48383": {
+  "state": "TX",
+  "county": "Reagan",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48385": {
+  "state": "TX",
+  "county": "Real",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48387": {
+  "state": "TX",
+  "county": "Red River",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48389": {
+  "state": "TX",
+  "county": "Reeves",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48391": {
+  "state": "TX",
+  "county": "Refugio",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48393": {
+  "state": "TX",
+  "county": "Roberts",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48395": {
+  "state": "TX",
+  "county": "Robertson",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48397": {
+  "state": "TX",
+  "county": "Rockwall",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48399": {
+  "state": "TX",
+  "county": "Runnels",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48401": {
+  "state": "TX",
+  "county": "Rusk",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48403": {
+  "state": "TX",
+  "county": "Sabine",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48405": {
+  "state": "TX",
+  "county": "San Augustine",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48407": {
+  "state": "TX",
+  "county": "San Jacinto",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48411": {
+  "state": "TX",
+  "county": "San Saba",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48413": {
+  "state": "TX",
+  "county": "Schleicher",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48415": {
+  "state": "TX",
+  "county": "Scurry",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48417": {
+  "state": "TX",
+  "county": "Shackelford",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48419": {
+  "state": "TX",
+  "county": "Shelby",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48421": {
+  "state": "TX",
+  "county": "Sherman",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48423": {
+  "state": "TX",
+  "county": "Smith",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48425": {
+  "state": "TX",
+  "county": "Somervell",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48427": {
+  "state": "TX",
+  "county": "Starr",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48429": {
+  "state": "TX",
+  "county": "Stephens",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48431": {
+  "state": "TX",
+  "county": "Sterling",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48433": {
+  "state": "TX",
+  "county": "Stonewall",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48435": {
+  "state": "TX",
+  "county": "Sutton",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48437": {
+  "state": "TX",
+  "county": "Swisher",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48441": {
+  "state": "TX",
+  "county": "Taylor",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48443": {
+  "state": "TX",
+  "county": "Terrell",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48445": {
+  "state": "TX",
+  "county": "Terry",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48447": {
+  "state": "TX",
+  "county": "Throckmorton",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48449": {
+  "state": "TX",
+  "county": "Titus",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48451": {
+  "state": "TX",
+  "county": "Tom Green",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48455": {
+  "state": "TX",
+  "county": "Trinity",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48457": {
+  "state": "TX",
+  "county": "Tyler",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48459": {
+  "state": "TX",
+  "county": "Upshur",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48461": {
+  "state": "TX",
+  "county": "Upton",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48463": {
+  "state": "TX",
+  "county": "Uvalde",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48467": {
+  "state": "TX",
+  "county": "Van Zandt",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48469": {
+  "state": "TX",
+  "county": "Victoria",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48471": {
+  "state": "TX",
+  "county": "Walker",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48473": {
+  "state": "TX",
+  "county": "Waller",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48475": {
+  "state": "TX",
+  "county": "Ward",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48477": {
+  "state": "TX",
+  "county": "Washington",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48479": {
+  "state": "TX",
+  "county": "Webb",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48481": {
+  "state": "TX",
+  "county": "Wharton",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48483": {
+  "state": "TX",
+  "county": "Wheeler",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48485": {
+  "state": "TX",
+  "county": "Wichita",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48487": {
+  "state": "TX",
+  "county": "Wilbarger",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48489": {
+  "state": "TX",
+  "county": "Willacy",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48491": {
+  "state": "TX",
+  "county": "Williamson",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48495": {
+  "state": "TX",
+  "county": "Winkler",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48497": {
+  "state": "TX",
+  "county": "Wise",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48499": {
+  "state": "TX",
+  "county": "Wood",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48501": {
+  "state": "TX",
+  "county": "Yoakum",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48503": {
+  "state": "TX",
+  "county": "Young",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48505": {
+  "state": "TX",
+  "county": "Zapata",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "48507": {
+  "state": "TX",
+  "county": "Zavala",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "eid": null,
+  "races": [
+   "TX-Gov",
+   "TX-Sen"
+  ],
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
   "in_scope": true
  }
 }
