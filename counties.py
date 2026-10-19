@@ -97,14 +97,23 @@ def fetch_ga(c):      # one county's contests by vote method from the Georgia So
     u = _ov(c, "data_url") or f"{GA_API}/elections/{slug}/{ga_election_id()}/ballot-items"
     return adapters.parse_enhanced(get(u, 30))
 _tx = {}
-def fetch_tx(c):      # one statewide County.json serves every TX county; cache for the poll cycle
+TX_API = "https://goelect.txelections.civixapps.com/api-ivis-system/api/s3/enr/election/countyInfo/"
+def tx_url(c):
     u = _ov(c, "data_url")
-    if not u or "<version>" in u: raise ValueError("no data_url for " + c["county"])
+    if u: return u
+    try: eid = json.load(open(_ov_path)).get("TX", {}).get("election_id")
+    except Exception: eid = None
+    if not eid: raise ValueError("no Texas election id yet (set election_overrides.json {\"TX\": {\"election_id\": ...}})")
+    return TX_API + str(eid)
+def fetch_tx(c):      # one statewide countyInfo file serves every TX county; cache for the poll cycle
     import time
+    u = tx_url(c)
     hit = _tx.get(u)
     if not hit or time.time() - hit[0] > 30:
         hit = _tx[u] = (time.time(), adapters.parse_tx(get(u, 60)))
-    return hit[1][c["fips"]]
+    rows = hit[1].get(adapters._cn(c["county"]))
+    if rows is None: raise ValueError("county not in Texas portal file: " + c["county"])
+    return rows
 HARRIS_URL = "https://appfiles.harrisvotes.com/harrisvotes/prd/Data/1126/resultsbyballot.json"
 def fetch_harris(c):
     return adapters.parse_harris(get(_ov(c, "url") or HARRIS_URL))
