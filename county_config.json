@@ -2854,14 +2854,16 @@
  "48025": {
   "state": "TX",
   "county": "Bee",
-  "kind": "pdf",
-  "url": "https://newtools.cira.state.tx.us/upload/page/5261/docs/Elections/Reconciliations/Nov 24 Combined Offical Cumulative w Reconciliation.pdf",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
   "eid": null,
   "races": [
-   "TX-15"
+   "TX-15",
+   "TX-Gov",
+   "TX-Sen"
   ],
-  "group": "PDF",
-  "categories": "Absentee Voting, Early Voting, Election Day Voting",
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
   "in_scope": true
  },
  "48029": {
@@ -2898,29 +2900,29 @@
  "48085": {
   "state": "TX",
   "county": "Collin",
-  "kind": "pdf",
-  "url": "https://www.collincountytx.gov/Elections/ResultsArchive/November%205,%202024%20-%20Combined%20Accumulated%20Totals%20-%20Official%20Final.pdf",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
   "eid": null,
   "races": [
    "TX-Gov",
    "TX-Sen"
   ],
-  "group": "PDF",
-  "categories": "Election Day, Early Voting, Ballot by Mail, Provisional, Limited",
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
   "in_scope": true
  },
  "48113": {
   "state": "TX",
   "county": "Dallas",
-  "kind": "pdf",
-  "url": "https://www.dallascounty.org/elections/Election%20Specific%20Record/2024/November%20General/6.%20Canvass/Results/700%20pm%20-%20Early%20Voting%20Results%20Report.pdf",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
   "eid": null,
   "races": [
    "TX-Gov",
    "TX-Sen"
   ],
-  "group": "PDF",
-  "categories": "EV-In Person, EV-Mail, Election Day, Provisional, EV-ED",
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
   "in_scope": true
  },
  "48123": {
@@ -2999,14 +3001,16 @@
  "48187": {
   "state": "TX",
   "county": "Guadalupe",
-  "kind": "pdf",
-  "url": "https://www.guadalupetx.gov/upload/page/0210/docs/2024/11.5.24-GC_General-Official_Results.pdf",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
   "eid": null,
   "races": [
-   "TX-35"
+   "TX-35",
+   "TX-Gov",
+   "TX-Sen"
   ],
-  "group": "PDF",
-  "categories": "Early Voting, Absentee (mail), Election Day",
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
   "in_scope": true
  },
  "48201": {
@@ -3042,14 +3046,16 @@
  "48249": {
   "state": "TX",
   "county": "Jim Wells",
-  "kind": "pdf",
-  "url": "https://jimwellscountyelections.gov/wp-content/uploads/2024/11/Unoffical-on-ED-Cumulative-Results-11-5-2024-07-41-11-PM.pdf",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
   "eid": null,
   "races": [
-   "TX-15"
+   "TX-15",
+   "TX-Gov",
+   "TX-Sen"
   ],
-  "group": "PDF",
-  "categories": "Absentee Voting, Early Voting, Election Day Voting",
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
   "in_scope": true
  },
  "48273": {
@@ -3085,14 +3091,16 @@
  "48291": {
   "state": "TX",
   "county": "Liberty",
-  "kind": "pdf",
-  "url": "https://newtools.cira.state.tx.us/upload/page/11966/Cumulative Results-11-5-2024 11-52-02 PM.pdf",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
   "eid": null,
   "races": [
-   "TX-09"
+   "TX-09",
+   "TX-Gov",
+   "TX-Sen"
   ],
-  "group": "PDF",
-  "categories": "Absentee, Early Voting, Election Day",
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
   "in_scope": true
  },
  "48323": {
@@ -3143,14 +3151,16 @@
  "48409": {
   "state": "TX",
   "county": "San Patricio",
-  "kind": "pdf",
-  "url": "https://www.sanpatriciocountytx.gov/upload/page/0124/docs/2024 Elections Official Results/2024 Novmebr Cumulative Results.pdf",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
   "eid": null,
   "races": [
-   "TX-15"
+   "TX-15",
+   "TX-Gov",
+   "TX-Sen"
   ],
-  "group": "PDF",
-  "categories": "Absentee Voting, Early Voting, Election Day Voting",
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
   "in_scope": true
  },
  "48439": {
@@ -3184,27 +3194,31 @@
  "48465": {
   "state": "TX",
   "county": "Val Verde",
-  "kind": "pdf",
-  "url": "https://www.valverdecounty.texas.gov/DocumentCenter/View/8424/General-Election-2024-Official-Election-Results",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
   "eid": null,
   "races": [
-   "TX-23"
+   "TX-23",
+   "TX-Gov",
+   "TX-Sen"
   ],
-  "group": "PDF",
-  "categories": "Absentee, Early Voting, Election Day",
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
   "in_scope": true
  },
  "48493": {
   "state": "TX",
   "county": "Wilson",
-  "kind": "pdf",
-  "url": "https://newtools.cira.state.tx.us/upload/page/2254/docs/Elections/11.05.24 GENERAL/Election Summary Results.pdf",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
   "eid": null,
   "races": [
-   "TX-35"
+   "TX-35",
+   "TX-Gov",
+   "TX-Sen"
   ],
-  "group": "PDF",
-  "categories": "Absentee, Early Voting, Election Day",
+  "group": "Scrapeable: TX SoS County.json (early vs ED)",
+  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
   "in_scope": true
  },
  "51001": {
