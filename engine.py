@@ -60,6 +60,8 @@ ORDER = {"em": 0, "mail": 0, "early": 0, "eip": 1, "ed": 2, "lm": 3}
 CALL_PROB = 0.995          # a race is only flagged call-ready above this (or below 1 minus this)
 METHOD_REGIME_STATE = 0.5   # weight every method county gets on a regime county's counting-order prior (rest is by distance)
 METHOD_REGIME_TEMPER = 0.6  # discount: counting order is shared within a state but not identical county to county
+REG_TRUST_FLOOR = 0.45   # share counted below which a no-feed county's own margin counts for almost nothing
+REG_FULL_TRUST = 0.90    # share counted at which it is trusted as reported
 METHOD_REGIME_CAP = 5.0     # max log-odds the method counties can move the regime prior
 MODEL_ERR = 0.3             # pts SD of final-margin error that no county count can remove (late provisionals, corrections, feed glitches); only applied once counting has started
 REF_SD = {"college": 10.8, "white": 12.6, "black": 7.2, "hisp": 5.5, "lnT": 1.2}   # typical within-state vote-weighted SD of each characteristic (from the fit), so a few-county district is not re-standardised against itself
@@ -237,7 +239,11 @@ def project(P, counted, n_sims=N_SIMS, seed=7, extra=None):
     pcap = np.clip(p_eff, 0.02, 0.995)
     mo = np.where(rep, 100 * (cR - cD) / np.maximum(n, 1), 0.0)
     samp = 1e4 * (1 - (mo / 100) ** 2) / np.maximum(n, 1)
-    v_reg = np.where(rep & ~has_m, samp + q * (1 - pcap) / pcap, 1e9)
+    # a county with no method feed is only trusted on its own numbers near REG_FULL_TRUST: below that, its remaining
+    # ballots (often Election Day, not yet reported) are treated as mostly unknown, so the deduced estimate carries more weight
+    pcap_reg = np.clip((pcap - REG_TRUST_FLOOR) / (REG_FULL_TRUST - REG_TRUST_FLOOR), 0.03, 1.0)
+    pcap_reg = np.where(pcap >= 0.995, 1.0, np.minimum(pcap_reg, np.where(pcap >= REG_FULL_TRUST, 1.0, 0.97)))
+    v_reg = np.where(rep & ~has_m, samp + q * (1 - pcap_reg) / pcap_reg, 1e9)
     y_r = mo[None, :] - pred
     mob = np.where(nk > 0, 100 * (mk_R - mk_D) / np.maximum(nk, 1), 0.0)
     sampb = 1e4 * (1 - (mob / 100) ** 2) / np.maximum(nk, 1)
