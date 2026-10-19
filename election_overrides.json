@@ -1,1 +1,23 @@
-{}
+{
+ "12031": {
+  "url": "https://enr.electionsfl.org/DUV/4076/Summary/"
+ },
+ "12051": {
+  "url": "https://enr.electionsfl.org/HEN/4077/Summary/"
+ },
+ "12057": {
+  "url": "https://enr.electionsfl.org/HIL/4074/Summary/"
+ },
+ "12081": {
+  "url": "https://enr.electionsfl.org/MAN/4126/Summary/"
+ },
+ "12086": {
+  "url": "https://enr.electionsfl.org/DAD/4087/Summary/"
+ },
+ "12101": {
+  "url": "https://enr.electionsfl.org/PAS/4085/Summary/"
+ },
+ "12115": {
+  "url": "https://enr.electionsfl.org/SAR/4105/Summary/"
+ }
+}
