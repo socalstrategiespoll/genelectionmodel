@@ -114,10 +114,22 @@ def fetch_tx(c):      # one statewide countyInfo file serves every TX county; ca
     rows = hit[1].get(adapters._cn(c["county"]))
     if rows is None: raise ValueError("county not in Texas portal file: " + c["county"])
     return rows
+def fetch_turnout_pdf(c):
+    """Counts-only feed from a PDF with a turnout-by-method summary (Maricopa). The PDF's address changes with each posting, so
+    set it in election_overrides.json {fips: {"url": ...}} or fetch it from a stable page."""
+    import subprocess, tempfile, urllib.request
+    u = _ov(c, "url")
+    raw = urllib.request.urlopen(urllib.request.Request(u, headers=UA), timeout=60).read()
+    with tempfile.NamedTemporaryFile(suffix=".pdf") as f:
+        f.write(raw); f.flush()
+        txt = subprocess.run(["pdftotext", "-layout", f.name, "-"], capture_output=True, text=True, timeout=60).stdout
+    rows = adapters.parse_turnout_text(txt)
+    if not rows: raise ValueError("no turnout-by-method rows in PDF for " + c["county"])
+    return rows
 HARRIS_URL = "https://appfiles.harrisvotes.com/harrisvotes/prd/Data/1126/resultsbyballot.json"
 def fetch_harris(c):
     return adapters.parse_harris(get(_ov(c, "url") or HARRIS_URL))
-FETCH = {"harris": fetch_harris, "clarity": fetch_clarity, "nc": fetch_nc, "ess": fetch_ess, "vr": fetch_vr, "enhanced": fetch_enhanced, "tx": fetch_tx, "ga": fetch_ga}
+FETCH = {"turnout_pdf": fetch_turnout_pdf, "harris": fetch_harris, "clarity": fetch_clarity, "nc": fetch_nc, "ess": fetch_ess, "vr": fetch_vr, "enhanced": fetch_enhanced, "tx": fetch_tx, "ga": fetch_ga}
 
 # feed label -> bucket key, by the race's bucket structure
 EARLY = ("advance voting", "early", "early voting", "early votes", "one-stop", "in-person early", "ev", "early voting - regional", "early voting - central", "ev-regional", "ev-central")
