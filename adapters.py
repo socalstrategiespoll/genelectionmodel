@@ -36,7 +36,7 @@ def _txt(l): return (l or [{}])[0].get("text", "") if isinstance(l, list) else s
 def parse_enhanced(data):
     d = json.loads(data) if isinstance(data, (str, bytes)) else data
     out = []
-    for it in d["ballotItems"]:
+    for it in (d.get("ballotItems") if isinstance(d, dict) and "ballotItems" in d else d.get("data", []) if isinstance(d, dict) else d):
         name = _txt(it["name"])
         for o in (it.get("summaryResults") or {}).get("ballotOptions", []):
             party = (o.get("party") or {}).get("abbreviation", "")
@@ -167,4 +167,18 @@ def parse_clarity_detail(xml):
                 if v is None:
                     v = sum(int(p.get("votes") or 0) for p in vt)
                 out.append(_row(cname, cand, party, vt.get("name") or "", v))
+    return out
+
+
+# Harris County TX (app.harrisvotes.com): resultsbyballot.json, parallel arrays per contest: ab = mail, ev = early, ed = Election Day
+def parse_harris(data):
+    d = json.loads(data) if isinstance(data, (str, bytes)) else data
+    out = []
+    for c in d.get("contests", []):
+        for i, name in enumerate(c.get("ca", [])):
+            m = re.search(r"\((\w+)\)\s*$", name)
+            party = m.group(1) if m else ""
+            for key, label in (("ab", "mail"), ("ev", "early voting"), ("ed", "election day")):
+                arr = c.get(key) or []
+                out.append(_row(c.get("t", ""), name, party, label, arr[i] if i < len(arr) else 0))
     return out
