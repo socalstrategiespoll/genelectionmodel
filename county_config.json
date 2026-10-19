@@ -184,15 +184,15 @@
  "04013": {
   "state": "AZ",
   "county": "Maricopa",
-  "kind": "unknown",
+  "kind": "turnout_pdf",
   "url": "https://elections.maricopa.gov/results-and-data/election-results.html",
   "eid": null,
   "races": [
    "AZ-01",
    "AZ-Gov"
   ],
-  "group": "Scrapeable: county TXT file",
-  "categories": "Early Vote, Election Day, Early A.R.S. 16-579 (early ballots dropped off on Election Day = late early), Provisional",
+  "group": "Counts-only: turnout by method (PDF summary report)",
+  "categories": "Early A.R.S. 16-579, Early Vote, Election Day (county turnout, no contest split)",
   "in_scope": true
  },
  "04015": {
