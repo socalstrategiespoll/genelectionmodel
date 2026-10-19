@@ -180,6 +180,16 @@ def project(P, counted, n_sims=N_SIMS, seed=7, extra=None):
             cD[i], cR[i], p[i] = v[0], v[1], v[2]
     n = cD + cR
     rep = n > 0
+    # counts-only method feeds: counted ballots per bucket with no margins (counted[f][4] = {bucket: ballots}).
+    # Which ballot types are in the count is known, so the counting order is observed instead of inferred.
+    cnt_c = np.zeros((nC, K)); has_c = np.zeros(nC, bool)
+    for i, f in enumerate(P["fips"]):
+        v = counted.get(f)
+        if v and len(v) > 4 and v[4] and K > 1 and not has_m[i] and n[i] > 0:
+            for j, key in enumerate(keys):
+                cnt_c[i, j] = max(float(v[4].get(key, 0)), 0.0)
+            has_c[i] = cnt_c[i].sum() > 0
+    obs_c = cnt_c * (n / np.maximum(cnt_c.sum(1), 1.0))[:, None]
     p_eff = np.where(rep, np.clip(np.where(p > 0, p, 0.05), 0.02, 1.0), 0.0)
     done = rep & (p_eff >= 0.995)
 
@@ -195,6 +205,8 @@ def project(P, counted, n_sims=N_SIMS, seed=7, extra=None):
     Tp = np.where(done, n, Tp)
     V = Tp[:, None] * P["sh"][None, :]                      # expected votes per bucket
     V = np.where(has_m[:, None], np.maximum(V, nk), V)      # a bucket can't have fewer votes than already counted
+    V = np.where(has_c[:, None], np.maximum(V, obs_c), V)   # same for counts-only counties
+    Tp = np.where(has_c, V.sum(1), Tp)
     Tp = np.where(has_m, V.sum(1), Tp)
     Tp = np.where(done, n, Tp)
     rem = np.maximum(Tp - n, 0.0)
@@ -206,6 +218,8 @@ def project(P, counted, n_sims=N_SIMS, seed=7, extra=None):
     fills = [_regime_fill(n, V, False),
              V * np.where(Tp > 0, np.minimum(n / np.maximum(Tp, 1), 1), 0)[:, None],
              _regime_fill(n, V, True)]
+    if has_c.any():   # every regime sees the observed fill for these counties, so their counting order is not inferred
+        fills = [np.where(has_c[:, None], obs_c, f_) for f_ in fills]
     pred = np.stack([100 * (f * Mm).sum(1) / np.maximum(n, 1) for f in fills])
     RM = np.stack([((V - f) * Mm).sum(1) for f in fills])
     pri = np.array([1.0, 0.0, 0.0]) if K == 1 else np.array(STATE_REGIME.get(P.get("state"), REGIME_PRIOR))
