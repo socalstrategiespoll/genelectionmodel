@@ -15,7 +15,7 @@ def _row(contest, cand, party, method, votes):
 
 def rows_for(fips, rows, contest_ok):
     return [{"fips": fips, "method": r["method"], "party": r["party"], "votes": r["votes"]}
-            for r in rows if contest_ok(r["contest"]) and r["party"] in ("D", "R")]
+            for r in rows if r["party"] == "ALL" or (contest_ok(r["contest"]) and r["party"] in ("D", "R"))]
 
 # Clarity: summary.json lists contests (K, C, CH, P); vt.json gives per-type votes by candidate
 def parse_clarity(summary, vt):
@@ -187,4 +187,13 @@ def parse_harris(data):
             for key, label in (("ab", "mail"), ("ev", "early voting"), ("ed", "election day")):
                 arr = c.get(key) or []
                 out.append(_row(c.get("t", ""), name, party, label, arr[i] if i < len(arr) else 0))
+    return out
+
+
+# Counts-only turnout summary (Maricopa-style text): ballots counted per method for the whole county, no contest split.
+# Rows carry party "ALL" and no contest; method_feeds uses them to know which ballot types are in the count.
+def parse_turnout_text(text):
+    out = []
+    for m in re.finditer(r"^\s*Total\s+(Early A\.R\.S\. 16-579|Early Vote|Election Day)\s+([\d,]+)\s*$", text, re.M | re.I):
+        out.append(_row("", "", "ALL", m.group(1), m.group(2)))
     return out
