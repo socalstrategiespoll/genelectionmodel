@@ -74,6 +74,28 @@ def fetch_enhanced(c):
         if not slug: raise ValueError("no Enhanced Voting slug for " + c["county"])
         u = f"{EV_API}/elections/{slug}/{_ov(c, 'election_id') or ev_find_election(slug)}/data"
     return adapters.parse_enhanced(get(u))
+
+GA_API = "https://results.sos.ga.gov/results/public/api"
+_ga_eid = {}
+def ga_election_id():
+    """Georgia's statewide portal lists elections at /api/jurisdictions/Georgia. Override with election_overrides.json {"GA": {"election_id": ...}};
+    otherwise pick the 2026-11-03 election from the listing, falling back to 2026NovGen (the 2022 and 2024 ids were 2022NovGen and 2024NovGen)."""
+    try: o = json.load(open(_ov_path)).get("GA", {}).get("election_id")
+    except Exception: o = None
+    if o: return o
+    if "id" in _ga_eid: return _ga_eid["id"]
+    try:
+        raw = get(GA_API + "/jurisdictions/Georgia")
+        for m in re.finditer(r'\{[^{}]*\}', raw):
+            it = m.group(0)
+            if "2026-11-03" in it and (e := re.search(r'"id"\s*:\s*"([^"]+)"', it)):
+                _ga_eid["id"] = e.group(1); return _ga_eid["id"]
+    except Exception: pass
+    return "2026NovGen"
+def fetch_ga(c):      # one county's contests by vote method from the Georgia SoS portal (Enhanced Voting engine)
+    slug = re.sub(r"[^A-Za-z]+", "-", c["county"].strip()).strip("-") + "-County-GA"
+    u = _ov(c, "data_url") or f"{GA_API}/elections/{slug}/{ga_election_id()}/ballot-items"
+    return adapters.parse_enhanced(get(u, 30))
 _tx = {}
 def fetch_tx(c):      # one statewide County.json serves every TX county; cache for the poll cycle
     u = _ov(c, "data_url")
@@ -83,10 +105,13 @@ def fetch_tx(c):      # one statewide County.json serves every TX county; cache 
     if not hit or time.time() - hit[0] > 30:
         hit = _tx[u] = (time.time(), adapters.parse_tx(get(u, 60)))
     return hit[1][c["fips"]]
-FETCH = {"clarity": fetch_clarity, "nc": fetch_nc, "ess": fetch_ess, "vr": fetch_vr, "enhanced": fetch_enhanced, "tx": fetch_tx}
+HARRIS_URL = "https://appfiles.harrisvotes.com/harrisvotes/prd/Data/1126/resultsbyballot.json"
+def fetch_harris(c):
+    return adapters.parse_harris(get(_ov(c, "url") or HARRIS_URL))
+FETCH = {"harris": fetch_harris, "clarity": fetch_clarity, "nc": fetch_nc, "ess": fetch_ess, "vr": fetch_vr, "enhanced": fetch_enhanced, "tx": fetch_tx, "ga": fetch_ga}
 
 # feed label -> bucket key, by the race's bucket structure
-EARLY = ("early", "early voting", "early votes", "one-stop", "in-person early", "ev", "early voting - regional", "early voting - central", "ev-regional", "ev-central")
+EARLY = ("advance voting", "early", "early voting", "early votes", "one-stop", "in-person early", "ev", "early voting - regional", "early voting - central", "ev-regional", "ev-central")
 MAIL = ("av ed", "av counting boards", "absentee - local", "absentee - county", "absentee-local", "absentee-county", "absentee votes", "pre-process absentee", "absentee election day", "avcb election day", "avcb", "absentee voting", "mail", "absentee", "absentee mail", "absentee by mail", "vote by mail", "mail-in", "absentee mail-in")
 def keymap(race):
     keys = [b["key"] for b in race.get("buckets", [])]
