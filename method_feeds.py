@@ -56,11 +56,13 @@ def attach(counted, race, engine_keys=None):
         STATUS[race["id"]] = {"_": "source error: %s" % str(e)[:80]}
         return _split_detroit(counted, {}, race, STATUS[race["id"]]) if split else counted
     st = STATUS[race["id"]] = {}
-    by = {}
+    by = {}; cnts = {}
     for r in rows:
         key = km.get(str(r.get("method", "")).strip().lower())
         if key is None or (engine_keys and key not in engine_keys):
             continue
+        if r["party"] == "ALL":      # counts-only feed: ballots per bucket, no candidate split
+            cnts.setdefault(r["fips"], {})[key] = cnts.get(r["fips"], {}).get(key, 0) + r["votes"]; continue
         d = by.setdefault(r["fips"], {}).setdefault(key, [0, 0])
         d[0 if r["party"] == "D" else 1] += r["votes"]
     if split:
@@ -76,6 +78,15 @@ def attach(counted, race, engine_keys=None):
             st[fips] = "mismatch %.1f%% (method %d vs civicAPI %d)" % (100 * (tot - civ) / civ, tot, civ); continue
         st[fips] = "ok"
         out[fips] = (c[0], c[1], c[2], {k: (v[0], v[1]) for k, v in b.items()})
+    for fips, b in cnts.items():
+        c = out.get(fips) or counted.get(fips)
+        if not c or (len(c) > 3 and c[3]): continue            # real method margins win
+        tot = sum(b.values()); civ = c[0] + c[1]
+        if not civ: continue
+        if not (0.85 <= tot / civ <= 1.15):                    # ballots vs contest votes differ by undervotes; far apart means different ballots
+            st[fips] = "counts mismatch (%d ballots vs %d votes)" % (tot, civ); continue
+        st[fips] = "ok (counts only)"
+        out[fips] = (c[0], c[1], c[2], None, dict(b))
     return out
 
 # ---- County adapters -------------------------------------------------------
