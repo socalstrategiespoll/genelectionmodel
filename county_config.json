@@ -2935,15 +2935,15 @@
  "48121": {
   "state": "TX",
   "county": "Denton",
-  "kind": "tx",
-  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
-  "eid": "122426",
+  "kind": "clarity",
+  "url": "https://results.enr.clarityelections.com/TX/Denton/",
+  "eid": null,
   "races": [
    "TX-Gov",
    "TX-Sen"
   ],
-  "group": "Scrapeable: TX SoS County.json (early vs ED)",
-  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "group": "Scrapeable: Clarity JSON (vt.json)",
+  "categories": "Election Day, Early Voting, Absentee By Mail",
   "in_scope": true
  },
  "48141": {
@@ -2962,15 +2962,15 @@
  "48157": {
   "state": "TX",
   "county": "Fort Bend",
-  "kind": "tx",
-  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
-  "eid": "122596",
+  "kind": "clarity",
+  "url": "https://results.enr.clarityelections.com/TX/Fort_Bend/127480/web.345435/#/summary",
+  "eid": "127480",
   "races": [
    "TX-Gov",
    "TX-Sen"
   ],
-  "group": "Scrapeable: TX SoS County.json (early vs ED)",
-  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "group": "Scrapeable: Clarity JSON (vt.json)",
+  "categories": "Election Day, Early Voting, Absentee By Mail",
   "in_scope": true
  },
  "48177": {
@@ -3002,16 +3002,16 @@
  "48201": {
   "state": "TX",
   "county": "Harris",
-  "kind": "pdf",
-  "url": "https://appfiles.harrisvotes.com/harrisvotes/prd/Data/1124/cumulative.pdf",
+  "kind": "harris",
+  "url": "https://appfiles.harrisvotes.com/harrisvotes/prd/Data/1126/resultsbyballot.json",
   "eid": null,
   "races": [
    "TX-09",
    "TX-Gov",
    "TX-Sen"
   ],
-  "group": "PDF",
-  "categories": "Ballot by Mail, Early Voting, Election Day, EV Provisional, ED Provisional",
+  "group": "Scrapeable: Harris resultsbyballot.json",
+  "categories": "Mail, Early Voting, Election Day",
   "in_scope": true
  },
  "48215": {
@@ -3134,29 +3134,29 @@
  "48439": {
   "state": "TX",
   "county": "Tarrant",
-  "kind": "pdf",
-  "url": "https://www.tarrantcountytx.gov/content/dam/main/elections/2024/1124/reports/cumulative_1124_110524_9pm.pdf",
-  "eid": null,
+  "kind": "clarity",
+  "url": "https://results.enr.clarityelections.com/TX/Tarrant/127297/web.345435/#/summary",
+  "eid": "127297",
   "races": [
    "TX-Gov",
    "TX-Sen"
   ],
-  "group": "PDF",
-  "categories": "Absentee Voting (mail), Early Voting, Election Day Voting",
+  "group": "Scrapeable: Clarity JSON (vt.json)",
+  "categories": "Election Day, Early Voting, Absentee By Mail",
   "in_scope": true
  },
  "48453": {
   "state": "TX",
   "county": "Travis",
-  "kind": "tx",
-  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
-  "eid": "122432",
+  "kind": "clarity",
+  "url": "https://results.enr.clarityelections.com/TX/Travis/",
+  "eid": null,
   "races": [
    "TX-Gov",
    "TX-Sen"
   ],
-  "group": "Scrapeable: TX SoS County.json (early vs ED)",
-  "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "group": "Scrapeable: Clarity JSON (vt.json)",
+  "categories": "Election Day, Early Voting, Absentee By Mail",
   "in_scope": true
  },
  "48465": {
