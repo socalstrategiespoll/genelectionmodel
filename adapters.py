@@ -86,17 +86,23 @@ def parse_vr_html(html):
                     out.append(_row(contest, cand, party, {"Election Day": "election day", "Early Votes": "early", "Vote By Mail": "mail"}[k], r[i]))
     return out
 
-# Texas SoS County.json: {fips: {Races: {oid: {ON, C: {id: {N,P,V,EV}}}}}}; ED = V - EV
+# Texas SoS portal (Civix): enr/election/countyInfo/<id> -> {"upload": base64 JSON {county_idx: {N, Races: {oid: {N, C: {id: {N, P, V, EV}}}}}}}
+# V = total votes, EV = early votes (mail is not split out), so Election Day = V - EV. County ids are alphabetical indexes, not FIPS: match by name.
+import base64
+def _cn(x): return re.sub(r"[^A-Z]", "", str(x).upper())
 def parse_tx(data):
     d = json.loads(data) if isinstance(data, (str, bytes)) else data
+    up = d["upload"] if "upload" in d else d
+    if isinstance(up, str): up = json.loads(base64.b64decode(up))
     out = {}
-    for fips, c in d.items():
+    for c in up.values():
         rs = []
         for r in c["Races"].values():
             for x in r["C"].values():
-                rs.append(_row(r["ON"], x["N"], x["P"], "early", x["EV"]))
-                rs.append(_row(r["ON"], x["N"], x["P"], "election day", x["V"] - x["EV"]))
-        out[fips] = rs
+                v = int(x.get("V") or 0); ev = int(x.get("EV") or 0)
+                rs.append(_row(r["N"], x["N"], x["P"], "early", ev))
+                rs.append(_row(r["N"], x["N"], x["P"], "election day", max(v - ev, 0)))
+        out[_cn(c["N"])] = rs
     return out
 
 # NCSBE results_N.txt (JSON array): evc ED, ovc one-stop, avc absentee mail, pvc provisional
