@@ -53,10 +53,12 @@ REGIME_PRIOR = (0.55, 0.35, 0.10)   # early-first, proportional, late-first (fro
 # Counting order by state (early-first, proportional, late-first), from how each state has reported in recent general elections.
 # Most states post early and mail ballots first, then Election Day. Pennsylvania, Wisconsin and Michigan count mail late or in batches.
 STATE_REGIME = {"TX": (0.80, 0.15, 0.05), "FL": (0.80, 0.15, 0.05), "NC": (0.85, 0.10, 0.05), "GA": (0.80, 0.15, 0.05),
-                "NV": (0.70, 0.20, 0.10), "OH": (0.80, 0.15, 0.05), "SC": (0.80, 0.15, 0.05), "CO": (0.75, 0.20, 0.05),
+                "NV": (0.70, 0.20, 0.10), "AZ": (0.70, 0.20, 0.10), "OH": (0.80, 0.15, 0.05), "SC": (0.80, 0.15, 0.05), "CO": (0.75, 0.20, 0.05),
                 "OR": (0.85, 0.10, 0.05), "WA": (0.75, 0.20, 0.05), "IA": (0.70, 0.20, 0.10), "MO": (0.70, 0.20, 0.10),
                 "PA": (0.15, 0.30, 0.55), "WI": (0.30, 0.30, 0.40), "MI": (0.30, 0.35, 0.35)}
 ORDER = {"em": 0, "mail": 0, "early": 0, "eip": 1, "ed": 2, "lm": 3}
+LATE_SD = {"AZ": 6.0, "NV": 5.0}    # prior SD (pts) of the late bucket's statewide gap: its share and lean are the least certain inputs (no method feeds in these states)
+MODEL_ERR_STATE = {"AZ": 0.7, "NV": 0.7}   # larger unremovable final-margin error where the last 10-13% of the vote counts days later
 CALL_PROB = 0.995          # a race is only flagged call-ready above this (or below 1 minus this)
 METHOD_REGIME_STATE = 0.5   # weight every method county gets on a regime county's counting-order prior (rest is by distance)
 METHOD_REGIME_TEMPER = 0.6  # discount: counting order is shared within a state but not identical county to county
@@ -272,7 +274,7 @@ def project(P, counted, n_sims=N_SIMS, seed=7, extra=None):
     Kb = P["K"] if rep.any() else P["K0"]
     sd0_sq = max(P["pre_sd"] ** 2 - float(P["share"] @ Kb @ P["share"]), (0.5 * P["pre_sd"]) ** 2)
     nth = 1 + (K if K > 1 else 0)
-    prior_prec = np.array([1 / sd0_sq] + ([1 / BUCKET_SD ** 2] * K if K > 1 else []))
+    prior_prec = np.array([1 / sd0_sq] + ([1 / (LATE_SD.get(P.get("state"), BUCKET_SD) if kk == "lm" else BUCKET_SD) ** 2 for kk in P["keys"]] if K > 1 else []))
     tau = TAU_BASE
     ksc = 1.0
     theta = np.zeros(nth); Vth = np.diag(1 / prior_prec)
@@ -375,7 +377,7 @@ def project(P, counted, n_sims=N_SIMS, seed=7, extra=None):
     final = 100 * fm / np.maximum(ft, 1)
     if rep.any():       # unremovable error shrinks as the count finishes: full size until ~8% of votes remain, small once complete
         remfrac = float(rem.sum() / max(n.sum() + rem.sum(), 1.0))
-        final = final + rng.normal(0, MODEL_ERR * min(1.0, 0.2 + remfrac / 0.1), n_sims)
+        final = final + rng.normal(0, MODEL_ERR_STATE.get(P.get("state"), MODEL_ERR) * min(1.0, 0.2 + remfrac / 0.1), n_sims)
     if not rep.any():   # nothing counted: center the forecast exactly on the baseline margin (removes Monte Carlo and turnout-weight drift)
         final = final + (P["headline"] - np.median(final))
     win = float(((final > 0).mean() + (final == 0).mean() / 2))
