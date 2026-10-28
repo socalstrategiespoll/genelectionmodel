@@ -59,11 +59,29 @@ def cycle(races, rmap, preps, cache):
     with open(tmp, "w") as f: json.dump(proj, f, separators=(",", ":"))
     os.replace(tmp, OUT)
 
+def prime(races, preps):
+    """Pre-election forecast for every race, computed from the baselines alone, so the site has data in under a minute.
+    The first full cycle can take many minutes (it calls every county feed one after another)."""
+    out = {}
+    for r in races:
+        rid = r["id"]
+        try: res = engine.project(preps[rid], {})
+        except Exception as e:
+            print("prime failed", rid, e, flush=True); continue
+        STATE["detail"][rid] = res
+        out[rid] = {"state": res["state"], "status": "Pre-election forecast", "margin": res["margin"], "p05": res["p05"], "p95": res["p95"],
+                    "win_prob": res["win_prob_R"], "reporting": res["reporting"], "call_ready": res["call_ready"], "percentiles": res["percentiles"],
+                    "no_prob": bool(r.get("no_prob")), "top4": res.get("top4"), "bucket_gap": res.get("bucket_gap", {}), "method_counties": res.get("counties_with_method_data", 0)}
+    with LOCK:
+        STATE["projection"] = {"updated": time.strftime("%Y-%m-%d %H:%M:%S UTC", time.gmtime()), "mode": "pre", "races": out}
+    print("primed", len(out), "races", flush=True)
+
 def poller():
     races, rmap = load()
     threading.Thread(target=kalshi_feed.loop, args=(races,), daemon=True).start()
     last_resolve = 0
     preps = {r["id"]: engine.prep(r) for r in races}
+    prime(races, preps)
     cache = {}
     while True:
         t = time.time()
