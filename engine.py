@@ -37,6 +37,7 @@ HET_BASE, HET_SCALE, HET_MAX = 2.0, 8.0, 8.0   # within-county heterogeneity: ba
 OUTLIER_LAMBDA = 3.0
 FULL_TRUST_PCT = 0.25      # turnout recalibration credibility ramp (fraction of precincts)
 TURNOUT_CLAMP = (0.40, 2.50)
+DISAGREE_LOG = 0.4         # a county whose implied turnout is further than this (log) from the statewide median gets less weight
 TURNOUT_NOISE = 0.06       # SD of remaining-vote volume (log), scaled by share still out
 # County swing is a correlated field: shared geography + shared partisan profile + county-specific noise.
 GEO_SD, GEO_KM = 2.38, 115.8     # regional swing: SD (pts) and length scale (km); fitted by fit_swing.py on 2016-2024 county swings
@@ -202,6 +203,17 @@ def project(P, counted, n_sims=N_SIMS, seed=7, extra=None):
         impl = np.where(rep, n / np.maximum(p_eff, 1e-6), 0.0)
         r_c = np.clip(impl / T, *TURNOUT_CLAMP)
         g = _wmedian(r_c[rep], (T * w)[rep] + 1e-9)
+        for _ in range(2):     # percent and votes disagree with the statewide turnout: trust that county's own implied turnout less, then re-centre without it
+            dev = np.abs(np.log(np.maximum(r_c, 1e-6) / g))
+            w_adj = w * np.where(dev > DISAGREE_LOG, DISAGREE_LOG / np.maximum(dev, 1e-6), 1.0)
+            g = _wmedian(r_c[rep], (T * w_adj)[rep] + 1e-9)
+        w = w_adj
+        # a county whose percent in is far above what its votes support (votes look like a much smaller share of expected turnout):
+        # distrust the percent, use the statewide turnout and the percent its votes imply
+        bad_pct = rep & ~done & (dev > 1.5 * DISAGREE_LOG) & (r_c < g)
+        if bad_pct.any():
+            p_eff = np.where(bad_pct, np.minimum(p_eff, np.clip(n / np.maximum(T * g, 1.0), 0.02, 1.0)), p_eff)
+            w = np.where(bad_pct, 0.0, w)
         ratio = np.where(rep, w * r_c + (1 - w) * g, g)
     Tp = np.maximum(T * ratio, n)
     Tp = np.where(done, n, Tp)
