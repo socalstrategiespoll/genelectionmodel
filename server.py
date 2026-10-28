@@ -108,6 +108,13 @@ class H(BaseHTTPRequestHandler):
         self.send_header("Vary", "Accept-Encoding")
         if gz: self.send_header("Content-Encoding", "gzip")
         self.send_header("Content-Length", str(len(b))); self.end_headers(); self.wfile.write(b)
+    def do_OPTIONS(self):       # CORS preflight: browsers send it when a page on another domain asks for custom headers
+        self.send_response(204)
+        self.send_header("Access-Control-Allow-Origin", "*")
+        self.send_header("Access-Control-Allow-Methods", "GET, OPTIONS")
+        self.send_header("Access-Control-Allow-Headers", "*")
+        self.send_header("Access-Control-Max-Age", "86400")
+        self.send_header("Content-Length", "0"); self.end_headers()
     def do_GET(self):
         p = self.path.split("?")[0]
         if p == "/health": return self._send(200, {"ok": True, "updated": STATE["projection"]["updated"]})
