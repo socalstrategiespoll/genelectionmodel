@@ -2967,7 +2967,8 @@
   ],
   "group": "Scrapeable: Clarity JSON (vt.json)",
   "categories": "Election Day, Early Voting, Absentee By Mail",
-  "in_scope": true
+  "in_scope": true,
+  "stale_eid": true
  },
  "48157": {
   "state": "TX",
@@ -3041,7 +3042,8 @@
   ],
   "group": "Scrapeable: Clarity JSON (vt.json)",
   "categories": "Absentee (mail), Election Day, Early",
-  "in_scope": true
+  "in_scope": true,
+  "stale_eid": true
  },
  "48249": {
   "state": "TX",
