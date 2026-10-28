@@ -115,5 +115,80 @@
  },
  "VA": {
   "election_id": "2026-November-General"
+ },
+ "36027": {
+  "election_id": "GE2026"
+ },
+ "36079": {
+  "election_id": "GE2026_20261028103950"
+ },
+ "36087": {
+  "election_id": "GE2026"
+ },
+ "36119": {
+  "election_id": "2026GeneralElection"
+ },
+ "TX": {
+  "election_id": 53815
+ },
+ "48141": {
+  "eid": 127348
+ },
+ "26047": {
+  "eid": 127403
+ },
+ "20045": {
+  "url": "https://www.livevoterturnout.com/ENR/douglasksenr/22/summary_22.xml"
+ },
+ "29071": {
+  "url": "https://www.livevoterturnout.com/ENR/franklinmoenr/16/summary_16.xml"
+ },
+ "29099": {
+  "url": "https://www.livevoterturnout.com/ENR/jeffersonmoenr/27/summary_27.xml"
+ },
+ "34033": {
+  "url": "https://www.livevoterturnout.com/ENR/salemnjenr/13/summary_13.xml"
+ },
+ "39017": {
+  "url": "https://www.livevoterturnout.com/ENR/butlerohenr/24/summary_24.xml"
+ },
+ "39151": {
+  "url": "https://www.livevoterturnout.com/ENR/starkohenr/14/summary_14.xml"
+ },
+ "42017": {
+  "url": "https://www.livevoterturnout.com/ENR/buckspaenr/24/summary_24.xml"
+ },
+ "04003": {
+  "election_id": "General11032026"
+ },
+ "39035": {
+  "election_id": "GE2026"
+ },
+ "39113": {
+  "election_id": "2026NovemberGeneralElection"
+ },
+ "39153": {
+  "election_id": "Nov2026General"
+ },
+ "39073": {
+  "election_id": "2026NovemberGeneralElection"
+ },
+ "12021": {
+  "url": "https://enr.electionsfl.org/CLL/4083/Summary/"
+ },
+ "12011": {
+  "url": "https://results.browardvotes.gov/ENR/browardflenr/240/summary_240.xml"
+ },
+ "48121": {
+  "eid": 127398
+ },
+ "26125": {
+  "eid": 127284
+ },
+ "26099": {
+  "eid": 127293
+ },
+ "26049": {
+  "eid": 127354
  }
 }
