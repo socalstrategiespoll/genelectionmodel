@@ -116,6 +116,11 @@ def add_statewide(counted, payload, race, fips_keys):
 OVER_X = 2.5       # a county counting more than this multiple of its expected two-party vote is a feed error
 DROP_TOL = 0.02    # a county total falling more than 2% below the last good one is held back ...
 DROP_CYCLES = 3    # ... until it persists this many cycles in a row (then it is treated as a real correction)
+PCT_TOL = 0.02     # a county's percent reporting falling more than this is held at the last good value ...
+PCT_CYCLES = 3     # ... until it persists this many cycles in a row
+DONE_PLAUS = 0.5   # a county at 100% with fewer votes than this share of its baseline is not treated as done ...
+DONE_CYCLES = 5    # ... until it has stayed at 100% this many cycles in a row
+DISAGREE = (0.5, 2.0)  # implied turnout (votes / baseline / percent) outside this range is flagged as percent and votes disagreeing
 
 def sanitize(counted, race, mem):
     """Guards against bad feed data. mem is a per-race dict carried across cycles. Returns (clean, warnings).
@@ -142,6 +147,28 @@ def sanitize(counted, race, mem):
                 warns.append(f"{f}: total fell {old[0]+old[1]:.0f} -> {tot:.0f}, holding last good ({strikes[f]}/{DROP_CYCLES})")
                 out[f] = old; continue
         strikes.pop(f, None)
+        pm = mem.setdefault("pct", {}); ps = mem.setdefault("pstrikes", {}); p100 = mem.setdefault("p100", {})
+        last = pm.get(f); pc = v[2]
+        if last is not None and pc < last - PCT_TOL:
+            ps[f] = ps.get(f, 0) + 1
+            if ps[f] < PCT_CYCLES:
+                warns.append(f"{f}: percent in fell {last:.0%} -> {pc:.0%}, holding last good ({ps[f]}/{PCT_CYCLES})")
+                pc = last
+        else:
+            ps.pop(f, None)
+        if pc >= 0.995 and b and tot < DONE_PLAUS * b:
+            p100[f] = p100.get(f, 0) + 1
+            if p100[f] < DONE_CYCLES:
+                warns.append(f"{f}: 100% in but only {tot/b:.0%} of expected votes, not treated as done ({p100[f]}/{DONE_CYCLES})")
+                pc = 0.95
+        else:
+            p100.pop(f, None)
+        if b and 0.25 <= pc < 0.995:
+            r = (tot / b) / pc
+            if r < DISAGREE[0] or r > DISAGREE[1]:
+                warns.append(f"{f}: percent and votes disagree ({pc:.0%} in, votes {tot/b:.0%} of expected, implies turnout {r:.2f}x)")
+        pm[f] = pc
+        v = (v[0], v[1], pc) + tuple(v[3:])
         good[f] = v; out[f] = v
     for f in good:                      # a county that vanishes from the feed keeps its last good value for the same grace period
         if f not in out and f not in counted:
