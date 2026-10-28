@@ -423,6 +423,15 @@ def project(P, counted, n_sims=N_SIMS, seed=7, extra=None):
         counties.append([P["fips"][i], P["names"][i], round(float(p_eff[i]), 3), int(n[i]), int(rem[i]),
                          None if pm is None else round(pm, 2), bool(has_m[i]), round(float(Uc_mean[i]), 2),
                          int(cD[i]), int(cR[i]), None if rmm is None else round(rmm, 2), None if cm is None else round(cm, 2)])
+    methods = None      # counties that report by vote method: how much of each method is in, and how it voted against the baseline
+    if K > 1:
+        methods = []
+        for j, key in enumerate(keys):
+            c_j = float(nk[has_m, j].sum()); e_j = float(V[has_m, j].sum())
+            methods.append(dict(key=key, counted=int(c_j), expected=int(e_j),
+                                observed=None if c_j <= 0 else round(float(100 * (mk_R[has_m, j].sum() - mk_D[has_m, j].sum()) / c_j), 2),
+                                baseline=None if c_j <= 0 else round(float((nk[has_m, j] * P["M"][has_m, j]).sum() / c_j), 2),
+                                counties=int((nk[:, j] > 0).sum())))
     state = "complete" if (rep.sum() == nC and done.all()) else ("counting" if rep.any() else "pre")
     n_reg = rep & ~has_m
     no_prob = bool(P.get("no_prob"))     # margin-only races (Alaska, RCV): no win probability, never call-ready
@@ -431,7 +440,7 @@ def project(P, counted, n_sims=N_SIMS, seed=7, extra=None):
                 p75=round(float(pc[3]), 2), p95=round(float(pc[4]), 2), reporting=round(frac, 4),
                 shift=round(s_mu, 2), shift_sd=round(math.sqrt(s_var), 2), tau=round(tau, 2),
                 bucket_gap=({k: round(float(theta[1 + j]), 2) for j, k in enumerate(keys)} if K > 1 else {}),
-                counties_with_method_data=int(has_m.sum()),
+                counties_with_method_data=int(has_m.sum()), methods=methods,
                 turnout_ratio=round(float(g), 3),
                 regimes=[round(float(x), 3) for x in (wr[:, n_reg].mean(1) if n_reg.any() else pri)],
                 regime_prior_from_method=[round(float(x), 3) for x in (pri_c[:, n_reg].mean(1) if n_reg.any() else pri)],
