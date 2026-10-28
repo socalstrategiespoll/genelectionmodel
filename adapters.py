@@ -9,7 +9,9 @@ PARTY = {"DEM": "D", "D": "D", "DEMOCRATIC": "D", "REP": "R", "R": "R", "REPUBLI
 def _p(x): return PARTY.get(str(x or "").strip().upper(), str(x or "").strip().upper())
 def _n(x):
     s = str(x).replace(",", "").strip()
-    return 0 if s in ("", "-") else int(float(s))
+    if s.upper() in ("", "-", "--", "N/A", "NA", "NONE", "NULL"): return 0     # pages show N/A before anything is counted
+    try: return int(float(s))
+    except ValueError: return 0
 def _row(contest, cand, party, method, votes):
     return {"contest": contest, "cand": cand, "party": _p(party), "method": method.strip().lower(), "votes": _n(votes)}
 
@@ -44,15 +46,28 @@ def parse_enhanced(data):
                 out.append(_row(name, _txt(o["name"]), party, _txt(g["groupName"]), g["voteCount"]))
     return out
 
-# ES&S ENR summary XML: one <Table> per candidate
+# ES&S ENR summary XML: one <Table> per candidate. The vote-method tags differ by county (EarlyVotes, EarlyVotingVotes,
+# AdvancedVotingVotes, InPersonBallotsVotes, EarlyInPersonVotesVotes, AbsenteeVotes, AbsenteeBallotsVotes, VoteByMailVotes,
+# MailBallotsVotes, AbsenteeandMailInVotes, ElectionDayVotes, ProvisionalVotes, ProvisionalVotingVotes, ...), so each tag
+# ending in "Votes" is classified by its name. Totals and OTHERVotes are skipped.
+def _ess_method(tag):
+    t = tag.lower()
+    if not t.endswith("votes") or t in ("totalvotes", "othervotes", "votes", "writeinvotes"): return None
+    if "provisional" in t: return "provisional"
+    if "electionday" in t or "election_day" in t: return "election day"
+    if "mail" in t: return "mail"
+    if "absentee" in t: return "absentee"
+    if "early" in t or "advanced" in t or "inperson" in t: return "early"
+    return None
 def parse_ess(xml):
     root = ET.fromstring(xml)
     out = []
     for t in root.iter("Table"):
         g = lambda k: (t.findtext(k) or "")
-        for tag, m in (("EarlyVotes", "early"), ("AbsenteeVotes", "absentee"),
-                       ("ElectionDayVotes", "election day"), ("ProvisionalVotes", "provisional")):
-            out.append(_row(g("RaceName"), g("ContestantName"), g("Party"), m, g(tag) or 0))
+        for el in t:
+            m = _ess_method(el.tag)
+            if m:
+                out.append(_row(g("RaceName"), g("ContestantName"), g("Party"), m, (el.text or "").strip() or 0))
     return out
 
 # VR Systems candidate-summary CSV (Mail / Early / Election Day)
