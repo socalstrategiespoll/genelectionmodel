@@ -2967,8 +2967,7 @@
   ],
   "group": "Scrapeable: Clarity JSON (vt.json)",
   "categories": "Election Day, Early Voting, Absentee By Mail",
-  "in_scope": true,
-  "stale_eid": true
+  "in_scope": true
  },
  "48157": {
   "state": "TX",
@@ -3042,8 +3041,7 @@
   ],
   "group": "Scrapeable: Clarity JSON (vt.json)",
   "categories": "Absentee (mail), Election Day, Early",
-  "in_scope": true,
-  "stale_eid": true
+  "in_scope": true
  },
  "48249": {
   "state": "TX",
@@ -3227,7 +3225,7 @@
   "state": "VA",
   "county": "Accomack",
   "kind": "enhanced",
-  "url": "https://app.enhancedvoting.com/results/public/Virginia/elections/2024NovemberGeneral",
+  "url": "https://app.enhancedvoting.com/results/public/accomack-county",
   "eid": null,
   "races": [
    "VA-02"
@@ -3240,7 +3238,7 @@
   "state": "VA",
   "county": "Albemarle",
   "kind": "enhanced",
-  "url": "https://app.enhancedvoting.com/results/public/Virginia/elections/2024NovemberGeneral",
+  "url": "https://app.enhancedvoting.com/results/public/albemarle-county",
   "eid": null,
   "races": [
    "VA-05"
@@ -3253,7 +3251,7 @@
   "state": "VA",
   "county": "Amherst",
   "kind": "enhanced",
-  "url": "https://app.enhancedvoting.com/results/public/Virginia/elections/2024NovemberGeneral",
+  "url": "https://app.enhancedvoting.com/results/public/amherst-county",
   "eid": null,
   "races": [
    "VA-05"
@@ -3266,7 +3264,7 @@
   "state": "VA",
   "county": "Bedford",
   "kind": "enhanced",
-  "url": "https://app.enhancedvoting.com/results/public/Virginia/elections/2024NovemberGeneral",
+  "url": "https://app.enhancedvoting.com/results/public/bedford-county",
   "eid": null,
   "races": [
    "VA-05"
@@ -3279,7 +3277,7 @@
   "state": "VA",
   "county": "Campbell",
   "kind": "enhanced",
-  "url": "https://app.enhancedvoting.com/results/public/Virginia/elections/2024NovemberGeneral",
+  "url": "https://app.enhancedvoting.com/results/public/campbell-county",
   "eid": null,
   "races": [
    "VA-05"
@@ -3292,7 +3290,7 @@
   "state": "VA",
   "county": "Charlottesville City",
   "kind": "enhanced",
-  "url": "https://app.enhancedvoting.com/results/public/Virginia/elections/2024NovemberGeneral",
+  "url": "https://app.enhancedvoting.com/results/public/charlottesville-city",
   "eid": null,
   "races": [
    "VA-05"
@@ -3305,7 +3303,7 @@
   "state": "VA",
   "county": "Chesapeake City",
   "kind": "enhanced",
-  "url": "https://app.enhancedvoting.com/results/public/Virginia/elections/2024NovemberGeneral",
+  "url": "https://app.enhancedvoting.com/results/public/chesapeake-city",
   "eid": null,
   "races": [
    "VA-02"
@@ -3318,7 +3316,7 @@
   "state": "VA",
   "county": "Chesterfield",
   "kind": "enhanced",
-  "url": "https://app.enhancedvoting.com/results/public/Virginia/elections/2024NovemberGeneral",
+  "url": "https://app.enhancedvoting.com/results/public/chesterfield-county",
   "eid": null,
   "races": [
    "VA-01"
@@ -3331,7 +3329,7 @@
   "state": "VA",
   "county": "Danville City",
   "kind": "enhanced",
-  "url": "https://app.enhancedvoting.com/results/public/Virginia/elections/2024NovemberGeneral",
+  "url": "https://app.enhancedvoting.com/results/public/danville-city",
   "eid": null,
   "races": [
    "VA-05"
@@ -3344,7 +3342,7 @@
   "state": "VA",
   "county": "Fluvanna",
   "kind": "enhanced",
-  "url": "https://app.enhancedvoting.com/results/public/Virginia/elections/2024NovemberGeneral",
+  "url": "https://app.enhancedvoting.com/results/public/fluvanna-county",
   "eid": null,
   "races": [
    "VA-05"
@@ -3357,7 +3355,7 @@
   "state": "VA",
   "county": "Gloucester",
   "kind": "enhanced",
-  "url": "https://app.enhancedvoting.com/results/public/Virginia/elections/2024NovemberGeneral",
+  "url": "https://app.enhancedvoting.com/results/public/gloucester-county",
   "eid": null,
   "races": [
    "VA-01"
@@ -3370,7 +3368,7 @@
   "state": "VA",
   "county": "Goochland",
   "kind": "enhanced",
-  "url": "https://app.enhancedvoting.com/results/public/Virginia/elections/2024NovemberGeneral",
+  "url": "https://app.enhancedvoting.com/results/public/goochland-county",
   "eid": null,
   "races": [
    "VA-05"
@@ -3383,7 +3381,7 @@
   "state": "VA",
   "county": "Halifax",
   "kind": "enhanced",
-  "url": "https://app.enhancedvoting.com/results/public/Virginia/elections/2024NovemberGeneral",
+  "url": "https://app.enhancedvoting.com/results/public/halifax-county",
   "eid": null,
   "races": [
    "VA-05"
@@ -3396,7 +3394,7 @@
   "state": "VA",
   "county": "Hanover",
   "kind": "enhanced",
-  "url": "https://app.enhancedvoting.com/results/public/Virginia/elections/2024NovemberGeneral",
+  "url": "https://app.enhancedvoting.com/results/public/hanover-county",
   "eid": null,
   "races": [
    "VA-01"
@@ -3409,7 +3407,7 @@
   "state": "VA",
   "county": "Henrico",
   "kind": "enhanced",
-  "url": "https://app.enhancedvoting.com/results/public/Virginia/elections/2024NovemberGeneral",
+  "url": "https://app.enhancedvoting.com/results/public/henrico-county",
   "eid": null,
   "races": [
    "VA-01"
@@ -3422,7 +3420,7 @@
   "state": "VA",
   "county": "Isle of Wight",
   "kind": "enhanced",
-  "url": "https://app.enhancedvoting.com/results/public/Virginia/elections/2024NovemberGeneral",
+  "url": "https://app.enhancedvoting.com/results/public/isle-of-wight-county",
   "eid": null,
   "races": [
    "VA-02"
@@ -3435,7 +3433,7 @@
   "state": "VA",
   "county": "James City",
   "kind": "enhanced",
-  "url": "https://app.enhancedvoting.com/results/public/Virginia/elections/2024NovemberGeneral",
+  "url": "https://app.enhancedvoting.com/results/public/james-city-county",
   "eid": null,
   "races": [
    "VA-01"
@@ -3448,7 +3446,7 @@
   "state": "VA",
   "county": "Louisa",
   "kind": "enhanced",
-  "url": "https://app.enhancedvoting.com/results/public/Virginia/elections/2024NovemberGeneral",
+  "url": "https://app.enhancedvoting.com/results/public/louisa-county",
   "eid": null,
   "races": [
    "VA-05"
@@ -3461,7 +3459,7 @@
   "state": "VA",
   "county": "Lynchburg City",
   "kind": "enhanced",
-  "url": "https://app.enhancedvoting.com/results/public/Virginia/elections/2024NovemberGeneral",
+  "url": "https://app.enhancedvoting.com/results/public/lynchburg-city",
   "eid": null,
   "races": [
    "VA-05"
@@ -3474,7 +3472,7 @@
   "state": "VA",
   "county": "Mecklenburg",
   "kind": "enhanced",
-  "url": "https://app.enhancedvoting.com/results/public/Virginia/elections/2024NovemberGeneral",
+  "url": "https://app.enhancedvoting.com/results/public/mecklenburg-county",
   "eid": null,
   "races": [
    "VA-05"
@@ -3487,7 +3485,7 @@
   "state": "VA",
   "county": "New Kent",
   "kind": "enhanced",
-  "url": "https://app.enhancedvoting.com/results/public/Virginia/elections/2024NovemberGeneral",
+  "url": "https://app.enhancedvoting.com/results/public/new-kent-county",
   "eid": null,
   "races": [
    "VA-01"
@@ -3500,7 +3498,7 @@
   "state": "VA",
   "county": "Pittsylvania",
   "kind": "enhanced",
-  "url": "https://app.enhancedvoting.com/results/public/Virginia/elections/2024NovemberGeneral",
+  "url": "https://app.enhancedvoting.com/results/public/pittsylvania-county",
   "eid": null,
   "races": [
    "VA-05"
@@ -3513,7 +3511,7 @@
   "state": "VA",
   "county": "Powhatan",
   "kind": "enhanced",
-  "url": "https://app.enhancedvoting.com/results/public/Virginia/elections/2024NovemberGeneral",
+  "url": "https://app.enhancedvoting.com/results/public/powhatan-county",
   "eid": null,
   "races": [
    "VA-05"
@@ -3526,7 +3524,7 @@
   "state": "VA",
   "county": "Suffolk City",
   "kind": "enhanced",
-  "url": "https://app.enhancedvoting.com/results/public/Virginia/elections/2024NovemberGeneral",
+  "url": "https://app.enhancedvoting.com/results/public/suffolk-city",
   "eid": null,
   "races": [
    "VA-02"
@@ -3539,7 +3537,7 @@
   "state": "VA",
   "county": "Virginia Beach City",
   "kind": "enhanced",
-  "url": "https://app.enhancedvoting.com/results/public/Virginia/elections/2024NovemberGeneral",
+  "url": "https://app.enhancedvoting.com/results/public/virginia-beach-city",
   "eid": null,
   "races": [
    "VA-02"
@@ -3552,7 +3550,7 @@
   "state": "VA",
   "county": "York",
   "kind": "enhanced",
-  "url": "https://app.enhancedvoting.com/results/public/Virginia/elections/2024NovemberGeneral",
+  "url": "https://app.enhancedvoting.com/results/public/york-county",
   "eid": null,
   "races": [
    "VA-01"
