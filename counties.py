@@ -23,6 +23,9 @@ def clarity_base(c):
     raise ValueError("no Nov 2026 Clarity election id yet for " + c["county"])
 def fetch_clarity(c):
     b = clarity_base(c); ver = get(b + "/current_ver.txt").strip()
+    try: es = get(f"{b}/{ver}/json/en/electionsettings.json")
+    except Exception: es = ""
+    if re.search(r"\d{1,2}/\d{1,2}/\d{4}", es): check_date("clarity", "11/3/2026" in es or "11/03/2026" in es)
     try:
         return adapters.parse_clarity(get(f"{b}/{ver}/json/summary.json"), get(f"{b}/{ver}/json/vt.json"))
     except Exception:       # no vt.json: fall back to detail.xml (Michigan counties)
@@ -40,10 +43,22 @@ def _ov(c, k):
     try: o = json.load(open(_ov_path)).get(c["fips"], {})
     except Exception: o = {}
     return o.get(k) or (c.get("url") if k == "url" else None)
-def fetch_ess(c):     # summary_N.xml
-    return adapters.parse_ess(get(_ov(c, "url")))
+_ess_ok = {}
+def fetch_ess(c):     # summary_N.xml; the XML has no election date, so the Index_N.html title is checked once per county
+    u = _ov(c, "url")
+    if u not in _ess_ok:
+        m = re.match(r"(.*/(\d+))/summary_\d+\.xml", u)
+        if m:
+            h = get(f"{m.group(1)}/en/Index_{m.group(2)}.html")
+            t = re.search(r'election-title[^>]*>([^<]*)<', h)
+            if t: check_date("ess", "November 3, 2026" in t.group(1))
+        _ess_ok[u] = True
+    return adapters.parse_ess(get(u))
 def fetch_vr(c):      # Summary page; hidden "DetailResults" table carries the by-method counts
-    return adapters.parse_vr_html(get(_ov(c, "url")))
+    h = get(_ov(c, "url"))
+    m = re.search(r"Election Date:\s*([0-9/]+)", h)
+    if m: check_date("vr", m.group(1) in ("11/3/2026", "11/03/2026"))
+    return adapters.parse_vr_html(h)
 EV_API = "https://app.enhancedvoting.com/results/public/api"
 ELECTION_DATE = "2026-11-03"
 def ev_slug(c):
@@ -67,13 +82,24 @@ def ev_find_election(slug):
     walk(json.loads(raw))
     if not found: raise ValueError("no 2026-11-03 election listed for " + slug)
     return found[0]
+def _state_ov(st, k):
+    try: return json.load(open(_ov_path)).get(st, {}).get(k)
+    except Exception: return None
+def check_date(kind, ok):
+    """Refuse a page that is not the Nov 3, 2026 General (old primaries and 2024 pages must never be read as live)."""
+    if not ok: raise ValueError(kind + ": page is not the 2026-11-03 General")
 def fetch_enhanced(c):
     u = _ov(c, "data_url")
     if not u:
         slug = ev_slug(c)
         if not slug: raise ValueError("no Enhanced Voting slug for " + c["county"])
-        u = f"{EV_API}/elections/{slug}/{_ov(c, 'election_id') or ev_find_election(slug)}/data"
-    return adapters.parse_enhanced(get(u))
+        eid = _ov(c, "election_id") or _state_ov(c["state"], "election_id") or ev_find_election(slug)
+        u = f"{EV_API}/elections/{slug}/{eid}/data"
+    raw = get(u)
+    d = json.loads(raw)
+    ed = (d.get("election") or {}).get("electionDate") if isinstance(d, dict) else None
+    if ed: check_date("enhanced", str(ed).startswith(ELECTION_DATE))
+    return adapters.parse_enhanced(d)
 
 GA_API = "https://results.sos.ga.gov/results/public/api"
 _ga_eid = {}
@@ -133,7 +159,7 @@ FETCH = {"turnout_pdf": fetch_turnout_pdf, "harris": fetch_harris, "clarity": fe
 
 # feed label -> bucket key, by the race's bucket structure
 EARLY = ("advance voting", "early", "early voting", "early votes", "one-stop", "in-person early", "ev", "early voting - regional", "early voting - central", "ev-regional", "ev-central")
-MAIL = ("av ed", "av counting boards", "absentee - local", "absentee - county", "absentee-local", "absentee-county", "absentee votes", "pre-process absentee", "absentee election day", "avcb election day", "avcb", "absentee voting", "mail", "absentee", "absentee mail", "absentee by mail", "vote by mail", "mail-in", "absentee mail-in")
+MAIL = ("av ed", "av counting boards", "absentee - local", "absentee - county", "absentee-local", "absentee-county", "absentee votes", "pre-process absentee", "absentee election day", "avcb election day", "avcb", "absentee voting", "mail", "absentee", "absentee mail", "absentee by mail", "vote by mail", "mail-in", "absentee mail-in", "mailed absentee")
 def keymap(race):
     keys = [b["key"] for b in race.get("buckets", [])]
     km = {m: "ed" for m in ("election day", "machine", "election", "precinct", "precinct voting", "precinct votes", "election day voting", "election day votes")}
