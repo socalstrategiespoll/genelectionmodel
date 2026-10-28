@@ -2885,8 +2885,8 @@
  "48061": {
   "state": "TX",
   "county": "Cameron",
-  "kind": "ess",
-  "url": "https://www.livevoterturnout.com/ENR/camerontxenr/37/summary_37.xml",
+  "kind": "tx",
+  "url": null,
   "eid": null,
   "races": [
    "TX-34",
@@ -2967,7 +2967,8 @@
   ],
   "group": "Scrapeable: Clarity JSON (vt.json)",
   "categories": "Election Day, Early Voting, Absentee By Mail",
-  "in_scope": true
+  "in_scope": true,
+  "stale_eid": true
  },
  "48157": {
   "state": "TX",
@@ -3041,7 +3042,8 @@
   ],
   "group": "Scrapeable: Clarity JSON (vt.json)",
   "categories": "Absentee (mail), Election Day, Early",
-  "in_scope": true
+  "in_scope": true,
+  "stale_eid": true
  },
  "48249": {
   "state": "TX",
@@ -4354,7 +4356,7 @@
   "state": "MI",
   "county": "Ottawa",
   "kind": "clarity",
-  "url": "https://results.enr.clarityelections.com/MI/Ottawa/",
+  "url": "https://www.miottawavotes.gov/MI/Ottawa/127391/web.345435/#/summary",
   "eid": null,
   "races": [
    "MI-04",
