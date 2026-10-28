@@ -112,5 +112,14 @@
  },
  "12131": {
   "url": "https://enr.electionsfl.org/WAL/4091/Summary/"
+ },
+ "12021": {
+  "url": "https://enr.electionsfl.org/CLL/4083/Summary/"
+ },
+ "12011": {
+  "url": "https://results.browardvotes.gov/ENR/browardflenr/240/summary_240.xml"
+ },
+ "48121": {
+  "eid": 127398
  }
 }
