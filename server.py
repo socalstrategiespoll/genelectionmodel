@@ -1,6 +1,6 @@
 # Render web service: stdlib server plus a poller thread. Routes: /health, /api/projection, /api/race/<id>
 # Writes projection.json (the file the site reads) every cycle. Races with no civicAPI id run pre-election.
-import gzip, json, os, sys, time, hashlib, threading
+import gzip, json, os, sys, time, hashlib, threading, gc, ctypes
 from http.server import ThreadingHTTPServer, BaseHTTPRequestHandler
 import engine, civicapi_feed, method_feeds, counties, kalshi_feed
 
@@ -11,6 +11,19 @@ LOCK = threading.Lock()
 STATE = {"projection": {"updated": None, "mode": "starting", "races": {}}, "detail": {}}
 GUARD = {}      # race id -> carried memory for civicapi_feed.sanitize
 GUARD_WARN = {} # race id -> warnings from the latest cycle
+
+def rss_mb():
+    try:
+        for l in open("/proc/self/status"):
+            if l.startswith("VmRSS"): return round(int(l.split()[1]) / 1024)
+    except Exception: pass
+    return None
+
+def trim():
+    """Hand freed memory back to the OS; the simulation arrays are large and short-lived."""
+    gc.collect()
+    try: ctypes.CDLL("libc.so.6").malloc_trim(0)
+    except Exception: pass
 
 def load():
     data = json.load(open(os.path.join(HERE, "data.json")))
@@ -51,6 +64,9 @@ def cycle(races, rmap, preps, cache):
                     "no_prob": bool(r.get("no_prob")), "top4": res.get("top4"), "bucket_gap": res.get("bucket_gap", {}), "method_counties": res.get("counties_with_method_data", 0)}
         if err: out[rid]["feed_error"] = err
         time.sleep(0.2 if cid else 0)
+        trim()
+        m = rss_mb()
+        if m and m > 300: print("memory", m, "MB after", rid, flush=True)
     mode = "live" if any(v.get("state") != "pre" for v in out.values()) else "pre"
     proj = {"updated": time.strftime("%Y-%m-%d %H:%M:%S UTC", time.gmtime()), "mode": mode, "races": out}
     with LOCK:
@@ -69,6 +85,7 @@ def prime(races, preps):
         except Exception as e:
             print("prime failed", rid, e, flush=True); continue
         STATE["detail"][rid] = res
+        trim()
         out[rid] = {"state": res["state"], "status": "Pre-election forecast", "margin": res["margin"], "p05": res["p05"], "p95": res["p95"],
                     "win_prob": res["win_prob_R"], "reporting": res["reporting"], "call_ready": res["call_ready"], "percentiles": res["percentiles"],
                     "no_prob": bool(r.get("no_prob")), "top4": res.get("top4"), "bucket_gap": res.get("bucket_gap", {}), "method_counties": res.get("counties_with_method_data", 0)}
@@ -91,7 +108,7 @@ def poller():
             print("race ids set:", sum(1 for r in races if rmap.get(r["id"])), "of", len(races), flush=True)
         try: cycle(races, rmap, preps, cache)
         except Exception as e: print("cycle failed:", e, flush=True)
-        print("cycle done", round(time.time() - t, 1), "s", flush=True)
+        print("cycle done", round(time.time() - t, 1), "s, memory", rss_mb(), "MB, county cache", len(method_feeds._CACHE), flush=True)
         time.sleep(max(1, POLL - (time.time() - t)))
 
 CACHE_TTL = int(os.environ.get("CACHE_TTL", "10"))     # seconds a shared cache may reuse a response; 0 turns it off
@@ -117,7 +134,7 @@ class H(BaseHTTPRequestHandler):
         self.send_header("Content-Length", "0"); self.end_headers()
     def do_GET(self):
         p = self.path.split("?")[0]
-        if p == "/health": return self._send(200, {"ok": True, "updated": STATE["projection"]["updated"]})
+        if p == "/health": return self._send(200, {"ok": True, "updated": STATE["projection"]["updated"], "rss_mb": rss_mb()})
         if p == "/api/projection":
             with LOCK: return self._send(200, STATE["projection"], CACHE_TTL)
         if p == "/api/kalshi": return self._send(200, kalshi_feed.snapshot(), CACHE_TTL)
@@ -125,7 +142,7 @@ class H(BaseHTTPRequestHandler):
             return self._send(200, {"updated": STATE["projection"]["updated"], "county_errors": method_feeds.ERRORS,
                                     "by_race": method_feeds.STATUS, "wired_counties": len(method_feeds.COUNTIES),
                                     "feed_guard_warnings": {k: v for k, v in GUARD_WARN.items() if v},
-                                    "kalshi_errors": kalshi_feed.ERRORS, "kalshi_races": len(kalshi_feed.PRICES)})
+                                    "kalshi_errors": kalshi_feed.ERRORS, "kalshi_races": len(kalshi_feed.PRICES), "rss_mb": rss_mb()})
         if p.startswith("/api/race/"):
             d = STATE["detail"].get(p.rsplit("/", 1)[1])
             return self._send(200 if d else 404, d or {"error": "unknown race"}, CACHE_TTL)
