@@ -9,6 +9,7 @@
 SOURCES = {}
 KEYMAP = {}
 TOLERANCE = 0.03
+SCALE_MAX = 0.0    # if > 0, a method feed within this fraction of civicAPI's total is scaled to it instead of dropped
 STATUS = {}   # race_id -> {fips: 'ok' | 'mismatch x%' | 'no civicAPI row' | 'fetch error: ...'}
 
 PARENT, CHILD = "26163", "2622000"      # Wayne County and the city of Detroit, which reports on its own feed
@@ -75,6 +76,10 @@ def attach(counted, race, engine_keys=None):
             st[fips] = "no civicAPI row"; continue
         tot = sum(v[0] + v[1] for v in b.values()); civ = c[0] + c[1]
         if civ and abs(tot - civ) / civ > TOLERANCE:
+            if SCALE_MAX and tot > 0 and abs(tot - civ) / civ <= SCALE_MAX:
+                k = civ / tot; b = {kk: (v[0] * k, v[1] * k) for kk, v in b.items()}
+                st[fips] = "scaled %.1f%% (method %d vs civicAPI %d)" % (100 * (tot - civ) / civ, tot, civ)
+                out[fips] = (c[0], c[1], c[2], {kk: (v[0], v[1]) for kk, v in b.items()}); continue
             st[fips] = "mismatch %.1f%% (method %d vs civicAPI %d)" % (100 * (tot - civ) / civ, tot, civ); continue
         st[fips] = "ok"
         out[fips] = (c[0], c[1], c[2], {k: (v[0], v[1]) for k, v in b.items()})
@@ -112,8 +117,21 @@ def _fetch(f, c):
     try: rows = c["fetch"]()
     except Exception as e:
         _CACHE[f] = (now, e); raise
+    rows = _keep_relevant(c, rows)
     _CACHE[f] = (now, rows)
     return rows
+
+def _keep_relevant(c, rows):
+    """County pages list every contest on the ballot; only the House/Senate/Governor contests we track are ever read.
+    Keeping all of them for ~600 counties used far more memory than the 512 MB Render instance has."""
+    rc = c.get("races")
+    if not rc or not isinstance(rows, list): return rows
+    out = []
+    for r in rows:
+        try:
+            if r["party"] == "ALL" or any(c["contest"](race, r["contest"]) for race in rc): out.append(r)
+        except Exception: out.append(r)
+    return out
 
 def make_source(fips_list):
     def src(race):
