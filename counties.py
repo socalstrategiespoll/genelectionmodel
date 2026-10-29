@@ -188,7 +188,10 @@ def install(races):
         if not fl: continue
         for f in fl:
             c = dict(CFG[f], fips=f)
-            method_feeds.COUNTIES[f] = {"fetch": (lambda c=c: FETCH[c["kind"]](c)), "contest": lambda race, name: contest_ok(race)(name)}
+            ent = method_feeds.COUNTIES.get(f)
+            if ent is None:
+                ent = method_feeds.COUNTIES[f] = {"fetch": (lambda c=c: FETCH[c["kind"]](c)), "contest": lambda race, name: contest_ok(race)(name), "races": []}
+            ent["races"].append(r)
         method_feeds.SOURCES[r["id"]] = method_feeds.make_source(fl)
         method_feeds.KEYMAP[r["id"]] = keymap(r)
     return len(method_feeds.SOURCES)
