@@ -25,6 +25,25 @@ def trim():
     try: ctypes.CDLL("libc.so.6").malloc_trim(0)
     except Exception: pass
 
+MEM_LIMIT_MB = int(os.environ.get("MEM_LIMIT_MB", "1500"))
+def watchdog():
+    """Stopgap: if memory creeps past the limit, restart cleanly (Render brings the service back and it re-primes in about 15 s)
+    instead of waiting for the host to kill it at the plan's hard limit."""
+    while True:
+        time.sleep(30)
+        m = rss_mb()
+        if m and m > MEM_LIMIT_MB:
+            print("memory", m, "MB is over", MEM_LIMIT_MB, "- restarting", flush=True)
+            os._exit(3)
+
+def memory_report():
+    """What is holding memory: object counts by type, container sizes, thread count. Hit /api/memory twice, an hour apart, and compare."""
+    import collections
+    c = collections.Counter(type(o).__name__ for o in gc.get_objects())
+    return {"rss_mb": rss_mb(), "threads": threading.active_count(), "top_types": c.most_common(12),
+            "county_cache": len(method_feeds._CACHE), "errors": len(method_feeds.ERRORS), "detail_races": len(STATE["detail"]),
+            "guard_races": len(GUARD), "kalshi_prices": len(kalshi_feed.PRICES)}
+
 def load():
     data = json.load(open(os.path.join(HERE, "data.json")))
     rmap = json.load(open(os.path.join(HERE, "race_map.json")))
@@ -137,6 +156,7 @@ class H(BaseHTTPRequestHandler):
         if p == "/health": return self._send(200, {"ok": True, "updated": STATE["projection"]["updated"], "rss_mb": rss_mb()})
         if p == "/api/projection":
             with LOCK: return self._send(200, STATE["projection"], CACHE_TTL)
+        if p == "/api/memory": return self._send(200, memory_report())
         if p == "/api/kalshi": return self._send(200, kalshi_feed.snapshot(), CACHE_TTL)
         if p == "/api/status":
             return self._send(200, {"updated": STATE["projection"]["updated"], "county_errors": method_feeds.ERRORS,
@@ -156,5 +176,6 @@ if __name__ == "__main__":
         print("wrote", OUT)
     else:
         threading.Thread(target=poller, daemon=True).start()
+        threading.Thread(target=watchdog, daemon=True).start()
         port = int(os.environ.get("PORT", "8000"))
         ThreadingHTTPServer(("0.0.0.0", port), H).serve_forever()

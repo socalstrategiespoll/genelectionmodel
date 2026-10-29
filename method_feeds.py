@@ -112,11 +112,11 @@ def _ttl():
 def _fetch(f, c):
     hit = _CACHE.get(f); now = time.time()
     if hit and now - hit[0] < _ttl():
-        if isinstance(hit[1], Exception): raise hit[1]
+        if isinstance(hit[1], str): raise RuntimeError(hit[1])    # a fresh exception each time: re-raising one stored object piles up traceback frames, and those frames hold the rows
         return hit[1]
     try: rows = c["fetch"]()
     except Exception as e:
-        _CACHE[f] = (now, e); raise
+        _CACHE[f] = (now, (str(e) or type(e).__name__)[:300]); raise
     rows = _keep_relevant(c, rows)
     _CACHE[f] = (now, rows)
     return rows
