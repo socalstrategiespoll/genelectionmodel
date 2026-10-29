@@ -94,15 +94,24 @@ def prep(race):
         idx = {x["key"]: j for j, x in enumerate(race["buckets"])}
         sh = np.array([race["shares"][x["key"]] for x in bks], float)
         sh = sh / sh.sum()
+        SH = np.tile(sh, (len(rows), 1))     # bucket shares per county; counties may differ (race["county_shares"], in race["buckets"] order)
+        cs = race.get("county_shares")
+        if cs:
+            pos = [idx[x["key"]] for x in bks]
+            for i, f in enumerate(fips):
+                v = cs.get(f)
+                if v is not None and len(v) == len(race["buckets"]):
+                    s_ = np.array([v[p] for p in pos], float)
+                    if s_.sum() > 0: SH[i] = s_ / s_.sum()
         M = np.zeros((len(rows), len(bks)))
         for k, x in enumerate(bks):
             col = [r[4 + idx[x["key"]]] if len(r) > 4 + idx[x["key"]] else None for r in rows]
             M[:, k] = [b[i] if v is None else v for i, v in enumerate(col)]
-        M += (b - M @ sh)[:, None]          # reconcile buckets to the county baseline
+        M += (b - (M * SH).sum(1))[:, None]          # reconcile buckets to the county baseline
         M = np.clip(M, -100, 100)
         keys = [x["key"] for x in bks]
     else:
-        sh = np.array([1.0]); M = b[:, None].copy(); keys = ["all"]
+        sh = np.array([1.0]); M = b[:, None].copy(); keys = ["all"]; SH = np.ones((len(rows), 1))
     share = T / T.sum()
     het = np.minimum(HET_MAX, HET_BASE + HET_SCALE * np.sqrt(share))
     cen = _centroids()
@@ -139,7 +148,7 @@ def prep(race):
     if not have:
         Kbase = Kbase + GEO_SD ** 2 * np.eye(len(fips)); Kbase0 = Kbase0 + LEGACY['GEO_SD'] ** 2 * np.eye(len(fips))
     return dict(id=race["id"], label=race["label"], type=race["type"], fips=fips, names=names, T=T, b=b,
-                sh=sh, M=M, keys=keys, share=share, het=het, K=Kbase, K0=Kbase0, demo=used_demo, headline=race["headline"],
+                sh=sh, SH=SH, M=M, keys=keys, share=share, het=het, K=Kbase, K0=Kbase0, demo=used_demo, headline=race["headline"],
                 state=race.get("state"), no_prob=bool(race.get("no_prob")), top4=race.get("top4"), pre_sd=PRE_SD_RACE.get(race["label"], PRE_SD.get(race["type"], 7.5)),
                 range_scale=RANGE_SCALE_RACE.get(race["label"], RANGE_SCALE.get(race["type"], 0.55)))
 
@@ -217,7 +226,7 @@ def project(P, counted, n_sims=N_SIMS, seed=7, extra=None):
         ratio = np.where(rep, w * r_c + (1 - w) * g, g)
     Tp = np.maximum(T * ratio, n)
     Tp = np.where(done, n, Tp)
-    V = Tp[:, None] * P["sh"][None, :]                      # expected votes per bucket
+    V = Tp[:, None] * P["SH"]                      # expected votes per bucket
     V = np.where(has_m[:, None], np.maximum(V, nk), V)      # a bucket can't have fewer votes than already counted
     V = np.where(has_c[:, None], np.maximum(V, obs_c), V)   # same for counts-only counties
     Tp = np.where(has_c, V.sum(1), Tp)
