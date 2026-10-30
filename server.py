@@ -60,6 +60,10 @@ def cycle(races, rmap, preps, cache):
                 counted = civicapi_feed.parse_counties(payload, r)
                 ms = civicapi_feed.minor_share(payload, r)
                 extra = {"minor_share": ms} if ms is not None else None
+                cv, sp = civicapi_feed.cand_votes(payload, r)
+                if cv:
+                    extra = dict(extra or {}, cand_votes=cv)
+                    if sp: extra["minor_split"] = sp
                 counted = civicapi_feed.add_statewide(counted, payload, r, list(preps[rid]["fips"]))
                 counted = civicapi_feed.add_residual(counted, payload, r)
                 counted, w = civicapi_feed.sanitize(counted, r, GUARD.setdefault(rid, {}))

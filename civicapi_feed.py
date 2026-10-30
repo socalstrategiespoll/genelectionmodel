@@ -219,3 +219,35 @@ def minor_share(payload, race):
     if len(cs) <= 2 or tot < 1000: return None
     major = sum((c.get("votes") or 0) for c in cs if side_of(c, race))
     return max(0.0, 1.0 - major / tot)
+
+
+def _toks(name):
+    name = re.sub(r"<[^>]*>", " ", name or "")
+    return {t for t in re.sub(r"[^a-z ]", " ", name.lower()).split() if len(t) > 1}
+
+def cand_votes(payload, race):
+    """Statewide votes counted so far for every candidate in a top-four race, keyed by the names in race["top4"]["cands"].
+    Majors are matched by side, the others by the words in their names (the two Sullivans share a surname, so the longest overlap wins).
+    Returns (votes by name, minor split by name), or (None, None) when the race has no top4 config or the feed lists too few votes."""
+    cfg = race.get("top4")
+    if not cfg: return None, None
+    feed = payload.get("candidates") or []
+    if sum((c.get("votes") or 0) for c in feed) < 1000: return None, None
+    cands = cfg["cands"]; votes = {c["name"]: 0 for c in cands}; used = set()
+    for c in cands:
+        if c.get("side"):
+            for i, fc in enumerate(feed):
+                if i not in used and side_of(fc, race) == c["side"]:
+                    votes[c["name"]] += fc.get("votes") or 0; used.add(i)
+    mins = [c for c in cands if not c.get("side")]
+    for i, fc in enumerate(feed):
+        if i in used: continue
+        ft = _toks(fc.get("name")); best, bs = None, 0
+        for c in mins:
+            sc = len(ft & _toks(c["name"]))
+            if sc > bs: best, bs = c, sc
+        if best is not None:
+            votes[best["name"]] += fc.get("votes") or 0; used.add(i)
+    mv = sum(votes[c["name"]] for c in mins)
+    split = {c["name"]: votes[c["name"]] / mv for c in mins} if mv > 0 else None
+    return votes, split

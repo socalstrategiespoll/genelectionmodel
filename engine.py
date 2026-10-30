@@ -408,26 +408,41 @@ def project(P, counted, n_sims=N_SIMS, seed=7, extra=None):
     exp_total = float(Tp.sum())
     frac = float(n.sum() / exp_total) if exp_total else 0.0
     t4 = None
-    if P.get("top4"):        # top-four races: first-round shares and the chance each major candidate clears 50%
+    if P.get("top4"):        # top-four races: every candidate's first-round share and the chance each one clears 50%
         cfg = P["top4"]; cs = cfg["cands"]
-        m0 = sum(c["share"] for c in cs if not c.get("side")) / 100.0
-        obs = (extra or {}).get("minor_share")          # observed combined minor share from the feed, when it lists more than two candidates
+        mins = [c for c in cs if not c.get("side")]
+        m0 = sum(c["share"] for c in mins) / 100.0
+        ex = extra or {}
+        obs = ex.get("minor_share")          # observed combined minor share from the feed, when it lists more than two candidates
         w = min(1.0, frac / 0.6) if obs is not None else 0.0
         mu = (w * obs if obs is not None else 0.0) + (1 - w) * m0; sdm = max(0.002, cfg["minor_sd"] / 100.0 * (1 - w))
-        msim = np.clip(np.random.default_rng(seed + 1).normal(mu, sdm, len(final)), 0.005, 0.25)
+        rng4 = np.random.default_rng(seed + 1)
+        msim = np.clip(rng4.normal(mu, sdm, len(final)), 0.005, 0.25)
+        # split of the minor share among the minor candidates: prior from the primary, replaced by the observed split as votes come in
+        prior = np.array([c["share"] for c in mins], float); prior = prior / max(prior.sum(), 1e-9)
+        osplit = ex.get("minor_split") or {}
+        obsv = np.array([float(osplit.get(c["name"], 0.0)) for c in mins]); has_split = obsv.sum() > 0
+        wsp = w if has_split else 0.0
+        fmean = wsp * (obsv / obsv.sum() if has_split else prior) + (1 - wsp) * prior
+        noise = np.exp(rng4.normal(0.0, 0.12 * (1 - wsp), (len(final), len(mins)))) if mins else np.zeros((len(final), 0))
+        fsim = fmean[None, :] * noise; fsim = fsim / np.maximum(fsim.sum(1, keepdims=True), 1e-9)
         Dsh = (1 - final / 100.0) / 2.0; Rsh = (1 + final / 100.0) / 2.0
-        sims = {}
+        sims = {}; mi = 0
         for c in cs:
             if c.get("side") == "D": sims[c["name"]] = (1 - msim) * Dsh * 100
             elif c.get("side") == "R": sims[c["name"]] = (1 - msim) * Rsh * 100
-            else: sims[c["name"]] = msim * (c["share"] / max(m0 * 100.0, 1e-9)) * 100
-        mj = [c["name"] for c in cs if c.get("side")]
+            else: sims[c["name"]] = msim * fsim[:, mi] * 100; mi += 1
+        names = [c["name"] for c in cs]
         t4 = dict(shares={k: round(float(np.median(v)), 2) for k, v in sims.items()},
                   p05={k: round(float(np.percentile(v, 5)), 2) for k, v in sims.items()},
                   p95={k: round(float(np.percentile(v, 95)), 2) for k, v in sims.items()},
-                  p_over_50={k: round(float((sims[k] > 50).mean()), 4) for k in mj},
-                  p_neither=round(float(((sims[mj[0]] <= 50) & (sims[mj[1]] <= 50)).mean()), 4),
+                  p_over_50={k: round(float((sims[k] > 50).mean()), 4) for k in names},
+                  p_neither=round(float(np.all(np.stack([sims[k] <= 50 for k in names]), axis=0).mean()), 4),
                   minor_share=round(float(mu * 100), 2))
+        cv = ex.get("cand_votes")
+        if cv:
+            tv = float(sum(cv.values()))
+            if tv > 0: t4["counted"] = {k: round(100.0 * float(cv.get(k, 0)) / tv, 2) for k in names}; t4["counted_votes"] = {k: int(cv.get(k, 0)) for k in names}
     counties = []
     for i in range(nC):
         pm = None; rmm = None
