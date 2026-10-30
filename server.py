@@ -53,12 +53,12 @@ def load():
 def cycle(races, rmap, preps, cache):
     out, live = {}, 0
     for r in races:
-        rid = r["id"]; cid = rmap.get(rid); counted = {}; err = None; extra = None; tl = None
+        rid = r["id"]; cid = rmap.get(rid); counted = {}; err = None; extra = None; tl = None; tmode = bool(r.get("towns"))
         if cid:
             try:
                 payload = civicapi_feed.fetch(cid)
                 counted = civicapi_feed.parse_counties(payload, r)
-                if r.get("towns"): counted = {}
+                ccounted = counted
                 try: tl = civicapi_feed.parse_towns(payload, r)       # Maine and Vermont only; never lets a town problem stop the county projection
                 except Exception as e: tl = None; print("towns", rid, e, flush=True)
                 ms = civicapi_feed.minor_share(payload, r)
@@ -67,25 +67,33 @@ def cycle(races, rmap, preps, cache):
                 if cv:
                     extra = dict(extra or {}, cand_votes=cv)
                     if sp: extra["minor_split"] = sp
-                if r.get("towns"):         # Maine and Vermont: every town is a unit, so the town rows are what the engine counts
+                # Maine and Vermont: town mode when CivicAPI has filled in town rows (or nothing is in yet); otherwise fall back to the county rows
+                tmode = bool(r.get("towns")) and (len(tl or {}) >= 10 or not ccounted)
+                if r.get("towns") and not tmode: print("towns fallback to counties", rid, "town rows:", len(tl or {}), flush=True)
+                if tmode:
                     counted = {g: tuple(v) for g, v in (tl or {}).items()}
                     counted, w = civicapi_feed.sanitize(counted, towns.engine_race(r), GUARD.setdefault(rid, {}))
                     GUARD_WARN[rid] = w
                 else:
-                    counted = civicapi_feed.add_statewide(counted, payload, r, list(preps[rid]["fips"]))
+                    pp = preps[rid] if not r.get("towns") else CPREPS.setdefault(rid, engine.prep(r))
+                    counted = civicapi_feed.add_statewide(counted, payload, r, list(pp["fips"]))
                     counted = civicapi_feed.add_residual(counted, payload, r)
                     counted, w = civicapi_feed.sanitize(counted, r, GUARD.setdefault(rid, {}))
                     counted = civicapi_feed.pct_from_votes(counted, r)
                     GUARD_WARN[rid] = w
-                    counted = method_feeds.attach(counted, r, engine_keys=preps[rid]["keys"])
+                    counted = method_feeds.attach(counted, r, engine_keys=pp["keys"])
                 live += 1
             except Exception as e:      # keep the last good projection for this race
                 err = str(e)[:120]
                 if rid in STATE["detail"]:
                     out[rid] = dict(STATE["projection"]["races"].get(rid, {}), feed_error=err); continue
-        key = hashlib.md5(json.dumps([counted, extra], sort_keys=True).encode()).hexdigest()
+        tmode = tmode if cid and err is None else bool(r.get("towns"))
+        key = hashlib.md5(json.dumps([counted, extra, tmode], sort_keys=True).encode()).hexdigest()
         if cache.get(rid) != key or rid not in STATE["detail"]:
-            res = towns.wrap(engine.project(preps[rid], counted, extra=extra), r, {g: list(v) for g, v in counted.items()} if r.get("towns") else None)
+            if r.get("towns") and not tmode:      # county fallback: project on counties, still show whatever town rows CivicAPI has
+                res = dict(engine.project(CPREPS.setdefault(rid, engine.prep(r)), counted, extra=extra)); res["towns"] = {g: list(v) for g, v in (tl or {}).items()}
+            else:
+                res = towns.wrap(engine.project(preps[rid], counted, extra=extra), r, {g: list(v) for g, v in counted.items()} if r.get("towns") else None)
             cache[rid] = key
             STATE["detail"][rid] = res
         res = STATE["detail"][rid]
@@ -105,6 +113,8 @@ def cycle(races, rmap, preps, cache):
     tmp = OUT + ".tmp"
     with open(tmp, "w") as f: json.dump(proj, f, separators=(",", ":"))
     os.replace(tmp, OUT)
+
+CPREPS = {}   # county-level preps for Maine and Vermont races, used only when CivicAPI has no town rows
 
 def prime(races, preps):
     """Pre-election forecast for every race, computed from the baselines alone, so the site has data in under a minute.
