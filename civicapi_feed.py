@@ -251,3 +251,34 @@ def cand_votes(payload, race):
     mv = sum(votes[c["name"]] for c in mins)
     split = {c["name"]: votes[c["name"]] / mv for c in mins} if mv > 0 else None
     return votes, split
+
+_XW = None
+def _xwalk():
+    global _XW
+    if _XW is None:
+        import os
+        try: _XW = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "town_xwalk.json")))
+        except Exception: _XW = {}
+    return _XW
+
+def parse_towns(payload, race):
+    """Town-level results for races that carry a 'towns' list (Maine, Vermont): {town GEOID: [D_votes, R_votes, pct_reporting 0-1]}.
+    civicAPI keys town rows by name with no FIPS, so names go through town_xwalk.json. Towns with no votes yet are left out.
+    Returns None for races without towns."""
+    if not race.get("towns"): return None
+    xw = _xwalk().get(race.get("state")) or {}
+    want = {t[0] for t in race["towns"]}
+    rr = payload.get("region_results") or {}
+    out = {}
+    for key, reg in (rr.items() if isinstance(rr, dict) else []):
+        if str(reg.get("type") or "").lower().startswith("count"): continue
+        g = xw.get(key)
+        if not g or g not in want: continue
+        D = R = 0
+        for c in reg.get("candidates") or []:
+            s = side_of(c, race)
+            if s == "R": R += c.get("votes") or 0
+            elif s == "D": D += c.get("votes") or 0
+        if D + R > 0:
+            out[g] = [D, R, round(max(0.0, min(1.0, (reg.get("percent_reporting") or 0) / 100.0)), 3)]
+    return out

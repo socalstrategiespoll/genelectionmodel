@@ -53,11 +53,13 @@ def load():
 def cycle(races, rmap, preps, cache):
     out, live = {}, 0
     for r in races:
-        rid = r["id"]; cid = rmap.get(rid); counted = {}; err = None; extra = None
+        rid = r["id"]; cid = rmap.get(rid); counted = {}; err = None; extra = None; tl = None
         if cid:
             try:
                 payload = civicapi_feed.fetch(cid)
                 counted = civicapi_feed.parse_counties(payload, r)
+                try: tl = civicapi_feed.parse_towns(payload, r)       # Maine and Vermont only; never lets a town problem stop the county projection
+                except Exception as e: tl = None; print("towns", rid, e, flush=True)
                 ms = civicapi_feed.minor_share(payload, r)
                 extra = {"minor_share": ms} if ms is not None else None
                 cv, sp = civicapi_feed.cand_votes(payload, r)
@@ -81,6 +83,7 @@ def cycle(races, rmap, preps, cache):
             cache[rid] = key
             STATE["detail"][rid] = res
         res = STATE["detail"][rid]
+        if tl is not None: res["towns"] = tl
         out[rid] = {"state": res["state"], "status": {"pre": "Pre-election forecast", "counting": "Counting", "complete": "All counties reporting"}[res["state"]],
                     "margin": res["margin"], "p05": res["p05"], "p95": res["p95"], "win_prob": res["win_prob_R"],
                     "reporting": res["reporting"], "call_ready": res["call_ready"], "percentiles": res["percentiles"],
