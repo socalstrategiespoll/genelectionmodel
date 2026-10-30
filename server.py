@@ -2,7 +2,7 @@
 # Writes projection.json (the file the site reads) every cycle. Races with no civicAPI id run pre-election.
 import gzip, json, os, sys, time, hashlib, threading, gc, ctypes
 from http.server import ThreadingHTTPServer, BaseHTTPRequestHandler
-import engine, civicapi_feed, method_feeds, counties, kalshi_feed
+import engine, civicapi_feed, method_feeds, counties, kalshi_feed, towns
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 POLL = int(os.environ.get("POLL_SECONDS", "60"))
@@ -58,6 +58,7 @@ def cycle(races, rmap, preps, cache):
             try:
                 payload = civicapi_feed.fetch(cid)
                 counted = civicapi_feed.parse_counties(payload, r)
+                if r.get("towns"): counted = {}
                 try: tl = civicapi_feed.parse_towns(payload, r)       # Maine and Vermont only; never lets a town problem stop the county projection
                 except Exception as e: tl = None; print("towns", rid, e, flush=True)
                 ms = civicapi_feed.minor_share(payload, r)
@@ -66,12 +67,17 @@ def cycle(races, rmap, preps, cache):
                 if cv:
                     extra = dict(extra or {}, cand_votes=cv)
                     if sp: extra["minor_split"] = sp
-                counted = civicapi_feed.add_statewide(counted, payload, r, list(preps[rid]["fips"]))
-                counted = civicapi_feed.add_residual(counted, payload, r)
-                counted, w = civicapi_feed.sanitize(counted, r, GUARD.setdefault(rid, {}))
-                counted = civicapi_feed.pct_from_votes(counted, r)
-                GUARD_WARN[rid] = w
-                counted = method_feeds.attach(counted, r, engine_keys=preps[rid]["keys"])
+                if r.get("towns"):         # Maine and Vermont: every town is a unit, so the town rows are what the engine counts
+                    counted = {g: tuple(v) for g, v in (tl or {}).items()}
+                    counted, w = civicapi_feed.sanitize(counted, towns.engine_race(r), GUARD.setdefault(rid, {}))
+                    GUARD_WARN[rid] = w
+                else:
+                    counted = civicapi_feed.add_statewide(counted, payload, r, list(preps[rid]["fips"]))
+                    counted = civicapi_feed.add_residual(counted, payload, r)
+                    counted, w = civicapi_feed.sanitize(counted, r, GUARD.setdefault(rid, {}))
+                    counted = civicapi_feed.pct_from_votes(counted, r)
+                    GUARD_WARN[rid] = w
+                    counted = method_feeds.attach(counted, r, engine_keys=preps[rid]["keys"])
                 live += 1
             except Exception as e:      # keep the last good projection for this race
                 err = str(e)[:120]
@@ -79,11 +85,10 @@ def cycle(races, rmap, preps, cache):
                     out[rid] = dict(STATE["projection"]["races"].get(rid, {}), feed_error=err); continue
         key = hashlib.md5(json.dumps([counted, extra], sort_keys=True).encode()).hexdigest()
         if cache.get(rid) != key or rid not in STATE["detail"]:
-            res = engine.project(preps[rid], counted, extra=extra)
+            res = towns.wrap(engine.project(preps[rid], counted, extra=extra), r, {g: list(v) for g, v in counted.items()} if r.get("towns") else None)
             cache[rid] = key
             STATE["detail"][rid] = res
         res = STATE["detail"][rid]
-        if tl is not None: res["towns"] = tl
         out[rid] = {"state": res["state"], "status": {"pre": "Pre-election forecast", "counting": "Counting", "complete": "All counties reporting"}[res["state"]],
                     "margin": res["margin"], "p05": res["p05"], "p95": res["p95"], "win_prob": res["win_prob_R"],
                     "reporting": res["reporting"], "call_ready": res["call_ready"], "percentiles": res["percentiles"],
@@ -107,7 +112,7 @@ def prime(races, preps):
     out = {}
     for r in races:
         rid = r["id"]
-        try: res = engine.project(preps[rid], {})
+        try: res = towns.wrap(engine.project(preps[rid], {}), r, {})
         except Exception as e:
             print("prime failed", rid, e, flush=True); continue
         STATE["detail"][rid] = res
@@ -123,7 +128,7 @@ def poller():
     races, rmap = load()
     threading.Thread(target=kalshi_feed.loop, args=(races,), daemon=True).start()
     last_resolve = 0
-    preps = {r["id"]: engine.prep(r) for r in races}
+    preps = {r["id"]: engine.prep(towns.engine_race(r)) for r in races}
     prime(races, preps)
     cache = {}
     while True:
@@ -179,7 +184,7 @@ class H(BaseHTTPRequestHandler):
 if __name__ == "__main__":
     if "--once" in sys.argv:        # write projection.json and exit
         races, rmap = load()
-        cycle(races, rmap, {r["id"]: engine.prep(r) for r in races}, {})
+        cycle(races, rmap, {r["id"]: engine.prep(towns.engine_race(r)) for r in races}, {})
         print("wrote", OUT)
     else:
         threading.Thread(target=poller, daemon=True).start()
