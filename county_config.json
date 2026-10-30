@@ -606,7 +606,7 @@
    "FL-09"
   ],
   "group": "Partial: rows masked (FL law)",
-  "categories": "Election Day, Early Votes, Vote By Mail, Provisional (1-29 vote cells masked per F.S. 98.0981) \u2014 but rows masked",
+  "categories": "Election Day, Early Votes, Vote By Mail, Provisional (1-29 vote cells masked per F.S. 98.0981) — but rows masked",
   "in_scope": true
  },
  "12095": {
@@ -689,7 +689,7 @@
    "FL-Gov"
   ],
   "group": "Partial: rows masked (FL law)",
-  "categories": "Election Day, Early Votes, Vote By Mail, Provisional (1-29 vote cells masked per F.S. 98.0981) \u2014 but rows masked",
+  "categories": "Election Day, Early Votes, Vote By Mail, Provisional (1-29 vote cells masked per F.S. 98.0981) — but rows masked",
   "in_scope": true
  },
  "12115": {
@@ -708,8 +708,8 @@
  "12117": {
   "state": "FL",
   "county": "Seminole",
-  "kind": "pdf",
-  "url": "https://voteseminole.gov/wp-content/uploads/2026/09/2024-General-Election-Summary.pdf",
+  "kind": "vr",
+  "url": "https://enr.electionsfl.org/SEM/4119/Summary/",
   "eid": null,
   "races": [
    "FL-07"
@@ -1420,9 +1420,7 @@
   "kind": "ess",
   "url": "https://www.livevoterturnout.com/ENR/jeffersonmoenr/21/summary_21.xml",
   "eid": null,
-  "races": [
-   "MO-02"
-  ],
+  "races": [],
   "group": "Scrapeable: ES&S ENR summary XML",
   "categories": "Absentee Ballots, Election Day, Provisional",
   "in_scope": true
@@ -1781,7 +1779,7 @@
  "31025": {
   "state": "NE",
   "county": "Cass",
-  "kind": "clarity_blocked",
+  "kind": "clarity",
   "url": "https://results.enr.clarityelections.com/NE/Cass/126289/web.345435/#/summary",
   "eid": "126289",
   "races": [
@@ -1789,7 +1787,8 @@
   ],
   "group": "Clarity, vote types not read (blocked)",
   "categories": "Clarity ENR used on election night; vote types not read",
-  "in_scope": true
+  "in_scope": true,
+  "stale_eid": true
  },
  "31053": {
   "state": "NE",
@@ -1846,8 +1845,8 @@
  "31153": {
   "state": "NE",
   "county": "Sarpy",
-  "kind": "clarity_blocked",
-  "url": "https://results.enr.clarityelections.com/NE/Sarpy/126282/web.345435/#/summary",
+  "kind": "clarity",
+  "url": "https://results.enr.clarityelections.com/NE/Sarpy/127564/web.345435/#/summary",
   "eid": "126282",
   "races": [
    "NE-01"
@@ -1885,8 +1884,8 @@
  "34011": {
   "state": "NJ",
   "county": "Cumberland",
-  "kind": "none",
-  "url": "https://ccclerknj.com/wp-content/uploads/2024/06/SUMMARY-REPORT.pdf",
+  "kind": "clarity",
+  "url": "https://results.enr.clarityelections.com/NJ/Cumberland/127562/web.345435/#/summary",
   "eid": null,
   "races": [
    "NJ-02"
@@ -1937,7 +1936,7 @@
  "34029": {
   "state": "NJ",
   "county": "Ocean",
-  "kind": "clarity_blocked",
+  "kind": "clarity",
   "url": "https://results.enr.clarityelections.com/NJ/Ocean/126367/",
   "eid": "126367",
   "races": [
@@ -1945,7 +1944,8 @@
   ],
   "group": "Clarity, vote types not read (blocked)",
   "categories": "Clarity ENR used on election night; vote types not read",
-  "in_scope": true
+  "in_scope": true,
+  "stale_eid": true
  },
  "34033": {
   "state": "NJ",
@@ -2269,7 +2269,7 @@
  "39051": {
   "state": "OH",
   "county": "Fulton",
-  "kind": "clarity_blocked",
+  "kind": "clarity",
   "url": "https://results.enr.clarityelections.com/OH/Fulton/122839/",
   "eid": "122839",
   "races": [
@@ -2277,13 +2277,14 @@
   ],
   "group": "Clarity, vote types not read (blocked)",
   "categories": "Clarity ENR since 2024; vote types not read",
-  "in_scope": true
+  "in_scope": true,
+  "stale_eid": true
  },
  "39057": {
   "state": "OH",
   "county": "Greene",
-  "kind": "none",
-  "url": "https://www.boe.ohio.gov/greene/c/elecres/20261103results.pdf",
+  "kind": "enhanced",
+  "url": "https://app.enhancedvoting.com/results/public/Greene-County-OH",
   "eid": null,
   "races": [
    "OH-10"
@@ -2295,8 +2296,8 @@
  "39061": {
   "state": "OH",
   "county": "Hamilton",
-  "kind": "ess",
-  "url": "https://www.livevoterturnout.com/ENR/hamiltonohenr/1/summary_1.xml",
+  "kind": "clarity",
+  "url": "https://results.enr.clarityelections.com/OH/Hamilton/127473/web.345435/#/summary",
   "eid": null,
   "races": [
    "OH-Gov",
@@ -2417,8 +2418,8 @@
  "39129": {
   "state": "OH",
   "county": "Pickaway",
-  "kind": "pdf",
-  "url": "https://www.boe.ohio.gov/pickaway/c/elecres/20261103results.pdf",
+  "kind": "enhanced",
+  "url": "https://app.enhancedvoting.com/results/public/Pickaway-County-OH",
   "eid": null,
   "races": [
    "OH-15"
@@ -2666,7 +2667,7 @@
  "42133": {
   "state": "PA",
   "county": "York",
-  "kind": "clarity_blocked",
+  "kind": "clarity",
   "url": "https://results.enr.clarityelections.com/PA/York/122493/",
   "eid": "122493",
   "races": [
@@ -2674,7 +2675,8 @@
   ],
   "group": "Clarity, vote types not read (blocked)",
   "categories": "Clarity ENR used since fall 2020; vote types not read",
-  "in_scope": true
+  "in_scope": true,
+  "stale_eid": true
  },
  "45003": {
   "state": "SC",
@@ -2973,8 +2975,8 @@
  "48157": {
   "state": "TX",
   "county": "Fort Bend",
-  "kind": "clarity",
-  "url": "https://results.enr.clarityelections.com/TX/Fort_Bend/127480/web.345435/#/summary",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
   "eid": "127480",
   "races": [
    "TX-Gov",
@@ -3032,8 +3034,8 @@
  "48215": {
   "state": "TX",
   "county": "Hidalgo",
-  "kind": "clarity",
-  "url": "https://results.enr.clarityelections.com/TX/Hidalgo/122498/web.345435/#/summary",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
   "eid": "122498",
   "races": [
    "TX-15",
@@ -3168,8 +3170,8 @@
  "48439": {
   "state": "TX",
   "county": "Tarrant",
-  "kind": "clarity",
-  "url": "https://results.enr.clarityelections.com/TX/Tarrant/127297/web.345435/#/summary",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
   "eid": "127297",
   "races": [
    "TX-Gov",
@@ -3182,8 +3184,8 @@
  "48453": {
   "state": "TX",
   "county": "Travis",
-  "kind": "clarity",
-  "url": "https://results.enr.clarityelections.com/TX/Travis/",
+  "kind": "tx",
+  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
   "eid": null,
   "races": [
    "TX-Gov",
@@ -7872,8 +7874,8 @@
  "48167": {
   "state": "TX",
   "county": "Galveston",
-  "kind": "tx",
-  "url": "https://results.texas-election.com/static/data/election/49664/<version>/County.json",
+  "kind": "clarity",
+  "url": "https://results.enr.clarityelections.com/TX/Galveston/127478/web.345435/#/summary",
   "eid": null,
   "races": [
    "TX-Gov",
