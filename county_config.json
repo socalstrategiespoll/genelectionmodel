@@ -184,15 +184,15 @@
  "04013": {
   "state": "AZ",
   "county": "Maricopa",
-  "kind": "turnout_pdf",
+  "kind": "maricopa_txt",
   "url": "https://elections.maricopa.gov/results-and-data/election-results.html",
   "eid": null,
   "races": [
    "AZ-01",
    "AZ-Gov"
   ],
-  "group": "Counts-only: turnout by method (PDF summary report)",
-  "categories": "Early A.R.S. 16-579, Early Vote, Election Day (county turnout, no contest split)",
+  "group": "Scrapeable: Maricopa results export (tab-delimited, votes by method)",
+  "categories": "Early Vote, Early A.R.S. 16-579 (late early ballots), Election Day, Provisional",
   "in_scope": true
  },
  "04015": {
@@ -599,14 +599,15 @@
  "12093": {
   "state": "FL",
   "county": "Okeechobee",
-  "kind": "partial",
-  "url": "https://enr.electionsfl.org/OKE/3718/Summary/",
+  "kind": "vr",
+  "url": "https://enr.electionsfl.org/OKE/4060/Summary/",
   "eid": null,
   "races": [
-   "FL-09"
+   "FL-09",
+   "FL-Gov"
   ],
-  "group": "Partial: rows masked (FL law)",
-  "categories": "Election Day, Early Votes, Vote By Mail, Provisional (1-29 vote cells masked per F.S. 98.0981) \u2014 but rows masked",
+  "group": "Scrapeable: VR Systems HTML + CSV",
+  "categories": "Election Day, Early Votes, Vote By Mail, Provisional",
   "in_scope": true
  },
  "12095": {
@@ -682,14 +683,16 @@
  "12105": {
   "state": "FL",
   "county": "Polk",
-  "kind": "partial",
-  "url": "https://enr.electionsfl.org/POL/3701/Summary/",
+  "kind": "vr",
+  "url": "https://enr.electionsfl.org/POL/4000/Summary/",
   "eid": null,
   "races": [
+   "FL-09",
+   "FL-16",
    "FL-Gov"
   ],
-  "group": "Partial: rows masked (FL law)",
-  "categories": "Election Day, Early Votes, Vote By Mail, Provisional (1-29 vote cells masked per F.S. 98.0981) \u2014 but rows masked",
+  "group": "Scrapeable: VR Systems HTML + CSV",
+  "categories": "Election Day, Early Votes, Vote By Mail, Provisional (1-29 vote cells masked per F.S. 98.0981)",
   "in_scope": true
  },
  "12115": {
@@ -1131,104 +1134,104 @@
  "21049": {
   "state": "KY",
   "county": "Clark",
-  "kind": "pdf",
-  "url": "https://elect.ky.gov/results/2020-2029/2024ElectionReports/GeneralRecaps/Clark.pdf",
+  "kind": "ky",
+  "url": "https://vrsws.sos.ky.gov/liveresults/",
   "eid": null,
   "races": [
    "KY-06"
   ],
-  "group": "PDF",
+  "group": "Scrapeable: Kentucky SOS live cumulative PDF",
   "categories": "Absentee Mail-In, Absentee Walk-In, Early Voting, Election Day Voting",
   "in_scope": true
  },
  "21067": {
   "state": "KY",
   "county": "Fayette",
-  "kind": "pdf",
-  "url": "https://fayettecountyclerk.com/web/elections/electionresults/FayetteGen2024CumulativeResults.pdf",
+  "kind": "ky",
+  "url": "https://vrsws.sos.ky.gov/liveresults/",
   "eid": null,
   "races": [
    "KY-06"
   ],
-  "group": "PDF",
+  "group": "Scrapeable: Kentucky SOS live cumulative PDF",
   "categories": "Absentee Mail-In, Absentee Walk-In, Early Voting, Election Day Voting",
   "in_scope": true
  },
  "21113": {
   "state": "KY",
   "county": "Jessamine",
-  "kind": "pdf",
-  "url": "https://elect.ky.gov/results/2020-2029/2024ElectionReports/GeneralRecaps/Jessamine.pdf",
+  "kind": "ky",
+  "url": "https://vrsws.sos.ky.gov/liveresults/",
   "eid": null,
   "races": [
    "KY-06"
   ],
-  "group": "PDF",
+  "group": "Scrapeable: Kentucky SOS live cumulative PDF",
   "categories": "Absentee Mail-In, Absentee Walk-In, Early Voting, Election Day Voting",
   "in_scope": true
  },
  "21151": {
   "state": "KY",
   "county": "Madison",
-  "kind": "pdf",
-  "url": "https://elect.ky.gov/results/2020-2029/2024ElectionReports/GeneralRecaps/Madison.pdf",
+  "kind": "ky",
+  "url": "https://vrsws.sos.ky.gov/liveresults/",
   "eid": null,
   "races": [
    "KY-06"
   ],
-  "group": "PDF",
-  "categories": "Mail In, EV Excused, EV Unexcused 3-Day, Election Day",
+  "group": "Scrapeable: Kentucky SOS live cumulative PDF",
+  "categories": "Absentee Mail-In, Absentee Walk-In, Early Voting, Election Day Voting",
   "in_scope": true
  },
  "21167": {
   "state": "KY",
   "county": "Mercer",
-  "kind": "pdf",
-  "url": "https://elect.ky.gov/results/2020-2029/2024ElectionReports/GeneralRecaps/Mercer.pdf",
+  "kind": "ky",
+  "url": "https://vrsws.sos.ky.gov/liveresults/",
   "eid": null,
   "races": [
    "KY-06"
   ],
-  "group": "PDF",
+  "group": "Scrapeable: Kentucky SOS live cumulative PDF",
   "categories": "Absentee Mail-In, Absentee Walk-In, Early Voting, Election Day Voting",
   "in_scope": true
  },
  "21173": {
   "state": "KY",
   "county": "Montgomery",
-  "kind": "pdf",
-  "url": "https://elect.ky.gov/results/2020-2029/2024ElectionReports/GeneralRecaps/Montgomery.pdf",
+  "kind": "ky",
+  "url": "https://vrsws.sos.ky.gov/liveresults/",
   "eid": null,
   "races": [
    "KY-06"
   ],
-  "group": "PDF",
+  "group": "Scrapeable: Kentucky SOS live cumulative PDF",
   "categories": "Absentee Mail-In, Absentee Walk-In, Early Voting, Election Day Voting",
   "in_scope": true
  },
  "21209": {
   "state": "KY",
   "county": "Scott",
-  "kind": "pdf",
-  "url": "https://elect.ky.gov/results/2020-2029/2024ElectionReports/GeneralRecaps/Scott.pdf",
+  "kind": "ky",
+  "url": "https://vrsws.sos.ky.gov/liveresults/",
   "eid": null,
   "races": [
    "KY-06"
   ],
-  "group": "PDF",
+  "group": "Scrapeable: Kentucky SOS live cumulative PDF",
   "categories": "Absentee Mail-In, Absentee Walk-In, Early Voting, Election Day Voting",
   "in_scope": true
  },
  "21239": {
   "state": "KY",
   "county": "Woodford",
-  "kind": "pdf",
-  "url": "https://elect.ky.gov/results/2020-2029/2024ElectionReports/GeneralRecaps/Woodford.pdf",
+  "kind": "ky",
+  "url": "https://vrsws.sos.ky.gov/liveresults/",
   "eid": null,
   "races": [
    "KY-06"
   ],
-  "group": "PDF",
+  "group": "Scrapeable: Kentucky SOS live cumulative PDF",
   "categories": "Absentee Mail-In, Absentee Walk-In, Early Voting, Election Day Voting",
   "in_scope": true
  },
@@ -3986,14 +3989,14 @@
   "state": "MI",
   "county": "Detroit",
   "kind": "enhanced",
-  "url": "https://app.enhancedvoting.com/results/public/city-detroit-mi/elections/Detroit-Primary-Election08042026",
+  "url": "https://app.enhancedvoting.com/results/public/city-detroit-mi/elections/_20261027152933",
   "eid": null,
   "races": [
    "MI-Sen",
    "MI-Gov"
   ],
   "group": "Scrapeable: Enhanced Voting JSON",
-  "categories": "Early Voting, Election Day, Absentee Election Day, Pre-Process Absentee",
+  "categories": "Early Voting, Election Day, Absentee, Pre-Process Absentee",
   "in_scope": true
  },
  "26045": {
@@ -4458,14 +4461,14 @@
  "26161": {
   "state": "MI",
   "county": "Washtenaw",
-  "kind": "html",
-  "url": "https://electionresults.ewashtenaw.org/electionreporting/aug2026/index.jsp",
+  "kind": "washtenaw",
+  "url": "https://electionresults.ewashtenaw.org/electionreporting/nov2026/index.jsp",
   "eid": null,
   "races": [
    "MI-Sen",
    "MI-Gov"
   ],
-  "group": "Scrapeable: clean HTML",
+  "group": "Scrapeable: Washtenaw results page (Early / Absentee / Election Day)",
   "categories": "Early Votes, Absentee Votes, Election Day Votes",
   "in_scope": true
  },
@@ -4473,13 +4476,13 @@
   "state": "MI",
   "county": "Wayne",
   "kind": "pdf",
-  "url": "https://www.waynecountymi.gov/files/assets/mainsite/v/1/clerk/documents/elections/off_sum842026.pdf",
+  "url": "https://waynecountyresults.azurewebsites.us/Wayne",
   "eid": null,
   "races": [
    "MI-Sen",
    "MI-Gov"
   ],
-  "group": "PDF",
+  "group": "Wayne County site (precinct JSON): Detroit totals fallback; rest of Wayne has no method split",
   "categories": "Early Voting, Election Day, Absentee, Pre-Process Absentee",
   "in_scope": true
  },
@@ -10039,6 +10042,513 @@
   ],
   "group": "Scrapeable: TX SoS County.json (early vs ED)",
   "categories": "Early (in-person + mail combined), Election Day [from state portal]",
+  "in_scope": true
+ },
+ "51057": {
+  "state": "VA",
+  "county": "Essex",
+  "kind": "enhanced",
+  "url": "https://app.enhancedvoting.com/results/public/essex-county",
+  "eid": null,
+  "races": [
+   "VA-01"
+  ],
+  "group": "Scrapeable: Enhanced Voting JSON",
+  "categories": "Early Voting, Election Day, Mailed Absentee, Provisional, Post-Election",
+  "in_scope": true
+ },
+ "51097": {
+  "state": "VA",
+  "county": "King and Queen",
+  "kind": "enhanced",
+  "url": "https://app.enhancedvoting.com/results/public/king-and-queen-county",
+  "eid": null,
+  "races": [
+   "VA-01"
+  ],
+  "group": "Scrapeable: Enhanced Voting JSON",
+  "categories": "Early Voting, Election Day, Mailed Absentee, Provisional, Post-Election",
+  "in_scope": true
+ },
+ "51101": {
+  "state": "VA",
+  "county": "King William",
+  "kind": "enhanced",
+  "url": "https://app.enhancedvoting.com/results/public/king-william-county",
+  "eid": null,
+  "races": [
+   "VA-01"
+  ],
+  "group": "Scrapeable: Enhanced Voting JSON",
+  "categories": "Early Voting, Election Day, Mailed Absentee, Provisional, Post-Election",
+  "in_scope": true
+ },
+ "51103": {
+  "state": "VA",
+  "county": "Lancaster",
+  "kind": "enhanced",
+  "url": "https://app.enhancedvoting.com/results/public/lancaster-county",
+  "eid": null,
+  "races": [
+   "VA-01"
+  ],
+  "group": "Scrapeable: Enhanced Voting JSON",
+  "categories": "Early Voting, Election Day, Mailed Absentee, Provisional, Post-Election",
+  "in_scope": true
+ },
+ "51115": {
+  "state": "VA",
+  "county": "Mathews",
+  "kind": "enhanced",
+  "url": "https://app.enhancedvoting.com/results/public/mathews-county",
+  "eid": null,
+  "races": [
+   "VA-01"
+  ],
+  "group": "Scrapeable: Enhanced Voting JSON",
+  "categories": "Early Voting, Election Day, Mailed Absentee, Provisional, Post-Election",
+  "in_scope": true
+ },
+ "51119": {
+  "state": "VA",
+  "county": "Middlesex",
+  "kind": "enhanced",
+  "url": "https://app.enhancedvoting.com/results/public/middlesex-county",
+  "eid": null,
+  "races": [
+   "VA-01"
+  ],
+  "group": "Scrapeable: Enhanced Voting JSON",
+  "categories": "Early Voting, Election Day, Mailed Absentee, Provisional, Post-Election",
+  "in_scope": true
+ },
+ "51133": {
+  "state": "VA",
+  "county": "Northumberland",
+  "kind": "enhanced",
+  "url": "https://app.enhancedvoting.com/results/public/northumberland-county",
+  "eid": null,
+  "races": [
+   "VA-01"
+  ],
+  "group": "Scrapeable: Enhanced Voting JSON",
+  "categories": "Early Voting, Election Day, Mailed Absentee, Provisional, Post-Election",
+  "in_scope": true
+ },
+ "51159": {
+  "state": "VA",
+  "county": "Richmond",
+  "kind": "enhanced",
+  "url": "https://app.enhancedvoting.com/results/public/richmond-county",
+  "eid": null,
+  "races": [
+   "VA-01"
+  ],
+  "group": "Scrapeable: Enhanced Voting JSON",
+  "categories": "Early Voting, Election Day, Mailed Absentee, Provisional, Post-Election",
+  "in_scope": true
+ },
+ "51193": {
+  "state": "VA",
+  "county": "Westmoreland",
+  "kind": "enhanced",
+  "url": "https://app.enhancedvoting.com/results/public/westmoreland-county",
+  "eid": null,
+  "races": [
+   "VA-01"
+  ],
+  "group": "Scrapeable: Enhanced Voting JSON",
+  "categories": "Early Voting, Election Day, Mailed Absentee, Provisional, Post-Election",
+  "in_scope": true
+ },
+ "51735": {
+  "state": "VA",
+  "county": "Poquoson City",
+  "kind": "enhanced",
+  "url": "https://app.enhancedvoting.com/results/public/poquoson-city",
+  "eid": null,
+  "races": [
+   "VA-01"
+  ],
+  "group": "Scrapeable: Enhanced Voting JSON",
+  "categories": "Early Voting, Election Day, Mailed Absentee, Provisional, Post-Election",
+  "in_scope": true
+ },
+ "51830": {
+  "state": "VA",
+  "county": "Williamsburg City",
+  "kind": "enhanced",
+  "url": "https://app.enhancedvoting.com/results/public/williamsburg-city",
+  "eid": null,
+  "races": [
+   "VA-01"
+  ],
+  "group": "Scrapeable: Enhanced Voting JSON",
+  "categories": "Early Voting, Election Day, Mailed Absentee, Provisional, Post-Election",
+  "in_scope": true
+ },
+ "51131": {
+  "state": "VA",
+  "county": "Northampton",
+  "kind": "enhanced",
+  "url": "https://app.enhancedvoting.com/results/public/northampton-county",
+  "eid": null,
+  "races": [
+   "VA-02"
+  ],
+  "group": "Scrapeable: Enhanced Voting JSON",
+  "categories": "Early Voting, Election Day, Mailed Absentee, Provisional, Post-Election",
+  "in_scope": true
+ },
+ "51175": {
+  "state": "VA",
+  "county": "Southampton",
+  "kind": "enhanced",
+  "url": "https://app.enhancedvoting.com/results/public/southampton-county",
+  "eid": null,
+  "races": [
+   "VA-02"
+  ],
+  "group": "Scrapeable: Enhanced Voting JSON",
+  "categories": "Early Voting, Election Day, Mailed Absentee, Provisional, Post-Election",
+  "in_scope": true
+ },
+ "51620": {
+  "state": "VA",
+  "county": "Franklin City",
+  "kind": "enhanced",
+  "url": "https://app.enhancedvoting.com/results/public/franklin-city",
+  "eid": null,
+  "races": [
+   "VA-02"
+  ],
+  "group": "Scrapeable: Enhanced Voting JSON",
+  "categories": "Early Voting, Election Day, Mailed Absentee, Provisional, Post-Election",
+  "in_scope": true
+ },
+ "51007": {
+  "state": "VA",
+  "county": "Amelia",
+  "kind": "enhanced",
+  "url": "https://app.enhancedvoting.com/results/public/amelia-county",
+  "eid": null,
+  "races": [
+   "VA-05"
+  ],
+  "group": "Scrapeable: Enhanced Voting JSON",
+  "categories": "Early Voting, Election Day, Mailed Absentee, Provisional, Post-Election",
+  "in_scope": true
+ },
+ "51011": {
+  "state": "VA",
+  "county": "Appomattox",
+  "kind": "enhanced",
+  "url": "https://app.enhancedvoting.com/results/public/appomattox-county",
+  "eid": null,
+  "races": [
+   "VA-05"
+  ],
+  "group": "Scrapeable: Enhanced Voting JSON",
+  "categories": "Early Voting, Election Day, Mailed Absentee, Provisional, Post-Election",
+  "in_scope": true
+ },
+ "51029": {
+  "state": "VA",
+  "county": "Buckingham",
+  "kind": "enhanced",
+  "url": "https://app.enhancedvoting.com/results/public/buckingham-county",
+  "eid": null,
+  "races": [
+   "VA-05"
+  ],
+  "group": "Scrapeable: Enhanced Voting JSON",
+  "categories": "Early Voting, Election Day, Mailed Absentee, Provisional, Post-Election",
+  "in_scope": true
+ },
+ "51037": {
+  "state": "VA",
+  "county": "Charlotte",
+  "kind": "enhanced",
+  "url": "https://app.enhancedvoting.com/results/public/charlotte-county",
+  "eid": null,
+  "races": [
+   "VA-05"
+  ],
+  "group": "Scrapeable: Enhanced Voting JSON",
+  "categories": "Early Voting, Election Day, Mailed Absentee, Provisional, Post-Election",
+  "in_scope": true
+ },
+ "51049": {
+  "state": "VA",
+  "county": "Cumberland",
+  "kind": "enhanced",
+  "url": "https://app.enhancedvoting.com/results/public/cumberland-county",
+  "eid": null,
+  "races": [
+   "VA-05"
+  ],
+  "group": "Scrapeable: Enhanced Voting JSON",
+  "categories": "Early Voting, Election Day, Mailed Absentee, Provisional, Post-Election",
+  "in_scope": true
+ },
+ "51111": {
+  "state": "VA",
+  "county": "Lunenburg",
+  "kind": "enhanced",
+  "url": "https://app.enhancedvoting.com/results/public/lunenburg-county",
+  "eid": null,
+  "races": [
+   "VA-05"
+  ],
+  "group": "Scrapeable: Enhanced Voting JSON",
+  "categories": "Early Voting, Election Day, Mailed Absentee, Provisional, Post-Election",
+  "in_scope": true
+ },
+ "51125": {
+  "state": "VA",
+  "county": "Nelson",
+  "kind": "enhanced",
+  "url": "https://app.enhancedvoting.com/results/public/nelson-county",
+  "eid": null,
+  "races": [
+   "VA-05"
+  ],
+  "group": "Scrapeable: Enhanced Voting JSON",
+  "categories": "Early Voting, Election Day, Mailed Absentee, Provisional, Post-Election",
+  "in_scope": true
+ },
+ "51135": {
+  "state": "VA",
+  "county": "Nottoway",
+  "kind": "enhanced",
+  "url": "https://app.enhancedvoting.com/results/public/nottoway-county",
+  "eid": null,
+  "races": [
+   "VA-05"
+  ],
+  "group": "Scrapeable: Enhanced Voting JSON",
+  "categories": "Early Voting, Election Day, Mailed Absentee, Provisional, Post-Election",
+  "in_scope": true
+ },
+ "51147": {
+  "state": "VA",
+  "county": "Prince Edward",
+  "kind": "enhanced",
+  "url": "https://app.enhancedvoting.com/results/public/prince-edward-county",
+  "eid": null,
+  "races": [
+   "VA-05"
+  ],
+  "group": "Scrapeable: Enhanced Voting JSON",
+  "categories": "Early Voting, Election Day, Mailed Absentee, Provisional, Post-Election",
+  "in_scope": true
+ },
+ "21005": {
+  "state": "KY",
+  "county": "Anderson",
+  "eid": null,
+  "races": [
+   "KY-06"
+  ],
+  "in_scope": true,
+  "kind": "ky",
+  "url": "https://vrsws.sos.ky.gov/liveresults/",
+  "group": "Scrapeable: Kentucky SOS live cumulative PDF",
+  "categories": "Absentee Mail-In, Absentee Walk-In, Early Voting, Election Day Voting"
+ },
+ "21011": {
+  "state": "KY",
+  "county": "Bath",
+  "eid": null,
+  "races": [
+   "KY-06"
+  ],
+  "in_scope": true,
+  "kind": "ky",
+  "url": "https://vrsws.sos.ky.gov/liveresults/",
+  "group": "Scrapeable: Kentucky SOS live cumulative PDF",
+  "categories": "Absentee Mail-In, Absentee Walk-In, Early Voting, Election Day Voting"
+ },
+ "21017": {
+  "state": "KY",
+  "county": "Bourbon",
+  "eid": null,
+  "races": [
+   "KY-06"
+  ],
+  "in_scope": true,
+  "kind": "ky",
+  "url": "https://vrsws.sos.ky.gov/liveresults/",
+  "group": "Scrapeable: Kentucky SOS live cumulative PDF",
+  "categories": "Absentee Mail-In, Absentee Walk-In, Early Voting, Election Day Voting"
+ },
+ "21065": {
+  "state": "KY",
+  "county": "Estill",
+  "eid": null,
+  "races": [
+   "KY-06"
+  ],
+  "in_scope": true,
+  "kind": "ky",
+  "url": "https://vrsws.sos.ky.gov/liveresults/",
+  "group": "Scrapeable: Kentucky SOS live cumulative PDF",
+  "categories": "Absentee Mail-In, Absentee Walk-In, Early Voting, Election Day Voting"
+ },
+ "21069": {
+  "state": "KY",
+  "county": "Fleming",
+  "eid": null,
+  "races": [
+   "KY-06"
+  ],
+  "in_scope": true,
+  "kind": "ky",
+  "url": "https://vrsws.sos.ky.gov/liveresults/",
+  "group": "Scrapeable: Kentucky SOS live cumulative PDF",
+  "categories": "Absentee Mail-In, Absentee Walk-In, Early Voting, Election Day Voting"
+ },
+ "21079": {
+  "state": "KY",
+  "county": "Garrard",
+  "eid": null,
+  "races": [
+   "KY-06"
+  ],
+  "in_scope": true,
+  "kind": "ky",
+  "url": "https://vrsws.sos.ky.gov/liveresults/",
+  "group": "Scrapeable: Kentucky SOS live cumulative PDF",
+  "categories": "Absentee Mail-In, Absentee Walk-In, Early Voting, Election Day Voting"
+ },
+ "21181": {
+  "state": "KY",
+  "county": "Nicholas",
+  "eid": null,
+  "races": [
+   "KY-06"
+  ],
+  "in_scope": true,
+  "kind": "ky",
+  "url": "https://vrsws.sos.ky.gov/liveresults/",
+  "group": "Scrapeable: Kentucky SOS live cumulative PDF",
+  "categories": "Absentee Mail-In, Absentee Walk-In, Early Voting, Election Day Voting"
+ },
+ "21197": {
+  "state": "KY",
+  "county": "Powell",
+  "eid": null,
+  "races": [
+   "KY-06"
+  ],
+  "in_scope": true,
+  "kind": "ky",
+  "url": "https://vrsws.sos.ky.gov/liveresults/",
+  "group": "Scrapeable: Kentucky SOS live cumulative PDF",
+  "categories": "Absentee Mail-In, Absentee Walk-In, Early Voting, Election Day Voting"
+ },
+ "12107": {
+  "state": "FL",
+  "county": "Putnam",
+  "kind": "vr",
+  "url": "https://enr.electionsfl.org/PUT/4081/Summary/",
+  "eid": null,
+  "races": [
+   "FL-Gov"
+  ],
+  "group": "Scrapeable: VR Systems HTML + CSV",
+  "categories": "Election Day, Early Votes, Vote By Mail, Provisional",
+  "in_scope": true
+ },
+ "12129": {
+  "state": "FL",
+  "county": "Wakulla",
+  "kind": "vr",
+  "url": "https://enr.electionsfl.org/WAK/4128/Summary/",
+  "eid": null,
+  "races": [
+   "FL-Gov"
+  ],
+  "group": "Scrapeable: VR Systems HTML + CSV",
+  "categories": "Election Day, Early Votes, Vote By Mail, Provisional",
+  "in_scope": true
+ },
+ "12133": {
+  "state": "FL",
+  "county": "Washington",
+  "kind": "vr",
+  "url": "https://enr.electionsfl.org/WAS/4104/Summary/",
+  "eid": null,
+  "races": [
+   "FL-Gov"
+  ],
+  "group": "Scrapeable: VR Systems HTML + CSV",
+  "categories": "Election Day, Early Votes, Vote By Mail, Provisional",
+  "in_scope": true
+ },
+ "12041": {
+  "state": "FL",
+  "county": "Gilchrist",
+  "kind": "vr",
+  "url": "https://enr.electionsfl.org/GIL/4055/Summary/",
+  "eid": null,
+  "races": [
+   "FL-Gov"
+  ],
+  "group": "Scrapeable: VR Systems HTML + CSV",
+  "categories": "Election Day, Early Votes, Vote By Mail, Provisional",
+  "in_scope": true
+ },
+ "12037": {
+  "state": "FL",
+  "county": "Franklin",
+  "kind": "vr",
+  "url": "https://enr.electionsfl.org/FRA/4130/Summary/",
+  "eid": null,
+  "races": [
+   "FL-Gov"
+  ],
+  "group": "Scrapeable: VR Systems HTML + CSV",
+  "categories": "Election Day, Early Votes, Vote By Mail, Provisional",
+  "in_scope": true
+ },
+ "12125": {
+  "state": "FL",
+  "county": "Union",
+  "kind": "vr",
+  "url": "https://enr.electionsfl.org/UNI/4121/Summary/",
+  "eid": null,
+  "races": [
+   "FL-Gov"
+  ],
+  "group": "Scrapeable: VR Systems HTML + CSV",
+  "categories": "Election Day, Early Votes, Vote By Mail, Provisional",
+  "in_scope": true
+ },
+ "12077": {
+  "state": "FL",
+  "county": "Liberty",
+  "kind": "vr",
+  "url": "https://enr.electionsfl.org/LIB/4098/Summary/",
+  "eid": null,
+  "races": [
+   "FL-Gov"
+  ],
+  "group": "Scrapeable: VR Systems HTML + CSV",
+  "categories": "Election Day, Early Votes, Vote By Mail, Provisional",
+  "in_scope": true
+ },
+ "12085": {
+  "state": "FL",
+  "county": "Martin",
+  "kind": "clarity",
+  "url": "https://results.enr.clarityelections.com/FL/Martin/127353/web.345435/",
+  "eid": "122579",
+  "races": [
+   "FL-Gov"
+  ],
+  "group": "Scrapeable: Clarity JSON (vt.json)",
+  "categories": "Election Day, Vote-by-Mail, Early Voting, Provisional Election Day, Provisional Early Voting",
   "in_scope": true
  }
 }

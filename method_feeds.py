@@ -14,6 +14,7 @@ STATUS = {}   # race_id -> {fips: 'ok' | 'mismatch x%' | 'no civicAPI row' | 'fe
 
 PARENT, CHILD = "26163", "2622000"      # Wayne County and the city of Detroit, which reports on its own feed
 SPLIT_TOL = 0.01                        # Detroit may lead civicAPI's Wayne total by this much (refresh jitter)
+DETROIT_TOTALS = None                   # optional callable(race) -> (D, R) for Detroit, used when the Detroit feed is empty
 
 def _split_detroit(counted, by, race, st):
     """civicAPI reports Wayne as one county (Detroit included). The engine models Detroit and the rest of Wayne separately,
@@ -26,6 +27,15 @@ def _split_detroit(counted, by, race, st):
     dR = sum(v[1] for v in det.values()) if det else 0
     if P is None and not (dD + dR):
         return out
+    tot_only = False
+    if not (dD + dR) and DETROIT_TOTALS:
+        # Detroit's Enhanced Voting feed is empty or down: take Detroit's candidate totals (no method split) from
+        # Wayne County's precinct-level results, so the rest of Wayne isn't held back
+        try:
+            t = DETROIT_TOTALS(race)
+            if t and t[0] + t[1] > 0: dD, dR = t; tot_only = True
+        except Exception as e:
+            st["_wayne"] = "Wayne site error: %s" % str(e)[:60]
     if not (dD + dR):
         out.pop(PARENT, None)
         if P and P[0] + P[1] > 0: st[CHILD] = "no Detroit feed: Wayne held back"
@@ -42,7 +52,10 @@ def _split_detroit(counted, by, race, st):
     done = pp >= 0.995
     pdet = 1.0 if done else min(0.9, (dD + dR) / max(base.get(CHILD, 1), 1))
     prest = 1.0 if done else min(0.9, (rD + rR) / max(base.get(PARENT, 1), 1))
-    out[CHILD] = (dD, dR, pdet, {k: (v[0], v[1]) for k, v in det.items()})
+    if tot_only:
+        out[CHILD] = (dD, dR, pdet); st[CHILD] += " (Detroit totals from Wayne County site, no method split)"
+    else:
+        out[CHILD] = (dD, dR, pdet, {k: (v[0], v[1]) for k, v in det.items()})
     if rD + rR > 0: out[PARENT] = (rD, rR, prest)
     return out
 

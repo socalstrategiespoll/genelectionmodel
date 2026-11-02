@@ -212,3 +212,62 @@ def parse_turnout_text(text):
     for m in re.finditer(r"^\s*Total\s+(Early A\.R\.S\. 16-579|Early Vote|Election Day)\s+([\d,]+)\s*$", text, re.M | re.I):
         out.append(_row("", "", "ALL", m.group(1), m.group(2)))
     return out
+
+
+# Kentucky Electionware results PDF (SOS live "CumulativePdf" per county, county clerks' cumulative reports, state recap
+# sheets). Each contest: "Choice Party <method columns...> Total", then per candidate: name, optional party, and
+# (count, percent) per column. Precinct reports repeat this per precinct, so rows are summed across pages.
+KY_PARTIES = {"REP", "DEM", "LIB", "IND", "GRN", "OTH", "Other", "NP", "NPA"}
+def parse_ky_pdf(raw):
+    import io
+    from pypdf import PdfReader
+    pages = [p.extract_text() or "" for p in PdfReader(io.BytesIO(raw)).pages]
+    tot = {}; text_all = "\n".join(pages)
+    for txt in pages:
+        L = [x.strip() for x in txt.split("\n") if x.strip()]
+        i = 0
+        while i < len(L):
+            if L[i] == "Choice" and i + 1 < len(L) and L[i + 1] == "Party":
+                contest = L[i - 1]; j = i + 2; cols = []
+                while j < len(L) and L[j] != "Total": cols.append(L[j]); j += 1
+                j += 1
+                while j < len(L) and not L[j].startswith("Cast Votes"):
+                    name = L[j]; j += 1; party = ""
+                    if j < len(L) and L[j] in KY_PARTIES: party = L[j]; j += 1
+                    if name.split(" ", 1)[0] in KY_PARTIES and len(name.split(" ", 1)) > 1 and not party:
+                        party, name = name.split(" ", 1)            # "Other Donald WENZEL": party fused onto the name
+                    vals = []
+                    while j < len(L) and len(vals) < len(cols) + 1:
+                        if re.fullmatch(r"[\d,]+", L[j]): vals.append(_n(L[j]))
+                        elif not re.fullmatch(r"[\d.]+%", L[j]): break
+                        j += 1
+                    if len(vals) < len(cols): continue
+                    t = tot.setdefault((contest, name, party), {})
+                    for m, v in zip(cols, vals): t[m] = t.get(m, 0) + v
+                i = j
+            i += 1
+    return text_all, [_row(c, n, p, m, v) for (c, n, p), t in tot.items() for m, v in t.items()]
+
+
+# Washtenaw County MI (electionresults.ewashtenaw.org/electionreporting/<election>/index.jsp): one table per contest,
+# rows "candidate(s) | Early | Absentee | Election Day | Total | Percent". No party on the page: pass parties={surname: "D"/"R"}.
+# A row is kept only if Early + Absentee + Election Day equals Total, so a misread layout drops rows rather than mis-assigning votes.
+def parse_washtenaw(html, parties):
+    t = re.sub(r"(?is)<(script|style).*?</\1>", " ", html)
+    t = re.sub(r"(?i)<br\s*/?>", " ", t)                                   # running mates share a cell
+    t = re.sub(r"(?i)</t[dh]\s*>", "\t", t); t = re.sub(r"(?i)</tr\s*>|</p\s*>|</h\d\s*>|</div\s*>|</caption\s*>", "\n", t)
+    t = unescape(re.sub(r"<[^>]+>", " ", t))
+    out = []; contest = ""
+    for line in t.split("\n"):
+        cells = [x.strip() for x in line.split("\t") if x.strip()]
+        if not cells: continue
+        nums = [x for x in cells[1:] if re.fullmatch(r"[\d,]+", x)]
+        if len(nums) >= 4 and not re.search(r"\d", cells[0]):
+            e, a, d, tot = (_n(x) for x in nums[:4])
+            if e + a + d != tot: continue
+            nm = cells[0].upper(); party = next((p for s, p in parties.items() if re.search(r"\b%s\b" % re.escape(s.upper()), nm)), "")
+            if not party: continue
+            for m, v in (("early votes", e), ("absentee votes", a), ("election day votes", d)): out.append(_row(contest, cells[0], party, m, v))
+        elif len(cells) == 1 and not re.search(r"\d{2,}", cells[0]) and len(cells[0]) > 6:
+            contest = cells[0]
+    return out

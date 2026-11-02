@@ -319,5 +319,35 @@
  },
  "12127": {
   "election_id": "2026GeneralElection"
+ },
+ "12107": {
+  "url": "https://enr.electionsfl.org/PUT/4081/Summary/"
+ },
+ "12129": {
+  "url": "https://enr.electionsfl.org/WAK/4128/Summary/"
+ },
+ "12133": {
+  "url": "https://enr.electionsfl.org/WAS/4104/Summary/"
+ },
+ "12041": {
+  "url": "https://enr.electionsfl.org/GIL/4055/Summary/"
+ },
+ "12037": {
+  "url": "https://enr.electionsfl.org/FRA/4130/Summary/"
+ },
+ "12125": {
+  "url": "https://enr.electionsfl.org/UNI/4121/Summary/"
+ },
+ "12077": {
+  "url": "https://enr.electionsfl.org/LIB/4098/Summary/"
+ },
+ "12085": {
+  "eid": "127353"
+ },
+ "26161": {
+  "url": "https://electionresults.ewashtenaw.org/electionreporting/nov2026/index.jsp"
+ },
+ "2622000": {
+  "election_id": "_20261027152933"
  }
 }
