@@ -170,7 +170,7 @@ def sanitize(counted, race, mem):
         pm[f] = pc
         v = (v[0], v[1], pc) + tuple(v[3:])
         good[f] = v; out[f] = v
-    for f in good:                      # a county that vanishes from the feed keeps its last good value for the same grace period
+    for f in list(good):                # a county that vanishes from the feed keeps its last good value for the same grace period (list(): entries are removed inside the loop)
         if f not in out and f not in counted:
             strikes[f] = strikes.get(f, 0) + 1
             if strikes[f] < DROP_CYCLES:
