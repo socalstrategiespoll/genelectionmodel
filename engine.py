@@ -48,7 +48,9 @@ SLOPE_SD = 2.0                  # size slope with demographics on: fitted value 
 IDIO_SD = 2.28                  # county-specific swing, fitted
 IDIO_C = 1.01                   # extra variance for small counties: IDIO_C / sqrt(votes/1000)
 TAU_BASE = (GEO_SD**2 + PROF_SD**2 + IDIO_SD**2 + IDIO_C) ** 0.5   # slope term is not in the DerSimonian-Laird scale (it is a structured, not county-level, effect)
-BUCKET_SD = 3.0            # prior SD of a method's statewide gap vs our baseline (mail, early in-person, Election Day)
+BUCKET_SD = 3.0            # prior SD of a method's statewide gap vs our baseline (mail, early in-person)
+ED_SD = 6.0                # prior SD of the Election Day gap: unlike early and mail (party mix of returns known), Election Day has
+                           # no partisan check before it counts, so stay wide until Election Day votes confirm or refute the baseline
 OBS_FLOOR = 0.25           # variance floor on observed method-level margins (reporting error)
 REGIME_PRIOR = (0.55, 0.35, 0.10)   # early-first, proportional, late-first (from the MI mixture prior)
 # Counting order by state (early-first, proportional, late-first), from how each state has reported in recent general elections.
@@ -295,7 +297,7 @@ def project(P, counted, n_sims=N_SIMS, seed=7, extra=None):
     Kb = P["K"] if rep.any() else P["K0"]
     sd0_sq = max(P["pre_sd"] ** 2 - float(P["share"] @ Kb @ P["share"]), (0.5 * P["pre_sd"]) ** 2)
     nth = 1 + (K if K > 1 else 0)
-    prior_prec = np.array([1 / sd0_sq] + ([1 / (LATE_SD.get(P.get("state"), BUCKET_SD) if kk == "lm" else BUCKET_SD) ** 2 for kk in P["keys"]] if K > 1 else []))
+    prior_prec = np.array([1 / sd0_sq] + ([1 / (LATE_SD.get(P.get("state"), BUCKET_SD) if kk == "lm" else ED_SD if kk == "ed" else BUCKET_SD) ** 2 for kk in P["keys"]] if K > 1 else []))
     tau = TAU_BASE
     ksc = 1.0
     theta = np.zeros(nth); Vth = np.diag(1 / prior_prec)
