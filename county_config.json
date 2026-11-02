@@ -606,7 +606,7 @@
    "FL-09"
   ],
   "group": "Partial: rows masked (FL law)",
-  "categories": "Election Day, Early Votes, Vote By Mail, Provisional (1-29 vote cells masked per F.S. 98.0981) — but rows masked",
+  "categories": "Election Day, Early Votes, Vote By Mail, Provisional (1-29 vote cells masked per F.S. 98.0981) \u2014 but rows masked",
   "in_scope": true
  },
  "12095": {
@@ -689,7 +689,7 @@
    "FL-Gov"
   ],
   "group": "Partial: rows masked (FL law)",
-  "categories": "Election Day, Early Votes, Vote By Mail, Provisional (1-29 vote cells masked per F.S. 98.0981) — but rows masked",
+  "categories": "Election Day, Early Votes, Vote By Mail, Provisional (1-29 vote cells masked per F.S. 98.0981) \u2014 but rows masked",
   "in_scope": true
  },
  "12115": {
@@ -721,13 +721,13 @@
  "12127": {
   "state": "FL",
   "county": "Volusia",
-  "kind": "vr",
-  "url": "https://enr.electionsfl.org/VOL/3692/Summary/",
+  "kind": "enhanced",
+  "url": "https://app.enhancedvoting.com/results/public/volusia-county-fl/elections/2026GeneralElection",
   "eid": null,
   "races": [
    "FL-07"
   ],
-  "group": "Scrapeable: VR Systems HTML + CSV",
+  "group": "Scrapeable: Enhanced Voting (2026 General)",
   "categories": "Election Day, Early Votes, Vote By Mail, Provisional (1-29 vote cells masked per F.S. 98.0981)",
   "in_scope": true
  },

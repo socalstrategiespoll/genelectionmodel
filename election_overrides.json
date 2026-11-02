@@ -307,5 +307,17 @@
  },
  "26125": {
   "eid": 127284
+ },
+ "12071": {
+  "url": "https://enr.electionsfl.org/LEE/4111/Summary/"
+ },
+ "12117": {
+  "url": "https://enr.electionsfl.org/SEM/4119/Summary/"
+ },
+ "12097": {
+  "eid": "127292"
+ },
+ "12127": {
+  "election_id": "2026GeneralElection"
  }
 }
