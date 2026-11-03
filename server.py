@@ -1,4 +1,4 @@
-# Render web service: stdlib server plus a poller thread. Routes: /health, /api/projection, /api/race/<id>
+# Render web service: stdlib server plus a poller thread. Routes: /health, /api/projection, /api/race/<id>, /api/history[/<id>]
 # Writes projection.json (the file the site reads) every cycle. Races with no civicAPI id run pre-election.
 import gzip, json, os, sys, time, hashlib, threading, gc, ctypes
 # The county feeds are fetched in parallel threads; glibc gives each thread its own malloc arena and rarely returns their
@@ -14,6 +14,46 @@ POLL = int(os.environ.get("POLL_SECONDS", "60"))
 OUT = os.environ.get("PROJECTION_PATH", os.path.join(HERE, "projection.json"))
 LOCK = threading.Lock()
 STATE = {"projection": {"updated": None, "mode": "starting", "races": {}}, "detail": {}}
+
+# ---- projection history: margin / win probability over time, from each race's poll close ----
+# Kept in memory and written to HISTORY_PATH after every cycle. Render's filesystem is wiped on each deploy, so to keep
+# the history across redeploys attach a Render Disk and point HISTORY_PATH at it (e.g. /var/data/history.json).
+HISTORY_PATH = os.environ.get("HISTORY_PATH", os.path.join(HERE, "history.json"))
+HIST_EVERY = int(os.environ.get("HISTORY_EVERY_SECONDS", "300"))   # record at least this often while unchanged
+HIST_MAX = 3000
+POLLS = {}       # race id -> poll close (epoch seconds), from the civicAPI payload
+try:
+    _h = json.load(open(HISTORY_PATH)); HIST = _h.get("races", {}); POLLS.update(_h.get("polls", {}))
+except Exception:
+    HIST = {}
+_hist_dirty = [False]
+
+def _parse_ts(v):
+    try:
+        import datetime
+        return datetime.datetime.fromisoformat(str(v).replace("Z", "+00:00")).timestamp()
+    except Exception:
+        return None
+
+def record_history(rid, o):
+    """One point per change (or every HIST_EVERY seconds), starting when the race's polls close, or as soon as votes
+    are counting if the poll-close time is unknown. Point: [unix time, margin, R win prob, p05, p95, share reporting]."""
+    now = time.time(); pc = POLLS.get(rid)
+    if not ((pc and now >= pc) or o.get("state") != "pre"): return
+    pt = [int(now), o.get("margin"), o.get("win_prob"), o.get("p05"), o.get("p95"), o.get("reporting")]
+    h = HIST.setdefault(rid, [])
+    if h and h[-1][1:] == pt[1:] and now - h[-1][0] < HIST_EVERY: return
+    h.append(pt); _hist_dirty[0] = True
+    if len(h) > HIST_MAX: del h[1:len(h) // 2:2]        # thin the older half, keep the first point (poll close)
+
+def save_history():
+    if not _hist_dirty[0]: return
+    try:
+        tmp = HISTORY_PATH + ".tmp"
+        with open(tmp, "w") as f: json.dump({"polls": POLLS, "races": HIST}, f, separators=(",", ":"))
+        os.replace(tmp, HISTORY_PATH); _hist_dirty[0] = False
+    except Exception as e:
+        print("history save failed:", e, flush=True)
 GUARD = {}      # race id -> carried memory for civicapi_feed.sanitize
 GUARD_WARN = {} # race id -> warnings from the latest cycle
 
@@ -78,6 +118,9 @@ def cycle(races, rmap, preps, cache):
             try:
                 payload = pays.pop(cid, None)
                 if payload is None: payload = civicapi_feed.fetch(cid)
+                if isinstance(payload, dict) and payload.get("polls_close") and rid not in POLLS:
+                    t_ = _parse_ts(payload["polls_close"])
+                    if t_: POLLS[rid] = t_
                 elif isinstance(payload, Exception): raise payload
                 counted = civicapi_feed.parse_counties(payload, r)
                 ccounted = counted
@@ -130,6 +173,8 @@ def cycle(races, rmap, preps, cache):
         out[rid]["raw"] = [int(round(sum(v[0] for v in counted.values() if isinstance(v, (list, tuple)) and len(v) >= 2))),
                            int(round(sum(v[1] for v in counted.values() if isinstance(v, (list, tuple)) and len(v) >= 2)))]
         if err: out[rid]["feed_error"] = err
+        try: record_history(rid, out[rid])
+        except Exception as e: print("history", rid, e, flush=True)
         with LOCK:      # publish each race as soon as it is computed, rather than only when the whole cycle ends
             pr = STATE["projection"]; races_now = dict(pr.get("races") or {}); races_now[rid] = out[rid]
             STATE["projection"] = dict(pr, races=races_now, updated=time.strftime("%Y-%m-%d %H:%M:%S UTC", time.gmtime()),
@@ -137,6 +182,7 @@ def cycle(races, rmap, preps, cache):
         trim()
         m = rss_mb()
         if m and m > 300: print("memory", m, "MB after", rid, flush=True)
+    save_history()
     mode = "live" if any(v.get("state") != "pre" for v in out.values()) else "pre"
     proj = {"updated": time.strftime("%Y-%m-%d %H:%M:%S UTC", time.gmtime()), "mode": mode, "races": out}
     with LOCK:
@@ -225,6 +271,11 @@ class H(BaseHTTPRequestHandler):
                                     "by_race": method_feeds.STATUS, "wired_counties": len(method_feeds.COUNTIES),
                                     "feed_guard_warnings": {k: v for k, v in GUARD_WARN.items() if v},
                                     "kalshi_errors": kalshi_feed.ERRORS, "kalshi_races": len(kalshi_feed.PRICES), "rss_mb": rss_mb()})
+        if p == "/api/history":       # every race (the site's overview); points as [t, margin, win_prob, p05, p95, reporting]
+            return self._send(200, {"polls": POLLS, "races": HIST}, CACHE_TTL)
+        if p.startswith("/api/history/"):
+            rid = p.rsplit("/", 1)[1]
+            return self._send(200, {"id": rid, "polls_close": POLLS.get(rid), "points": HIST.get(rid, [])}, CACHE_TTL)
         if p.startswith("/api/race/"):
             d = STATE["detail"].get(p.rsplit("/", 1)[1])
             return self._send(200 if d else 404, d or {"error": "unknown race"}, CACHE_TTL)
