@@ -170,7 +170,10 @@ def main():
     if not os.path.exists(base): shutil.copy(data, base); print("saved pre-shift baseline:", base)
     d["updated"] = re.sub(r"; FL Election Day (shifted|set).*$", "", d.get("updated", "")) + \
         "; FL Election Day projected from Election Day turnout by party (" + mode + ") as of " + max(t["updated"] for t in tg.values())
-    json.dump(d, open(data, "w"), separators=(",", ":"))
+    # only Florida comes from the pre-shift baseline; every other state keeps what data.json has now (other updates)
+    cur = json.load(open(data)); fl = {r["id"]: r for r in d["races"] if r["state"] == "FL"}
+    cur["races"] = [fl.get(r["id"], r) for r in cur["races"]]; cur["updated"] = d["updated"]
+    json.dump(cur, open(data, "w"), separators=(",", ":"))
     print("wrote", data)
 
 if __name__ == "__main__":
