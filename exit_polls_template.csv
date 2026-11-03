@@ -1,0 +1,6 @@
+race,margin,dem,rep,early,ed,mail,eip,absorb,notes
+TX-Sen,D+2.0,,,,,,,,topline only (Texas: every method shifts together)
+MI-Gov,,51.5,47.0,,,,,,candidate percentages instead of a margin
+GA-Gov,,,,D+4.0,R+8.0,,,,"early and Election Day only, no topline: the topline follows (early = mail + early in-person, moved together)"
+FL-07,R+5.5,,,,,,,,House race by label
+OH-Sen,,,,,R+9.0,,,,method margin only: the topline follows from it
