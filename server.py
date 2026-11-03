@@ -3,7 +3,7 @@
 import gzip, json, os, sys, time, hashlib, threading, gc, ctypes
 # The county feeds are fetched in parallel threads; glibc gives each thread its own malloc arena and rarely returns their
 # memory, so RSS climbs far past what is in use. Cap the arenas (must be set before the process starts: re-exec once).
-if os.environ.get("MALLOC_ARENA_MAX") is None and "--once" not in sys.argv:
+if __name__ == "__main__" and os.environ.get("MALLOC_ARENA_MAX") is None and "--once" not in sys.argv:
     os.environ["MALLOC_ARENA_MAX"] = "2"
     os.execv(sys.executable, [sys.executable] + sys.argv)
 from http.server import ThreadingHTTPServer, BaseHTTPRequestHandler

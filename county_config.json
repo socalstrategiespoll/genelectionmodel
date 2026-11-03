@@ -149,7 +149,8 @@
   "url": "https://app.enhancedvoting.com/results/public/Cochise-County-AZ",
   "eid": null,
   "races": [
-   "AZ-06"
+   "AZ-06",
+   "AZ-Gov"
   ],
   "group": "Scrapeable: Enhanced Voting JSON",
   "categories": "Election Day, Early, Provisional",
@@ -158,14 +159,15 @@
  "04005": {
   "state": "AZ",
   "county": "Coconino",
-  "kind": "none",
-  "url": "https://app.enhancedvoting.com/results/public/Coconino-County-AZ",
+  "kind": "enhanced",
+  "url": "https://app.enhancedvoting.com/results/public/Coconino-County-AZ/elections/03_G_2026",
   "eid": null,
   "races": [
-   "AZ-02"
+   "AZ-02",
+   "AZ-Gov"
   ],
-  "group": "No method data",
-  "categories": "Totals only on Enhanced Voting (empty groupResults)",
+  "group": "Scrapeable: Enhanced Voting JSON",
+  "categories": "Election Day, Early Voting, Provisional, Early A.R.S. 16-579, Late Early",
   "in_scope": true
  },
  "04007": {
@@ -198,27 +200,28 @@
  "04015": {
   "state": "AZ",
   "county": "Mohave",
-  "kind": "none",
-  "url": "https://app.enhancedvoting.com/results/public/Mohave-County-AZ",
+  "kind": "enhanced",
+  "url": "https://app.enhancedvoting.com/results/public/Mohave-County-AZ/elections/General11032026",
   "eid": null,
   "races": [
    "AZ-Gov"
   ],
-  "group": "No method data",
-  "categories": "Totals only on Enhanced Voting (empty groupResults)",
+  "group": "Scrapeable: Enhanced Voting JSON",
+  "categories": "Election Day, Early Voting, Provisional, Early A.R.S. 16-579, Late Early",
   "in_scope": true
  },
  "04017": {
   "state": "AZ",
   "county": "Navajo",
-  "kind": "none",
-  "url": "https://app.enhancedvoting.com/results/public/Navajo-County-AZ",
+  "kind": "enhanced",
+  "url": "https://app.enhancedvoting.com/results/public/Navajo-County-AZ/elections/General-11032026",
   "eid": null,
   "races": [
-   "AZ-02"
+   "AZ-02",
+   "AZ-Gov"
   ],
-  "group": "No method data",
-  "categories": "Totals only on Enhanced Voting (empty groupResults)",
+  "group": "Scrapeable: Enhanced Voting JSON",
+  "categories": "Election Day, Early Voting, Provisional, Early A.R.S. 16-579, Late Early",
   "in_scope": true
  },
  "04019": {
@@ -483,7 +486,8 @@
   "url": "https://enr.electionsfl.org/CLL/3733/Summary/",
   "eid": null,
   "races": [
-   "FL-22"
+   "FL-22",
+   "FL-Gov"
   ],
   "group": "Scrapeable: VR Systems HTML + CSV",
   "categories": "Election Day, Early Votes, Vote By Mail, Provisional (1-29 vote cells masked per F.S. 98.0981)",
@@ -509,7 +513,8 @@
   "url": "https://enr.electionsfl.org/HEN/3730/Summary/",
   "eid": null,
   "races": [
-   "FL-22"
+   "FL-22",
+   "FL-Gov"
   ],
   "group": "Scrapeable: VR Systems HTML + CSV",
   "categories": "Election Day, Early Votes, Vote By Mail, Provisional (1-29 vote cells masked per F.S. 98.0981)",
@@ -522,7 +527,8 @@
   "url": "https://enr.electionsfl.org/HIG/3723/Summary/",
   "eid": null,
   "races": [
-   "FL-09"
+   "FL-09",
+   "FL-Gov"
   ],
   "group": "Scrapeable: VR Systems HTML + CSV",
   "categories": "Election Day, Early Votes, Vote By Mail, Provisional (1-29 vote cells masked per F.S. 98.0981)",
@@ -549,7 +555,8 @@
   "url": "https://enr.electionsfl.org/IND/4096/Summary/",
   "eid": null,
   "races": [
-   "FL-09"
+   "FL-09",
+   "FL-Gov"
   ],
   "group": "Scrapeable: VR Systems HTML + CSV",
   "categories": "Election Day, Early Votes, Vote By Mail, Provisional (1-29 vote cells masked per F.S. 98.0981)",
@@ -575,7 +582,8 @@
   "url": "https://enr.electionsfl.org/MAN/3754/Summary/",
   "eid": null,
   "races": [
-   "FL-16"
+   "FL-16",
+   "FL-Gov"
   ],
   "group": "Scrapeable: VR Systems HTML + CSV",
   "categories": "Election Day, Early Votes, Vote By Mail, Provisional (1-29 vote cells masked per F.S. 98.0981)",
@@ -631,7 +639,8 @@
   "url": "https://results.enr.clarityelections.com/FL/Osceola/122579/web.345435/#/summary",
   "eid": "122579",
   "races": [
-   "FL-09"
+   "FL-09",
+   "FL-Gov"
   ],
   "group": "Scrapeable: Clarity JSON (vt.json)",
   "categories": "Election Day, Vote-by-Mail, Early Voting, Provisional Election Day, Provisional Early Voting",
@@ -659,7 +668,8 @@
   "url": "https://enr.electionsfl.org/PAS/3717/Summary/",
   "eid": null,
   "races": [
-   "FL-13"
+   "FL-13",
+   "FL-Gov"
   ],
   "group": "Scrapeable: VR Systems HTML + CSV",
   "categories": "Election Day, Early Votes, Vote By Mail, Provisional (1-29 vote cells masked per F.S. 98.0981)",
@@ -703,7 +713,8 @@
   "url": "https://enr.electionsfl.org/SAR/3757/Summary/",
   "eid": null,
   "races": [
-   "FL-16"
+   "FL-16",
+   "FL-Gov"
   ],
   "group": "Scrapeable: VR Systems HTML + CSV",
   "categories": "Election Day, Early Votes, Vote By Mail, Provisional (1-29 vote cells masked per F.S. 98.0981)",
@@ -716,7 +727,8 @@
   "url": "https://enr.electionsfl.org/SEM/4119/Summary/",
   "eid": null,
   "races": [
-   "FL-07"
+   "FL-07",
+   "FL-Gov"
   ],
   "group": "PDF",
   "categories": "Early Voting, Mail Ballots, Election Day (official PDF)",
@@ -729,7 +741,8 @@
   "url": "https://app.enhancedvoting.com/results/public/volusia-county-fl/elections/2026GeneralElection",
   "eid": null,
   "races": [
-   "FL-07"
+   "FL-07",
+   "FL-Gov"
   ],
   "group": "Scrapeable: Enhanced Voting (2026 General)",
   "categories": "Election Day, Early Votes, Vote By Mail, Provisional (1-29 vote cells masked per F.S. 98.0981)",
@@ -807,7 +820,9 @@
   "url": "https://electionresults.iowa.gov/IA/Benton/122328/web.345435/#/summary",
   "eid": "122328",
   "races": [
-   "IA-02"
+   "IA-02",
+   "IA-Sen",
+   "IA-Gov"
   ],
   "group": "Scrapeable: Clarity JSON (vt.json)",
   "categories": "Election Day, Absentee (absentee = mail + early in-person)",
@@ -835,7 +850,9 @@
   "url": "https://electionresults.iowa.gov/IA/Bremer/122331/web.345435/#/summary",
   "eid": "122331",
   "races": [
-   "IA-02"
+   "IA-02",
+   "IA-Sen",
+   "IA-Gov"
   ],
   "group": "Scrapeable: Clarity JSON (vt.json)",
   "categories": "Election Day, Absentee (absentee = mail + early in-person)",
@@ -848,7 +865,9 @@
   "url": "https://electionresults.iowa.gov/IA/Cerro_Gordo/122339/web.345435/#/summary",
   "eid": "122339",
   "races": [
-   "IA-02"
+   "IA-02",
+   "IA-Sen",
+   "IA-Gov"
   ],
   "group": "Scrapeable: Clarity JSON (vt.json)",
   "categories": "Election Day, Absentee (absentee = mail + early in-person)",
@@ -861,7 +880,9 @@
   "url": "https://electionresults.iowa.gov/IA/Clinton/122345/web.345435/#/summary",
   "eid": "122345",
   "races": [
-   "IA-01"
+   "IA-01",
+   "IA-Sen",
+   "IA-Gov"
   ],
   "group": "Scrapeable: Clarity JSON (vt.json)",
   "categories": "Election Day, Absentee (absentee = mail + early in-person)",
@@ -889,7 +910,9 @@
   "url": "https://electionresults.iowa.gov/IA/Des_Moines/122351/web.345435/#/summary",
   "eid": "122351",
   "races": [
-   "IA-01"
+   "IA-01",
+   "IA-Sen",
+   "IA-Gov"
   ],
   "group": "Scrapeable: Clarity JSON (vt.json)",
   "categories": "Election Day, Absentee (absentee = mail + early in-person)",
@@ -917,7 +940,9 @@
   "url": "https://electionresults.iowa.gov/IA/Jasper/122372/web.345435/#/summary",
   "eid": "122372",
   "races": [
-   "IA-01"
+   "IA-01",
+   "IA-Sen",
+   "IA-Gov"
   ],
   "group": "Scrapeable: Clarity JSON (vt.json)",
   "categories": "Election Day, Absentee (absentee = mail + early in-person)",
@@ -945,7 +970,9 @@
   "url": "https://electionresults.iowa.gov/IA/Lee/122378/web.345435/#/summary",
   "eid": "122378",
   "races": [
-   "IA-01"
+   "IA-01",
+   "IA-Sen",
+   "IA-Gov"
   ],
   "group": "Scrapeable: Clarity JSON (vt.json)",
   "categories": "Election Day, Absentee (absentee = mail + early in-person)",
@@ -973,7 +1000,9 @@
   "url": "https://electionresults.iowa.gov/IA/Marion/122385/web.345435/#/summary",
   "eid": "122385",
   "races": [
-   "IA-01"
+   "IA-01",
+   "IA-Sen",
+   "IA-Gov"
   ],
   "group": "Scrapeable: Clarity JSON (vt.json)",
   "categories": "Election Day, Absentee (absentee = mail + early in-person)",
@@ -986,7 +1015,9 @@
   "url": "https://electionresults.iowa.gov/IA/Muscatine/122392/web.345435/#/summary",
   "eid": "122392",
   "races": [
-   "IA-01"
+   "IA-01",
+   "IA-Sen",
+   "IA-Gov"
   ],
   "group": "Scrapeable: Clarity JSON (vt.json)",
   "categories": "Election Day, Absentee (absentee = mail + early in-person)",
@@ -1043,7 +1074,9 @@
   "url": "https://electionresults.iowa.gov/IA/Wapello/122412/web.345435/#/summary",
   "eid": "122412",
   "races": [
-   "IA-03"
+   "IA-03",
+   "IA-Sen",
+   "IA-Gov"
   ],
   "group": "Scrapeable: Clarity JSON (vt.json)",
   "categories": "Election Day, Absentee (absentee = mail + early in-person)",
@@ -1056,7 +1089,9 @@
   "url": "https://electionresults.iowa.gov/IA/Warren/122413/web.345435/#/summary",
   "eid": "122413",
   "races": [
-   "IA-01"
+   "IA-01",
+   "IA-Sen",
+   "IA-Gov"
   ],
   "group": "Scrapeable: Clarity JSON (vt.json)",
   "categories": "Election Day, Absentee (absentee = mail + early in-person)",
@@ -1783,7 +1818,8 @@
   "url": "https://results.enr.clarityelections.com/NE/Cass/126289/web.345435/#/summary",
   "eid": null,
   "races": [
-   "NE-01"
+   "NE-01",
+   "NE-Sen"
   ],
   "group": "Clarity, vote types not read (blocked)",
   "categories": "Clarity ENR used on election night; vote types not read",
@@ -1849,7 +1885,8 @@
   "url": "https://results.enr.clarityelections.com/NE/Sarpy/127564/web.345435/#/summary",
   "eid": "126282",
   "races": [
-   "NE-01"
+   "NE-01",
+   "NE-Sen"
   ],
   "group": "Clarity, vote types not read (blocked)",
   "categories": "Clarity ENR used on election night; vote types not read",
@@ -1963,14 +2000,14 @@
  "34035": {
   "state": "NJ",
   "county": "Somerset",
-  "kind": "pdf",
-  "url": "https://nj21st.com/wp-content/uploads/2025/06/Official-Summary-Report-61925.pdf",
-  "eid": null,
+  "kind": "clarity",
+  "url": "https://results.enr.clarityelections.com/NJ/Somerset/127569/",
+  "eid": "127569",
   "races": [
    "NJ-07"
   ],
-  "group": "PDF",
-  "categories": "Early Voting, Vote by Mail, Election Day, Provisional Ballots",
+  "group": "Scrapeable: Clarity JSON (vote types may be empty)",
+  "categories": "",
   "in_scope": true
  },
  "34037": {
@@ -2273,7 +2310,9 @@
   "url": "https://results.enr.clarityelections.com/OH/Fulton/122839/",
   "eid": null,
   "races": [
-   "OH-09"
+   "OH-09",
+   "OH-Sen",
+   "OH-Gov"
   ],
   "group": "Clarity, vote types not read (blocked)",
   "categories": "Clarity ENR since 2024; vote types not read",
@@ -2287,7 +2326,9 @@
   "url": "https://app.enhancedvoting.com/results/public/Greene-County-OH",
   "eid": null,
   "races": [
-   "OH-10"
+   "OH-10",
+   "OH-Sen",
+   "OH-Gov"
   ],
   "group": "No method data",
   "categories": "Totals only (canvass format)",
@@ -2422,7 +2463,9 @@
   "url": "https://app.enhancedvoting.com/results/public/Pickaway-County-OH",
   "eid": null,
   "races": [
-   "OH-15"
+   "OH-15",
+   "OH-Sen",
+   "OH-Gov"
   ],
   "group": "PDF",
   "categories": "Election Day, In Office Absentee, Mail Absentee, Provisional",
@@ -3402,7 +3445,8 @@
   "url": "https://app.enhancedvoting.com/results/public/hanover-county",
   "eid": null,
   "races": [
-   "VA-01"
+   "VA-01",
+   "VA-05"
   ],
   "group": "Scrapeable: Enhanced Voting JSON",
   "categories": "Early Voting, Election Day, Mailed Absentee, Provisional, Post-Election",
@@ -6571,7 +6615,8 @@
   "url": "https://enr.electionsfl.org/DES/4094/Summary/",
   "eid": null,
   "races": [
-   "FL-Gov"
+   "FL-Gov",
+   "FL-16"
   ],
   "group": "Scrapeable: VR Systems HTML + CSV",
   "categories": "Election Day, Early Votes, Vote By Mail, Provisional (1-29 vote cells masked per F.S. 98.0981)",
@@ -6623,7 +6668,8 @@
   "url": "https://enr.electionsfl.org/GLA/4065/Summary/",
   "eid": null,
   "races": [
-   "FL-Gov"
+   "FL-Gov",
+   "FL-09"
   ],
   "group": "Scrapeable: VR Systems HTML + CSV",
   "categories": "Election Day, Early Votes, Vote By Mail, Provisional (1-29 vote cells masked per F.S. 98.0981)",
@@ -6662,7 +6708,8 @@
   "url": "https://enr.electionsfl.org/HAR/4063/Summary/",
   "eid": null,
   "races": [
-   "FL-Gov"
+   "FL-Gov",
+   "FL-16"
   ],
   "group": "Scrapeable: VR Systems HTML + CSV",
   "categories": "Election Day, Early Votes, Vote By Mail, Provisional (1-29 vote cells masked per F.S. 98.0981)",
@@ -7110,7 +7157,8 @@
   "eid": null,
   "races": [
    "TX-Gov",
-   "TX-Sen"
+   "TX-Sen",
+   "TX-23"
   ],
   "group": "Scrapeable: TX SoS County.json (early vs ED)",
   "categories": "Early (in-person + mail combined), Election Day [from state portal]",
@@ -7138,7 +7186,8 @@
   "eid": null,
   "races": [
    "TX-Gov",
-   "TX-Sen"
+   "TX-Sen",
+   "TX-15"
   ],
   "group": "Scrapeable: TX SoS County.json (early vs ED)",
   "categories": "Early (in-person + mail combined), Election Day [from state portal]",
@@ -7502,7 +7551,8 @@
   "eid": null,
   "races": [
    "TX-Gov",
-   "TX-Sen"
+   "TX-Sen",
+   "TX-23"
   ],
   "group": "Scrapeable: TX SoS County.json (early vs ED)",
   "categories": "Early (in-person + mail combined), Election Day [from state portal]",
@@ -7516,7 +7566,8 @@
   "eid": null,
   "races": [
    "TX-Gov",
-   "TX-Sen"
+   "TX-Sen",
+   "TX-23"
   ],
   "group": "Scrapeable: TX SoS County.json (early vs ED)",
   "categories": "Early (in-person + mail combined), Election Day [from state portal]",
@@ -7544,7 +7595,8 @@
   "eid": null,
   "races": [
    "TX-Gov",
-   "TX-Sen"
+   "TX-Sen",
+   "TX-23"
   ],
   "group": "Scrapeable: TX SoS County.json (early vs ED)",
   "categories": "Early (in-person + mail combined), Election Day [from state portal]",
@@ -7698,7 +7750,8 @@
   "eid": null,
   "races": [
    "TX-Gov",
-   "TX-Sen"
+   "TX-Sen",
+   "TX-23"
   ],
   "group": "Scrapeable: TX SoS County.json (early vs ED)",
   "categories": "Early (in-person + mail combined), Election Day [from state portal]",
@@ -7852,7 +7905,8 @@
   "eid": null,
   "races": [
    "TX-Gov",
-   "TX-Sen"
+   "TX-Sen",
+   "TX-23"
   ],
   "group": "Scrapeable: TX SoS County.json (early vs ED)",
   "categories": "Early (in-person + mail combined), Election Day [from state portal]",
@@ -7936,7 +7990,8 @@
   "eid": null,
   "races": [
    "TX-Gov",
-   "TX-Sen"
+   "TX-Sen",
+   "TX-15"
   ],
   "group": "Scrapeable: TX SoS County.json (early vs ED)",
   "categories": "Early (in-person + mail combined), Election Day [from state portal]",
@@ -8258,7 +8313,8 @@
   "eid": null,
   "races": [
    "TX-Gov",
-   "TX-Sen"
+   "TX-Sen",
+   "TX-23"
   ],
   "group": "Scrapeable: TX SoS County.json (early vs ED)",
   "categories": "Early (in-person + mail combined), Election Day [from state portal]",
@@ -8356,7 +8412,8 @@
   "eid": null,
   "races": [
    "TX-Gov",
-   "TX-Sen"
+   "TX-Sen",
+   "TX-23"
   ],
   "group": "Scrapeable: TX SoS County.json (early vs ED)",
   "categories": "Early (in-person + mail combined), Election Day [from state portal]",
@@ -8426,7 +8483,8 @@
   "eid": null,
   "races": [
    "TX-Gov",
-   "TX-Sen"
+   "TX-Sen",
+   "TX-35"
   ],
   "group": "Scrapeable: TX SoS County.json (early vs ED)",
   "categories": "Early (in-person + mail combined), Election Day [from state portal]",
@@ -8538,7 +8596,8 @@
   "eid": null,
   "races": [
    "TX-Gov",
-   "TX-Sen"
+   "TX-Sen",
+   "TX-23"
   ],
   "group": "Scrapeable: TX SoS County.json (early vs ED)",
   "categories": "Early (in-person + mail combined), Election Day [from state portal]",
@@ -9154,7 +9213,8 @@
   "eid": null,
   "races": [
    "TX-Gov",
-   "TX-Sen"
+   "TX-Sen",
+   "TX-23"
   ],
   "group": "Scrapeable: TX SoS County.json (early vs ED)",
   "categories": "Early (in-person + mail combined), Election Day [from state portal]",
@@ -9196,7 +9256,8 @@
   "eid": null,
   "races": [
    "TX-Gov",
-   "TX-Sen"
+   "TX-Sen",
+   "TX-23"
   ],
   "group": "Scrapeable: TX SoS County.json (early vs ED)",
   "categories": "Early (in-person + mail combined), Election Day [from state portal]",
@@ -9238,7 +9299,8 @@
   "eid": null,
   "races": [
    "TX-Gov",
-   "TX-Sen"
+   "TX-Sen",
+   "TX-23"
   ],
   "group": "Scrapeable: TX SoS County.json (early vs ED)",
   "categories": "Early (in-person + mail combined), Election Day [from state portal]",
@@ -9280,7 +9342,8 @@
   "eid": null,
   "races": [
    "TX-Gov",
-   "TX-Sen"
+   "TX-Sen",
+   "TX-23"
   ],
   "group": "Scrapeable: TX SoS County.json (early vs ED)",
   "categories": "Early (in-person + mail combined), Election Day [from state portal]",
@@ -9294,7 +9357,8 @@
   "eid": null,
   "races": [
    "TX-Gov",
-   "TX-Sen"
+   "TX-Sen",
+   "TX-15"
   ],
   "group": "Scrapeable: TX SoS County.json (early vs ED)",
   "categories": "Early (in-person + mail combined), Election Day [from state portal]",
@@ -9434,7 +9498,8 @@
   "eid": null,
   "races": [
    "TX-Gov",
-   "TX-Sen"
+   "TX-Sen",
+   "TX-23"
   ],
   "group": "Scrapeable: TX SoS County.json (early vs ED)",
   "categories": "Early (in-person + mail combined), Election Day [from state portal]",
@@ -9588,7 +9653,8 @@
   "eid": null,
   "races": [
    "TX-Gov",
-   "TX-Sen"
+   "TX-Sen",
+   "TX-23"
   ],
   "group": "Scrapeable: TX SoS County.json (early vs ED)",
   "categories": "Early (in-person + mail combined), Election Day [from state portal]",
@@ -9742,7 +9808,8 @@
   "eid": null,
   "races": [
    "TX-Gov",
-   "TX-Sen"
+   "TX-Sen",
+   "TX-23"
   ],
   "group": "Scrapeable: TX SoS County.json (early vs ED)",
   "categories": "Early (in-person + mail combined), Election Day [from state portal]",
@@ -9756,7 +9823,8 @@
   "eid": null,
   "races": [
    "TX-Gov",
-   "TX-Sen"
+   "TX-Sen",
+   "TX-23"
   ],
   "group": "Scrapeable: TX SoS County.json (early vs ED)",
   "categories": "Early (in-person + mail combined), Election Day [from state portal]",
@@ -9826,7 +9894,8 @@
   "eid": null,
   "races": [
    "TX-Gov",
-   "TX-Sen"
+   "TX-Sen",
+   "TX-23"
   ],
   "group": "Scrapeable: TX SoS County.json (early vs ED)",
   "categories": "Early (in-person + mail combined), Election Day [from state portal]",
@@ -9924,7 +9993,8 @@
   "eid": null,
   "races": [
    "TX-Gov",
-   "TX-Sen"
+   "TX-Sen",
+   "TX-34"
   ],
   "group": "Scrapeable: TX SoS County.json (early vs ED)",
   "categories": "Early (in-person + mail combined), Election Day [from state portal]",
@@ -9952,7 +10022,8 @@
   "eid": null,
   "races": [
    "TX-Gov",
-   "TX-Sen"
+   "TX-Sen",
+   "TX-23"
   ],
   "group": "Scrapeable: TX SoS County.json (early vs ED)",
   "categories": "Early (in-person + mail combined), Election Day [from state portal]",
@@ -10036,7 +10107,8 @@
   "eid": null,
   "races": [
    "TX-Gov",
-   "TX-Sen"
+   "TX-Sen",
+   "TX-23"
   ],
   "group": "Scrapeable: TX SoS County.json (early vs ED)",
   "categories": "Early (in-person + mail combined), Election Day [from state portal]",
@@ -10547,6 +10619,1680 @@
   ],
   "group": "Scrapeable: Clarity JSON (vt.json)",
   "categories": "Election Day, Vote-by-Mail, Early Voting, Provisional Election Day, Provisional Early Voting",
+  "in_scope": true
+ },
+ "19001": {
+  "state": "IA",
+  "county": "Adair",
+  "kind": "clarity",
+  "url": "https://electionresults.iowa.gov/IA/Adair/127078/",
+  "eid": "127078",
+  "races": [
+   "IA-03",
+   "IA-Sen",
+   "IA-Gov"
+  ],
+  "group": "Scrapeable: Clarity JSON (vt.json), statewide site",
+  "categories": "Election Day, Absentee",
+  "in_scope": true
+ },
+ "19003": {
+  "state": "IA",
+  "county": "Adams",
+  "kind": "clarity",
+  "url": "https://electionresults.iowa.gov/IA/Adams/127079/",
+  "eid": "127079",
+  "races": [
+   "IA-03",
+   "IA-Sen",
+   "IA-Gov"
+  ],
+  "group": "Scrapeable: Clarity JSON (vt.json), statewide site",
+  "categories": "Election Day, Absentee",
+  "in_scope": true
+ },
+ "19005": {
+  "state": "IA",
+  "county": "Allamakee",
+  "kind": "clarity",
+  "url": "https://electionresults.iowa.gov/IA/Allamakee/127080/",
+  "eid": "127080",
+  "races": [
+   "IA-02",
+   "IA-Sen",
+   "IA-Gov"
+  ],
+  "group": "Scrapeable: Clarity JSON (vt.json), statewide site",
+  "categories": "Election Day, Absentee",
+  "in_scope": true
+ },
+ "19007": {
+  "state": "IA",
+  "county": "Appanoose",
+  "kind": "clarity",
+  "url": "https://electionresults.iowa.gov/IA/Appanoose/127081/",
+  "eid": "127081",
+  "races": [
+   "IA-03",
+   "IA-Sen",
+   "IA-Gov"
+  ],
+  "group": "Scrapeable: Clarity JSON (vt.json), statewide site",
+  "categories": "Election Day, Absentee",
+  "in_scope": true
+ },
+ "19009": {
+  "state": "IA",
+  "county": "Audubon",
+  "kind": "clarity",
+  "url": "https://electionresults.iowa.gov/IA/Audubon/127082/",
+  "eid": "127082",
+  "races": [
+   "IA-Sen",
+   "IA-Gov"
+  ],
+  "group": "Scrapeable: Clarity JSON (vt.json), statewide site",
+  "categories": "Election Day, Absentee",
+  "in_scope": true
+ },
+ "19015": {
+  "state": "IA",
+  "county": "Boone",
+  "kind": "clarity",
+  "url": "https://electionresults.iowa.gov/IA/Boone/127085/",
+  "eid": "127085",
+  "races": [
+   "IA-Sen",
+   "IA-Gov"
+  ],
+  "group": "Scrapeable: Clarity JSON (vt.json), statewide site",
+  "categories": "Election Day, Absentee",
+  "in_scope": true
+ },
+ "19019": {
+  "state": "IA",
+  "county": "Buchanan",
+  "kind": "clarity",
+  "url": "https://electionresults.iowa.gov/IA/Buchanan/127087/",
+  "eid": "127087",
+  "races": [
+   "IA-02",
+   "IA-Sen",
+   "IA-Gov"
+  ],
+  "group": "Scrapeable: Clarity JSON (vt.json), statewide site",
+  "categories": "Election Day, Absentee",
+  "in_scope": true
+ },
+ "19021": {
+  "state": "IA",
+  "county": "Buena Vista",
+  "kind": "clarity",
+  "url": "https://electionresults.iowa.gov/IA/Buena_Vista/127088/",
+  "eid": "127088",
+  "races": [
+   "IA-Sen",
+   "IA-Gov"
+  ],
+  "group": "Scrapeable: Clarity JSON (vt.json), statewide site",
+  "categories": "Election Day, Absentee",
+  "in_scope": true
+ },
+ "19023": {
+  "state": "IA",
+  "county": "Butler",
+  "kind": "clarity",
+  "url": "https://electionresults.iowa.gov/IA/Butler/127089/",
+  "eid": "127089",
+  "races": [
+   "IA-02",
+   "IA-Sen",
+   "IA-Gov"
+  ],
+  "group": "Scrapeable: Clarity JSON (vt.json), statewide site",
+  "categories": "Election Day, Absentee",
+  "in_scope": true
+ },
+ "19025": {
+  "state": "IA",
+  "county": "Calhoun",
+  "kind": "clarity",
+  "url": "https://electionresults.iowa.gov/IA/Calhoun/127090/",
+  "eid": "127090",
+  "races": [
+   "IA-Sen",
+   "IA-Gov"
+  ],
+  "group": "Scrapeable: Clarity JSON (vt.json), statewide site",
+  "categories": "Election Day, Absentee",
+  "in_scope": true
+ },
+ "19027": {
+  "state": "IA",
+  "county": "Carroll",
+  "kind": "clarity",
+  "url": "https://electionresults.iowa.gov/IA/Carroll/127091/",
+  "eid": "127091",
+  "races": [
+   "IA-Sen",
+   "IA-Gov"
+  ],
+  "group": "Scrapeable: Clarity JSON (vt.json), statewide site",
+  "categories": "Election Day, Absentee",
+  "in_scope": true
+ },
+ "19029": {
+  "state": "IA",
+  "county": "Cass",
+  "kind": "clarity",
+  "url": "https://electionresults.iowa.gov/IA/Cass/127092/",
+  "eid": "127092",
+  "races": [
+   "IA-03",
+   "IA-Sen",
+   "IA-Gov"
+  ],
+  "group": "Scrapeable: Clarity JSON (vt.json), statewide site",
+  "categories": "Election Day, Absentee",
+  "in_scope": true
+ },
+ "19031": {
+  "state": "IA",
+  "county": "Cedar",
+  "kind": "clarity",
+  "url": "https://electionresults.iowa.gov/IA/Cedar/127093/",
+  "eid": "127093",
+  "races": [
+   "IA-01",
+   "IA-Sen",
+   "IA-Gov"
+  ],
+  "group": "Scrapeable: Clarity JSON (vt.json), statewide site",
+  "categories": "Election Day, Absentee",
+  "in_scope": true
+ },
+ "19035": {
+  "state": "IA",
+  "county": "Cherokee",
+  "kind": "clarity",
+  "url": "https://electionresults.iowa.gov/IA/Cherokee/127095/",
+  "eid": "127095",
+  "races": [
+   "IA-Sen",
+   "IA-Gov"
+  ],
+  "group": "Scrapeable: Clarity JSON (vt.json), statewide site",
+  "categories": "Election Day, Absentee",
+  "in_scope": true
+ },
+ "19037": {
+  "state": "IA",
+  "county": "Chickasaw",
+  "kind": "clarity",
+  "url": "https://electionresults.iowa.gov/IA/Chickasaw/127096/",
+  "eid": "127096",
+  "races": [
+   "IA-02",
+   "IA-Sen",
+   "IA-Gov"
+  ],
+  "group": "Scrapeable: Clarity JSON (vt.json), statewide site",
+  "categories": "Election Day, Absentee",
+  "in_scope": true
+ },
+ "19039": {
+  "state": "IA",
+  "county": "Clarke",
+  "kind": "clarity",
+  "url": "https://electionresults.iowa.gov/IA/Clarke/127097/",
+  "eid": "127097",
+  "races": [
+   "IA-03",
+   "IA-Sen",
+   "IA-Gov"
+  ],
+  "group": "Scrapeable: Clarity JSON (vt.json), statewide site",
+  "categories": "Election Day, Absentee",
+  "in_scope": true
+ },
+ "19041": {
+  "state": "IA",
+  "county": "Clay",
+  "kind": "clarity",
+  "url": "https://electionresults.iowa.gov/IA/Clay/127098/",
+  "eid": "127098",
+  "races": [
+   "IA-Sen",
+   "IA-Gov"
+  ],
+  "group": "Scrapeable: Clarity JSON (vt.json), statewide site",
+  "categories": "Election Day, Absentee",
+  "in_scope": true
+ },
+ "19043": {
+  "state": "IA",
+  "county": "Clayton",
+  "kind": "clarity",
+  "url": "https://electionresults.iowa.gov/IA/Clayton/127099/",
+  "eid": "127099",
+  "races": [
+   "IA-02",
+   "IA-Sen",
+   "IA-Gov"
+  ],
+  "group": "Scrapeable: Clarity JSON (vt.json), statewide site",
+  "categories": "Election Day, Absentee",
+  "in_scope": true
+ },
+ "19047": {
+  "state": "IA",
+  "county": "Crawford",
+  "kind": "clarity",
+  "url": "https://electionresults.iowa.gov/IA/Crawford/127101/",
+  "eid": "127101",
+  "races": [
+   "IA-Sen",
+   "IA-Gov"
+  ],
+  "group": "Scrapeable: Clarity JSON (vt.json), statewide site",
+  "categories": "Election Day, Absentee",
+  "in_scope": true
+ },
+ "19051": {
+  "state": "IA",
+  "county": "Davis",
+  "kind": "clarity",
+  "url": "https://electionresults.iowa.gov/IA/Davis/127103/",
+  "eid": "127103",
+  "races": [
+   "IA-03",
+   "IA-Sen",
+   "IA-Gov"
+  ],
+  "group": "Scrapeable: Clarity JSON (vt.json), statewide site",
+  "categories": "Election Day, Absentee",
+  "in_scope": true
+ },
+ "19053": {
+  "state": "IA",
+  "county": "Decatur",
+  "kind": "clarity",
+  "url": "https://electionresults.iowa.gov/IA/Decatur/127104/",
+  "eid": "127104",
+  "races": [
+   "IA-03",
+   "IA-Sen",
+   "IA-Gov"
+  ],
+  "group": "Scrapeable: Clarity JSON (vt.json), statewide site",
+  "categories": "Election Day, Absentee",
+  "in_scope": true
+ },
+ "19055": {
+  "state": "IA",
+  "county": "Delaware",
+  "kind": "clarity",
+  "url": "https://electionresults.iowa.gov/IA/Delaware/127105/",
+  "eid": "127105",
+  "races": [
+   "IA-02",
+   "IA-Sen",
+   "IA-Gov"
+  ],
+  "group": "Scrapeable: Clarity JSON (vt.json), statewide site",
+  "categories": "Election Day, Absentee",
+  "in_scope": true
+ },
+ "19059": {
+  "state": "IA",
+  "county": "Dickinson",
+  "kind": "clarity",
+  "url": "https://electionresults.iowa.gov/IA/Dickinson/127107/",
+  "eid": "127107",
+  "races": [
+   "IA-Sen",
+   "IA-Gov"
+  ],
+  "group": "Scrapeable: Clarity JSON (vt.json), statewide site",
+  "categories": "Election Day, Absentee",
+  "in_scope": true
+ },
+ "19063": {
+  "state": "IA",
+  "county": "Emmet",
+  "kind": "clarity",
+  "url": "https://electionresults.iowa.gov/IA/Emmet/127109/",
+  "eid": "127109",
+  "races": [
+   "IA-Sen",
+   "IA-Gov"
+  ],
+  "group": "Scrapeable: Clarity JSON (vt.json), statewide site",
+  "categories": "Election Day, Absentee",
+  "in_scope": true
+ },
+ "19065": {
+  "state": "IA",
+  "county": "Fayette",
+  "kind": "clarity",
+  "url": "https://electionresults.iowa.gov/IA/Fayette/127110/",
+  "eid": "127110",
+  "races": [
+   "IA-02",
+   "IA-Sen",
+   "IA-Gov"
+  ],
+  "group": "Scrapeable: Clarity JSON (vt.json), statewide site",
+  "categories": "Election Day, Absentee",
+  "in_scope": true
+ },
+ "19067": {
+  "state": "IA",
+  "county": "Floyd",
+  "kind": "clarity",
+  "url": "https://electionresults.iowa.gov/IA/Floyd/127111/",
+  "eid": "127111",
+  "races": [
+   "IA-02",
+   "IA-Sen",
+   "IA-Gov"
+  ],
+  "group": "Scrapeable: Clarity JSON (vt.json), statewide site",
+  "categories": "Election Day, Absentee",
+  "in_scope": true
+ },
+ "19069": {
+  "state": "IA",
+  "county": "Franklin",
+  "kind": "clarity",
+  "url": "https://electionresults.iowa.gov/IA/Franklin/127112/",
+  "eid": "127112",
+  "races": [
+   "IA-Sen",
+   "IA-Gov"
+  ],
+  "group": "Scrapeable: Clarity JSON (vt.json), statewide site",
+  "categories": "Election Day, Absentee",
+  "in_scope": true
+ },
+ "19071": {
+  "state": "IA",
+  "county": "Fremont",
+  "kind": "clarity",
+  "url": "https://electionresults.iowa.gov/IA/Fremont/127113/",
+  "eid": "127113",
+  "races": [
+   "IA-Sen",
+   "IA-Gov"
+  ],
+  "group": "Scrapeable: Clarity JSON (vt.json), statewide site",
+  "categories": "Election Day, Absentee",
+  "in_scope": true
+ },
+ "19073": {
+  "state": "IA",
+  "county": "Greene",
+  "kind": "clarity",
+  "url": "https://electionresults.iowa.gov/IA/Greene/127114/",
+  "eid": "127114",
+  "races": [
+   "IA-03",
+   "IA-Sen",
+   "IA-Gov"
+  ],
+  "group": "Scrapeable: Clarity JSON (vt.json), statewide site",
+  "categories": "Election Day, Absentee",
+  "in_scope": true
+ },
+ "19075": {
+  "state": "IA",
+  "county": "Grundy",
+  "kind": "clarity",
+  "url": "https://electionresults.iowa.gov/IA/Grundy/127115/",
+  "eid": "127115",
+  "races": [
+   "IA-02",
+   "IA-Sen",
+   "IA-Gov"
+  ],
+  "group": "Scrapeable: Clarity JSON (vt.json), statewide site",
+  "categories": "Election Day, Absentee",
+  "in_scope": true
+ },
+ "19077": {
+  "state": "IA",
+  "county": "Guthrie",
+  "kind": "clarity",
+  "url": "https://electionresults.iowa.gov/IA/Guthrie/127116/",
+  "eid": "127116",
+  "races": [
+   "IA-03",
+   "IA-Sen",
+   "IA-Gov"
+  ],
+  "group": "Scrapeable: Clarity JSON (vt.json), statewide site",
+  "categories": "Election Day, Absentee",
+  "in_scope": true
+ },
+ "19079": {
+  "state": "IA",
+  "county": "Hamilton",
+  "kind": "clarity",
+  "url": "https://electionresults.iowa.gov/IA/Hamilton/127117/",
+  "eid": "127117",
+  "races": [
+   "IA-Sen",
+   "IA-Gov"
+  ],
+  "group": "Scrapeable: Clarity JSON (vt.json), statewide site",
+  "categories": "Election Day, Absentee",
+  "in_scope": true
+ },
+ "19081": {
+  "state": "IA",
+  "county": "Hancock",
+  "kind": "clarity",
+  "url": "https://electionresults.iowa.gov/IA/Hancock/127118/",
+  "eid": "127118",
+  "races": [
+   "IA-Sen",
+   "IA-Gov"
+  ],
+  "group": "Scrapeable: Clarity JSON (vt.json), statewide site",
+  "categories": "Election Day, Absentee",
+  "in_scope": true
+ },
+ "19083": {
+  "state": "IA",
+  "county": "Hardin",
+  "kind": "clarity",
+  "url": "https://electionresults.iowa.gov/IA/Hardin/127119/",
+  "eid": "127119",
+  "races": [
+   "IA-02",
+   "IA-Sen",
+   "IA-Gov"
+  ],
+  "group": "Scrapeable: Clarity JSON (vt.json), statewide site",
+  "categories": "Election Day, Absentee",
+  "in_scope": true
+ },
+ "19085": {
+  "state": "IA",
+  "county": "Harrison",
+  "kind": "clarity",
+  "url": "https://electionresults.iowa.gov/IA/Harrison/127120/",
+  "eid": "127120",
+  "races": [
+   "IA-Sen",
+   "IA-Gov"
+  ],
+  "group": "Scrapeable: Clarity JSON (vt.json), statewide site",
+  "categories": "Election Day, Absentee",
+  "in_scope": true
+ },
+ "19087": {
+  "state": "IA",
+  "county": "Henry",
+  "kind": "clarity",
+  "url": "https://electionresults.iowa.gov/IA/Henry/127121/",
+  "eid": "127121",
+  "races": [
+   "IA-01",
+   "IA-Sen",
+   "IA-Gov"
+  ],
+  "group": "Scrapeable: Clarity JSON (vt.json), statewide site",
+  "categories": "Election Day, Absentee",
+  "in_scope": true
+ },
+ "19089": {
+  "state": "IA",
+  "county": "Howard",
+  "kind": "clarity",
+  "url": "https://electionresults.iowa.gov/IA/Howard/127122/",
+  "eid": "127122",
+  "races": [
+   "IA-02",
+   "IA-Sen",
+   "IA-Gov"
+  ],
+  "group": "Scrapeable: Clarity JSON (vt.json), statewide site",
+  "categories": "Election Day, Absentee",
+  "in_scope": true
+ },
+ "19091": {
+  "state": "IA",
+  "county": "Humboldt",
+  "kind": "clarity",
+  "url": "https://electionresults.iowa.gov/IA/Humboldt/127123/",
+  "eid": "127123",
+  "races": [
+   "IA-Sen",
+   "IA-Gov"
+  ],
+  "group": "Scrapeable: Clarity JSON (vt.json), statewide site",
+  "categories": "Election Day, Absentee",
+  "in_scope": true
+ },
+ "19093": {
+  "state": "IA",
+  "county": "Ida",
+  "kind": "clarity",
+  "url": "https://electionresults.iowa.gov/IA/Ida/127124/",
+  "eid": "127124",
+  "races": [
+   "IA-Sen",
+   "IA-Gov"
+  ],
+  "group": "Scrapeable: Clarity JSON (vt.json), statewide site",
+  "categories": "Election Day, Absentee",
+  "in_scope": true
+ },
+ "19095": {
+  "state": "IA",
+  "county": "Iowa",
+  "kind": "clarity",
+  "url": "https://electionresults.iowa.gov/IA/Iowa/127125/",
+  "eid": "127125",
+  "races": [
+   "IA-01",
+   "IA-Sen",
+   "IA-Gov"
+  ],
+  "group": "Scrapeable: Clarity JSON (vt.json), statewide site",
+  "categories": "Election Day, Absentee",
+  "in_scope": true
+ },
+ "19097": {
+  "state": "IA",
+  "county": "Jackson",
+  "kind": "clarity",
+  "url": "https://electionresults.iowa.gov/IA/Jackson/127126/",
+  "eid": "127126",
+  "races": [
+   "IA-01",
+   "IA-Sen",
+   "IA-Gov"
+  ],
+  "group": "Scrapeable: Clarity JSON (vt.json), statewide site",
+  "categories": "Election Day, Absentee",
+  "in_scope": true
+ },
+ "19101": {
+  "state": "IA",
+  "county": "Jefferson",
+  "kind": "clarity",
+  "url": "https://electionresults.iowa.gov/IA/Jefferson/127128/",
+  "eid": "127128",
+  "races": [
+   "IA-01",
+   "IA-Sen",
+   "IA-Gov"
+  ],
+  "group": "Scrapeable: Clarity JSON (vt.json), statewide site",
+  "categories": "Election Day, Absentee",
+  "in_scope": true
+ },
+ "19105": {
+  "state": "IA",
+  "county": "Jones",
+  "kind": "clarity",
+  "url": "https://electionresults.iowa.gov/IA/Jones/127130/",
+  "eid": "127130",
+  "races": [
+   "IA-01",
+   "IA-Sen",
+   "IA-Gov"
+  ],
+  "group": "Scrapeable: Clarity JSON (vt.json), statewide site",
+  "categories": "Election Day, Absentee",
+  "in_scope": true
+ },
+ "19107": {
+  "state": "IA",
+  "county": "Keokuk",
+  "kind": "clarity",
+  "url": "https://electionresults.iowa.gov/IA/Keokuk/127131/",
+  "eid": "127131",
+  "races": [
+   "IA-01",
+   "IA-Sen",
+   "IA-Gov"
+  ],
+  "group": "Scrapeable: Clarity JSON (vt.json), statewide site",
+  "categories": "Election Day, Absentee",
+  "in_scope": true
+ },
+ "19109": {
+  "state": "IA",
+  "county": "Kossuth",
+  "kind": "clarity",
+  "url": "https://electionresults.iowa.gov/IA/Kossuth/127132/",
+  "eid": "127132",
+  "races": [
+   "IA-Sen",
+   "IA-Gov"
+  ],
+  "group": "Scrapeable: Clarity JSON (vt.json), statewide site",
+  "categories": "Election Day, Absentee",
+  "in_scope": true
+ },
+ "19115": {
+  "state": "IA",
+  "county": "Louisa",
+  "kind": "clarity",
+  "url": "https://electionresults.iowa.gov/IA/Louisa/127135/",
+  "eid": "127135",
+  "races": [
+   "IA-01",
+   "IA-Sen",
+   "IA-Gov"
+  ],
+  "group": "Scrapeable: Clarity JSON (vt.json), statewide site",
+  "categories": "Election Day, Absentee",
+  "in_scope": true
+ },
+ "19117": {
+  "state": "IA",
+  "county": "Lucas",
+  "kind": "clarity",
+  "url": "https://electionresults.iowa.gov/IA/Lucas/127136/",
+  "eid": "127136",
+  "races": [
+   "IA-03",
+   "IA-Sen",
+   "IA-Gov"
+  ],
+  "group": "Scrapeable: Clarity JSON (vt.json), statewide site",
+  "categories": "Election Day, Absentee",
+  "in_scope": true
+ },
+ "19119": {
+  "state": "IA",
+  "county": "Lyon",
+  "kind": "clarity",
+  "url": "https://electionresults.iowa.gov/IA/Lyon/127137/",
+  "eid": "127137",
+  "races": [
+   "IA-Sen",
+   "IA-Gov"
+  ],
+  "group": "Scrapeable: Clarity JSON (vt.json), statewide site",
+  "categories": "Election Day, Absentee",
+  "in_scope": true
+ },
+ "19121": {
+  "state": "IA",
+  "county": "Madison",
+  "kind": "clarity",
+  "url": "https://electionresults.iowa.gov/IA/Madison/127138/",
+  "eid": "127138",
+  "races": [
+   "IA-03",
+   "IA-Sen",
+   "IA-Gov"
+  ],
+  "group": "Scrapeable: Clarity JSON (vt.json), statewide site",
+  "categories": "Election Day, Absentee",
+  "in_scope": true
+ },
+ "19123": {
+  "state": "IA",
+  "county": "Mahaska",
+  "kind": "clarity",
+  "url": "https://electionresults.iowa.gov/IA/Mahaska/127139/",
+  "eid": "127139",
+  "races": [
+   "IA-01",
+   "IA-Sen",
+   "IA-Gov"
+  ],
+  "group": "Scrapeable: Clarity JSON (vt.json), statewide site",
+  "categories": "Election Day, Absentee",
+  "in_scope": true
+ },
+ "19127": {
+  "state": "IA",
+  "county": "Marshall",
+  "kind": "clarity",
+  "url": "https://electionresults.iowa.gov/IA/Marshall/127141/",
+  "eid": "127141",
+  "races": [
+   "IA-Sen",
+   "IA-Gov"
+  ],
+  "group": "Scrapeable: Clarity JSON (vt.json), statewide site",
+  "categories": "Election Day, Absentee",
+  "in_scope": true
+ },
+ "19129": {
+  "state": "IA",
+  "county": "Mills",
+  "kind": "clarity",
+  "url": "https://electionresults.iowa.gov/IA/Mills/127142/",
+  "eid": "127142",
+  "races": [
+   "IA-Sen",
+   "IA-Gov"
+  ],
+  "group": "Scrapeable: Clarity JSON (vt.json), statewide site",
+  "categories": "Election Day, Absentee",
+  "in_scope": true
+ },
+ "19131": {
+  "state": "IA",
+  "county": "Mitchell",
+  "kind": "clarity",
+  "url": "https://electionresults.iowa.gov/IA/Mitchell/127143/",
+  "eid": "127143",
+  "races": [
+   "IA-02",
+   "IA-Sen",
+   "IA-Gov"
+  ],
+  "group": "Scrapeable: Clarity JSON (vt.json), statewide site",
+  "categories": "Election Day, Absentee",
+  "in_scope": true
+ },
+ "19133": {
+  "state": "IA",
+  "county": "Monona",
+  "kind": "clarity",
+  "url": "https://electionresults.iowa.gov/IA/Monona/127144/",
+  "eid": "127144",
+  "races": [
+   "IA-Sen",
+   "IA-Gov"
+  ],
+  "group": "Scrapeable: Clarity JSON (vt.json), statewide site",
+  "categories": "Election Day, Absentee",
+  "in_scope": true
+ },
+ "19135": {
+  "state": "IA",
+  "county": "Monroe",
+  "kind": "clarity",
+  "url": "https://electionresults.iowa.gov/IA/Monroe/127145/",
+  "eid": "127145",
+  "races": [
+   "IA-03",
+   "IA-Sen",
+   "IA-Gov"
+  ],
+  "group": "Scrapeable: Clarity JSON (vt.json), statewide site",
+  "categories": "Election Day, Absentee",
+  "in_scope": true
+ },
+ "19137": {
+  "state": "IA",
+  "county": "Montgomery",
+  "kind": "clarity",
+  "url": "https://electionresults.iowa.gov/IA/Montgomery/127146/",
+  "eid": "127146",
+  "races": [
+   "IA-03",
+   "IA-Sen",
+   "IA-Gov"
+  ],
+  "group": "Scrapeable: Clarity JSON (vt.json), statewide site",
+  "categories": "Election Day, Absentee",
+  "in_scope": true
+ },
+ "19141": {
+  "state": "IA",
+  "county": "O'Brien",
+  "kind": "clarity",
+  "url": "https://electionresults.iowa.gov/IA/O'Brien/127148/",
+  "eid": "127148",
+  "races": [
+   "IA-Sen",
+   "IA-Gov"
+  ],
+  "group": "Scrapeable: Clarity JSON (vt.json), statewide site",
+  "categories": "Election Day, Absentee",
+  "in_scope": true
+ },
+ "19143": {
+  "state": "IA",
+  "county": "Osceola",
+  "kind": "clarity",
+  "url": "https://electionresults.iowa.gov/IA/Osceola/127149/",
+  "eid": "127149",
+  "races": [
+   "IA-Sen",
+   "IA-Gov"
+  ],
+  "group": "Scrapeable: Clarity JSON (vt.json), statewide site",
+  "categories": "Election Day, Absentee",
+  "in_scope": true
+ },
+ "19145": {
+  "state": "IA",
+  "county": "Page",
+  "kind": "clarity",
+  "url": "https://electionresults.iowa.gov/IA/Page/127150/",
+  "eid": "127150",
+  "races": [
+   "IA-03",
+   "IA-Sen",
+   "IA-Gov"
+  ],
+  "group": "Scrapeable: Clarity JSON (vt.json), statewide site",
+  "categories": "Election Day, Absentee",
+  "in_scope": true
+ },
+ "19147": {
+  "state": "IA",
+  "county": "Palo Alto",
+  "kind": "clarity",
+  "url": "https://electionresults.iowa.gov/IA/Palo_Alto/127151/",
+  "eid": "127151",
+  "races": [
+   "IA-Sen",
+   "IA-Gov"
+  ],
+  "group": "Scrapeable: Clarity JSON (vt.json), statewide site",
+  "categories": "Election Day, Absentee",
+  "in_scope": true
+ },
+ "19149": {
+  "state": "IA",
+  "county": "Plymouth",
+  "kind": "clarity",
+  "url": "https://electionresults.iowa.gov/IA/Plymouth/127152/",
+  "eid": "127152",
+  "races": [
+   "IA-Sen",
+   "IA-Gov"
+  ],
+  "group": "Scrapeable: Clarity JSON (vt.json), statewide site",
+  "categories": "Election Day, Absentee",
+  "in_scope": true
+ },
+ "19151": {
+  "state": "IA",
+  "county": "Pocahontas",
+  "kind": "clarity",
+  "url": "https://electionresults.iowa.gov/IA/Pocahontas/127153/",
+  "eid": "127153",
+  "races": [
+   "IA-Sen",
+   "IA-Gov"
+  ],
+  "group": "Scrapeable: Clarity JSON (vt.json), statewide site",
+  "categories": "Election Day, Absentee",
+  "in_scope": true
+ },
+ "19155": {
+  "state": "IA",
+  "county": "Pottawattamie",
+  "kind": "clarity",
+  "url": "https://electionresults.iowa.gov/IA/Pottawattamie/127155/",
+  "eid": "127155",
+  "races": [
+   "IA-Sen",
+   "IA-Gov"
+  ],
+  "group": "Scrapeable: Clarity JSON (vt.json), statewide site",
+  "categories": "Election Day, Absentee",
+  "in_scope": true
+ },
+ "19157": {
+  "state": "IA",
+  "county": "Poweshiek",
+  "kind": "clarity",
+  "url": "https://electionresults.iowa.gov/IA/Poweshiek/127156/",
+  "eid": "127156",
+  "races": [
+   "IA-02",
+   "IA-Sen",
+   "IA-Gov"
+  ],
+  "group": "Scrapeable: Clarity JSON (vt.json), statewide site",
+  "categories": "Election Day, Absentee",
+  "in_scope": true
+ },
+ "19159": {
+  "state": "IA",
+  "county": "Ringgold",
+  "kind": "clarity",
+  "url": "https://electionresults.iowa.gov/IA/Ringgold/127157/",
+  "eid": "127157",
+  "races": [
+   "IA-03",
+   "IA-Sen",
+   "IA-Gov"
+  ],
+  "group": "Scrapeable: Clarity JSON (vt.json), statewide site",
+  "categories": "Election Day, Absentee",
+  "in_scope": true
+ },
+ "19161": {
+  "state": "IA",
+  "county": "Sac",
+  "kind": "clarity",
+  "url": "https://electionresults.iowa.gov/IA/Sac/127158/",
+  "eid": "127158",
+  "races": [
+   "IA-Sen",
+   "IA-Gov"
+  ],
+  "group": "Scrapeable: Clarity JSON (vt.json), statewide site",
+  "categories": "Election Day, Absentee",
+  "in_scope": true
+ },
+ "19165": {
+  "state": "IA",
+  "county": "Shelby",
+  "kind": "clarity",
+  "url": "https://electionresults.iowa.gov/IA/Shelby/127160/",
+  "eid": "127160",
+  "races": [
+   "IA-Sen",
+   "IA-Gov"
+  ],
+  "group": "Scrapeable: Clarity JSON (vt.json), statewide site",
+  "categories": "Election Day, Absentee",
+  "in_scope": true
+ },
+ "19167": {
+  "state": "IA",
+  "county": "Sioux",
+  "kind": "clarity",
+  "url": "https://electionresults.iowa.gov/IA/Sioux/127161/",
+  "eid": "127161",
+  "races": [
+   "IA-Sen",
+   "IA-Gov"
+  ],
+  "group": "Scrapeable: Clarity JSON (vt.json), statewide site",
+  "categories": "Election Day, Absentee",
+  "in_scope": true
+ },
+ "19171": {
+  "state": "IA",
+  "county": "Tama",
+  "kind": "clarity",
+  "url": "https://electionresults.iowa.gov/IA/Tama/127163/",
+  "eid": "127163",
+  "races": [
+   "IA-02",
+   "IA-Sen",
+   "IA-Gov"
+  ],
+  "group": "Scrapeable: Clarity JSON (vt.json), statewide site",
+  "categories": "Election Day, Absentee",
+  "in_scope": true
+ },
+ "19173": {
+  "state": "IA",
+  "county": "Taylor",
+  "kind": "clarity",
+  "url": "https://electionresults.iowa.gov/IA/Taylor/127164/",
+  "eid": "127164",
+  "races": [
+   "IA-03",
+   "IA-Sen",
+   "IA-Gov"
+  ],
+  "group": "Scrapeable: Clarity JSON (vt.json), statewide site",
+  "categories": "Election Day, Absentee",
+  "in_scope": true
+ },
+ "19175": {
+  "state": "IA",
+  "county": "Union",
+  "kind": "clarity",
+  "url": "https://electionresults.iowa.gov/IA/Union/127165/",
+  "eid": "127165",
+  "races": [
+   "IA-03",
+   "IA-Sen",
+   "IA-Gov"
+  ],
+  "group": "Scrapeable: Clarity JSON (vt.json), statewide site",
+  "categories": "Election Day, Absentee",
+  "in_scope": true
+ },
+ "19177": {
+  "state": "IA",
+  "county": "Van Buren",
+  "kind": "clarity",
+  "url": "https://electionresults.iowa.gov/IA/Van_Buren/127166/",
+  "eid": "127166",
+  "races": [
+   "IA-01",
+   "IA-Sen",
+   "IA-Gov"
+  ],
+  "group": "Scrapeable: Clarity JSON (vt.json), statewide site",
+  "categories": "Election Day, Absentee",
+  "in_scope": true
+ },
+ "19183": {
+  "state": "IA",
+  "county": "Washington",
+  "kind": "clarity",
+  "url": "https://electionresults.iowa.gov/IA/Washington/127169/",
+  "eid": "127169",
+  "races": [
+   "IA-01",
+   "IA-Sen",
+   "IA-Gov"
+  ],
+  "group": "Scrapeable: Clarity JSON (vt.json), statewide site",
+  "categories": "Election Day, Absentee",
+  "in_scope": true
+ },
+ "19185": {
+  "state": "IA",
+  "county": "Wayne",
+  "kind": "clarity",
+  "url": "https://electionresults.iowa.gov/IA/Wayne/127170/",
+  "eid": "127170",
+  "races": [
+   "IA-03",
+   "IA-Sen",
+   "IA-Gov"
+  ],
+  "group": "Scrapeable: Clarity JSON (vt.json), statewide site",
+  "categories": "Election Day, Absentee",
+  "in_scope": true
+ },
+ "19187": {
+  "state": "IA",
+  "county": "Webster",
+  "kind": "clarity",
+  "url": "https://electionresults.iowa.gov/IA/Webster/127171/",
+  "eid": "127171",
+  "races": [
+   "IA-Sen",
+   "IA-Gov"
+  ],
+  "group": "Scrapeable: Clarity JSON (vt.json), statewide site",
+  "categories": "Election Day, Absentee",
+  "in_scope": true
+ },
+ "19189": {
+  "state": "IA",
+  "county": "Winnebago",
+  "kind": "clarity",
+  "url": "https://electionresults.iowa.gov/IA/Winnebago/127172/",
+  "eid": "127172",
+  "races": [
+   "IA-Sen",
+   "IA-Gov"
+  ],
+  "group": "Scrapeable: Clarity JSON (vt.json), statewide site",
+  "categories": "Election Day, Absentee",
+  "in_scope": true
+ },
+ "19191": {
+  "state": "IA",
+  "county": "Winneshiek",
+  "kind": "clarity",
+  "url": "https://electionresults.iowa.gov/IA/Winneshiek/127173/",
+  "eid": "127173",
+  "races": [
+   "IA-02",
+   "IA-Sen",
+   "IA-Gov"
+  ],
+  "group": "Scrapeable: Clarity JSON (vt.json), statewide site",
+  "categories": "Election Day, Absentee",
+  "in_scope": true
+ },
+ "19193": {
+  "state": "IA",
+  "county": "Woodbury",
+  "kind": "clarity",
+  "url": "https://electionresults.iowa.gov/IA/Woodbury/127174/",
+  "eid": "127174",
+  "races": [
+   "IA-Sen",
+   "IA-Gov"
+  ],
+  "group": "Scrapeable: Clarity JSON (vt.json), statewide site",
+  "categories": "Election Day, Absentee",
+  "in_scope": true
+ },
+ "19195": {
+  "state": "IA",
+  "county": "Worth",
+  "kind": "clarity",
+  "url": "https://electionresults.iowa.gov/IA/Worth/127175/",
+  "eid": "127175",
+  "races": [
+   "IA-02",
+   "IA-Sen",
+   "IA-Gov"
+  ],
+  "group": "Scrapeable: Clarity JSON (vt.json), statewide site",
+  "categories": "Election Day, Absentee",
+  "in_scope": true
+ },
+ "19197": {
+  "state": "IA",
+  "county": "Wright",
+  "kind": "clarity",
+  "url": "https://electionresults.iowa.gov/IA/Wright/127176/",
+  "eid": "127176",
+  "races": [
+   "IA-Sen",
+   "IA-Gov"
+  ],
+  "group": "Scrapeable: Clarity JSON (vt.json), statewide site",
+  "categories": "Election Day, Absentee",
+  "in_scope": true
+ },
+ "45001": {
+  "state": "SC",
+  "county": "Abbeville",
+  "kind": "clarity",
+  "url": "https://www.enr-scvotes.org/SC/Abbeville/127301/",
+  "eid": "127301",
+  "races": [
+   "SC-Sen"
+  ],
+  "group": "Scrapeable: Clarity JSON (vt.json), statewide site",
+  "categories": "Election Day, Early Voting, Absentee By Mail, Failsafe, Provisional",
+  "in_scope": true
+ },
+ "45005": {
+  "state": "SC",
+  "county": "Allendale",
+  "kind": "clarity",
+  "url": "https://www.enr-scvotes.org/SC/Allendale/127303/",
+  "eid": "127303",
+  "races": [
+   "SC-Sen"
+  ],
+  "group": "Scrapeable: Clarity JSON (vt.json), statewide site",
+  "categories": "Election Day, Early Voting, Absentee By Mail, Failsafe, Provisional",
+  "in_scope": true
+ },
+ "45009": {
+  "state": "SC",
+  "county": "Bamberg",
+  "kind": "clarity",
+  "url": "https://www.enr-scvotes.org/SC/Bamberg/127305/",
+  "eid": "127305",
+  "races": [
+   "SC-Sen"
+  ],
+  "group": "Scrapeable: Clarity JSON (vt.json), statewide site",
+  "categories": "Election Day, Early Voting, Absentee By Mail, Failsafe, Provisional",
+  "in_scope": true
+ },
+ "45011": {
+  "state": "SC",
+  "county": "Barnwell",
+  "kind": "clarity",
+  "url": "https://www.enr-scvotes.org/SC/Barnwell/127306/",
+  "eid": "127306",
+  "races": [
+   "SC-Sen"
+  ],
+  "group": "Scrapeable: Clarity JSON (vt.json), statewide site",
+  "categories": "Election Day, Early Voting, Absentee By Mail, Failsafe, Provisional",
+  "in_scope": true
+ },
+ "45017": {
+  "state": "SC",
+  "county": "Calhoun",
+  "kind": "clarity",
+  "url": "https://www.enr-scvotes.org/SC/Calhoun/127309/",
+  "eid": "127309",
+  "races": [
+   "SC-Sen"
+  ],
+  "group": "Scrapeable: Clarity JSON (vt.json), statewide site",
+  "categories": "Election Day, Early Voting, Absentee By Mail, Failsafe, Provisional",
+  "in_scope": true
+ },
+ "45021": {
+  "state": "SC",
+  "county": "Cherokee",
+  "kind": "clarity",
+  "url": "https://www.enr-scvotes.org/SC/Cherokee/127311/",
+  "eid": "127311",
+  "races": [
+   "SC-Sen"
+  ],
+  "group": "Scrapeable: Clarity JSON (vt.json), statewide site",
+  "categories": "Election Day, Early Voting, Absentee By Mail, Failsafe, Provisional",
+  "in_scope": true
+ },
+ "45023": {
+  "state": "SC",
+  "county": "Chester",
+  "kind": "clarity",
+  "url": "https://www.enr-scvotes.org/SC/Chester/127312/",
+  "eid": "127312",
+  "races": [
+   "SC-Sen"
+  ],
+  "group": "Scrapeable: Clarity JSON (vt.json), statewide site",
+  "categories": "Election Day, Early Voting, Absentee By Mail, Failsafe, Provisional",
+  "in_scope": true
+ },
+ "45025": {
+  "state": "SC",
+  "county": "Chesterfield",
+  "kind": "clarity",
+  "url": "https://www.enr-scvotes.org/SC/Chesterfield/127313/",
+  "eid": "127313",
+  "races": [
+   "SC-Sen"
+  ],
+  "group": "Scrapeable: Clarity JSON (vt.json), statewide site",
+  "categories": "Election Day, Early Voting, Absentee By Mail, Failsafe, Provisional",
+  "in_scope": true
+ },
+ "45027": {
+  "state": "SC",
+  "county": "Clarendon",
+  "kind": "clarity",
+  "url": "https://www.enr-scvotes.org/SC/Clarendon/127314/",
+  "eid": "127314",
+  "races": [
+   "SC-Sen"
+  ],
+  "group": "Scrapeable: Clarity JSON (vt.json), statewide site",
+  "categories": "Election Day, Early Voting, Absentee By Mail, Failsafe, Provisional",
+  "in_scope": true
+ },
+ "45029": {
+  "state": "SC",
+  "county": "Colleton",
+  "kind": "clarity",
+  "url": "https://www.enr-scvotes.org/SC/Colleton/127315/",
+  "eid": "127315",
+  "races": [
+   "SC-01",
+   "SC-Sen"
+  ],
+  "group": "Scrapeable: Clarity JSON (vt.json), statewide site",
+  "categories": "Election Day, Early Voting, Absentee By Mail, Failsafe, Provisional",
+  "in_scope": true
+ },
+ "45031": {
+  "state": "SC",
+  "county": "Darlington",
+  "kind": "clarity",
+  "url": "https://www.enr-scvotes.org/SC/Darlington/127316/",
+  "eid": "127316",
+  "races": [
+   "SC-Sen"
+  ],
+  "group": "Scrapeable: Clarity JSON (vt.json), statewide site",
+  "categories": "Election Day, Early Voting, Absentee By Mail, Failsafe, Provisional",
+  "in_scope": true
+ },
+ "45033": {
+  "state": "SC",
+  "county": "Dillon",
+  "kind": "clarity",
+  "url": "https://www.enr-scvotes.org/SC/Dillon/127317/",
+  "eid": "127317",
+  "races": [
+   "SC-Sen"
+  ],
+  "group": "Scrapeable: Clarity JSON (vt.json), statewide site",
+  "categories": "Election Day, Early Voting, Absentee By Mail, Failsafe, Provisional",
+  "in_scope": true
+ },
+ "45037": {
+  "state": "SC",
+  "county": "Edgefield",
+  "kind": "clarity",
+  "url": "https://www.enr-scvotes.org/SC/Edgefield/127319/",
+  "eid": "127319",
+  "races": [
+   "SC-Sen"
+  ],
+  "group": "Scrapeable: Clarity JSON (vt.json), statewide site",
+  "categories": "Election Day, Early Voting, Absentee By Mail, Failsafe, Provisional",
+  "in_scope": true
+ },
+ "45039": {
+  "state": "SC",
+  "county": "Fairfield",
+  "kind": "clarity",
+  "url": "https://www.enr-scvotes.org/SC/Fairfield/127320/",
+  "eid": "127320",
+  "races": [
+   "SC-Sen"
+  ],
+  "group": "Scrapeable: Clarity JSON (vt.json), statewide site",
+  "categories": "Election Day, Early Voting, Absentee By Mail, Failsafe, Provisional",
+  "in_scope": true
+ },
+ "45041": {
+  "state": "SC",
+  "county": "Florence",
+  "kind": "clarity",
+  "url": "https://www.enr-scvotes.org/SC/Florence/127321/",
+  "eid": "127321",
+  "races": [
+   "SC-Sen"
+  ],
+  "group": "Scrapeable: Clarity JSON (vt.json), statewide site",
+  "categories": "Election Day, Early Voting, Absentee By Mail, Failsafe, Provisional",
+  "in_scope": true
+ },
+ "45043": {
+  "state": "SC",
+  "county": "Georgetown",
+  "kind": "clarity",
+  "url": "https://www.enr-scvotes.org/SC/Georgetown/127322/",
+  "eid": "127322",
+  "races": [
+   "SC-Sen"
+  ],
+  "group": "Scrapeable: Clarity JSON (vt.json), statewide site",
+  "categories": "Election Day, Early Voting, Absentee By Mail, Failsafe, Provisional",
+  "in_scope": true
+ },
+ "45047": {
+  "state": "SC",
+  "county": "Greenwood",
+  "kind": "clarity",
+  "url": "https://www.enr-scvotes.org/SC/Greenwood/127324/",
+  "eid": "127324",
+  "races": [
+   "SC-Sen"
+  ],
+  "group": "Scrapeable: Clarity JSON (vt.json), statewide site",
+  "categories": "Election Day, Early Voting, Absentee By Mail, Failsafe, Provisional",
+  "in_scope": true
+ },
+ "45049": {
+  "state": "SC",
+  "county": "Hampton",
+  "kind": "clarity",
+  "url": "https://www.enr-scvotes.org/SC/Hampton/127325/",
+  "eid": "127325",
+  "races": [
+   "SC-Sen"
+  ],
+  "group": "Scrapeable: Clarity JSON (vt.json), statewide site",
+  "categories": "Election Day, Early Voting, Absentee By Mail, Failsafe, Provisional",
+  "in_scope": true
+ },
+ "45053": {
+  "state": "SC",
+  "county": "Jasper",
+  "kind": "clarity",
+  "url": "https://www.enr-scvotes.org/SC/Jasper/127327/",
+  "eid": "127327",
+  "races": [
+   "SC-01",
+   "SC-Sen"
+  ],
+  "group": "Scrapeable: Clarity JSON (vt.json), statewide site",
+  "categories": "Election Day, Early Voting, Absentee By Mail, Failsafe, Provisional",
+  "in_scope": true
+ },
+ "45055": {
+  "state": "SC",
+  "county": "Kershaw",
+  "kind": "clarity",
+  "url": "https://www.enr-scvotes.org/SC/Kershaw/127328/",
+  "eid": "127328",
+  "races": [
+   "SC-Sen"
+  ],
+  "group": "Scrapeable: Clarity JSON (vt.json), statewide site",
+  "categories": "Election Day, Early Voting, Absentee By Mail, Failsafe, Provisional",
+  "in_scope": true
+ },
+ "45057": {
+  "state": "SC",
+  "county": "Lancaster",
+  "kind": "clarity",
+  "url": "https://www.enr-scvotes.org/SC/Lancaster/127329/",
+  "eid": "127329",
+  "races": [
+   "SC-Sen"
+  ],
+  "group": "Scrapeable: Clarity JSON (vt.json), statewide site",
+  "categories": "Election Day, Early Voting, Absentee By Mail, Failsafe, Provisional",
+  "in_scope": true
+ },
+ "45059": {
+  "state": "SC",
+  "county": "Laurens",
+  "kind": "clarity",
+  "url": "https://www.enr-scvotes.org/SC/Laurens/127330/",
+  "eid": "127330",
+  "races": [
+   "SC-Sen"
+  ],
+  "group": "Scrapeable: Clarity JSON (vt.json), statewide site",
+  "categories": "Election Day, Early Voting, Absentee By Mail, Failsafe, Provisional",
+  "in_scope": true
+ },
+ "45061": {
+  "state": "SC",
+  "county": "Lee",
+  "kind": "clarity",
+  "url": "https://www.enr-scvotes.org/SC/Lee/127331/",
+  "eid": "127331",
+  "races": [
+   "SC-Sen"
+  ],
+  "group": "Scrapeable: Clarity JSON (vt.json), statewide site",
+  "categories": "Election Day, Early Voting, Absentee By Mail, Failsafe, Provisional",
+  "in_scope": true
+ },
+ "45067": {
+  "state": "SC",
+  "county": "Marion",
+  "kind": "clarity",
+  "url": "https://www.enr-scvotes.org/SC/Marion/127333/",
+  "eid": "127333",
+  "races": [
+   "SC-Sen"
+  ],
+  "group": "Scrapeable: Clarity JSON (vt.json), statewide site",
+  "categories": "Election Day, Early Voting, Absentee By Mail, Failsafe, Provisional",
+  "in_scope": true
+ },
+ "45069": {
+  "state": "SC",
+  "county": "Marlboro",
+  "kind": "clarity",
+  "url": "https://www.enr-scvotes.org/SC/Marlboro/127334/",
+  "eid": "127334",
+  "races": [
+   "SC-Sen"
+  ],
+  "group": "Scrapeable: Clarity JSON (vt.json), statewide site",
+  "categories": "Election Day, Early Voting, Absentee By Mail, Failsafe, Provisional",
+  "in_scope": true
+ },
+ "45065": {
+  "state": "SC",
+  "county": "McCormick",
+  "kind": "clarity",
+  "url": "https://www.enr-scvotes.org/SC/McCormick/127335/",
+  "eid": "127335",
+  "races": [
+   "SC-Sen"
+  ],
+  "group": "Scrapeable: Clarity JSON (vt.json), statewide site",
+  "categories": "Election Day, Early Voting, Absentee By Mail, Failsafe, Provisional",
+  "in_scope": true
+ },
+ "45071": {
+  "state": "SC",
+  "county": "Newberry",
+  "kind": "clarity",
+  "url": "https://www.enr-scvotes.org/SC/Newberry/127336/",
+  "eid": "127336",
+  "races": [
+   "SC-Sen"
+  ],
+  "group": "Scrapeable: Clarity JSON (vt.json), statewide site",
+  "categories": "Election Day, Early Voting, Absentee By Mail, Failsafe, Provisional",
+  "in_scope": true
+ },
+ "45073": {
+  "state": "SC",
+  "county": "Oconee",
+  "kind": "clarity",
+  "url": "https://www.enr-scvotes.org/SC/Oconee/127337/",
+  "eid": "127337",
+  "races": [
+   "SC-Sen"
+  ],
+  "group": "Scrapeable: Clarity JSON (vt.json), statewide site",
+  "categories": "Election Day, Early Voting, Absentee By Mail, Failsafe, Provisional",
+  "in_scope": true
+ },
+ "45075": {
+  "state": "SC",
+  "county": "Orangeburg",
+  "kind": "clarity",
+  "url": "https://www.enr-scvotes.org/SC/Orangeburg/127338/",
+  "eid": "127338",
+  "races": [
+   "SC-Sen"
+  ],
+  "group": "Scrapeable: Clarity JSON (vt.json), statewide site",
+  "categories": "Election Day, Early Voting, Absentee By Mail, Failsafe, Provisional",
+  "in_scope": true
+ },
+ "45077": {
+  "state": "SC",
+  "county": "Pickens",
+  "kind": "clarity",
+  "url": "https://www.enr-scvotes.org/SC/Pickens/127339/",
+  "eid": "127339",
+  "races": [
+   "SC-Sen"
+  ],
+  "group": "Scrapeable: Clarity JSON (vt.json), statewide site",
+  "categories": "Election Day, Early Voting, Absentee By Mail, Failsafe, Provisional",
+  "in_scope": true
+ },
+ "45081": {
+  "state": "SC",
+  "county": "Saluda",
+  "kind": "clarity",
+  "url": "https://www.enr-scvotes.org/SC/Saluda/127341/",
+  "eid": "127341",
+  "races": [
+   "SC-Sen"
+  ],
+  "group": "Scrapeable: Clarity JSON (vt.json), statewide site",
+  "categories": "Election Day, Early Voting, Absentee By Mail, Failsafe, Provisional",
+  "in_scope": true
+ },
+ "45085": {
+  "state": "SC",
+  "county": "Sumter",
+  "kind": "clarity",
+  "url": "https://www.enr-scvotes.org/SC/Sumter/127343/",
+  "eid": "127343",
+  "races": [
+   "SC-Sen"
+  ],
+  "group": "Scrapeable: Clarity JSON (vt.json), statewide site",
+  "categories": "Election Day, Early Voting, Absentee By Mail, Failsafe, Provisional",
+  "in_scope": true
+ },
+ "45087": {
+  "state": "SC",
+  "county": "Union",
+  "kind": "clarity",
+  "url": "https://www.enr-scvotes.org/SC/Union/127344/",
+  "eid": "127344",
+  "races": [
+   "SC-Sen"
+  ],
+  "group": "Scrapeable: Clarity JSON (vt.json), statewide site",
+  "categories": "Election Day, Early Voting, Absentee By Mail, Failsafe, Provisional",
+  "in_scope": true
+ },
+ "45089": {
+  "state": "SC",
+  "county": "Williamsburg",
+  "kind": "clarity",
+  "url": "https://www.enr-scvotes.org/SC/Williamsburg/127345/",
+  "eid": "127345",
+  "races": [
+   "SC-Sen"
+  ],
+  "group": "Scrapeable: Clarity JSON (vt.json), statewide site",
+  "categories": "Election Day, Early Voting, Absentee By Mail, Failsafe, Provisional",
+  "in_scope": true
+ },
+ "12013": {
+  "state": "FL",
+  "county": "Calhoun",
+  "kind": "vr",
+  "url": "https://enr.electionsfl.org/CAL/4054/Summary/",
+  "eid": null,
+  "races": [
+   "FL-Gov"
+  ],
+  "group": "Scrapeable: VR Systems HTML",
+  "categories": "Election Day, Early Votes, Vote By Mail, Provisional",
+  "in_scope": true
+ },
+ "12059": {
+  "state": "FL",
+  "county": "Holmes",
+  "kind": "vr",
+  "url": "https://enr.electionsfl.org/HOL/4108/Summary/",
+  "eid": null,
+  "races": [
+   "FL-Gov"
+  ],
+  "group": "Scrapeable: VR Systems HTML",
+  "categories": "Election Day, Early Votes, Vote By Mail, Provisional",
+  "in_scope": true
+ },
+ "12123": {
+  "state": "FL",
+  "county": "Taylor",
+  "kind": "vr",
+  "url": "https://enr.electionsfl.org/TAY/4107/Summary/",
+  "eid": null,
+  "races": [
+   "FL-Gov"
+  ],
+  "group": "Scrapeable: VR Systems HTML",
+  "categories": "Election Day, Early Votes, Vote By Mail, Provisional",
+  "in_scope": true
+ },
+ "12003": {
+  "state": "FL",
+  "county": "Baker",
+  "kind": "vr",
+  "url": "https://enr.electionsfl.org/BAK/4047/Summary/",
+  "eid": null,
+  "races": [
+   "FL-Gov"
+  ],
+  "group": "Scrapeable: VR Systems HTML (Nov 3 page found by search once published)",
+  "categories": "Election Day, Early Votes, Vote By Mail, Provisional",
+  "in_scope": true
+ },
+ "12121": {
+  "state": "FL",
+  "county": "Suwannee",
+  "kind": "vr",
+  "url": "https://enr.electionsfl.org/SUW/4050/Summary/",
+  "eid": null,
+  "races": [
+   "FL-Gov"
+  ],
+  "group": "Scrapeable: VR Systems HTML (Nov 3 page found by search once published)",
+  "categories": "Election Day, Early Votes, Vote By Mail, Provisional",
   "in_scope": true
  }
 }

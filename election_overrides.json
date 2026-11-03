@@ -358,5 +358,14 @@
  },
  "04019": {
   "url": "https://www.livevoterturnout.com/ENR/pimaazenr/7/summary_7.xml"
+ },
+ "04005": {
+  "election_id": "03_G_2026"
+ },
+ "04015": {
+  "election_id": "General11032026"
+ },
+ "04017": {
+  "election_id": "General-11032026"
  }
 }
