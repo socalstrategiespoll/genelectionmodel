@@ -120,6 +120,9 @@ def cycle(races, rmap, preps, cache):
                     "margin": res["margin"], "p05": res["p05"], "p95": res["p95"], "win_prob": res["win_prob_R"],
                     "reporting": res["reporting"], "call_ready": res["call_ready"], "percentiles": res["percentiles"],
                     "no_prob": bool(r.get("no_prob")), "top4": res.get("top4"), "bucket_gap": res.get("bucket_gap", {}), "method_counties": res.get("counties_with_method_data", 0)}
+        # raw two-party vote counted so far (sum of the units' D and R), for the site's "current vote" map
+        out[rid]["raw"] = [int(round(sum(v[0] for v in counted.values() if isinstance(v, (list, tuple)) and len(v) >= 2))),
+                           int(round(sum(v[1] for v in counted.values() if isinstance(v, (list, tuple)) and len(v) >= 2)))]
         if err: out[rid]["feed_error"] = err
         with LOCK:      # publish each race as soon as it is computed, rather than only when the whole cycle ends
             pr = STATE["projection"]; races_now = dict(pr.get("races") or {}); races_now[rid] = out[rid]
