@@ -37,6 +37,12 @@ HET_BASE, HET_SCALE, HET_MAX = 2.0, 8.0, 8.0   # within-county heterogeneity: ba
 OUTLIER_LAMBDA = 3.0
 FULL_TRUST_PCT = 0.25      # turnout recalibration credibility ramp (fraction of precincts)
 TURNOUT_CLAMP = (0.40, 2.50)
+# "baseline": each county's expected vote is our baseline turnout. CivicAPI's percent-reporting is not used to re-estimate
+# turnout (it has been unreliable); a county only expects more than its baseline when more votes are actually counted, and a
+# method bucket grows when the county's own site shows more early / mail / Election Day votes than expected.
+# "recalibrate": the old behaviour (turnout re-estimated from votes / percent reporting, pooled statewide).
+TURNOUT_MODE = os.environ.get("TURNOUT_MODE", "baseline")
+DONE_MIN_SHARE = 0.75      # baseline mode: CivicAPI saying 100% in only closes a county once it has this share of its baseline
 DISAGREE_LOG = 0.4         # a county whose implied turnout is further than this (log) from the statewide median gets less weight
 TURNOUT_NOISE = 0.06       # SD of remaining-vote volume (log), scaled by share still out
 # County swing is a correlated field: shared geography + shared partisan profile + county-specific noise.
@@ -214,7 +220,11 @@ def project(P, counted, n_sims=N_SIMS, seed=7, extra=None):
     # --- turnout recalibration ---
     ratio = np.ones(nC); w = np.minimum(1.0, p_eff / FULL_TRUST_PCT)
     g = 1.0
-    if rep.any():
+    if TURNOUT_MODE == "baseline":
+        # expected votes = baseline; how much of a county is in = its counted votes over that baseline
+        done = done & (n >= DONE_MIN_SHARE * T)
+        p_eff = np.where(rep, np.where(done, 1.0, np.clip(n / np.maximum(T, 1.0), 0.02, 0.99)), 0.0)
+    elif rep.any():
         impl = np.where(rep, n / np.maximum(p_eff, 1e-6), 0.0)
         r_c = np.clip(impl / T, *TURNOUT_CLAMP)
         g = _wmedian(r_c[rep], (T * w)[rep] + 1e-9)
