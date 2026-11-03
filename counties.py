@@ -18,16 +18,26 @@ def clarity_base(c):
     if m_ := re.match(r"(https?://[^#]*?/[A-Z]{2}/[^/]+)/", url):
         raw = get(m_.group(1) + "/elections.json")      # Clarity's per-county election list; unverified shape
         for it in re.findall(r"\{[^{}]*\}", raw):
-            if ("2026-11-03" in it or "11/03/2026" in it or "11/3/2026" in it) and (e := re.search(r'"(?:eid|id|electionId)"\s*:\s*"?(\d{4,8})', it)):
+            if ("2026-11-03" in it or "11/03/2026" in it or "11/3/2026" in it) and (e := re.search(r'"(?:eid|id|electionId)"\s*:\s*"?(\d{4,8})', it, re.I)):
                 return f"{m_.group(1)}/{e.group(1)}"
     raise ValueError("no Nov 2026 Clarity election id yet for " + c["county"])
+def clarity_is_general(es):
+    """Clarity's electionsettings "electiondate" is sometimes stale (Iowa's Nov 3 sites say 8/13/2026, copied from the template).
+    Accept the page if electiondate is 11/3/2026, or if the site was last updated on or after Oct 15, 2026 (only the
+    general is being built then; the 2026 primaries were last touched in the summer)."""
+    if "11/3/2026" in es or "11/03/2026" in es: return True
+    m = re.search(r'"websiteupdatedat"\s*:\s*"(\d{1,2})/(\d{1,2})/(\d{4})', es)
+    return bool(m) and int(m.group(3)) == 2026 and (int(m.group(1)), int(m.group(2))) >= (10, 15)
+
 def fetch_clarity(c):
     b = clarity_base(c); ver = get(b + "/current_ver.txt").strip()
     try: es = get(f"{b}/{ver}/json/en/electionsettings.json")
     except Exception: es = ""
-    if re.search(r"\d{1,2}/\d{1,2}/\d{4}", es): check_date("clarity", "11/3/2026" in es or "11/03/2026" in es)
+    if re.search(r"\d{1,2}/\d{1,2}/\d{4}", es): check_date("clarity", clarity_is_general(es))
     try:
-        return adapters.parse_clarity(get(f"{b}/{ver}/json/summary.json"), get(f"{b}/{ver}/json/vt.json"))
+        try: sm = get(f"{b}/{ver}/json/summary.json")
+        except Exception: sm = get(f"{b}/{ver}/json/en/summary.json")      # newer Clarity sites (Iowa) keep it under en/
+        return adapters.parse_clarity(sm, get(f"{b}/{ver}/json/vt.json"))
     except Exception:       # no vt.json: fall back to detail.xml (Michigan counties)
         import io, zipfile, urllib.request
         raw = urllib.request.urlopen(urllib.request.Request(f"{b}/{ver}/reports/detailxml.zip", headers=UA), timeout=30).read()
@@ -50,14 +60,42 @@ def fetch_ess(c):     # summary_N.xml; the XML has no election date, so the Inde
         m = re.match(r"(.*/(\d+))/summary_\d+\.xml", u)
         if m:
             h = get(f"{m.group(1)}/en/Index_{m.group(2)}.html")
-            t = re.search(r'election-title[^>]*>([^<]*)<', h)
-            if t: check_date("ess", "November 3, 2026" in t.group(1))
+            ts = [x.strip() for x in re.findall(r'election-title[^>]*>([^<]*)<', h) if x.strip()]   # the first match is often an empty element
+            if ts: check_date("ess", any("November 3, 2026" in x or ("2026" in x and "general" in x.lower() and "primary" not in x.lower()) for x in ts))
         _ess_ok[u] = True
     return adapters.parse_ess(get(u))
+VR_SCAN = (4040, 4260)    # Florida VR election ids: the Nov 3 2026 ones published so far are 4055-4130 (ids are shared across counties)
+_vr_found = {}; _vr_tried = {}
+def vr_discover(code):
+    """A Florida VR county whose Nov 3 page was not published when configured: look for it by id, at most every 10 minutes."""
+    if code in _vr_found: return _vr_found[code]
+    import time
+    if time.time() - _vr_tried.get(code, 0) < 600: return None
+    _vr_tried[code] = time.time()
+    from concurrent.futures import ThreadPoolExecutor
+    def one(i):
+        try:
+            h = get(f"https://enr.electionsfl.org/{code}/{i}/Summary/", 10)
+            return i if re.search(r"\b11/0?3/2026\b", h[:20000]) else None
+        except Exception: return None
+    with ThreadPoolExecutor(max_workers=12) as ex:
+        hits = [i for i in ex.map(one, range(*VR_SCAN)) if i]
+    if hits: _vr_found[code] = f"https://enr.electionsfl.org/{code}/{hits[0]}/Summary/"; print("vr: found", _vr_found[code], flush=True)
+    return _vr_found.get(code)
+
 def fetch_vr(c):      # Summary page; hidden "DetailResults" table carries the by-method counts
-    h = get(_ov(c, "url"))
-    m = re.search(r"Election Date:\s*([0-9/]+)", h)
-    if m: check_date("vr", m.group(1) in ("11/3/2026", "11/03/2026"))
+    u = _ov(c, "url"); h = None
+    try:
+        h = get(u)
+        m = re.search(r"Election Date:\s*([0-9/]+)", h)
+        if m: check_date("vr", m.group(1) in ("11/3/2026", "11/03/2026"))
+    except Exception as e:
+        cm = re.search(r"electionsfl\.org/([A-Z]{3})/", u or "")
+        nu = vr_discover(cm.group(1)) if cm else None
+        if not nu: raise
+        h = get(nu)
+        m = re.search(r"Election Date:\s*([0-9/]+)", h)
+        if m: check_date("vr", m.group(1) in ("11/3/2026", "11/03/2026"))
     return adapters.parse_vr_html(h)
 EV_API = "https://app.enhancedvoting.com/results/public/api"
 ELECTION_DATE = "2026-11-03"

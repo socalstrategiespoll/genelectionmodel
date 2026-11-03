@@ -1,6 +1,11 @@
 # Render web service: stdlib server plus a poller thread. Routes: /health, /api/projection, /api/race/<id>
 # Writes projection.json (the file the site reads) every cycle. Races with no civicAPI id run pre-election.
 import gzip, json, os, sys, time, hashlib, threading, gc, ctypes
+# The county feeds are fetched in parallel threads; glibc gives each thread its own malloc arena and rarely returns their
+# memory, so RSS climbs far past what is in use. Cap the arenas (must be set before the process starts: re-exec once).
+if os.environ.get("MALLOC_ARENA_MAX") is None and "--once" not in sys.argv:
+    os.environ["MALLOC_ARENA_MAX"] = "2"
+    os.execv(sys.executable, [sys.executable] + sys.argv)
 from http.server import ThreadingHTTPServer, BaseHTTPRequestHandler
 import engine, civicapi_feed, method_feeds, counties, kalshi_feed, towns
 
@@ -66,6 +71,7 @@ def cycle(races, rmap, preps, cache):
     except Exception as e: print("county prefetch failed:", e, flush=True)
     try: pays = _prefetch_civic(races, rmap)
     except Exception as e: pays = {}; print("civicAPI prefetch failed:", e, flush=True)
+    trim()
     for r in races:
         rid = r["id"]; cid = rmap.get(rid); counted = {}; err = None; merged = bool(method_feeds.MERGED.get(rid)); extra = None; tl = None; tmode = bool(r.get("towns"))
         if cid:
@@ -160,6 +166,9 @@ def prime(races, preps):
         STATE["projection"] = {"updated": time.strftime("%Y-%m-%d %H:%M:%S UTC", time.gmtime()), "mode": "pre", "races": out}
     print("primed", len(out), "races", flush=True)
 
+READY = {"ok": False, "since": time.time()}
+READY_MAX = int(os.environ.get("READY_MAX_SECONDS", "480"))   # report healthy after this long even if the first cycle has not finished
+
 def poller():
     races, rmap = load()
     threading.Thread(target=kalshi_feed.loop, args=(races,), daemon=True).start()
@@ -175,6 +184,7 @@ def poller():
             print("race ids set:", sum(1 for r in races if rmap.get(r["id"])), "of", len(races), flush=True)
         try: cycle(races, rmap, preps, cache)
         except Exception as e: print("cycle failed:", e, flush=True)
+        if not READY["ok"]: READY["ok"] = True; print("first cycle done: ready", flush=True)
         print("cycle done", round(time.time() - t, 1), "s, memory", rss_mb(), "MB, county cache", len(method_feeds._CACHE), flush=True)
         time.sleep(max(1, POLL - (time.time() - t)))
 
@@ -201,7 +211,11 @@ class H(BaseHTTPRequestHandler):
         self.send_header("Content-Length", "0"); self.end_headers()
     def do_GET(self):
         p = self.path.split("?")[0]
-        if p == "/health": return self._send(200, {"ok": True, "updated": STATE["projection"]["updated"], "rss_mb": rss_mb()})
+        if p == "/health":
+            # Not healthy until the first full cycle has pulled live counts. Render keeps the old instance serving during a
+            # deploy until the new one passes this check, so a redeploy no longer shows the bare forecast for a few minutes.
+            ok = READY["ok"] or time.time() - READY["since"] > READY_MAX
+            return self._send(200 if ok else 503, {"ok": ok, "starting": not ok, "updated": STATE["projection"]["updated"], "rss_mb": rss_mb()})
         if p == "/api/projection":
             with LOCK: return self._send(200, STATE["projection"], CACHE_TTL)
         if p == "/api/memory": return self._send(200, memory_report())

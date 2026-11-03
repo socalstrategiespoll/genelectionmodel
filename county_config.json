@@ -669,8 +669,8 @@
   "state": "FL",
   "county": "Pinellas",
   "kind": "clarity",
-  "url": "https://enr.votepinellas.gov/FL/Pinellas/122583/web.345435/#/summary",
-  "eid": "122583",
+  "url": "https://enr.votepinellas.gov/FL/Pinellas/",
+  "eid": null,
   "races": [
    "FL-13",
    "FL-16",
@@ -678,7 +678,8 @@
   ],
   "group": "Scrapeable: Clarity JSON (vt.json)",
   "categories": "Election Day Votes, Mail Ballot Votes, Early Votes (provisional/overseas folded in)",
-  "in_scope": true
+  "in_scope": true,
+  "stale_eid": true
  },
  "12105": {
   "state": "FL",
@@ -1780,7 +1781,7 @@
   "county": "Cass",
   "kind": "clarity",
   "url": "https://results.enr.clarityelections.com/NE/Cass/126289/web.345435/#/summary",
-  "eid": "126289",
+  "eid": null,
   "races": [
    "NE-01"
   ],
@@ -1937,7 +1938,7 @@
   "county": "Ocean",
   "kind": "clarity",
   "url": "https://results.enr.clarityelections.com/NJ/Ocean/126367/",
-  "eid": "126367",
+  "eid": null,
   "races": [
    "NJ-02"
   ],
@@ -2270,7 +2271,7 @@
   "county": "Fulton",
   "kind": "clarity",
   "url": "https://results.enr.clarityelections.com/OH/Fulton/122839/",
-  "eid": "122839",
+  "eid": null,
   "races": [
    "OH-09"
   ],
@@ -2589,14 +2590,15 @@
   "state": "PA",
   "county": "Luzerne",
   "kind": "clarity",
-  "url": "https://results.enr.clarityelections.com/PA/Luzerne/124698/web.345435/#/summary",
-  "eid": "124698",
+  "url": "https://results.enr.clarityelections.com/PA/Luzerne/",
+  "eid": null,
   "races": [
    "PA-08"
   ],
   "group": "Scrapeable: Clarity JSON (vt.json)",
   "categories": "Election Day, Provisional, Mail in / Absentee",
-  "in_scope": true
+  "in_scope": true,
+  "stale_eid": true
  },
  "42089": {
   "state": "PA",
@@ -2641,8 +2643,8 @@
   "state": "PA",
   "county": "Pike",
   "kind": "clarity",
-  "url": "https://cms7files.revize.com/pikecountypa/Document%20Center/Government/Election%20Office/2024/Nov.%205,%202024%20Official%20Summary%20of%20Results.pdf",
-  "eid": "126373",
+  "url": "https://results.enr.clarityelections.com/PA/Pike/",
+  "eid": null,
   "races": [
    "PA-08"
   ],
@@ -2668,7 +2670,7 @@
   "county": "York",
   "kind": "clarity",
   "url": "https://results.enr.clarityelections.com/PA/York/122493/",
-  "eid": "122493",
+  "eid": null,
   "races": [
    "PA-10"
   ],

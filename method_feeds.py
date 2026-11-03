@@ -154,7 +154,7 @@ def _ttl():
     return int(os.environ.get("COUNTY_TTL", "30" if time.time() >= ELECTION_TS else "3600"))
 
 CYCLE_START = 0               # set by prefetch(): anything fetched since then is reused for the rest of the cycle
-def prefetch(workers=12):
+def prefetch(workers=int(os.environ.get("PREFETCH_WORKERS", "6"))):
     """Fetch every wired county feed at once (in threads) at the start of a cycle, so the races read them from the cache
     instead of fetching one county after another. A cycle used to take ~4 minutes, mostly waiting on county sites."""
     global CYCLE_START

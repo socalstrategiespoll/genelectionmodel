@@ -352,5 +352,11 @@
  },
  "GA": {
   "election_id": "11032026GeneralAndSpecialElection"
+ },
+ "42077": {
+  "url": "https://www.livevoterturnout.com/ENR/lehighpaenr/13/summary_13.xml"
+ },
+ "04019": {
+  "url": "https://www.livevoterturnout.com/ENR/pimaazenr/7/summary_7.xml"
  }
 }

@@ -40,9 +40,9 @@ def parse_enhanced(data):
     out = []
     for it in (d.get("ballotItems") if isinstance(d, dict) and "ballotItems" in d else d.get("data", []) if isinstance(d, dict) else d):
         name = _txt(it["name"])
-        for o in (it.get("summaryResults") or {}).get("ballotOptions", []):
+        for o in (it.get("summaryResults") or {}).get("ballotOptions") or []:
             party = (o.get("party") or {}).get("abbreviation", "")
-            for g in o.get("groupResults", []):
+            for g in o.get("groupResults") or []:      # null until a county publishes its method breakdown (Volusia)
                 out.append(_row(name, _txt(o["name"]), party, _txt(g["groupName"]), g["voteCount"]))
     return out
 
