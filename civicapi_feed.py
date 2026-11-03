@@ -32,14 +32,18 @@ def parse_counties(payload, race):
     """{fips: (D_votes, R_votes, pct_reporting 0-1)}. Two-party only; others dropped. County-type regions only."""
     out = {}
     rr = payload.get("region_results") or []
-    byname = {re.sub(r"[^a-z]", "", str(c[1]).lower()): c[0] for c in race.get("counties", [])} if race.get("name_match") else {}
+    byname = {re.sub(r"[^a-z]", "", str(c[1]).lower()): c[0] for c in race.get("counties", [])}
     for reg in (rr.values() if isinstance(rr, dict) else rr):
         fips = str(reg.get("fips") or "")
-        if len(fips) != 5 and byname:          # Alaska: rows may carry only a borough / census area name
+        typ = str(reg.get("type") or "").lower()
+        # county-level rows: counties, Virginia's independent cities, Alaska's boroughs / census areas. Town and township
+        # rows (Maine, Vermont) and the statewide row are not county units.
+        county_like = (not typ) or any(t in typ for t in ("count", "city", "borough", "census", "parish", "municipality"))
+        if not county_like: continue
+        if len(fips) != 5:                     # Virginia cities and Alaska boroughs come with a name but no fips
+            if not (typ or race.get("name_match")): continue
             fips = byname.get(re.sub(r"[^a-z]", "", str(reg.get("name") or "").lower()), "")
             if len(fips) != 5: continue
-        elif len(fips) != 5 or (reg.get("type") and "count" not in str(reg["type"]).lower()):
-            continue
         D = R = 0
         for c in reg.get("candidates") or []:
             s = side_of(c, race)

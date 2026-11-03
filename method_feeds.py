@@ -16,16 +16,43 @@ PARENT, CHILD = "26163", "2622000"      # Wayne County and the city of Detroit, 
 SPLIT_TOL = 0.01                        # Detroit may lead civicAPI's Wayne total by this much (refresh jitter)
 DETROIT_TOTALS = None                   # optional callable(race) -> (D, R) for Detroit, used when the Detroit feed is empty
 
+MERGED = {}   # race id -> True while there are no confirmed Detroit numbers (project with merged_race), False once split
+
+def merged_race(race):
+    """Copy of a race with Detroit folded back into Wayne: one Wayne row with the summed baseline votes, vote-weighted
+    bucket margins and bucket shares. Used until Detroit's own numbers confirm the split."""
+    rows = race["counties"]; byf = {c[0]: c for c in rows}
+    if CHILD not in byf or PARENT not in byf: return race
+    nb = len(race.get("buckets") or [])
+    dflt = [race["shares"][b["key"]] for b in race.get("buckets") or []]
+    cs = race.get("county_shares") or {}
+    tot = [0.0] * nb; mw = [0.0] * nb
+    for f in (PARENT, CHILD):
+        c = byf[f]; T = c[2] + c[3]; m0 = (c[3] - c[2]) / max(T, 1) * 100
+        sh = cs.get(f) or dflt; ssum = sum(sh) or 1
+        for k in range(nb):
+            v = T * sh[k] / ssum
+            mk = c[4 + k] if len(c) > 4 + k and c[4 + k] is not None else m0
+            tot[k] += v; mw[k] += v * mk
+    p, d = byf[PARENT], byf[CHILD]
+    row = [PARENT, "Wayne", p[2] + d[2], p[3] + d[3]] + [round(mw[k] / tot[k], 2) if tot[k] else None for k in range(nb)]
+    out = dict(race, counties=[row if c[0] == PARENT else c for c in rows if c[0] != CHILD], units=len(rows) - 1)
+    if cs:
+        s_ = sum(tot) or 1
+        out["county_shares"] = dict({k: v for k, v in cs.items() if k != CHILD}, **{PARENT: [round(t / s_, 4) for t in tot]})
+    return out
+
 def _split_detroit(counted, by, race, st):
     """civicAPI reports Wayne as one county (Detroit included). The engine models Detroit and the rest of Wayne separately,
-    so rest-of-Wayne = civicAPI Wayne - Detroit feed. Without a usable Detroit feed Wayne is held back (treated as not
-    reporting) rather than being credited to the wrong half."""
+    so rest-of-Wayne = civicAPI Wayne - Detroit numbers. Until Detroit's numbers are confirmed (its own feed, or Wayne
+    County's Detroit precincts) Wayne is not split: MERGED[race id] is set and the race is projected with merged_race."""
     out = dict(counted); P = counted.get(PARENT)
     base = {c[0]: c[2] + c[3] for c in race["counties"]}
     det = by.get(CHILD)
     dD = sum(v[0] for v in det.values()) if det else 0
     dR = sum(v[1] for v in det.values()) if det else 0
     if P is None and not (dD + dR):
+        MERGED[race["id"]] = False          # nothing from Wayne yet: keep the split baseline (pre-election numbers unchanged)
         return out
     tot_only = False
     if not (dD + dR) and DETROIT_TOTALS:
@@ -37,9 +64,13 @@ def _split_detroit(counted, by, race, st):
         except Exception as e:
             st["_wayne"] = "Wayne site error: %s" % str(e)[:60]
     if not (dD + dR):
-        out.pop(PARENT, None)
-        if P and P[0] + P[1] > 0: st[CHILD] = "no Detroit feed: Wayne held back"
+        # no confirmed Detroit numbers yet (Detroit's own feed or Wayne County's Detroit precincts): don't split. civicAPI's
+        # Wayne total stays one unit and the server projects this race with Detroit merged back into Wayne (merged_race),
+        # so Wayne is deduced as a whole like any other county without a method feed
+        MERGED[race["id"]] = True
+        if P and P[0] + P[1] > 0: st[CHILD] = "no Detroit numbers yet: Wayne deduced as one county"
         return out
+    MERGED[race["id"]] = False
     pD, pR = (P[0], P[1]) if P else (0, 0)
     pp = (P[2] if P else 0) or 0
     if (dD + dR) > (pD + pR) * (1 + SPLIT_TOL) + 200:
@@ -122,9 +153,22 @@ def _ttl():
     from election day on every cycle may refetch. (Without this every race re-fetched every county every minute, which is most of the Render bandwidth.)"""
     return int(os.environ.get("COUNTY_TTL", "30" if time.time() >= ELECTION_TS else "3600"))
 
+CYCLE_START = 0               # set by prefetch(): anything fetched since then is reused for the rest of the cycle
+def prefetch(workers=12):
+    """Fetch every wired county feed at once (in threads) at the start of a cycle, so the races read them from the cache
+    instead of fetching one county after another. A cycle used to take ~4 minutes, mostly waiting on county sites."""
+    global CYCLE_START
+    from concurrent.futures import ThreadPoolExecutor
+    CYCLE_START = time.time()
+    def one(item):
+        try: _fetch(*item)
+        except Exception: pass
+    with ThreadPoolExecutor(max_workers=workers) as ex:
+        list(ex.map(one, list(COUNTIES.items())))
+
 def _fetch(f, c):
     hit = _CACHE.get(f); now = time.time()
-    if hit and now - hit[0] < _ttl():
+    if hit and (now - hit[0] < _ttl() or (CYCLE_START and hit[0] >= CYCLE_START)):
         if isinstance(hit[1], str): raise RuntimeError(hit[1])    # a fresh exception each time: re-raising one stored object piles up traceback frames, and those frames hold the rows
         return hit[1]
     try: rows = c["fetch"]()

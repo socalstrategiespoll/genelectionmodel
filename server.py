@@ -50,13 +50,29 @@ def load():
     counties.install(data["races"])
     return data["races"], rmap
 
+def _prefetch_civic(races, rmap, workers=4):
+    """All civicAPI payloads fetched at once (threads); each value is the payload or the exception."""
+    from concurrent.futures import ThreadPoolExecutor
+    ids = [rmap[r["id"]] for r in races if rmap.get(r["id"])]
+    def one(cid):
+        try: return civicapi_feed.fetch(cid)
+        except Exception as e: return e
+    with ThreadPoolExecutor(max_workers=workers) as ex:
+        return dict(zip(ids, ex.map(one, ids)))
+
 def cycle(races, rmap, preps, cache):
     out, live = {}, 0
+    try: method_feeds.prefetch()
+    except Exception as e: print("county prefetch failed:", e, flush=True)
+    try: pays = _prefetch_civic(races, rmap)
+    except Exception as e: pays = {}; print("civicAPI prefetch failed:", e, flush=True)
     for r in races:
-        rid = r["id"]; cid = rmap.get(rid); counted = {}; err = None; extra = None; tl = None; tmode = bool(r.get("towns"))
+        rid = r["id"]; cid = rmap.get(rid); counted = {}; err = None; merged = bool(method_feeds.MERGED.get(rid)); extra = None; tl = None; tmode = bool(r.get("towns"))
         if cid:
             try:
-                payload = civicapi_feed.fetch(cid)
+                payload = pays.pop(cid, None)
+                if payload is None: payload = civicapi_feed.fetch(cid)
+                elif isinstance(payload, Exception): raise payload
                 counted = civicapi_feed.parse_counties(payload, r)
                 ccounted = counted
                 try: tl = civicapi_feed.parse_towns(payload, r)       # Maine and Vermont only; never lets a town problem stop the county projection
@@ -82,18 +98,21 @@ def cycle(races, rmap, preps, cache):
                     counted = civicapi_feed.pct_from_votes(counted, r)
                     GUARD_WARN[rid] = w
                     counted = method_feeds.attach(counted, r, engine_keys=pp["keys"])
+                    merged = bool(method_feeds.MERGED.get(rid))
                 live += 1
             except Exception as e:      # keep the last good projection for this race
                 err = str(e)[:120]
                 if rid in STATE["detail"]:
                     out[rid] = dict(STATE["projection"]["races"].get(rid, {}), feed_error=err); continue
         tmode = tmode if cid and err is None else bool(r.get("towns"))
-        key = hashlib.md5(json.dumps([counted, extra, tmode], sort_keys=True).encode()).hexdigest()
+        key = hashlib.md5(json.dumps([counted, extra, tmode, merged], sort_keys=True).encode()).hexdigest()
         if cache.get(rid) != key or rid not in STATE["detail"]:
             if r.get("towns") and not tmode:      # county fallback: project on counties, still show whatever town rows CivicAPI has
                 res = dict(engine.project(CPREPS.setdefault(rid, engine.prep(r)), counted, extra=extra)); res["towns"] = {g: list(v) for g, v in (tl or {}).items()}
             else:
-                res = towns.wrap(engine.project(preps[rid], counted, extra=extra), r, {g: list(v) for g, v in counted.items()} if r.get("towns") else None)
+                # Michigan: until Detroit's numbers are confirmed, Detroit is folded back into Wayne (one deduced county)
+                pr_ = (MPREPS.get(rid) or MPREPS.setdefault(rid, engine.prep(method_feeds.merged_race(towns.engine_race(r))))) if merged else preps[rid]
+                res = towns.wrap(engine.project(pr_, counted, extra=extra), r, {g: list(v) for g, v in counted.items()} if r.get("towns") else None)
             cache[rid] = key
             STATE["detail"][rid] = res
         res = STATE["detail"][rid]
@@ -102,7 +121,10 @@ def cycle(races, rmap, preps, cache):
                     "reporting": res["reporting"], "call_ready": res["call_ready"], "percentiles": res["percentiles"],
                     "no_prob": bool(r.get("no_prob")), "top4": res.get("top4"), "bucket_gap": res.get("bucket_gap", {}), "method_counties": res.get("counties_with_method_data", 0)}
         if err: out[rid]["feed_error"] = err
-        time.sleep(0.2 if cid else 0)
+        with LOCK:      # publish each race as soon as it is computed, rather than only when the whole cycle ends
+            pr = STATE["projection"]; races_now = dict(pr.get("races") or {}); races_now[rid] = out[rid]
+            STATE["projection"] = dict(pr, races=races_now, updated=time.strftime("%Y-%m-%d %H:%M:%S UTC", time.gmtime()),
+                                       mode="live" if any(x.get("state") != "pre" for x in races_now.values()) else "pre")
         trim()
         m = rss_mb()
         if m and m > 300: print("memory", m, "MB after", rid, flush=True)
@@ -114,6 +136,7 @@ def cycle(races, rmap, preps, cache):
     with open(tmp, "w") as f: json.dump(proj, f, separators=(",", ":"))
     os.replace(tmp, OUT)
 
+MPREPS = {}   # Michigan races with Detroit merged into Wayne (used until Detroit's numbers are confirmed)
 CPREPS = {}   # county-level preps for Maine and Vermont races, used only when CivicAPI has no town rows
 
 def prime(races, preps):

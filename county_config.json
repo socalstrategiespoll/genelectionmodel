@@ -1410,9 +1410,7 @@
   "kind": "ess",
   "url": "https://www.livevoterturnout.com/ENR/franklinmoenr/15/summary_15.xml",
   "eid": null,
-  "races": [
-   "MO-02"
-  ],
+  "races": [],
   "group": "Scrapeable: ES&S ENR summary XML",
   "categories": "Absentee Ballots, Election Day, Provisional",
   "in_scope": true
@@ -1434,9 +1432,7 @@
   "kind": "none",
   "url": "https://extcontent.stlouisco.com/BOE/eResults/el241105/",
   "eid": null,
-  "races": [
-   "MO-02"
-  ],
+  "races": [],
   "group": "No method data",
   "categories": "Totals only ('Consolidated Results')",
   "in_scope": true
