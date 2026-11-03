@@ -67,6 +67,10 @@ METHOD_REGIME_STATE = 0.5   # weight every method county gets on a regime county
 METHOD_REGIME_TEMPER = 0.6  # discount: counting order is shared within a state but not identical county to county
 REG_TRUST_FLOOR = 0.45   # share counted below which a no-feed county's own margin counts for almost nothing
 REG_FULL_TRUST = 0.90    # share counted at which it is trusted as reported
+# States whose counties report a vote method in pieces (Michigan: town by town, so a county's first absentee drop can be a
+# handful of townships): a method county's margin within a bucket is trusted only as more of that bucket comes in.
+# (floor, full): below floor share of the bucket counted its margin counts for almost nothing; trusted as reported at full.
+BUCKET_TRUST_STATE = {"MI": (0.25, 0.80)}
 METHOD_REGIME_CAP = 5.0     # max log-odds the method counties can move the regime prior
 MODEL_ERR = 0.3             # pts SD of final-margin error that no county count can remove (late provisionals, corrections, feed glitches); only applied once counting has started
 REF_SD = {"college": 10.8, "white": 12.6, "black": 7.2, "hisp": 5.5, "lnT": 1.2}   # typical within-state vote-weighted SD of each characteristic (from the fit), so a few-county district is not re-standardised against itself
@@ -287,6 +291,9 @@ def project(P, counted, n_sims=N_SIMS, seed=7, extra=None):
     mob = np.where(nk > 0, 100 * (mk_R - mk_D) / np.maximum(nk, 1), 0.0)
     sampb = 1e4 * (1 - (mob / 100) ** 2) / np.maximum(nk, 1)
     pkb = np.minimum(pk, 0.995)
+    bt = BUCKET_TRUST_STATE.get(P.get("state"))
+    if bt:     # partial buckets lean on the deduced (field + bucket gap) estimate until enough of the bucket is in
+        pkb = np.minimum(pkb, np.where(pk >= bt[1], 0.995, np.clip((pk - bt[0]) / (bt[1] - bt[0]), 0.03, 0.97)))
     vb = np.where(nk > 0, np.maximum(sampb + q[:, None] * (1 - pkb) / pkb, OBS_FLOOR), np.inf)
     yb = np.where(nk > 0, mob - P["M"], 0.0)
     ob_mask = nk > 0
